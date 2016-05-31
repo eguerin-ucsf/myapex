@@ -1,0 +1,67 @@
+<?php
+/*
+ *
+ * ucsf_person_autoconnect module 
+ *
+ * attempts to make new user accounts "owner" of any UCSF Person page that exists for them
+ *
+ * Author: Eric Davila - davilae@pharmacy.ucsf.edu - School of Pharmacy
+ *
+ * version date: 20130221
+ */
+
+// this hook fires any time a user is created
+function ucsf_person_autoconnect_user_insert(&$edit, $account, $category) {
+  
+  //use the email from the new account to query for the associated UCSF Person node nid
+  $nid = ucsf_person_autoconnect_query_nid($account->mail);
+
+  //only continue if the query_nid function returned a value
+  if (isset($nid)){
+
+    //now do load the node, set the author to match the new users uid, save the node
+    $node = node_load($nid);
+    $node->uid = $account->uid;
+    node_save($node);
+
+    drupal_set_message("We found a UCSF Person record that matches your email address, you now have permission to edit the information for: " . l($node->title,'node/' . $nid));
+    
+    //TODO: should we add a field to the basic drupal user profile, and also add this link there at this time?
+    
+  }
+}
+
+//use an email to query for an associated UCSF Person node nid
+function ucsf_person_autoconnect_query_nid($email) {
+
+  //using entity field query
+  $query = new EntityFieldQuery();
+
+  // query for node entities, of type (content type) ucsf_person, and for email to match supplied
+  $query->entityCondition('entity_type', 'node')
+    ->propertyCondition('type', array('ucsf_person'))
+    ->fieldCondition('field_person_email', 'email', $email, '=')
+    ->addMetaData('account', user_load(1)); // Run the query as user 1.
+  
+  $result = $query->execute();
+
+  // check for results
+  if (isset($result['node'])) {
+
+    // ideally there is only one result, return the nid    
+    if (count($result['node'])==1){
+      return current($result['node'])->nid;
+    }
+    //do something because there was too many
+    else if (count($result['node'])>1){
+      drupal_set_message("Multiple UCSF Person records found for " . $email . " - Please contact an administrator to claim the correct profile.", "warning");
+    return false;
+    }
+    //do something because there was none or do nothing maybe
+    else {
+    return false;
+    }
+  }
+  
+   
+}

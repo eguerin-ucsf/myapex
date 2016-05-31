@@ -1,0 +1,500 @@
+/******************************************************************************
+ * General styles
+ */
+#header {
+  margin-top: 0;
+  position: relative;
+  margin-bottom: 1.5em;
+  clear: both;
+  h1, #site-name {
+    margin: 0;
+    padding: .75em 0 0 0;
+
+  }
+}
+
+#name-and-slogan {
+  margin-bottom: 1em;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+}
+  
+#site-name {
+  line-height: 1em;
+  padding: 0;
+  font-family: $header-font;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3em;
+  width: 65%;
+}
+
+#site-name a {
+  color: #000;
+}
+ 
+#header #subsite-title {
+  margin: 0 -50px 0 -50px;
+  background: $background-color;
+  text-indent: 50px;
+  padding: 0;
+  font-family: $header-font;
+  font-size: 2em;
+  color: $subsite-title;
+  
+  a {
+    color: $subsite-title;
+  }
+}
+
+
+#header .site-name-image-wrapper {
+  margin: 0;
+}
+
+#header #menu-and-search-mobile {
+  display: none;
+}
+
+#menu-and-search #navigation {
+  display: block;
+}
+
+
+/******************************************************************************
+ * Main menu styles
+ */
+#primary { // basic menu with no drop downs ( not using nice menu )
+
+  width: 100%;
+  padding: 7px 0;
+  margin: 0;
+
+  ul {
+    a {
+      color: #333;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    li {
+      display: inline;
+      list-style-type: none;
+      border-right: 1px solid #CCCCCC;
+      margin-right: 15px;
+      padding-right: 15px;
+
+      &.first {}
+      &:last-child {
+        border-right: none;
+        margin-right: none;
+        padding-right: none;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+// If nice menu is enabled.
+#navigation {
+
+
+  // Base, don't mess with unless you understand it. 
+  ul.nice-menu {
+    &, ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: none;
+    } 
+    li {
+      border: none;
+      border-top: 0;
+      float: left; /* LTR */
+      background: none;
+      border-right: 1px solid #CCCCCC;
+      margin-right: 10px;
+      padding-right: 10px;
+      &.last {
+        border-right: none;
+        margin-right: 0;
+      }
+    }
+
+    a {
+      padding: 0.3em 5px 0.3em 5px;
+    }
+    ul {
+      top: 2em;
+      left: -1px; /* LTR */
+      border: 0;
+      border-top: none;
+      margin-right: 0; /* LTR */
+
+      li {
+        width: 12.5em;
+      }
+    }
+  }
+
+  // Theme of the menu
+  ul.nice-menu-down {
+    float: left; /* LTR */
+    border: 0;
+
+
+
+    a {
+      color: $primary-text;
+
+    }
+    li {
+      border-top: none;
+      ul {
+        li { border-top: 0; }
+      }
+    }
+    
+    ul {
+      left: 0; /* LTR */
+      padding-top: .5em;
+      @include box-shadow(rgba(55, 55, 55, 0.2) 0 5px 5px);
+      background: #FFF;
+      background: rgba(255,255,255, .96);
+
+      li { 
+        clear: both;
+        border: none;
+        border-bottom: 1px solid #EEE;
+        padding: 5px 0;
+        margin: 0;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+    
+    li ul li ul {
+      left: 12.5em; /* LTR */
+      top: -1px;
+    }
+    
+    .menuparent a { padding-right: 15px; /* LTR */ }
+    
+    li.menuparent {
+      background: none;
+      &:after {
+        content: " ";
+        width: 0; 
+        height: 0; 
+         
+        border-right: 4px solid transparent;
+         border-left: 4px solid transparent;
+          border-top: 4px solid $primary-text;
+        position: absolute;
+        top: 1em;
+        right: .7em;
+      }
+      &:hover { background: none; }
+    }
+    li li.menuparent {
+      background: none;
+      &:hover { background: none; }
+    }
+  }
+
+  
+}
+
+/* Search Bar in header */
+#header  {
+    #search {
+        position: absolute;
+        right: 0;
+        top: -30px;
+        padding-top: 30px;
+        display: block;
+        background: $flare-header; 
+        height: 90px;
+        width: 340px;
+    }
+
+    #search #search-form {
+        margin-bottom: 0;
+        position: relative;
+    }
+
+    form.search-form .form-item-keys {
+        margin: 0;  
+    }
+
+    form.search-form .form-text,
+    form.search-form .form-submit {
+        width: 172px;
+        border: none;
+        padding: .25em;
+        // text-transform: uppercase;
+        background-color: #FFF;
+        font-size: .857em; /* 14 -> 12px */
+    }
+
+    form.search-form .form-submit {
+        background: transparent url('../images/search.png') no-repeat center center;
+        color: #fff;
+        text-indent: -9999px;
+        width: 30px;
+        border-left: 1px solid #CCCCCC;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******************************************************************************
+ * General styles - Mobile
+ */
+@media only screen and (max-width: 480px) {
+  #header {
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  #header #menu-and-search-mobile {
+    position: relative;
+    display: block;
+    color: #FFF;
+    border-bottom: none;
+    height: 50px;
+    -webkit-box-shadow: 0 2px 3px #CCC;
+       -moz-box-shadow: 0 2px 3px #CCC;          
+            box-shadow: 0 2px 3px #CCC;    
+  }
+
+  #header #menu-mobile-controller {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    font: bold 18px/50px 'Open Sans', 'Lucida Sans', 'Lucida Grande', verdana sans-serif;
+  }
+  
+    #header #menu-mobile-controller-inner {
+      padding: 0 20px;
+    }
+
+  #header #search-mobile-controller {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 3;
+    padding: 0;
+    text-align: left;
+    text-indent: -9999em;
+    overflow: hidden;
+    width: 50px;
+    max-width: 50px;
+    height: 50px;
+    border-left: none;
+    
+    background: #606B6A url(../images/icon-search-mobile.png) no-repeat center center;
+  }
+  
+    #header #search-mobile-controller.active {
+      background: #606B6A url(../images/icon-mobile-search-expanded.png) no-repeat center center;
+    }
+
+  #menu-and-search {
+    width: 100%;
+  }
+
+  #menu-and-search #search {
+    display: none;
+  }
+  
+    #menu-and-search .mobile-show-search,
+    #menu-and-search .mobile-show-menu {
+      display: block !important;
+    }
+
+  #menu-and-search #navigation {
+    display: none;
+  }
+
+
+  #name-and-slogan {
+    padding: .5em;
+    margin-right: 0px;
+  }
+
+  #site-name {
+    font-size: 1.5em;
+    line-height: 1.4em;
+    margin-top: .5em;
+    margin-bottom: .5em;
+  }
+}
+
+
+
+/******************************************************************************
+ * Main menu styles - Mobile
+ */
+@media only screen and (max-width: 480px) {
+  #primary {
+    position: relative;
+    padding: 0;
+  }
+  
+    #primary li {
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #999;
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+    
+    #primary li.first {
+      margin-left: 0;
+    }
+
+      #primary li a {
+        display: block;
+        padding: 0 20px;
+        font: bold 18px/57px 'Open Sans', 'Lucida Sans', 'Lucida Grande', verdana sans-serif;
+        background: #404040;
+      }
+    
+      #primary li a:hover,
+      #primary li a:active,
+      #primary li a.active {
+        background: #282828;
+      }
+}
+
+
+/******************************************************************************
+ * Secondary menu styles 
+ */
+#secondary {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #000;
+  padding: 3px 10px;
+  margin: 0;
+  min-width: 200px;
+  text-align: center;
+}
+
+#secondary li {
+  display: inline;
+  list-style-type: none;
+  margin-right: 15px;
+}
+
+#secondary li.last {
+  margin-right: 0px;
+}
+
+#secondary a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#secondary a:hover {
+  color: red;
+}
+
+/**
+ * Secondary menu styles - Mobile
+ */
+@media only screen and (max-width: 480px) {
+  #secondary {
+    display: none;
+  }
+}
+
+
+
+  
+/*
+ * A bug in FireFox causes submit buttons to be 2px taller than an input
+ * text field with the same properities. Sadly, there is no good solution to
+ * this issue, but this is a hacky fix that solves the problem
+ * @see http://christophzillgens.com/en/articles/equal-height-input-and-button-elements-in-firefox-and-safari
+ */
+@-moz-document url-prefix() {
+  #search .form-submit {
+    border: 0px;
+  }
+}
+
+/******************************************************************************
+ * Search styles - Mobile
+ */
+@media only screen and (max-width: 480px) {
+  #search {
+    position: inherit;
+    width: 100%;
+    border: 1px solid #000;
+    border-width: 1px 0;
+  }
+  
+    #search form {
+      position: relative;
+    }
+  
+  #search div.form-item {
+    margin-right: 51px;
+    display: block;
+  }
+  
+  #search input.form-text {
+    width: 100%;
+    border: 0;
+    height: 50px;
+    max-height: 50px;
+    padding: 2px 20px 0 20px;
+    box-sizing: border-box; /* @see http://stackoverflow.com/questions/628500/can-i-stop-100-width-text-boxes-from-extending-beyond-their-containers/628912#628912 */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: #EEE;
+  }
+
+  #search .form-submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 0;
+    z-index: 3;
+    padding: 0;
+    text-align: left;
+    text-indent: -9999em;
+    overflow: hidden;
+    width: 51px;
+    max-width: 51px;
+    height: 51px;
+    background: #6d6d6d url(../images/icon-search-mobile.png) no-repeat center center;
+  }
+}

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the UCSF Acquia Key feature.
+ */
+
+include_once 'ucsf_acquia_key.features.inc';

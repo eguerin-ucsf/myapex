@@ -1,0 +1,28 @@
+<?php
+/**
+ * @file
+ * Code for the UCSF Pharmacy Microsite Gallery feature.
+ */
+
+include_once 'ucsf_images_gallery.features.inc';
+
+/**
+ * Implementation of hook_init()
+ * Note: "This hook is not run on cached pages.""
+ */
+function ucsf_images_gallery_init() {
+
+  // Adding the webedit css file (floats) to the theme so it will show up in the WYSIWYG
+  drupal_add_css( drupal_get_path( 'module', 'ucsf_images_gallery') . '/colorbox/colorbox_gallery_style.css',
+    array(
+      'group' => CSS_THEME
+    )
+  );
+
+  drupal_add_js(drupal_get_path('module', 'ucsf_images_gallery') . '/colorbox/colorbox_gallery_style.js', 
+    array(
+      'group' => JS_THEME
+     )
+   );
+
+}

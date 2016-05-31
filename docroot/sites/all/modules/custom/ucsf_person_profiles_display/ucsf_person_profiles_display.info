@@ -1,0 +1,14 @@
+name = UCSF Person Profiles Display
+description = Display setup for the person profiles extension.
+core = 7.x
+package = UCSF Starter Kit
+version = 7.x-1.0-beta1
+project = ucsf_person_profiles_display
+dependencies[] = fe_block
+dependencies[] = ucsf_person_display
+dependencies[] = ucsf_person_profiles_extended
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[fe_block_settings][] = views-ucsf_profiles_view-block_1
+features[features_api][] = api:1
+features[views_view][] = ucsf_profiles_view

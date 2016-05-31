@@ -1,0 +1,374 @@
+<?php
+
+include_once('ucsf_images.features.inc');
+
+/* future?
+function ucsf_images_file_view_alter($build, $type) {
+  dargs();
+}*/
+/**
+ * Implements hook_ucsf_webedit_permissions_alter() 
+ * $webedit_perm_match are strict matches to ucsf_webedit text format permissions
+ * $webedit_perm_on are soft matches, grant permission only to match ucsf_webedit...
+ */
+function ucsf_images_ucsf_webedit_permissions_alter(&$webedit_perm_match,&$webedit_perm_on){
+  $webedit_perm_on[] = 'add media from remote sources';
+  $webedit_perm_on[] = 'create files';
+  $webedit_perm_on[] = 'edit any image files';
+  $webedit_perm_on[] = 'edit any video files';
+}
+
+/**
+ * Implementation of hook_init()
+ */
+function ucsf_images_init() {
+  
+  // Adding the images css file to the theme section so it will show up where needed
+  //if you define image containers for your theme in css in a module, make sure the weight is between -10 and 0 and you load it the same way
+  drupal_add_css( drupal_get_path( 'module', 'ucsf_images') . '/ucsf-images-universal.css',
+    array(
+      'group' => CSS_THEME
+      ,'every_page' => TRUE
+      ,'weight' => -10
+    )
+  );
+}
+
+/**
+ * Implements hook_entity_view_mode_info
+ */
+function ucsf_images_entity_view_mode_info() {
+  //define the standard UCSF_Images view modes
+  $view_modes['file']['media_full']['label'] = 'Full';
+  $view_modes['file']['half']['label'] = 'Half';
+  $view_modes['file']['original_cropped']['label'] = 'Original Cropped';
+  $view_modes['file']['media_original']['label'] = 'Original';
+  $view_modes['file']['quarter']['label'] = 'Quarter';
+  $view_modes['file']['three_quarters']['label'] = 'Three Quarters';
+  $view_modes['file']['sixth']['label'] = 'Sixth';
+  $view_modes['file']['raw_square']['label'] = 'Raw Square';
+  $view_modes['file']['square_half']['label'] = 'Square Half';
+  $view_modes['file']['square_quarter']['label'] = 'Square Quarter';
+  $view_modes['file']['square_sixth']['label'] = 'Square Sixth';
+  $view_modes['file']['square_third']['label'] = 'Square Third';
+  $view_modes['file']['square_thumbnail']['label'] = 'Square Thumbnail';
+  $view_modes['file']['third']['label'] = 'Third';
+  $view_modes['file']['thumbnail']['label'] = 'Thumbnail';
+  //todo: I think this one is junk
+  $view_modes['file']['featured']['label'] = 'Featured';
+
+  return $view_modes;
+}
+
+/**
+ * Helper to provide list of defined view modes (and order)
+ */
+function ucsf_images_list_view_modes(){
+  //todo:alter this list to rely on the same array as ucsf_images_entity_view_mode_info()
+  $view_modes[] = 'media_full';
+  $view_modes[] = 'three_quarters';
+  $view_modes[] = 'half';
+  $view_modes[] = 'third';
+  $view_modes[] = 'quarter';
+  $view_modes[] = 'sixth';
+  $view_modes[] = 'thumbnail';
+  $view_modes[] = 'square_half';
+  $view_modes[] = 'square_third';
+  $view_modes[] = 'square_quarter';
+  $view_modes[] = 'square_sixth';
+  $view_modes[] = 'square_thumbnail';
+  $view_modes[] = 'media_original';
+  $view_modes[] = 'original_cropped';
+  $view_modes[] = 'raw_square';
+  
+  return $view_modes;
+}
+
+
+
+/**
+ * Implementation of hook_file_type_alter()
+ *
+ * Alters list of file types that can be assigned to a file.
+ */
+//todo: figure out if this is best here or in features?
+function ucsf_images_file_type_alter(&$types, $file) {
+  if ($file->filemime == 'video/youtube' || $file->filemime == 'video/vimeo') {
+    $types[] = 'video';
+  }
+}
+
+/**
+ * implementation of hook_preprocess_HOOK for theme_image
+ */
+function ucsf_images_preprocess_image(&$variables) {
+  //dpm(array('ucsf_images_preprocess_image' => $variables));
+  //remove the $base URL from lead so things stay happy across domains and HTTP(s)
+  global $base_url;
+  if (substr($variables['path'], 0, strlen($base_url)) == $base_url) {
+      $variables['path'] = substr($variables['path'], strlen($base_url));
+  } 
+}
+
+/**
+ * implementation of hook_preprocess_HOOK for theme_picture_source
+ */
+function ucsf_images_preprocess_picture_source(&$variables) {
+  //dpm(array('ucsf_images_preprocess_picture_source' => $variables));
+  //remove the $base URL from lead so things stay happy across domains and HTTP(s)
+  global $base_url;
+  if (substr($variables['src'], 0, strlen($base_url)) == $base_url) {
+      $variables['src'] = substr($variables['src'], strlen($base_url));
+  }
+}
+
+/**
+ * implementation of hook_preprocess_HOOK for theme_picture
+ */
+function ucsf_images_preprocess_picture(&$variables) {
+  //dpm(array('ucsf_images_preprocess_picture' => $variables));
+
+  //uset attributes that cause validation errors with picture module
+  //amazingly, alt still gets added in right places
+  //media_token_to_markup seems to pass more stuff in than normal file handling
+  unset($variables['attributes']['height']);
+  unset($variables['attributes']['width']);
+  unset($variables['attributes']['alt']);
+
+}
+
+/*
+ * implementation of hook_preprocess_file_entity 
+ */
+function ucsf_images_preprocess_file_entity(&$variables) {
+  //dpm(array('ucsf_images_preprocess_file_entity' => $variables));
+  if (!empty($variables['view_mode'])){
+    $variables['classes_array'][] = drupal_html_class('file-entity-' . $variables['view_mode']);
+    $variables['classes_array'][] = drupal_html_class('file-entity-element-container');
+    
+    if(isset($variables['view_mode']) && in_array($variables['view_mode'], ucsf_images_list_view_modes() )) {
+      $max_width = ucsf_images_check_container_width($variables);
+      //check to see if the image width is less than the minimum
+      if ($max_width !== false) {
+        //if so, add a style element to the media container restricting the container width
+        $variables['attributes_array']['style'][] = 'max-width: ' . $max_width . 'px;';
+      }
+
+    }
+  }
+}
+/**
+ * Implements hook_media_token_to_markup_alter()
+ */
+function ucsf_images_media_wysiwyg_token_to_markup_alter(&$element, $tag_info, $settings) {
+  //dpm(array('ucsf_images_media_wysiwyg_token_to_markup_alter' => $element));
+
+  //Set a style=max-width on the container if image is undersized
+  //makes wrapping and captions work with undersized images
+
+  //make sure we have a file to work with
+  if (isset($element['content']['file']['#file']->metadata['width'])){
+     //grab the original image width
+     $width = $element['content']['file']['#file']->metadata['width'];
+
+     $max_width = ucsf_images_check_container_width($element,$width);
+     //check to see if the image width is less than the minimum
+     if ($max_width !== false) {
+       //if so, add a style element to the media container restricting the container width
+       $element['content']['#attributes']['style'][] = 'max-width: ' . $max_width . 'px;';
+     }
+  }
+  //if the view mode is in the ucsf_image predfined list
+  if(isset($element['content']['file']['#view_mode']) && in_array($element['content']['file']['#view_mode'], ucsf_images_list_view_modes())) {
+    //if the element is not already a container
+  // force use of the media div container if one of the predefined modes
+  // necessary as long as no file-type fields are required
+    if ( !isset($element['content']['#type']) || $element['content']['#type'] != 'container' ){
+      //copied from 399-404 of media.filter.inc
+      $element['content']['#type'] = 'container';
+      $element['content']['#attributes']['class'] = array(
+        'media',
+        'media-element-container',
+        'media-' . str_replace('_', '-',$element['content']['file']['#view_mode'])
+      );
+
+    }
+  }
+
+  //support fix for the old wrapping field
+  if (empty($settings['fields']['field_image_position']['und']) && !empty($settings['fields']['field_position']['und'])){
+    $settings['fields']['field_image_position']['und'] = $settings['fields']['field_position']['und'];
+    unset($settings['fields']['field_position']['und']);
+  } 
+
+  //do the wrapping class
+  if (isset($settings['fields']['field_image_position']['und'])) {
+    if (isset($element['content']['#type']) && $element['content']['#type'] == 'container') {
+      $element['content']['#attributes']['class'][] = $settings['fields']['field_image_position']['und'];
+    }
+    else {
+        $element['content']['file']['#attributes']['class'][] = $settings['fields']['field_image_position']['und'];
+    }
+  }
+
+  if (isset($element['content']['file']['#theme'])) {
+    if ($element['content']['file']['#theme'] == 'image_style' || $element['content']['file']['#theme'] == 'image_style') {
+        unset($element['content']['file']['#attributes']['height']);
+        unset($element['content']['file']['#attributes']['width']);
+    }
+
+    if (isset($element['content']['#bundle']) && $element['content']['#bundle'] == 'video' && $element['content']['file']['#theme'] == 'image_style') {
+        $videolink = $element['content']['file']['#file']->uri;
+        if (strpos($videolink, 'youtube://v/') === 0){
+          $element['content']['#attributes']['class'][] = 'media-youtube-preview';
+          $videolink = substr_replace($videolink, "http://youtu.be/",0,12);
+        }
+        elseif (strpos($videolink, 'vimeo://v/') === 0){
+          $element['content']['#attributes']['class'][] = 'media-vimeo-preview';
+          $videolink = substr_replace($videolink, "http://vimeo.com/",0,10);
+        }
+
+
+        $element['content']['file']['#prefix']='<a href='.$videolink.' class="media-video-preview">';
+        $element['content']['file']['#suffix']='</a>';
+    }
+
+  }
+}
+
+/**
+ * Implementation of hook_form_alter()
+ */
+function ucsf_images_form_alter(&$form, &$form_state, $form_id) {
+  
+  //hide the image_title_text field, as it is not ideal for accesibility, however deleting it is too destructive... and some other form work
+  switch ($form_id) {
+    case 'media_wysiwyg_format_form':
+      //unset the title text element
+      if (isset($form['options']['fields']['field_file_image_title_text'])) {
+        unset($form['options']['fields']['field_file_image_title_text']);
+      }
+      //reorder the view modes to be logical!
+      if (!empty($form['options']['format']['#options'])) {
+        ucsf_images_reorder_view_modes($form['options']['format']['#options']);
+      }
+      //also make the nature of the Override functionality more clear.
+      if (isset ($form['options'])) {
+        $form['options']['#title'] = 'Local options';
+      }
+      //tracking: I think this is needed due to a bug 
+      if (isset($form['#media']->field_image_position['und']) && isset($form['options']['fields']['field_image_position']['und'])) {
+        $form['options']['fields']['field_image_position']['und']['#default_value'] = $form['#media']->field_image_position['und'];
+      }
+
+      break;
+    //cases for the main media forms
+    case 'file_entity_add_upload':
+    case 'file_entity_edit':
+      //hide title text
+      if (isset($form['field_file_image_title_text'])) {
+        unset($form['field_file_image_title_text']);
+      }
+      //hide the wrapping / position option
+      if (isset($form['field_image_position'])) {
+        unset($form['field_image_position']);
+      }
+      break;
+  }
+
+}
+/**
+ * helper function for checking image widths against presumed size
+ * @param $element
+ * the pre-render file element or variables array
+ */
+function ucsf_images_check_container_width($element){
+    //case for media as a field
+    if (isset($element['uri']) && $info = image_get_info($element['uri'])){
+      $width = $info['width'];
+    }
+    //case for media loaded in page
+    elseif (isset($element['content']['file']['#file']) && $info = image_get_info($element['content']['file']['#file']->uri)){
+      $width = $info['width'];
+    }
+    //doesn't fit or not an image, exit.
+    else {
+      return false;
+    }
+       //set the minimum width in case not otherwise known
+     $min_width = 0; 
+     //if #image_style is set (picture formatter)
+     if (isset($element['content']['file']['#image_style'])) {
+       //grab the size of the fallback style (picture formatter)
+       $style = image_style_load($element['content']['file']['#image_style']);
+     }
+     elseif (isset($element['content']['file']['#style_name'])) {
+       //otherwise try load via #style_name (image formatter)
+       $style = image_style_load($element['content']['file']['#style_name']);
+     }
+
+
+
+     //if we were able to load a style
+     if (isset($style['effects'])){
+       //look at each of the effects of the the fallback style
+       foreach ($style['effects'] as $effect) {
+         //look for the 'image_scale' effect (used to set by width)
+         //todo: add other effect names? Does it break if no effects?
+         if ($effect['name'] = 'image_scale') {
+           //if the scaling width is set
+           if (isset($effect['data']['width']) && $effect['data']['width'] > $min_width) {
+             //set the scaling width as the minimum
+             $min_width = $effect['data']['width'];
+           }
+         }
+         if (isset($effect['data']['reuse_crop_style'])){
+          $crop_style = $effect['data']['reuse_crop_style'];
+         }
+       }      
+     }
+     //if manualcrop data exists for the image at original_cropped style
+     //todo: what happends when we add squares?
+     if (isset($crop_style) && $manualcrop = manualcrop_load_crop_selection($element['content']['file']['#file']->uri,$crop_style)) {
+       //set the width to manualcrops if smaller
+      if ($manualcrop->width < $width){
+        $width = $manualcrop->width;        
+      }
+     }
+
+     if ($width < $min_width) {
+      return $width;
+     }
+     else {
+      return FALSE;
+     }
+
+}
+
+/**
+ * Helper to sort display of view modes in the media browser drop down()
+ */
+function ucsf_images_reorder_view_modes(&$options) {
+  // Relabel some options
+  //$options['default']['label'] = t('Default (full)');
+   
+  //order standard options
+  $order = ucsf_images_list_view_modes();
+
+  //prepare arrays to be swapped
+  $original_options = $options;
+  $options = array();
+  
+  //loop over the order array of standard options
+  foreach ($order as $view_mode) {
+    //if the option exists as listed
+    if (isset($original_options[$view_mode])) {
+      //copy the info in order from original to new array
+      $options[$view_mode] = $original_options[$view_mode];
+      //and remove from the original options array
+      unset($original_options[$view_mode]);
+    }
+  }
+  //append any additional options to the end of the list
+  $options += $original_options;
+}

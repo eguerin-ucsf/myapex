@@ -1,0 +1,9 @@
+name = "Domain Path Search Results"
+description = "Makes sites with domain path use domain path URLs in search results"
+core = 7.x
+package = "domain"
+version = 7.x-1.0
+
+dependencies[] = domain_path
+
+

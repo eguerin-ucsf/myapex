@@ -1,0 +1,6 @@
+/* Welcome to Compass. Use this file to write IE specific override styles. Import this file using the following HTML or equivalent: <!--[if IE]> <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" /> <![endif]--> */
+@font-face { font-family: PrefaceLightItalic; src: url("../webfonts/preface-light-italic/PREFLI__Web.eot"); }
+@font-face { font-family: PrefaceItalic; src: url("../webfonts/preface-italic/PREFI___Web.eot"); }
+@font-face { font-family: PrefaceBoldItalic; src: url("../webfonts/preface-bold-italic/PREFBI__Web.eot"); }
+/* line 22, ../sass/ie.scss */
+.media a.media-video-preview:after { content: ""; }

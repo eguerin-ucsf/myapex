@@ -1,0 +1,335 @@
+/******************************************************************************
+   declarations that define customizations for the main site versus the department sites
+*/
+// this class name is a synonym for prominent.
+// this is the special tinted box.
+// this is what Robin called "tint box with indented body copy"
+//#content,.content{
+.is-sop-secondary
+,.is-pharmd-secondary
+,.is-lab-secondary
+,.is-microsite-home
+,.is-dept-pharmchem
+,.is-pharmchem
+,.is-dept-bts
+,.is-bts
+,.is-dept-clinicalpharmacy
+,.is-clinicalpharmacy
+{
+  .eyecatching {
+    //    border:1px solid #3168A9;
+    //    border-width:2px 0 0;
+    //    margin:1em 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em 1.5em 2em;
+    //    background:#EBEECB;
+  }
+  li>.eyecatching {
+    margin-top: .5em;
+    margin-bottom: .5em !important;
+  }
+}
+
+.eyecatching:first-child {
+  margin-top: 0;
+}
+
+//}
+// this is what Robin called "rarely used style"
+.emphatic {
+  background: none;
+  border: 1px solid #D3D3D3;
+  border-width: 1px 0;
+  color: $ph-main;
+  font-family:"BodoniBT-Italic", serif;
+  margin: 1em 0;
+  padding: 1em 0;
+  font-size: $font-18-on-base-13;
+  line-height: $font-21-on-base-14;
+}
+p.emphatic{
+}
+
+.is-sop-secondary
+, .is-pharmd-secondary {
+  h2
+  , fieldset .fieldset-legend
+  , .pane-views-panes .view-event-page .field-label {
+    color: $ph-main;
+  }
+  .pane-views-panes .view-event-page .field-label {
+    font-size: $font-15-on-base-13;
+    margin: 0 0 .8em;
+    font-weight: normal;
+  }
+  .pane-event-page-panel-pane-1
+  , .pane-views-panes .field {
+    margin-bottom: 1em;
+  }
+  .eyecatching {
+    background: $ph-main-bg-for-eyecatching;
+    border-top: 2px solid $ph-main;
+  }
+  .pane-background-callout {
+    border-top: 2px solid $ph-main-art;
+  }
+  .pane-landingoverview h2{
+    color:#fff;
+  }
+  .pane-landingoverview .field-item {
+    .field-name-field-image-credit
+    ,.field-name-field-image-credit a
+    {
+      color:$ph-main-bg-for-eyecatching;
+    }
+    div.wrapper{
+      background-color: $ph-main-landing;
+      background-image: url("../images/landing-page-art-main.png");
+      background-repeat: no-repeat;
+    }
+  }
+  a.button:hover{
+    background-color: $ph-main;
+  }
+}
+
+.is-dept-pharmchem
+, .is-pharmchem {
+  h2 {
+    color: $ph-pc;
+  }
+  .content
+  , .view-content
+  , .pane-content
+  {
+    ul:not(.pager) {
+      li
+      ,li li li
+      ,li li li li li{
+        background:transparent 0 6px no-repeat url('../images/bullet-ph-pc.gif');
+      }
+      li li
+      ,li li li li
+      ,li li li li li li{
+        background:transparent 0 6px no-repeat url('../images/raquo-ph-pc.gif');
+      }
+    }
+    ul.pager,ul.menu{
+      li
+      ,li li li
+      ,li li li li li{
+        background:none;
+      }
+      li li
+      ,li li li li
+      ,li li li li li li{
+        background:none;
+      }
+    }
+  }
+  .eyecatching {
+    background: $ph-pc-bg-for-eyecatching;
+    border-top: 2px solid $ph-pc;
+  }
+  .pane-background-callout {
+    border-top: 2px solid $ph-pc;
+  }
+  .pane-landingoverview {
+    background-color: $ph-pc-landing;
+  }
+  .pane-landingoverview h2{
+    color:#fff;
+  }
+  .pane-landingoverview .field-item {
+    .field-name-field-image-credit
+    ,.field-name-field-image-credit a
+    {
+      color:$ph-pc-bg-for-eyecatching;
+    }
+  }
+  a.button:hover{
+    background-color: $ph-pc;
+  }
+}
+
+.is-dept-bts
+, .is-bts {
+  h2 {
+    color: $ph-bts;
+  }
+  .content
+  , .view-content
+  , .pane-content
+  {
+    ul{
+      li
+      ,li li li
+      ,li li li li li{
+        background:transparent 0 6px no-repeat url('../images/bullet-ph-bts.gif');
+      }
+      li li
+      ,li li li li
+      ,li li li li li li{
+        background:transparent 0 6px no-repeat url('../images/raquo-ph-bts.gif');
+      }
+    }
+    ul.pager,ul.menu{
+      li
+      ,li li li
+      ,li li li li li{
+        background:none;
+      }
+      li li
+      ,li li li li
+      ,li li li li li li{
+        background:none;
+      }
+    }
+// 2014.0905 frankfarm - to restore the old way of doing bullets, put this back in
+/*
+      li:before {
+        color: $ph-bts;
+      }
+      */
+  }
+  .eyecatching {
+    background: $ph-bts-bg-for-eyecatching;
+    border-top: 2px solid $ph-bts;
+  }
+  .featured {
+    @include shadowright;
+    padding-top: 0;
+    background: $background-color;
+    h2 {
+      font-family: $lab-font-featured-heading;
+      font-size: 1.8em;
+    }
+    p strong {
+      color: $ph-bts;
+      letter-spacing: .3pt;
+    }
+    .media-element-container {
+      position: relative;
+      top: -3px;
+      img {
+        @include shadowright;
+      }
+    }
+    .field-name-field-image-caption {
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+      font-family: $lab-font-featured-heading;
+      color: $ph-main;
+      margin-top: .5em;
+    }
+  }
+  .pane-background-callout {
+    border-top: 2px solid $ph-bts;
+  }
+  .pane-landingoverview {
+    background-color: $ph-bts-landing;
+  }
+  .pane-landingoverview h2{
+    color:#fff;
+  }
+  .pane-landingoverview .field-item {
+    .field-name-field-image-credit
+    ,.field-name-field-image-credit a
+    {
+      color:$ph-bts-bg-for-eyecatching;
+    }
+  }
+  a.button:hover{
+    background-color: $ph-bts;
+  }
+}
+
+.is-dept-clinicalpharmacy
+, .is-clinicalpharmacy {
+  h2 {
+    color: $ph-cp;
+  }
+  .content
+  , .view-content
+  , .pane-content
+  {
+    ul:not(.pager) {
+      li
+      ,li li li
+      ,li li li li li{
+        background:transparent 0 6px no-repeat url('../images/bullet-ph-cp.gif');
+      }
+      li li
+      ,li li li li
+      ,li li li li li li{
+        background:transparent 0 6px no-repeat url('../images/raquo-ph-cp.gif');
+      }
+    }
+    ul.pager,ul.menu{
+      li
+      ,li li li
+      ,li li li li li{
+        background:none;
+      }
+      li li
+      ,li li li li
+      ,li li li li li li{
+        background:none;
+      }
+    }
+// 2014.0905 frankfarm - to restore the old way of doing bullets, put this back in
+/*
+      li:before {
+        color: $ph-cp;
+      }
+      */
+  }
+  .eyecatching {
+    background: $ph-cp-bg-for-eyecatching;
+    border-top: 2px solid $ph-cp;
+  }
+  .pane-background-callout {
+    border-top: 2px solid $ph-cp;
+  }
+  .pane-landingoverview {
+    background-color: $ph-cp-landing;
+  }
+  .pane-landingoverview h2{
+    color:#fff;
+  }
+  .pane-landingoverview .field-item {
+    .field-name-field-image-credit
+    ,.field-name-field-image-credit a
+    {
+      color:$ph-cp-bg-for-eyecatching;
+    }
+  }
+  a.button:hover{
+    background-color: $ph-cp;
+  }
+  /*
+  .pane-landingoverview .field-item {
+    h2, p {
+      margin: 0 2.5em 1em;
+      margin: 0 2.429em 1em;
+      margin: inherit 3.61702128% 1em 3.61702128%;
+    }
+    h2 {
+      margin-top: 2.1em;
+      margin-top: 2.214em;
+      color: #fff;
+    }
+    .field-name-field-image-credit {
+      .field-item {
+        background-color: transparent;
+      }
+    }
+    background-color: $ph-cp-landing;
+    p:nth-last-child(2) {
+      margin-bottom: 1.429em;
+    }
+  }
+  */
+}

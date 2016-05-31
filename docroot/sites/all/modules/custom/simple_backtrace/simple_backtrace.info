@@ -1,0 +1,6 @@
+name = "Simple Backtrace Debugging"
+description = "Generates a full backtrace on errors and warnings.  DO NOT USE IN PRODUCTION"
+core = 7.x
+package = "Development"
+version = 7.x-1.0
+dependencies [] = devel

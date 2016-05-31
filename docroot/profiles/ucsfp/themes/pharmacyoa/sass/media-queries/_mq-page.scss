@@ -1,0 +1,70 @@
+/******************************************************************************
+ * Page Media Queries
+ */
+@media only screen and (max-width: 480px) {
+
+	#page {
+		width: 100%;
+		border: none;
+
+		margin-bottom: 0;
+		padding-bottom: 0;
+
+		#main {
+			#content {
+				padding-bottom: 5em;
+			}
+		}
+
+	}
+
+	#main {
+		padding: 0 10px;
+		background: $mobile-background;
+
+		#content {
+			background: #FFF;
+		}
+	}
+
+	// Counter padding on headers to sit flush.
+	.sutro-header {
+		margin: 0 -10px;
+	}
+
+
+	// every element that needs padding on left/right inside content
+
+	.burr-flipped-content-inner {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	#content {
+		.pane-title, // panel titles
+		.pane-content .view .view-content .views-row // row content
+		{
+			@extend .burr-flipped-content-inner;
+		}
+
+	}
+	.burr-content-inner,
+	.pane-bundle-text .pane-content {
+		padding: 0 10px;
+	}
+
+	// event node view
+	.node-type-openacademy-event {
+		#content-header {
+			padding: 2em 10px;
+		}
+	}
+
+	// pagination
+	.item-list .pager {
+		li {
+			padding: 1.15em 1.5em;
+		}
+	}
+
+} // End 480px

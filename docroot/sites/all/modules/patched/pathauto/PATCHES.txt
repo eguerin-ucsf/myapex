@@ -1,0 +1,22 @@
+Patching ridiculous 3yo pathauto bug along the lines of most accepted (pathauto-state) method.
+
+
+https://drupal.org/comment/7395866#comment-7395866
+
+Prevents panelized, IPE, workbench and other modules from defatting custom paths on certain node_load() node_save() operations…
+
+
+
+Changes in patchfile require schema rollback for DB update to fire (php-eval can't trigger it)…
+
+
+drush -l dev.pharmacy.ucsf.edu sqlq "UPDATE system SET schema_version = '7005' WHERE name = 'pathauto' limit 1"
+drush -l dev.pharmacy.ucsf.edu updb
+(optional cc all?)
+
+
+
+drush @somelistalias sqlq "UPDATE system SET schema_version = '7005' WHERE name = 'pathauto' limit 1"
+drush @somelistalias updb
+(optional cc all?)
+

@@ -1,0 +1,17 @@
+<?php
+
+include_once('ucsf_pharmacy_images.features.inc');
+
+/**
+ * Implementation of hook_init()
+ */
+function ucsf_pharmacy_images_init() {
+  // Adding the panopoly images file to the theme so it will show up where needed
+  drupal_add_css( drupal_get_path( 'module', 'ucsf_pharmacy_images') . '/ucsf-pharmacy-images-responsive.css',
+    array(
+      'group' => CSS_THEME
+      ,'every_page' => TRUE
+      ,'weight' => -2
+    )
+  );
+}

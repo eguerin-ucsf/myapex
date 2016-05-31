@@ -1,0 +1,30 @@
+<?php
+/**
+ * @file
+ * Drupal needs this blank file.
+ */
+/**
+ * Implmentation of hook_filter_info()
+ */
+function svg_inline_filter_info() {
+  $filters = array();
+
+  $filters['svg_inline_href'] = array(
+    'title' => t('SVG Inline href corrector'),
+    'description' => t('Reinstate xlink:href markup in SVG.'),
+    'process callback' => 'svg_inline_href_process',
+  );
+
+  return $filters;
+}
+
+
+/**
+* Implements filter process callback.
+*/
+function svg_inline_href_process($text) {
+  //put xlink attribute back in links
+  $text = preg_replace('/(\<a[^\>]+?)(xlink:href\=|href\=)([^\>])/', '\1xlink:href=\3', $text);
+  return $text;
+
+}

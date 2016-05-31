@@ -1,0 +1,10 @@
+name = SVG Inline
+description = Supports cut-and-paste embedding of SVG markup.  Works best in chunks of content like blocks or panels.
+core = 7.x
+package = Filter
+php = 5.2.4
+version = 7.x-1.0
+project = svg_inline
+dependencies[] = features
+features[features_api][] = api:1
+features[filter][] = svg_inline

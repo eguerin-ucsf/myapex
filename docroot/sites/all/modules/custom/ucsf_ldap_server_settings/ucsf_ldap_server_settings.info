@@ -1,0 +1,12 @@
+name = UCSF Person Sync & Settings
+description = This module turns on the basic UCSF Person content type, UCSF EDS/Profiles Syncronization, and sets basic UCSF LDAP settings
+core = 7.x
+package = UCSF
+version = 7.x-1.2
+project = ucsf_ldap_server_settings
+dependencies[] = ctools
+dependencies[] = ldap_servers
+dependencies[] = ucsf_eds_profiles
+features[ctools][] = ldap_servers:ldap_servers:1
+features[features_api][] = api:1
+features[ldap_servers][] = ucsf

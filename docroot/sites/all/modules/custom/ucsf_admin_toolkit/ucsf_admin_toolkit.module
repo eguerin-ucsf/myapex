@@ -1,0 +1,125 @@
+<?php
+/**
+ * @file
+ * Code for the UCSF Admin Toolkit feature.
+ */
+
+include_once 'ucsf_admin_toolkit.features.inc';
+
+function ucsf_admin_toolkit_flush_caches() {
+  //don't do anything if called from drush (probably unaware of $_ENV)
+  if(!function_exists('drush_main')){
+    
+    //check environment
+    if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+      if ($_ENV['AH_SITE_ENVIRONMENT'] =='dev') {
+        //development specific settings
+        _ucsf_admin_toolkit_stage_prod(0);
+      }
+      else {
+        //stage and prod settings
+        _ucsf_admin_toolkit_stage_prod(1);
+      }
+
+      if ($_ENV['AH_SITE_ENVIRONMENT'] =='prod'){
+        //prod only settings
+        ucsf_admin_toolkit_variable_set('error_level', ERROR_REPORTING_HIDE);
+        //variable_set('error_level', ERROR_REPORTING_DISPLAY_SOME);
+        //todo: move error reporting to function if more things combine with it
+      }
+      else {
+        //dev and stage settings
+        ucsf_admin_toolkit_variable_set('error_level', ERROR_REPORTING_DISPLAY_ALL);
+      }
+
+    } else {
+      if ($_SERVER['SERVER_ADDR'] == '127.0.0.1') {
+        $domainnames = explode('.',$_SERVER['SERVER_NAME']);
+        if ($domainnames[0]=='local'){
+          //local stuff here
+          _ucsf_admin_toolkit_stage_prod(0);
+          ucsf_admin_toolkit_variable_set('error_level', ERROR_REPORTING_DISPLAY_ALL);
+        }      
+      }
+
+      //non-acquia could go here...
+    }
+
+  }
+}
+
+/**
+ * helper function for prod-specific settings
+ */
+function _ucsf_admin_toolkit_stage_prod($bool=1){
+  //set main caching options
+  if(module_exists('domain_conf')){
+    ucsf_admin_toolkit_active_domain_variable_set('cache',$bool);
+  }
+  else {
+    ucsf_admin_toolkit_variable_set('cache', $bool);
+  }
+  ucsf_admin_toolkit_variable_set('preprocess_js', $bool);
+  ucsf_admin_toolkit_variable_set('preprocess_css', $bool);
+  if(module_exists('block')){
+    ucsf_admin_toolkit_variable_set('block_cache', $bool);
+  }
+
+
+  $modules[]='devel';
+  $modules[]='dblog';
+
+  if ($bool) {
+    foreach ($modules as $module) {
+      if (module_exists($module)){
+        module_disable(array($module));
+        _ucsf_admin_toolkit_log('Module %module disabled by UCSF Admin Toolkit.', array('%module' => $variable));
+      }
+    }
+  }
+  else {
+    foreach ($modules as $module) {
+      if (!module_exists($module)){
+        module_enable(array($module));
+        _ucsf_admin_toolkit_log('Module %module enabled by UCSF Admin Toolkit.', array('%module' => $module));
+      }
+    }
+  }
+
+}
+
+/**
+ * helper variable check and set function
+ */
+function ucsf_admin_toolkit_variable_set($variable,$value,$module_name = 'UCSF Admin Toolkit'){
+  if (variable_get($variable) != $value) {
+    variable_set($variable,$value);
+    _ucsf_admin_toolkit_log('Variable %variable overriden by %module_name.', array('%variable' => $variable, '%module_name' => $module_name));
+  }
+}
+
+/**
+ * helper variable check and set function
+ * dependency on domain_conf (checked before calling)
+ */
+function ucsf_admin_toolkit_active_domain_variable_set($variable,$value,$module_name = 'UCSF Admin Toolkit'){
+  
+  $domains = domain_domains();
+  foreach ($domains as $did => $domain) {
+    if ($domain['valid']){
+      if (domain_conf_variable_get($did,$variable) !== $value) {
+        domain_conf_variable_set($did,$variable,$value);
+        _ucsf_admin_toolkit_log('Variable %variable overriden by %module_name for domain %domain', array('%variable' => $variable, '%module_name' => $module_name, '%domain' => $domain['sitename']));
+      }
+
+    }
+  }
+}
+
+/**
+ * helper log function
+ */
+function _ucsf_admin_toolkit_log($message,$vars) {
+  watchdog('ucsf_admin_toolkit',$message,$vars,WATCHDOG_NOTICE);
+  drupal_set_message(t($message,$vars),'status');
+}

@@ -1,0 +1,352 @@
+/******************************************************************************
+* Base widths for desktop & devices
+*/
+$max-desktop-width:1030px;
+$desktop-width:940px;
+$device-width-medium:800px;
+$device-width-landscape:640px;
+$device-width-small:480px;
+
+// Break point mixins
+// Setting this up for later. The css needs a lot of refactoring
+// and to handle this size of a site. This will help a lot with
+// dealing with the responsive/adaptive changes.
+@mixin breakpoint($point) {
+  @if $point == small {
+    @media screen and (max-width:$device-width-small) { @content; }
+  }
+  @if $point == landscape {
+    @media screen and (max-width:$device-width-landscape) { @content; }
+  }
+  @if $point == medium {
+    @media screen and (max-width:$device-width-medium) { @content; }
+  }
+  @if $point == desktop {
+    @media screen and (min-width:$desktop-width) { @content; }
+  }
+  @if $point == maxdesktop {
+    @media only screen and (max-width: $max-desktop-width) { @content; }
+  }
+}
+// Example of use in SCSS: (http://responsivedesign.is/develop/getting-started-with-sass)
+//   @include breakpoint(maxdesktop) {...}
+//
+// Current (07/22/2014) @media queries to create breakpoints for?
+  // @media only screen and (max-width: 1030px)
+  // @media only screen and (max-width: 983px)
+  // @media only screen and (max-width: 960px)
+  // @media only screen and (min-width: 940px)
+  // @media only screen and (max-width: 929px)
+  // @media only screen and (max-width: 800px)
+  // @media only screen and (max-width: 790px)
+  // @media only screen and (max-width: 786px)
+  // @media only screen and (max-width: 635px)
+  // @media only screen and (max-width: 614px)
+  // @media only screen and (min-width: 615px)
+  // @media only screen and (max-width: 600px)
+  // @media only screen and (max-width: 605px)
+  // @media only screen and (max-width: 558px)
+  // @media only screen and (max-width: 538px)
+  // @media only screen and (min-width: 481px)
+  // @media only screen and (max-width: 480px)
+  // @media only screen and (max-width: 418px)
+  // @media only screen and (max-width: 427px)
+
+/******************************************************************************
+* Padding, Margin etc. Common ground for where padding/margin can be called.
+* A place where you can call defined padding so that the site stays consistent
+*/
+
+$padding:30px;
+$margin:30px;
+$right-margin-value:5.31914894%;
+//$right-margin-value:4.1%;
+
+/******************************************************************************
+* Base colors:what everything sits on top of without alteration;
+* if items aren't styled otherwise, these are the colors that
+* are inherited to elements.
+*/
+
+// UCSF
+$ucsf-teal:#44969b;
+$ucsf-gray:#897e73;
+$ucsf-dark-blue:#19518a;
+$ucsf-medium-blue:#3269a4;
+
+// SOP and departments
+$ph-main:#677718; // green
+$ph-main-art:#b0bc22; // green
+$ph-pc:#4f8abe; // blue
+$ph-bts:#c4a006; // gold
+$ph-cp:#5f609b; // purple
+// Microsites
+$ph-main-banner-dark:#45550e; // dark green
+$ph-main-banner-medium:#566512; // medium green
+$ph-main-banner-lighter:#687718; // lighter green
+$ph-main-banner-lightest:#75832c; // lightest green
+$ph-pc-banner-dark:#3266a2; // dark blue
+$ph-pc-banner-medium:#3f77b0; // medium blue
+$ph-pc-banner-lighter:#4881b8; // lighter blue
+$ph-pc-banner-lightest:#5f93c3; // lightest blue
+$ph-bts-banner-dark:#aa7e03; // dark gold
+$ph-bts-banner-medium:#b58e03; // medium gold
+$ph-bts-banner-lighter:#bd9706; // lighter gold
+$ph-bts-banner-lightest:#caa729; // lightest gold
+$ph-cp-banner-dark:#50518a; // dark purple
+$ph-cp-banner-medium:#605f98; // medium purple
+$ph-cp-banner-lighter:#6a69a2; // lighter purple
+$ph-cp-banner-lightest:#7e7eb0; // lightest purple
+
+// landing pages
+$ph-main-landing:#9da72e; // green
+$ph-pc-landing:#6699c8; // blue
+$ph-bts-landing:#c49f06; // gold
+$ph-cp-landing:#7474a8; // purple
+
+// Text colors
+$primary-text:#333; // very dark gray
+$primary-text-bold:#777; // medium gray
+$secondary-text:#999; // color found mostly as block quotes etc.
+$tertiary-text:#000; // black
+
+// Links
+$primary-link-unvisited-fg:#0059b3; // medium blue (540 blue but with brightness = 70)
+$primary-link:$primary-link-unvisited-fg; // legacy from chapter three
+$primary-link-unvisited-bg:#e3f0fc; // light blue (540 blue but with saturation = 10 and brightness = 99)
+$primary-link-visited-fg:#5000b3; // medium purple (667 purple but with brightness = 70)
+$primary-link-visited-bg:#efe3fc; // light purple (667 purple but with saturation = 10 and brightness = 99)
+$primary-link-hover-fg:#b34100; // medium orange (1595 orange but with brightness = 70)
+$primary-link-hover-bg:#fcece3; // light orange (1595 orange but with saturation = 10 and brightness = 99)
+
+// Nav
+$nav-item-selected:#897e73; // medium gray
+$nav-item-separator-color:#dbdbdb; // light gray
+
+$primary-link-hover:#333; // very dark gray
+
+// Special Action link color
+// Often for misc areas like listings, tabs.
+$special-link-hover:#AEBB36; // green
+$special-link-hover-fg:#fff; // white
+$special-link-hover-bg:#AEBB36; // green
+
+// selected - this color is used for items to indicate a current selection
+$selected-text-fg:#fff;    // foreground, white
+$selected-text-bg:#666;    // background, dark gray
+
+// Backgrounds
+$callout-bg:#ebeae6; // dark gray
+//$background-color:#F4F3F0; // extremely light gray
+$background-color:#ebeae6; // extremely light gray
+$background-color-secondary:#f5f3f1; // very light gray
+$background-color-ternary:#EAEAE4; // this is almost as identical to background-color-secondary as to be unuseful
+$mobile-background-color:#000; // black
+$mobile-background:#fff; // white
+$ph-main-bg-light:#dde5b8; // 677621 but with 20% saturation and 90% brightness
+$ph-pc-bg:#8ebde5; // blue, lighter ($ph-pc with -20 saturation, +15 brightness)
+$ph-pc-bg:#a2cdf2; // blue, lighter ($ph-pc with -25 saturation, +20 brightness)
+$ph-bts-bg:#d1a400; // gold, lighter ($ph-bts with +7 brightness)
+$ph-main-bg-for-eyecatching:#e5e9c2; // Robin's choice
+$ph-pc-bg-for-eyecatching:#c9def2; // Robin's choice of e5eef7 but with +10 saturation, and -2 brightness
+$ph-bts-bg-for-eyecatching:#f0e2af; // Robin's choice of f9f0ce but with +10 saturation, and -4 brightness
+$ph-cp-bg-for-eyecatching:#d4cef0; // Robin's choice of eceaf5 but with +10 saturation, and -2 brightness
+$ph-cp-bg:#6a6bad; // purple, lighter ($ph-cp with +7 brightness)
+$lab-site-bg:#ddd; // lighter gray (hsb = 0, 0, 87)
+
+// Header h1, h2, h3, etc.
+$header-color:#333;
+
+// Borders and Horizontal Rule
+$primary-border:#3168A9; // medium blue
+$secondary-border:#d9d9d9; // medium-light gray
+$tertiary-border:#000; // black
+$lab-site-border-thickness:2px;
+$lab-site-caption-border:#ccc; // medium gray (hsb = 0, 0, 80)
+$borders-for-editing-interface:#ccc; // medium gray
+$horizontal-rule:#e4e4e4;
+
+// Footer
+$footer-quote:#5E7613; // olive
+
+// Subsite title
+$subsite-title:#A49787; // dark tan-gray
+
+// Focus box header color
+$focus-box-color:#75881A; // dark green
+
+$table-border-color:#ccc; // medium gray
+
+// see also _tables.scss for constants for table elements
+
+// Base font for entire site
+$base-font:'Verdana', sans-serif;
+$pre-font:'Consolas', 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+
+// Main font type for select headers
+$header-font:'BodoniBT-Book-Italic', serif;
+
+// Secondary font type for select header
+$header-font-alt:'BodoniBT-Italic', serif;
+
+// Specialty font noted in the spotlight
+$specialty-font:'PrefaceBoldItalic', $base-font;
+
+// Lab websites
+$lab-font-page-title:'BodoniBT-Italic', serif;
+$lab-font-lab-title:'PrefaceItalic', $base-font;
+$lab-font-prefix:'PrefaceLightItalic', $base-font;
+$lab-font-person-name:'PrefaceBoldItalic', $base-font;
+$lab-font-subtitle:'PrefaceLightItalic', $base-font;
+$lab-font-featured-heading:'PrefaceItalic', $base-font;
+
+// Navigation fonts
+$primary-nav:'Verdana', sans-serif;
+$primary-nav-sub:'Verdana', sans-serif;
+
+// Other fonts
+$topbar-font:"Helvetica", sans-serif;
+$icons-font:'web_symbolsregular';
+
+// use the following for font sizes and line heights
+// base size = .875em or 14px
+// calculator at http://pxtoem.com
+$font-base-size:0.875em;
+
+$font-09-on-base-13:0.692307692em;
+$font-10-on-base-13:0.769230769em;
+$font-11-on-base-13:0.846153846em;
+$font-12-on-base-13:0.923076923em;
+$font-14-on-base-13:1.07692308em;
+$font-15-on-base-13:1.15384615em;
+$font-18-on-base-13:1.38461538em;
+
+$font-09-on-base-14:0.642857143em;
+$font-10-on-base-14:0.714285714em;
+$font-11-on-base-14:0.785714286em;
+$font-12-on-base-14:0.857142857em;
+$font-13-on-base-14:0.928571429em;
+$font-14-on-base-14:1em;
+$font-16-on-base-14:1.14285714em;
+$font-21-on-base-14:1.5em;
+
+$line-height-11on14-3:1.3em;
+$line-height-12on19-5:1.625em;
+$line-height-13on18:1.385em;
+$line-height-13on21:1.615em;
+
+/******************************************************************************
+* Buttons
+*
+* These colors are for the main submit type buttons and inputs.
+* If more need to be like this, they need to be defined so in the
+* _forms.scss file.
+*/
+
+// General
+$button-radius:1px;
+
+// Default State
+$button-text:#ffffff; // white
+$button-text-shadow:#666666;
+$button-background:#666666;
+$button-foreground:#666666;
+$button-border:#666666;
+$button-border-bottom:#666666;
+$button-shadow-inner:#666666;
+
+// Hover state
+$button-hover-text:$button-text;
+$button-hover-text-shadow:#4c9021;
+$button-hover-background:$ph-main;
+$button-hover-foreground:#7a8a36;
+$button-hover-border:#6c7d22;
+$button-hover-border-bottom:#85992b;
+$button-hover-shadow-inner:#899650;
+
+// Active state
+$button-active-text:$button-text;
+$button-active-text-shadow:#4c9021;
+$button-active-background:#76b347;
+$button-active-foreground:#5e9e2e;
+$button-active-border:#63a62f;
+$button-active-border-bottom:#5b992b;
+$button-active-shadow-inner:#8dbf67;
+
+/******************************************************************************
+* Images:
+* Flare:images that are on intermittently placed on site that match
+* and are color matched to the theme/design.
+*/
+
+// Background styles for body
+@mixin body_background() {
+  background-color:$background-color;
+  background:url("../images/bg-pharmacy-dots.jpg");
+}
+@mixin news_date(){
+  color:$secondary-text;
+  text-transform:uppercase;
+  font-size:.75em;
+  @include breakpoint(small) {
+    left:1em;
+  }
+}
+
+// Header top right image;
+// since the graphics that may be changed here are likely
+// to not be the same each time. The entire background code is here
+// to allow for background position tweaking.
+// Probably should be a mixin instead.
+$flare-header:transparent url('../images/bg-abstract-1.png') no-repeat 2px -86px;
+$flare-footer:transparent url('../images/bg-abstract-footer.png') no-repeat top left;
+$flare-spotlight:transparent url('../images/school_hero_overlay.png') no-repeat top left;
+$flare-spotlight-patch:transparent url('../images/school_hero_patch.png') no-repeat top left;
+$flare-subtle-spotlight:transparent url('../images/spotlight_overlay.png') no-repeat 0 0;
+
+@mixin announcement() {
+  background:#ABCED2 url('../images/bg-announcement.png') no-repeat top right;
+  background-size: cover;
+}
+
+@mixin shadowright() {
+  box-shadow:
+    rgba(128,128,128,.11)  1px 0 0,
+    rgba(128,128,128,.10)  2px 0 0,
+    rgba(128,128,128,.09)  3px 0 0,
+    rgba(128,128,128,.08)  4px 0 0,
+    rgba(128,128,128,.07)  5px 0 0,
+    rgba(128,128,128,.06)  6px 0 0,
+    rgba(128,128,128,.05)  7px 0 0,
+    rgba(128,128,128,.04)  8px 0 0,
+    rgba(128,128,128,.03)  9px 0 0,
+    rgba(128,128,128,.02) 10px 0 0,
+    rgba(128,128,128,.01) 11px 0 0;
+}
+
+@mixin dropshadow() { // this drop shadow is specifically for transparent PNGs
+  -webkit-filter:drop-shadow(12px 12px 25px rgba(0,0,0,0.2));
+  filter: url(../images/ff-drop-shadow.svg#drop-shadow);
+  -ms-filter:"progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+  filter:"progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+}
+
+/******************************************************************************
+ * font smoothing to resolve puffy fonts
+ */
+
+@mixin font-smoothing($value: on) {
+  /*
+  how to use:
+    @include font-smoothing(on);
+    @include font-smoothing(off);
+  */
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}

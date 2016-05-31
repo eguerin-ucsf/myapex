@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function ucsftemplate_tweaks_install() {
+  variable_set('footer_contact_title', 'University of California, San Francisco');
+  variable_set('footer_contact_address1', '500 Parnassus Ave');
+  variable_set('footer_contact_address2', 'San Francisco, CA 94143');
+  variable_set('footer_contact_phone', '(415) 476-9000');
+  variable_set('footer_contact_fax', '(415) 476-9634');
+  variable_set('footer_socialmedias_title', 'Connect with us');
+  variable_set('footer_socialmedias_twitter', 'http://www.twitter.com');
+  variable_set('footer_socialmedias_facebook', 'http://www.facebook.com');
+  variable_set('footer_socialmedias_googleplus', 'http://www.google.com');
+  variable_set('footer_copyright_copy', '&copy; ' . date('Y') . ' The Regents of the University of California');
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function ucsftemplate_tweaks_uninstall() {
+  variable_del('footer_contact_title');
+  variable_del('footer_contact_address1');
+  variable_del('footer_contact_address2');
+  variable_del('footer_contact_phone');
+  variable_del('footer_contact_fax');
+  variable_del('footer_socialmedias_title');
+  variable_del('footer_socialmedias_twitter');
+  variable_del('footer_socialmedias_facebook');
+  variable_del('footer_socialmedias_googleplus');
+  variable_del('footer_copyright_copy');
+}

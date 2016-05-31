@@ -1,0 +1,82 @@
+<?php
+/**
+ * @file
+ * Code for the UCSF Pharmacy Central Taxonomy feature.
+ */
+
+include_once 'ucsf_pharmacy_central_taxonomy.features.inc';
+
+include_once 'ucsf_pharmacy_central_taxonomy.constants.inc';
+
+/**
+ * Implements hook_feeds_presave
+ */
+function ucsf_pharmacy_central_taxonomy_feeds_presave(FeedsSource $source, $entity, $item) {
+  //load the feed source parser config info
+  $sources = $source->importer->parser->config['sources'];
+  // if the feed implements the special dept code field name (see ucsf_pharmacy_central_taxonomy.constants.inc)
+  if ($xpath_def = array_keys($sources,UCSF_PHARMACY_DEPT_CODE_XML)) {
+  	//and if the item is supposedly published
+    if(property_exists($entity, 'status') && $entity->status == 1) {
+    	//grab the site code or education program code (set in $conf)
+  		$site = variable_get('ucsf_pharmacy_site_code',FALSE);
+  		$edusite = variable_get('ucsf_pharmacy_edu_code',FALSE);
+  		//If either is populated
+		if ($site!= FALSE || $edusite!= FALSE) {
+			//grab a single index of the dept code in the xpath info
+			$code_xpath = array_pop($xpath_def);
+			//if the imported info that XML field does not contain either identifier for the site
+			if (strpos($item[$code_xpath],$site) === FALSE && strpos($item[$code_xpath],$edusite) === FALSE) {
+				//set it as unpublished
+				$entity->status = 0;
+			}
+		}
+		//if the item is indeed to be unpublished
+		if ($entity->status == 0){
+			//get the list of properties on the object being written
+			$properties = array_keys(get_object_vars($entity));
+			foreach ($properties as $property) {
+				//give it a junk title
+				$entity->title = 'syndicated-unpublished';
+				//if the property is a standard field prefix
+				if (strpos($property,'field_')===0){
+					//empty it
+					$entity->$property='';
+				}
+			}
+		}
+
+  	}
+  }
+}
+
+/**
+ * Implements hook_date_formats().
+ */
+function ucsf_pharmacy_central_taxonomy_date_formats() {
+  return array(
+    // Creates a new format for a new, custom format type.
+    array(
+      'type' => 'date_format_rss',
+      'format' => 'D, d M Y H:i:s T',
+      'locales' => array(),
+    ),
+  );
+}
+
+/**
+ * Implements hook_date_format_types().
+ */
+function ucsf_pharmacy_central_taxonomy_date_format_types() {
+  return array(
+    'date_format_rss' => t('RSS'),
+  );
+}
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function ucsf_pharmacy_central_taxonomy_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/' . $plugin_type;
+  }
+}

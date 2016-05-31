@@ -1,0 +1,15 @@
+name = UCSF Search
+description = Basic Apache Solr setup for UCSF Acquia environment
+core = 7.x
+version = 7.x-3.0-alpha3
+package = UCSF
+dependencies[] = acquia_search
+dependencies[] = apachesolr
+;dependencies[] = apachesolr_access
+;dependencies[] = apachesolr_panels
+dependencies[] = apachesolr_search
+dependencies[] = apachesolr_multisitesearch
+dependencies[] = ucsf_acquia_key
+dependencies[] = facetapi
+dependencies[] = features
+features[features_api][] = api:1

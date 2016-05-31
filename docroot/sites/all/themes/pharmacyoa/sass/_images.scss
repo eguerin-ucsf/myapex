@@ -1,0 +1,95 @@
+.media-half{
+  margin-right:0px;
+}
+.panopoly-image-quarter{
+  float:left;
+  margin-right:.75em;
+  margin-top:.5em;
+}
+
+// text-shadow defaults, which I couldn't avoid an error for when "properly" placing variables and @import in our scss. — Kevin 06/30/2014
+
+ $default-text-shadow-color: rgba(white, 0.9);
+ $default-text-shadow-blur: 0px;
+ $default-text-shadow-v-offset: 2px;
+ $default-text-shadow-h-offset: 1px;
+
+@import "compass/css3";
+
+a.media-video-preview:hover {
+  text-decoration: none;
+}
+
+// ucsf_images for video preview support overlay styling
+
+.overlay-icon {
+  position: absolute;
+  bottom: 100%;
+  right: 0.5em;
+  font-family: $icons-font;
+  font-size: 2em;
+  @include single-text-shadow;
+  @include opacity(0.5);
+}
+
+// ucsf_images for youtube video preview support overlay
+
+.media-youtube-preview {
+  a.media-video-preview {
+    position: relative;
+    &:after {
+      @extend .overlay-icon;
+      content:"y";
+      // youtube red 
+      color:#cd201f;
+    }
+  }
+}
+
+// ucsf_images for vimeo video preview support overlay
+
+.media-vimeo-preview {
+  a.media-video-preview {
+    position: relative;
+    &:after {
+      @extend .overlay-icon;
+      @extend .overlay-icon;
+      content:"m";
+      // vimeo blue 
+      color:#4EBBFF;
+    }
+  }
+}
+
+a.media-video-preview:hover:after {
+  text-decoration: none;
+  @include transition-property(opacity);
+  @include transition-duration(0.4s);
+  @include opacity(1);
+}
+
+// Image gallery magnifying glass overlay
+
+.view-gallery {
+  a.colorbox-load {
+    position: relative;
+    &:hover {
+      text-decoration: none;
+    }
+    &:after {
+      @extend .overlay-icon;
+      @include opacity(0);
+      content:"L";
+      color:#a49787;
+    }
+    &:hover:after {
+      @extend .overlay-icon;
+      content:"L";
+      color:#a49787;
+      text-decoration: none;
+      @include transition-property(opacity);
+      @include transition-duration(0.4s);
+      @include opacity(1);
+    }
+  }
+}

@@ -1,0 +1,90 @@
+<?php
+include_once 'ucsf_pharmacy_search.features.inc';
+
+/**
+ * Implements template_preprocess_search_result
+ */
+function ucsf_pharmacy_search_preprocess_search_result(&$vars){
+  //remove the author/date/site information from search results display, usually not useful we don't like
+  //hide the info line
+  $vars['info'] = '';
+
+  /* THIS WAS USEFUL FOR MODIGING MORE BUT HIDDEN
+  unset($vars['info_split']['user']);
+  //unset($vars['info_split']['date']);
+  if (isset($vars['result']['fields']['hash']) && $vars['result']['fields']['hash'] == apachesolr_site_hash()) {
+    unset($vars['info_split']['hash']);
+    //$vars['info'] = '';
+  }
+  else {
+    //$vars['info'] = $vars['info_split']['hash'];
+  }
+  //$vars['info']=implode(' - ', $vars['info_split']);
+
+  */
+  //if it's news  
+  if (isset($vars['result']['bundle'])) {
+    if ($vars['result']['bundle'] == 'openacademy_news' || $vars['result']['bundle'] == 'syndicated_news') {
+        //tack the date on the front
+        $date_display = $vars['result']['fields']['created'];
+        //$vars['snippet'] = date('D M j, Y',$date_display) . ' ... ' . $vars['snippet'];
+        $vars['snippet'] = date('M j, Y',$date_display) . ' ... ' . $vars['snippet'];
+    }
+
+  }
+
+}
+
+/**
+ * Implements hook_apachesolr_search_result_alter().
+ */
+function ucsf_pharmacy_search_apachesolr_search_result_alter (&$result) {
+  global $base_url;
+
+//check for the needed items on the object
+  if (property_exists($result, 'url') && property_exists($result, 'site') && property_exists($result, 'hash') ) {
+    $base_path = $base_url . '/';
+
+    //if there is a mismatch in base paths, clean things up
+    if ($result->site != $base_url . '/') {
+    	//if it's hashed as this site, just use the current base
+    	if ($result->hash == apachesolr_site_hash()){
+    		$result->url = str_replace($result->site, $base_path, $result->url);
+    	}
+    	//if not, its multisite & we see if preview assumptions has been restricted (current def allowed, change?)
+    	else if (variable_get('ucsf_search_allow_preview', true )) {
+    		//see if the current site has a preview prefix
+    		$preview = preg_replace('/^(https?\:\/\/)(preview[\.\-])?(.*)$/', '\2', $base_path);
+    		if (!empty($preview)) {
+    		  //if it found a preview moniker, we carefully append it to the multisite resultes.
+            	  $result->url = preg_replace('/^(https?\:\/\/)(preview[\.\-])?/', '\1'.$preview, $result->url);
+            	}
+    	}
+    	//if preview assumptions are not allowed, 
+    	else {
+    		//remove preview prefix if it exists (otherwise doesn't change things)
+            	  $result->url = preg_replace('/^(https?\:\/\/)(preview[\.\-])?/', '\1', $result->url);
+    	}
+    }
+  }
+
+/*
+  //original concept from ucsf_it_solr_search_tweaks
+
+  $base_url_info = @parse_url($base_url);
+  $result_url_info = @parse_url($result->url);
+
+  if (! $base_url_info || ! $result_url_info) {
+    return;
+  }
+
+  // if the domain name in the search result's URL matches the domain name of the
+  // current URL, but we have a protocol mismatch on a secured search result page,
+  // then force HTTPS on the search result links as well.
+  if (0 === strcasecmp($base_url_info['host'], $result_url_info['host'])
+    && 0 === strcasecmp('https', $base_url_info['scheme'])
+    && 0 === strcasecmp('http', $result_url_info['scheme'])) {
+    $result->url = 'https' . substr($result->url, 4);
+  }
+  */
+}

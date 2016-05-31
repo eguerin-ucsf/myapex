@@ -1,0 +1,2 @@
+The following patches have been applied to this module:
+- https://www.drupal.org/files/issues/media-browser-incompatibilities-2164823-8.patch

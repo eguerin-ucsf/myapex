@@ -1,0 +1,17 @@
+name = UCSF Pharmacy Recurring Events
+description = DEPLOY USE - Recurring Events grid (instance) view and admin/Review page (and menu)
+core = 7.x
+package = UCSF Pharmacy
+php = 5.2.4
+version = 7.x-1.0-beta4
+project = ucsf_pharmacy_recurring_events
+dependencies[] = clone
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = menu
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[menu_custom][] = management
+features[menu_links][] = management:admin/content/recurring-event-review
+features[views_view][] = recurring_events_grid

@@ -1,0 +1,2 @@
+The following patches have been applied to this library:
+- http://drupal.org/files/issues/plupload-1_5_8-rm_examples-1903850-16.patch

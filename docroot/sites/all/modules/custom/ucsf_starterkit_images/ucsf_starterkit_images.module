@@ -1,0 +1,21 @@
+<?php
+/**
+ * @file
+ * Code for the UCSF StarterKit Images feature.
+ */
+
+include_once 'ucsf_starterkit_images.features.inc';
+
+/**
+ * Implementation of hook_init()
+ */
+function ucsf_starterkit_images_init() {
+  // Adding the panopoly images file to the theme so it will show up where needed
+  drupal_add_css( drupal_get_path( 'module', 'ucsf_starterkit_images') . '/ucsf-starterkit-images-responsive.css',
+    array(
+      'group' => CSS_THEME
+      ,'every_page' => TRUE
+      ,'weight' => -2
+    )
+  );
+}

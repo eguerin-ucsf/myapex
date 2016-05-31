@@ -1,0 +1,90 @@
+<?php
+
+
+
+
+/**
+* Implements theme_preprocess_field().
+*/
+function ucsf_pharmacy_syndicated_launch_preprocess_field(&$vars) {
+  //people 
+  if ($vars['element']['#bundle'] == 'syndicated_person' && $vars['element']['#field_name'] == 'field_person_trackback_plain') {
+  	  if (isset($vars['items']['0']['#markup'])){
+        $url = ucsf_pharmacy_syndicated_launch_remove_preview($vars['items']['0']['#markup']);
+        $vars['items']['0']['#markup'] = $url;
+  	  }
+  }
+  //NEWS
+  if ($vars['element']['#bundle'] == 'syndicated_news' && $vars['element']['#field_name'] == 'field_trackback_plain') {
+  	  if (isset($vars['items']['0']['#markup'])){
+        $url = ucsf_pharmacy_syndicated_launch_remove_preview($vars['items']['0']['#markup']);
+        $vars['items']['0']['#markup'] = $url;
+  	  }
+  }
+  //EVENTS
+  if ($vars['element']['#bundle'] == 'syndicated_event' && $vars['element']['#field_name'] == 'field_event_trackback_plain') {
+  	  if (isset($vars['items']['0']['#markup'])){
+        $url = ucsf_pharmacy_syndicated_launch_remove_preview($vars['items']['0']['#markup']);
+        $vars['items']['0']['#markup'] = $url;
+  	  }
+  }
+}
+
+/**
+* Implements hook_views_pre_render().
+*/
+function ucsf_pharmacy_syndicated_launch_views_pre_render(&$view) {
+    //PEOPLE
+ 	if (property_exists($view, "result") && property_exists($view, "name") && $view->name == "people") {
+		foreach ($view->result as $key => $row) {
+		  if (property_exists($row, 'field_field_person_trackback_plain') && !empty($row->field_field_person_trackback_plain) && isset($row->field_field_person_trackback_plain['0']['rendered']['#markup'])) {
+			$view->result[$key]->field_field_person_trackback_plain['0']['rendered']['#markup'] = ucsf_pharmacy_syndicated_launch_remove_preview($row->field_field_person_trackback_plain['0']['rendered']['#markup']);
+
+		  }
+		}
+	}
+	//NEWS
+	if (property_exists($view, "result") && property_exists($view, "name") && $view->name == "openacademy_news") {
+		foreach ($view->result as $key => $row) {
+		  if (property_exists($row, 'field_field_trackback_plain') && !empty($row->field_field_trackback_plain) && isset($row->field_field_trackback_plain['0']['rendered']['#markup'])) {
+			$view->result[$key]->field_field_trackback_plain['0']['rendered']['#markup'] = ucsf_pharmacy_syndicated_launch_remove_preview($row->field_field_trackback_plain['0']['rendered']['#markup']);
+
+		  }
+		}
+	}
+	//EVENTS
+	if (property_exists($view, "result") && property_exists($view, "name") && $view->name == "syndicated_events") {
+		foreach ($view->result as $key => $row) {
+		  if (property_exists($row, 'field_field_event_trackback_plain') && !empty($row->field_field_event_trackback_plain) && isset($row->field_field_event_trackback_plain['0']['rendered']['#markup'])) {
+			$view->result[$key]->field_field_event_trackback_plain['0']['rendered']['#markup'] = ucsf_pharmacy_syndicated_launch_remove_preview($row->field_field_event_trackback_plain['0']['rendered']['#markup']);
+
+		  }
+		}
+	}
+}
+/**
+* Implements hook_drupal_goto_alter().
+*/
+function ucsf_pharmacy_syndicated_launch_drupal_goto_alter(&$path, &$options, &$http_response_code) {
+	//mostly for internal_nodes, remove preview- from gotos if applicable
+	$path = ucsf_pharmacy_syndicated_launch_remove_preview($path);
+}
+/**
+ *  helper function for syndicated preview- url fixing (for launch)
+ */
+function ucsf_pharmacy_syndicated_launch_remove_preview($url) {
+
+      global $base_url;
+      $base_path = $base_url . '/';
+      
+      //next line is test value only
+      //$base_path = "https://preview-bts.ucsf.edu/";
+      
+      //see if the current site has a preview prefix
+      $preview = preg_replace('/^(https?\:\/\/)(preview[\.\-])?(.*)$/', '\2', $base_path);
+      if (empty($preview)) {
+          return preg_replace('/^(https?\:\/\/)(preview[\.\-])?/', '\1', $url);
+      } else {
+      	return $url;
+      }
+}

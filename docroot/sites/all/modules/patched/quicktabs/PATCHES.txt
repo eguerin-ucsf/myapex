@@ -1,0 +1,21 @@
+Patched quicktabs in relation to 
+
+https://drupal.org/node/2108935
+
+quicktabs.user-interface.2108935-3.patch
+
+https://app.asana.com/0/8780735124682/9261421528398
+
+
+--------------------
+
+added on line 49 of plugins/QuickQtabsContent.inc
+
+
+//allow for alter to work on qtabs (nested quicktabs)
+drupal_alter('quicktabs', $quicktabs);
+
+
+SEE: https://drupal.org/node/2190693
+
+and: http://drupal.stackexchange.com/questions/69480/hook-quicktabs-alter-is-not-called-when-using-two-quickstabs-on-the-same-page

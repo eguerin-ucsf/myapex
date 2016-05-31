@@ -1,0 +1,58 @@
+<?php
+function ucsf_pharmacy_syndicated_people_page_install(){
+   	$filter_formats = filter_formats();
+   	$filter_format = reset($filter_formats);
+   	$default_filter = $filter_format->format;
+    
+    $pages['quicktabs']['alumni']=array('title'=>'Alumni','path'=>'people/alumni','homepage'=>TRUE);
+	$pages['quicktabs']['jointfac']=array('title'=>'Joint Faculty','path'=>'people/faculty/joint');
+    $pages['quicktabs']['affilfac']=array('title'=>'Affiliated Faculty','path'=>'people/faculty/affiliated');
+
+  	foreach ($pages['quicktabs'] as $machine_name => $page) {
+
+  		//would it be possible to map custom content types?
+        $node = entity_create('node', array('type' => 'panopoly_page'));
+        //$entity = entity_metadata_wrapper('node',  $node);
+        // Specify the author
+        global $user;
+        //basic required node stuff
+        $node->uid = $user->uid;
+        $node->title = $page['title'];
+		//set body   		
+        $body = "<p>This tab <strong>does not display</strong> by default.  Visit the node at <a href='" . $page['path'] . "'>" . $page['path'] . "</a>.  Edit, and set it to published to display.  Leave it unpublished for it to remain hidden.</p>";
+        
+   		$node->body['und'][0]['value'] = $body;
+
+   		//set format
+       	$format = $default_filter;
+ 		$node->body['und'][0]['format'] = $format;
+
+ 		//set to unpubhised
+ 		$node->status = 0;
+
+        //Initial Save - some stuff only after save;
+        entity_save('node',$node);
+
+       	$system_path = drupal_get_normal_path('node/' . $node->nid);
+
+       	$path = array(
+       		'source' => $system_path,
+       		'alias' => $page['path'],
+       		);
+       	path_save($path);
+
+       	variable_set('ucsf_pharmacy_syndicated_people_page_quicktabs_' . $machine_name, $node->nid);
+  	}
+}
+
+function ucsf_pharmacy_syndicated_people_page_uninstall(){
+          $delete[] = variable_get('ucsf_pharmacy_syndicated_people_page_quicktabs_alumni','');
+          $delete[] = variable_get('ucsf_pharmacy_syndicated_people_page_quicktabs_jointfac','');
+          $delete[] = variable_get('ucsf_pharmacy_syndicated_people_page_quicktabs_affilfac','');
+          node_delete_multiple($delete);
+
+          variable_del('ucsf_pharmacy_syndicated_people_page_quicktabs_alumni');
+          variable_del('ucsf_pharmacy_syndicated_people_page_quicktabs_jointfac');
+          variable_del('ucsf_pharmacy_syndicated_people_page_quicktabs_affilfac');
+
+}

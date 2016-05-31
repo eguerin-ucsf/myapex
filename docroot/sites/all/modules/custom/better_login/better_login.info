@@ -1,0 +1,5 @@
+name = "Better login and logout handling"
+description = "Adds the 'destination' redirect query string anywhere user/login or user/logout are found"
+core = 7.x
+package = "User Interface"
+version = 7.x-1.0

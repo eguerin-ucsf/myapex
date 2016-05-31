@@ -1,0 +1,111 @@
+name = Madison Clinic
+description = Install the Madison Clinic Website
+version = VERSION
+core = 7.x
+
+; Drupal - Core
+
+dependencies[] = block
+dependencies[] = color
+dependencies[] = contextual
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = dblog
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = toolbar
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = statistics
+
+; Contrib
+
+dependencies[] = ctools
+dependencies[] = panels
+dependencies[] = page_manager
+dependencies[] = views
+dependencies[] = views_content
+dependencies[] = views_ui
+dependencies[] = token
+dependencies[] = entity_token
+dependencies[] = features
+dependencies[] = strongarm
+dependencies[] = entity
+dependencies[] = link
+dependencies[] = libraries
+dependencies[] = menu_attributes
+dependencies[] = date
+dependencies[] = date_api
+dependencies[] = date_popup
+dependencies[] = date_views
+dependencies[] = field_group
+dependencies[] = file_entity
+dependencies[] = media
+dependencies[] = media_internet
+dependencies[] = media_youtube
+dependencies[] = pathauto
+dependencies[] = menu_block
+dependencies[] = wysiwyg
+dependencies[] = entityreference
+dependencies[] = webform
+dependencies[] = flexslider
+dependencies[] = flexslider_fields
+dependencies[] = flexslider_views
+dependencies[] = flexslider_views_slideshow
+dependencies[] = field_collection
+dependencies[] = rules
+dependencies[] = rules_admin
+dependencies[] = themekey
+dependencies[] = themekey_ui
+dependencies[] = fences
+dependencies[] = fieldable_panels_panes
+dependencies[] = references_dialog
+dependencies[] = jquery_update
+dependencies[] = email
+dependencies[] = addressfield
+dependencies[] = views_date_format_sql
+dependencies[] = context
+dependencies[] = flag
+dependencies[] = boxes
+dependencies[] = entityform
+dependencies[] = nodequeue
+dependencies[] = smartqueue
+dependencies[] = fe_nodequeue
+dependencies[] = context_ui
+dependencies[] = panels_mini
+dependencies[] = shortcode
+dependencies[] = shortcode_wysiwyg
+dependencies[] = special_menu_items
+dependencies[] = chosen
+dependencies[] = acquia_agent
+dependencies[] = acquia_search
+dependencies[] = apachesolr
+dependencies[] = apachesolr_access
+dependencies[] = apachesolr_search
+dependencies[] = facetapi
+dependencies[] = oauth_common
+dependencies[] = twitter
+dependencies[] = smart_trim
+
+;UCSF Modules
+dependencies[] = ucsf_person_content_type
+dependencies[] = ucsf_search
+
+; Features
+dependencies[] = madison_clinic_general_feature
+dependencies[] = madison_clinic_events_feature
+dependencies[] = madison_clinic_news_feature
+dependencies[] = madison_clinic_appointments_feature
+dependencies[] = madison_clinic_contact_feature
+
+; Custom
+
+dependencies[] = bstro_general
+dependencies[] = bstro_shortcode
+dependencies[] = madison_clinic_events
+dependencies[] = madison_clinic_news

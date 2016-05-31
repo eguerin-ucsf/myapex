@@ -1,0 +1,37 @@
+<?php
+
+//todo: make an interface on the settings so this doesn't destroy for every feeds importer!
+
+/**
+ * Implementation of hook_feeds_presave()
+ *
+ * Invoked before a feed item is saved.
+ *
+ */
+function feeds_destroyer_feeds_presave(FeedsSource $source, $entity, $item, $entity_id) {
+  //only run this if the processor is set to REPLACE
+  if ($source->importer->processor->config['update_existing'] == FEEDS_REPLACE_EXISTING) {
+
+    //if a bundle is set, set the bundle, else null
+    if (property_exists($entity, "type")){
+      $bundle = $entity->type;
+    } 
+    else {
+      $bundle = NULL;
+    }
+
+    //get a list of fields for the entity
+    //todo: this is probably not going to work for field groups...?
+    $fields = field_info_instances($entity->feeds_item->entity_type,$bundle);
+    //iterate over the fields
+    foreach ($fields as $field => $field_info) {
+      //if the field is not in the entity being built by feeds
+      if(!property_exists($entity, $field)) {
+        //set it to an empty array, so as to overwrite deleted values
+        $entity->$field = array(); 
+      }
+    }
+
+  }
+}
+

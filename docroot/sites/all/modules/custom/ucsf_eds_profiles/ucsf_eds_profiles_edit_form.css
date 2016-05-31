@@ -1,0 +1,9 @@
+/* hide weight altering options from certain prepopulated fields */
+.field-name-field-import-messages .field-multiple-drag
+, .field-name-field-import-messages .delta-order
+, .field-name-field-person-publications-list .field-multiple-drag
+, .field-name-field-person-publications-list .delta-order
+, .field-name-field-profiles-honors-awards .field-multiple-drag
+, .field-name-field-profiles-honors-awards .delta-order {
+  display:none;
+}

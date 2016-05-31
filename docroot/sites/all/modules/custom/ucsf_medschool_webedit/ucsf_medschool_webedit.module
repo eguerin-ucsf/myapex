@@ -1,0 +1,11 @@
+<?php
+
+function ucsf_medschool_webedit_ucsf_webedit_stylesset_alter(&$stylesset) {
+
+	$stylesset[]= array('name' => 'Blue Border Callout','element' => 'div','attributes' => array('class' => 'callout-blue-border'));
+	$stylesset[]= array('name' => 'Gray Border Callout','element' => 'div','attributes' => array('class' => 'callout-gray-border'));
+	$stylesset[]= array('name' => 'Blue Background Callout','element' => 'div','attributes' => array('class' => 'callout-blue-bg'));
+	$stylesset[]= array('name' => 'Gray Background Callout','element' => 'div','attributes' => array('class' => 'callout-gray-bg'));
+	$stylesset[]= array('name' => 'Photo Caption','element' => 'p','attributes' => array('class' => 'photo-caption'));
+
+}

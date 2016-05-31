@@ -1,0 +1,76 @@
+<?php
+/**
+ * @file
+ * Code for the UCSF MyAccess settings feature.
+ */
+
+include_once 'ucsf_myaccess_settings.features.inc';
+
+function ucsf_myaccess_settings_boot() {
+
+}
+
+function ucsf_myaccess_settings_init() {
+
+
+  //don't do anything if being called from drush (unaware of $_SERVER) 
+  if(!function_exists('drush_main')){
+    //check if it is the production environment, and turn simplesaml on or off accordingly
+    if (isset($_SERVER["AH_SITE_ENVIRONMENT"]) && $_SERVER["AH_SITE_ENVIRONMENT"] == 'prod') {
+      if (!module_exists("simplesamlphp_auth")){
+        module_enable(array('simplesamlphp_auth'));
+      }
+    }
+    else if (module_exists('simplesamlphp_auth')==1) {
+      module_disable(array('simplesamlphp_auth'), FALSE);
+    }
+  }
+  //set session length to 8 hours to match saml SP
+  if (module_exists('simplesamlphp_auth')==1) {
+      /**
+       * Set session lifetime (in seconds), i.e. the time from the user's last visit
+       * to the active session may be deleted by the session garbage collector. When
+       * a session is deleted, authenticated users are logged out, and the contents
+       * of the user's $_SESSION variable is discarded.
+       */
+      ini_set('session.gc_maxlifetime', 28800);
+
+      /**
+       * Set session cookie lifetime (in seconds), i.e. the time from the session is
+       * created to the cookie expires, i.e. when the browser is expected to discard
+       * the cookie. The value 0 means "until the browser is closed".
+       */
+      ini_set('session.cookie_lifetime', 28800);
+  }
+}
+
+function ucsf_myaccess_settings_url_outbound_alter(&$path, &$options, $original_path){
+  //set the login path sitewide when simplesaml is on
+  if (module_exists("simplesamlphp_auth")) {
+    if ($path=="user/login"){
+      $path = "saml_login";    
+    }
+    //support for domain_by_path module
+    else if(module_exists('domain_by_path')){
+      global $_domain;
+      if(!empty($_domain['domain_by_path']) && $path == $_domain['domain_by_path'] . "/user/login"){
+        $path = "saml_login";
+      }
+    }
+  }
+}
+
+function ucsf_myaccess_settings_enable(){
+  //set here so there is no "override" when someones sets their own
+  $authusers = variable_get('simplesamlphp_auth_allowdefaultloginusers');
+  if (empty($authusers)){
+    variable_set('simplesamlphp_auth_allowdefaultloginusers','1,2');
+  }
+}
+
+function ucsf_myaccess_settings_disable(){
+  //shut off simplesaml when someone turns off the feature
+  if (module_exists('simplesamlphp_auth')==1) {
+    module_disable(array('simplesamlphp_auth'), FALSE);
+  }
+}

@@ -1,0 +1,6 @@
+
+Fix for dialog when hitting enter on ckedior -- Manually implemented change seen in:
+
+ckeditor_link-autocomplete_on_return_validate-2178379.patch	
+
+https://drupal.org/node/2178379

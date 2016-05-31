@@ -1,0 +1,17 @@
+// Targets the tags
+.field-type-taxonomy-term-reference {
+	&:after {@extend .clearfix-after;}
+
+	.field-item {
+		display: inline;
+	}
+}
+.messages.error .placeholder{
+	word-wrap:break-word;
+}
+#admin-menu ul li:before
+,#footer ul li:before
+,#topbar-wrapper ul li:before
+{
+  content:"";
+}

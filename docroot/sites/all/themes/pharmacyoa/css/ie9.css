@@ -1,0 +1,28 @@
+/* line 8, ../sass/ie9.scss */
+.view-display-id-panel_pane_1 .flexslider, .view-display-id-subtle_spotlight .flexslider, .view-curriculum-spotlight .flexslider { z-index: 0; }
+/* line 10, ../sass/ie9.scss */
+.view-display-id-panel_pane_1 .flexslider .flex-caption, .view-display-id-subtle_spotlight .flexslider .flex-caption, .view-curriculum-spotlight .flexslider .flex-caption { -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)" !important; }
+/* line 15, ../sass/ie9.scss */
+.view-display-id-panel_pane_1 .flexslider .flex-image-wrap img, .view-display-id-subtle_spotlight .flexslider .flex-image-wrap img, .view-curriculum-spotlight .flexslider .flex-image-wrap img { z-index: -9; }
+
+/* line 21, ../sass/ie9.scss */
+.view-curriculum-spotlight .flex-caption { display: none; }
+
+/* line 25, ../sass/ie9.scss */
+.view-openacademy-news .field-name-field-image-caption , .view-openacademy-news .views_field_featured_image_caption , .page-taxonomy .field-name-field-image-credit , .page-taxonomy .field-name-field-image-caption , .view-openacademy-news .views_field_featured_image_credit , .view-openacademy-news .field-name-field-image-credit , .view-people .views_field_person_image_credit , .view-people .views_field_image_credit , .view-syndicated-events .views_field_event_image_credit , .view-openacademy-events .field-name-field-image-caption , .view-openacademy-events .field-name-field-image-credit , .view-archive-of-news .field-name-field-image-caption , .view-archive-of-news .field-name-field-image-credit { display: none; }
+
+/* line 41, ../sass/ie9.scss */
+.view-display-id-featured_news .views_field_featured_image_credit , .view-display-id-featured_news .field-name-field-image-credit { display: block; }
+
+/* line 47, ../sass/ie9.scss */
+.view-display-id-featured_news .field-name-field-image-credit { position: relative; }
+/* line 52, ../sass/ie9.scss */
+.view-display-id-featured_news .views_field_featured_image_credit { position: absolute; }
+/* line 57, ../sass/ie9.scss */
+.view-display-id-featured_news .views_field_featured_image_credit , .view-display-id-featured_news .field-name-field-image-credit { display: block; bottom: 0; margin-top: 0; margin-bottom: 0; }
+
+/* line 66, ../sass/ie9.scss */
+.content ul li, .view-content ul li, .pane-content ul li { padding-left: 1.5em; }
+
+/* line 68, ../sass/ie9.scss */
+ul.quicktabs-tabs li { padding-left: 0; }

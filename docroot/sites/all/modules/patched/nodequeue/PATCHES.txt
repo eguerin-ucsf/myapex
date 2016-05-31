@@ -1,0 +1,2 @@
+The following patches have been applied to this module:
+- https://www.drupal.org/files/nodequeue-7.x-2.0-beat1-apachesolr-1425326-6028750.patch

@@ -1,0 +1,11 @@
+core = "7.x"
+description = "Generate many images at once from the image web service lorempixel.com"
+name = "Lorempixel"
+dependencies[] = file_entity
+
+; Information added by drupal.org packaging script on 2012-07-06
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "lorempixel"
+datestamp = "1341534484"
+

@@ -1,0 +1,17 @@
+name = UCSF Starter Kit Gallery
+description = Beta version. For use ONLY with Starter Kit images and UCSF images features
+core = 7.x
+package = UCSF Starter Kit
+php = 5.2.4
+version = 7.x-1.0-beta2
+project = ucsf_starterkit_gallery
+dependencies[] = fe_block
+dependencies[] = features
+dependencies[] = ucsf_images_gallery
+dependencies[] = ucsf_starterkit_images
+dependencies[] = views
+dependencies[] = font_websymbols
+features[ctools][] = views:views_default:3.0
+features[fe_block_settings][] = views-gallery-block
+features[features_api][] = api:1
+features[views_view][] = gallery

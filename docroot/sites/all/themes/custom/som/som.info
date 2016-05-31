@@ -1,0 +1,23 @@
+name = SOM Subsites
+description = UCSF School of Medicine - All SOM sites except the main medschool.ucsf.edu site.
+package = Core
+version = VERSION
+core = 7.x
+
+stylesheets[all][] = css/som.css
+stylesheets[all][] = css/system.theme.css
+
+;image slider on SFGH
+scripts[] = js/slider.js
+
+regions[header] = Header
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[highlighted] = Highlighted
+regions[content] = Content
+regions[right_col] = Right Column
+regions[left_col] = Left Column
+regions[footer] = Footer
+
+

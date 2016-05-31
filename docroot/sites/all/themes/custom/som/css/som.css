@@ -1,0 +1,720 @@
+/*
+Title: SOM
+*/
+/* global resets HTML 5
+**************************************/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, menu, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}									
+
+article, aside, figure, footer, header, hgroup, nav, section {display: block;}
+	
+ol, ul { list-style : none;}
+	
+/* tables still need cellspacing="0" in the markup */
+table {border-collapse: collapse; border-spacing: 0;}
+th {font-weight: bold; vertical-align: bottom;}
+td {font-weight: normal; vertical-align: top;}
+
+input, select {vertical-align: middle;}
+
+input[type="radio"] {vertical-align: text-bottom;}
+
+.ie6 input {vertical-align: text-bottom;}
+
+select, input, textarea {font: 99% sans-serif;}
+
+/* hand cursor on clickable elements */
+.clickable, label, input[type=button], input[type=submit], button {cursor: pointer;}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {margin: 0;}
+
+/* make buttons play nice in IE */
+button {width: auto; overflow: visible;}
+
+/* general styles
+**************************************/
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+
+html {overflow-y: scroll;}
+
+body {	
+	font:normal 100%/1.6 Verdana, Arial, Helvetica, sans-serif;
+	color:#333;
+	background:#d8e1ea;
+	}
+
+#wrapper {
+	width:960px;
+	margin:0 auto;	
+	min-width:960px;
+	}	
+	
+img {
+	vertical-align: top;
+	} 
+	
+p {
+	margin-bottom:.625em; /* 10px / 16px */
+	line-height:1.8;
+	}
+
+a, a:link, a:visited, a:hover, a:active {
+    color: #007BAB;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight:normal;
+	}
+	
+h2.title {
+	color:#003365;
+	font-size:24px;
+	font-family:Georgia,"Times New Roman",Times,serif;
+	margin:20px 0;
+	}
+	
+h4 {
+	color: #666666;
+	font-family: Georgia,"Times New Roman",Times,serif;
+	margin-bottom:15px;
+	font-size:16px;
+	}
+	
+h3 {
+	font-size: 18px;
+	color: #333333;
+}
+
+h3, h4, h5, h6 {
+	border-bottom: 1px solid #ddd;
+	font-weight: normal;
+	font-family: Georgia,"Times New Roman",Times,serif;
+}
+	
+table {
+	margin:1.25em 0;
+	width:100%;
+	}
+	
+th {
+	background:#eee;
+	text-align:left;
+	}
+	
+th, td {
+	border:1px solid #ccc;	
+	padding:5px;
+	}
+	
+blockquote {
+	margin:0 60px;
+	}
+
+.clearfloat {
+	clear:both;
+	}	
+	
+a.skiplinks {
+	position:absolute;
+	text-indent:-999em;
+	color:#fff;
+	text-decoration:none;
+	}
+	
+a.skiplinks:focus {
+	text-indent:0;
+	z-index:10;
+	background:#333;	
+	padding:5px 10px;
+	font-size:11px;
+	}
+	
+p,thead th, td, li, address, label {
+	font-size:.875em;
+	}
+	
+.sidebar-first p, .sidebar-second p {
+	font-size:.8125em;
+	}
+	
+ul, ol {
+	padding-left:40px;
+	margin:20px 0;
+	}
+
+ul li {
+	list-style:disc;
+	margin-bottom:5px;
+	}
+	
+ol li {
+	list-style:decimal;
+	margin-bottom:5px;
+	}
+
+.view-spotlights ul {
+    padding-left: 0;
+}
+	
+.view-spotlights ul li {
+	list-style:none;
+	margin-bottom:10px;
+	}
+	
+.pager li {
+	display:inline;
+	margin-right:10px;
+	}
+	
+.webform-component .form-item label  {
+	font-weight:normal;
+	display:inline;
+}
+
+.webform-component-fieldset {
+	border:1px solid #999;
+	padding:10px;
+	margin-bottom:15px;
+}
+
+
+.webform-component .form-item label  {
+	font-weight:normal;
+	display:inline;
+}
+
+.webform-component .form-text {
+	width:350px;
+	border:1px solid #ccc;
+}
+
+/* home page styles
+**************************************/
+
+#spotlight, #did-you {
+	margin-bottom:2.5em;
+	}
+	
+#spotlight blockquote {
+	background:/*#ebf1cf*/ #bcd3f0 url(../images/quotation_transparent.png) 5px 5px no-repeat;
+	padding:10px 10px 10px 30px;	
+	margin:0;
+	}
+	
+	
+/* end home page styles
+**************************************/
+
+
+
+
+/* secondary page elements
+**************************************/
+.callout  {
+	border:6px solid #d8e1eb;
+	margin-bottom:20px;
+	padding:5px;
+	}
+	
+.callout.fancy {
+	background: url("../flair.gif") no-repeat scroll 0 5px transparent;
+	border:none;
+}
+
+.callout.fancy h4, .callout.fancy p {
+	background: none repeat scroll 0 0 #326BB0;
+	color: #fff;
+	margin: 0;
+	padding: 0.5em 1em;
+	border-bottom:none;
+}
+.callout h4 {
+	margin-bottom:0;
+	}
+	
+.callout.fancy div {
+	border: 1px solid #ccc;
+	padding: 0.25em;
+}
+
+.callout.fancy a:link, .callout.fancy a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.rtecenter {
+    text-align: center;
+}
+
+.rteleft {
+    text-align: left;
+}
+
+.callout h4 {
+    border: none;
+}
+
+.callout-solid {
+	background: none repeat scroll 0 0 #EFEFEF;
+	padding:10px;
+	margin-bottom: 1em;
+}
+.rteindent1 {
+    margin-left: 40px;
+}
+
+address, caption, cite, code, dfn, th, var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+input.find {
+	margin-right:5px;
+	width:140px;
+	}
+	
+.mag {
+    background: none repeat scroll 0 0 #E47B00;
+    font-family: Georgia,"Times New Roman",serif;
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+}
+
+.mag a:link, .mag a:visited {
+    border: 1px solid #FFA73F;
+    color: #FFFFFF;
+    display: block;
+    text-decoration: none;
+}
+
+/* ucsf navigation
+**************************************/
+
+#ucsf-nav-wrapper {		
+	background:#888;
+	}
+
+ul.secondary-links { 
+	margin:0; 
+	padding:0;
+	width:960px;
+	margin:0 auto;
+	}
+
+ul.secondary-links li{
+	margin:0;
+	padding:0 0.9375em;
+	display:inline;
+	border-right:1px solid #fff;
+	font-size:.6875em;
+	}
+	
+ul.secondary-links li.last{
+	border-right:none;
+	}
+
+ul.secondary-links li a {
+	color:#eee;
+	}
+	
+/* banner
+**************************************/
+
+#banner-wrapper {
+	background:#326bb0;
+	height:110px;
+	}
+	
+#banner {
+	margin:0 auto;
+	width:960px;
+	position:relative;
+	}
+
+#banner h1 a {
+	float:left;
+	color:#fff;
+	font-size:1.625em;
+	font-weight:bold;
+	margin:30px 0 0 10px;
+	position:relative;
+	z-index:20;
+	}
+	
+#logo {
+	position:absolute;
+	right:0;
+	}
+	
+/* long title - break to two lines (see cacsw) */
+
+.ChancellorsAdvisoryCommitteeontheStatusofWomen #banner h1 a {
+	margin:15px 0 0 10px;
+	width:55%;
+	}
+	
+.ParkinsonsDiseaseClinicandResearchCenter #banner h1 a {
+	margin:15px 0 0 10px;
+	width:40%;
+	}
+
+/* search
+**************************************/ 
+.form-item-search-block-form {
+	float:left;
+	margin-right:10px;
+	}
+	
+#search-block-form {
+	margin:20px 0;
+	}
+	
+.form-text {
+	border:1px solid #999;
+	color:#333;
+	font-size:14px;
+	padding:2px;
+	width:155px;
+	}
+
+/* contact form
+**************************************/ 	
+.form-item label {
+	display: block;
+	font-weight: bold;
+}
+
+.form-textarea-wrapper textarea {
+	-moz-box-sizing: border-box;
+	display: block;
+	margin: 0;
+	width: 100%;
+}
+
+
+
+/* left nav
+**************************************/
+
+#sidebar-first .menu {
+	margin:20px 0;
+	}
+	
+#sidebar-first .menu, #sidebar-first .menu ul{
+	padding-left:0;
+}
+	
+#sidebar-first .menu .menu {
+	margin:0;
+	}
+	
+#sidebar-first .menu .menu li a{ 
+	padding-left:25px;
+}
+
+#sidebar-first .menu li a{
+	color:#333;
+	background:#fff;
+	padding:5px 10px;
+	display:block;
+	margin-bottom:3px;
+	border-left:5px solid #ccc;
+	border-bottom:1px solid #ccc;
+	}
+
+#sidebar-first .menu li a:hover {
+	background:#d8e1ea;	
+	}
+	
+#sidebar-first .menu li a.active {
+	background:#d8e1ea;	
+	border-left:5px solid #666;
+}
+
+#sidebar-first .menu li a.active-trail {
+	margin-bottom:0;
+}
+
+#sidebar-first .menu li.expanded .menu li a {
+	border-left:none;
+	margin-bottom:0;
+}
+
+/* slideshow - currently used on sfgh
+**************************************/
+.views-slideshow-cycle-main-frame {
+	border:1px solid #ccc;
+	}
+	
+.views-slideshow-cycle-main-frame .views-field-title {
+	padding:10px;
+	background:#eee;
+	border-top:1px solid #ccc;
+	font-size:.875em;
+	}
+	
+.views-slideshow-cycle-main-frame .views-field-title a {
+	color:#333;
+	}
+	
+.views-slideshow-controls-bottom {
+	text-align:center;
+	font-size:13px;
+	padding:5px 0;
+	border-bottom:1px dashed #ccc;
+	}
+	
+.views-slideshow-controls-bottom span {
+	margin:0 10px;
+	}
+	
+.front #content-middle .views-slideshow-cycle-main-frame img {
+	margin-right:0;
+	}
+	
+/* pdcenter bios
+**************************************/
+
+.node-type-profile .field-name-field-photo img {
+	padding:5px;
+	border:1px solid #ccc;
+	float:left;
+	}
+	
+.field-name-field-location ul {
+	padding-left:0;
+	margin-top:0;
+	}
+	
+.field-name-field-location ul li {
+	list-style:none;
+	}	
+	
+.field-name-field-description {
+	clear:both;
+	padding-top:20px;
+	}
+	
+.field-name-field-description p {
+	font-weight:bold;
+	font-style:italic;
+}
+
+.view-profiles .views-row {
+	float: left;
+	clear: both;
+	padding-bottom: 15px;
+	width: 100%;
+	}
+
+.view-profiles .views-field-field-photo {
+	float:left;
+	}
+
+.view-profiles .views-field-field-photo img  {
+	padding: 3px;
+	border:1px solid #ccc;
+	}
+
+.view-profiles ul {
+	padding-left:0
+	}
+	
+.view-profiles ul li {
+	list-style:none;
+	}
+
+
+	
+/* main content
+**************************************/
+
+#content-wrapper {
+	background:#fff;
+	width:960px;
+	margin:0 auto;
+	min-height:100%;
+	padding-bottom:50px;
+	}
+	
+#sidebar-first {
+	float:left;
+	width:195px;
+	margin-left:20px;
+	}
+	
+#sidebar-second {
+	float:right;
+	width:195px;
+	margin-right:20px;
+	}
+	
+#content-middle {
+	width:450px;
+	margin:0 40px;
+	float:left;
+	}
+	
+#content-middle img {
+	margin-right:10px;
+	}
+	
+/* NYT feed on sfghlibrary.ucsf.edu */
+
+.block-aggregator {
+	margin:30px 0;
+	}
+	
+.block-aggregator h2 {
+	color: #666666;
+	font-family: Georgia,"Times New Roman",Times,serif;
+	margin-bottom:15px;
+	font-size:16px;
+	font-weight:normal;
+	}
+	
+.block-aggregator ul {	
+	padding-left: 0;
+	}
+	
+.block-aggregator ul li {	
+	list-style:none;
+	padding-bottom:10px;
+	}	
+	
+.more-link a {
+	font-size:.875em;
+	}
+	
+/* sfghlibraray */
+
+.key {
+	background:#eee;
+	border:1px solid #ccc;
+	padding:20px 20px 20px 40px;
+}
+
+#toc {
+	padding-left:0;
+}
+
+#toc li {
+	list-style:none;
+	display:inline;
+	margin-left:5px;
+}
+	
+/* footer
+**************************************/
+
+#foot-container {
+	width:100%;
+	background:#888;
+	height:22px;
+	padding:5px 0;
+	clear:both;
+}
+
+#footer {
+	text-align:center;	
+	width:960px;
+	margin:0 auto;
+	padding-bottom:0;
+}
+
+#footer li {
+	display:inline;
+	padding-right:20px;
+	list-style:none;
+	margin:0;
+}
+
+#footer li a {
+	color:#fff;
+}
+
+li#footer-som img {
+	vertical-align:middle;
+	padding-right:5px;
+}
+
+#footer-som a {
+	font-size:.875em !important;
+}
+
+li#regents {
+	font-size:.75em;
+	color:#fff;
+}
+.region-footer .block-configure {
+	display:none;
+	}
+	
+/* system.menues.css overrides
+**************************************/
+
+ul li.leaf {
+	list-style-image: none;
+	list-style-type: none;
+}
+ul.menu li {
+	margin: 0;
+}
+li.expanded, li.collapsed, li.leaf {
+	margin: 0;
+	padding: 0;
+}
+ul li.collapsed, ul li.expanded {
+	list-style-image: none;
+	list-style-type: none;
+}
+#admin-menu .dropdown a {
+	font-size:12px;
+}
+
+
+/* IMCE Browser
+**************************************/
+.page-user-imce #content-middle {
+    width: 660px;
+}
+
+.page-user-imce #sidebar-second {
+	display:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

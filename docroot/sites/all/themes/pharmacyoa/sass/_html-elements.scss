@@ -1,0 +1,682 @@
+@charset "UTF-8";
+/******************************************************************************
+* Fonts
+*
+*/
+@font-face {
+  font-family:'BodoniBT-Book-Italic';
+  src:url('../webfonts/bodoni-book-italic/242E86_0_0.eot');
+  src:url('../webfonts/bodoni-book-italic/242E86_0_0.eot?#iefix') format('embedded-opentype'),
+       url('../webfonts/bodoni-book-italic/242E86_0_0.woff') format('woff'),
+       url('../webfonts/bodoni-book-italic/242E86_0_0.ttf') format('truetype');
+}
+@font-face {
+  font-family:'BodoniBT-Italic';
+  src:url('../webfonts/bodoni-italic/2500E7_0_0.eot');
+  src:url('../webfonts/bodoni-italic/2500E7_0_0.eot?#iefix') format('embedded-opentype'),
+       url('../webfonts/bodoni-italic/2500E7_0_0.woff') format('woff'),
+       url('../webfonts/bodoni-italic/2500E7_0_0.ttf') format('truetype');
+}
+
+// Fontie.flowyapps.com: http://tinyurl.com/n2ou254 (asana)
+
+@font-face {
+  font-family:'PrefaceLightItalic';
+  src: url('../webfonts/preface-light-italic/PrefaceLightItalic_directwrite.eot');
+  src: url('../webfonts/preface-light-italic/PrefaceLightItalic_directwrite.eot?#iefix') format('embedded-opentype'),
+    url('../webfonts/preface-light-italic/PrefaceLightItalic_directwrite.woff') format('woff');
+}
+@font-face {
+  font-family:'PrefaceItalic';
+  src: url('../webfonts/preface-italic/PrefaceItalic_directwrite.eot');
+  src: url('../webfonts/preface-italic/PrefaceItalic_directwrite.eot?#iefix') format('embedded-opentype'),
+    url('../webfonts/preface-italic/PrefaceItalic_directwrite.woff') format('woff');
+}
+@font-face {
+  font-family:'PrefaceBoldItalic';
+  src: url('../webfonts/preface-bold-italic/PrefaceBoldItalic_directwrite.eot');
+  src: url('../webfonts/preface-bold-italic/PrefaceBoldItalic_directwrite.eot?#iefix') format('embedded-opentype'),
+    url('../webfonts/preface-bold-italic/PrefaceBoldItalic_directwrite.woff') format('woff');
+}
+
+// end Fontie.flowyapps.com.
+
+/**
+ * HTML Block Styles
+ */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  @include body_background;
+  color: $primary-text;
+}
+
+h2, h3 {
+  margin-bottom: .8em;
+}
+
+h3, h4 {
+  color: $ucsf-teal;
+  // dark teal
+  text-transform: uppercase;
+}
+
+.webedit-content h3
+, .webedit-content h4 {
+  text-transform: none;
+}
+
+h3 {
+  line-height: 1.6em;
+}
+
+h3, h4, h5, h6 {
+  font-size: $font-10-on-base-13;
+  letter-spacing: 0.122em;
+}
+
+h3, h5 {
+  font-weight: bold;
+}
+
+h5, h6 {
+  color: #666;
+  // dark gray
+}
+
+// Puffy font-smoothing options
+#site-name > a
+, .flex-caption
+, .flex-caption strong // https://app.asana.com/0/2271687128880/15744940102764
+, .pane-focus-statement
+, .lab-title
+, #parent-1-name
+, #parent-2-name
+, fieldset .fieldset-legend
+, h1, h2, h3 {
+  @include font-smoothing(on)
+}
+
+// font sizes
+div.view
+, div.pane-node-content
+, div.pane-token .pane-content
+, div.pane-entity-field .field
+, div.pane-block .pane-content
+, div.fieldable-panels-pane { // https://app.asana.com/0/2271687128880/15773077352024
+  font-size: $font-13-on-base-14;
+  p, li {
+//    font-size: inherit;
+// 2014.0917.1548 frankfarm - commented this line out because it causes problems with http://local.dev.pharmd.ucsf.edu:8082/about/students/profiles/timothy and i'm not sure we need it everywhere we have div.pane-node-content p
+  }
+}
+
+.quicktabs-tabpage .view {
+  font-size: inherit;
+}
+
+.pane-views-panes .view-content {
+  h3, h5 {
+    //    font-size: inherit;
+
+  }
+}
+
+.view-content {
+  .views-field-body p
+  , .views-field-body li
+  , .views-field-field-panels-chunks li {
+    font-size: inherit;
+  }
+}
+
+div.view-ucsf-person-profile {
+  .views-field-field-person-office-dean-title
+  , .views-field-field-person-title-override
+  , .views-field-field-person-primary-dept {
+    font-size: $font-16-on-base-14;
+    line-height: $line-height-13on21;
+  }
+}
+
+/**
+ * Fieldsets
+ */
+fieldset {
+  border: 1px solid #ccc;
+  padding: 2.5em 0 0 0;
+  /* LTR */
+  position: relative;
+  margin: 1em 0;
+  border: 1px solid #EDEDEE;
+  background: #EDEDEE;
+}
+
+legend {
+  border: 0 none;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+fieldset .fieldset-legend {
+  margin-top: 1em;
+  padding-left: 15px;
+  /* LTR */
+  position: absolute;
+//  font-size: 1.154em;
+  /* 13 -> 15px */
+  font-family: $base-font;
+}
+
+html.js fieldset.collapsible .fieldset-legend {
+  background: transparent url(../images/fieldset-expanded.png) no-repeat 10px 65%;
+  padding-left: 35px;
+}
+
+html.js fieldset.collapsed .fieldset-legend {
+  background-image: url(../images/fieldset-collapsed.png);
+  background-position: 10px 50%;
+}
+
+fieldset .fieldset-legend a {
+  text-decoration: none;
+}
+
+fieldset .fieldset-wrapper {
+  padding: 13px 13px 13px 15px;
+  padding: 0px 13px 13px 15px;
+  /* LTR */
+  //  background:#FBFBFB;
+}
+
+html.js fieldset.collapsed {
+  border-width: 1px;
+  height: auto;
+}
+
+fieldset fieldset {
+  background-color: #fff;
+}
+
+fieldset fieldset fieldset {
+  background-color: #f8f8f8;
+}
+
+/**
+ * Blockquote
+ */
+blockquote {
+  border-left: 1px dotted black;
+  margin-left: 2em;
+  padding-left: 1em;
+}
+
+/**
+ * Links
+ */
+.page-type-2
+, .page-type-4
+, .page-type-7 #block-system-main
+, .page-type-7 #block-views-gallery-block
+, .page-type-9
+, .page-type-10
+, .page-type-11 {
+  .content a {
+    //    text-decoration:underline;
+    border: 0;
+  }
+  table.people {
+    a[href^="mailto"] {
+      // when email addresses are too long, break them at any character
+      word-break: break-all;
+    }
+  }
+  .content .symbol a {
+    text-decoration: none;
+  }
+  .content a:link {
+    color: $primary-link-unvisited-fg;
+    border-color: $primary-link-unvisited-fg;
+  }
+  .content a:visited {
+    color: $primary-link-visited-fg;
+    border-color: $primary-link-visited-fg;
+  }
+  .content a:hover {
+    color: $primary-link-hover-fg;
+    border-color: $primary-link-hover-fg;
+  }
+  a.button:link,
+  a.button:visited,
+  .button a:link,
+  .button a:visited {
+    color: #fff;
+  }
+  a.button:hover,
+  .button a:hover {
+    text-decoration: none;
+  }
+  .field-name-field-image-credit a {
+    &:link, &:visited, &:focus, &:active {
+      color: $secondary-text;
+      text-decoration: none;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  /*
+  a:link
+  ,a:visited
+  ,a:hover
+  ,a:focus
+  ,a:active
+  {
+  }
+  */
+  ul.contextual-links li a {
+    text-decoration: none;
+    &:hover {
+      background-color: #bfdcee;
+    }
+  }
+}
+
+/**
+ * Images
+ */
+img {
+  border: 0;
+  vertical-align: bottom;
+  /* Suppress the space beneath the baseline */
+  //  max-width: 100%;
+  height: auto;
+}
+
+a img {
+  @include opacity(0.96);
+  //  @include transition(all, .5s, ease);
+}
+
+a img:hover {
+ //opacity 1 causes images to shift in some cases
+  @include opacity(0.999);
+}
+
+/**
+ * Definition List
+ */
+dl {
+  dd {
+    padding-left: 2em;
+    margin-bottom: 1em;
+  }
+}
+
+body.page-customerror-404 .is-sop-secondary #content {
+  ul {
+    margin-left: .5em;
+    margin-bottom: 1em;
+    li {
+      list-style-type: none;
+    }
+    li:before {
+      content: "• ";
+      position: relative;
+      left: -.5em;
+      vertical-align: top;
+    }
+  }
+}
+
+.content
+, .view-content
+, .pane-content
+ {
+  p {
+  }
+  p+ul{
+    margin-top:-.5em;
+  }
+  //--------------------------------------------------------
+  // start - ul bullet styles and indents (mostly)
+  .item-list ul li {
+    margin-left: 0.1em; //overrides system.theme.css - Kevin
+  }
+  ul {
+    li
+    ,li li li
+    ,li li li li li{
+      background:transparent 0 6px no-repeat url('../images/bullet-ph-main.gif');
+    }
+    li li
+    ,li li li li
+    ,li li li li li li{
+      background:transparent 0 6px no-repeat url('../images/raquo-ph-main.gif');
+    }
+    li {
+      padding-left:1.5em;
+
+      table {
+        text-indent: 0;
+        p {
+        }
+      }
+      p {
+        text-indent: 0;
+      }
+      ul {
+        li {
+          ul {
+            li {
+              &:before {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  ul.pager,ul.menu{
+    li
+    ,li li li
+    ,li li li li li{
+      background:none;
+    }
+    li li
+    ,li li li li
+    ,li li li li li li{
+      background:none;
+    }
+  }
+  ul.menu
+  , ul.flex-direction-nav
+  , ul.pager
+  , ul.quicktabs-tabs
+  , ul.menu
+  , ul.slides
+  , ul.tabs
+  , ul.quicktabs-tabs {
+    li:before
+    , .contextual-links-region li:before {
+      content: "";
+    }
+  }
+  div.messages.error li:before {
+    color: #fff;
+  }
+  // end - ul bullet styles and indents (mostly)
+  //--------------------------------------------------------
+  // start - margins and padding for lists (mostly)
+  ol {
+    margin-left: 1em;
+    // Consider http://tinyurl.com/n5ub7yt in Asana?
+    padding-left: 2em;
+  }
+  ol ol {
+    margin-left: 0;
+  }
+  ul {
+    margin-left: .1em;
+  }
+  .columns-2
+  , .columns-3
+  , .columns-4 {
+    margin-left: 0;
+  }
+  .pane-background-callout ul {
+    // margin-left:0;
+
+  }
+  ul ol {
+  }
+  ul, ol {
+    ul, ol {
+      margin-top: -.5em;
+    }
+  }
+  li {
+    margin-bottom: .3em;
+  }
+  ul + h2
+  , ol + h2 {
+    margin-top: 1.5em;
+  }
+  // end - margins and padding for lists (mostly)
+  //--------------------------------------------------------
+  // start - list style types
+  ul li {
+    list-style-type: none;
+  }
+  ul ol li {
+    list-style-type: decimal;
+    background:none;
+    padding-left:0;
+  }
+  ol ol ol ol{
+    list-style-type: upper-alpha;
+    ol{
+      list-style-type: upper-roman;
+      ol{
+        list-style-type: decimal;
+      }
+    }
+  }
+  // end - list style types
+  //--------------------------------------------------------
+  // start - font sizes and line heights
+  .field-name-field-image-caption {
+    font-size: $font-12-on-base-13;
+    line-height: $line-height-12on19-5;
+    //    font-size:$font-12-on-base-14;
+    //    line-height:$line-height-12on19-5;
+    p, ul, ol, br, li {
+      font-size: 100%;
+      display:block;
+    }
+    p, ul, ol {
+      margin-bottom: .75em;
+    }
+    li {
+      margin-bottom: .5em;
+    }
+  }
+  .fine-print {
+    font-size: $font-11-on-base-13;
+  }
+  li {
+    line-height: $line-height-13on18;
+  }
+  li li, li p, li .field-name-field-image-caption {
+    font-size: inherit;// 2014.1006.1902 frankfarm - i removed this line because it was causing captions on pc about history to be inconsistent/wrong sizes
+  }
+  // end - font sizes
+  li p {
+    line-height: $line-height-13on18;
+    margin-bottom: .75em;
+    //  resolve too much space below
+
+  }
+  li .field-name-field-image-caption p{
+    font-size: $font-12-on-base-13;
+    line-height: $line-height-12on19-5;
+  }
+  li p.showhidetoggle {
+    margin-bottom: 0;
+  }
+  li p + p {
+    //  resolve too much space above
+    margin-top: -.5em;
+  }
+  // end - font sizes and line heights
+  //--------------------------------------------------------
+  // start - special cases
+  // end - special cases
+  //--------------------------------------------------------
+  .contextual-links, .pager, .pane-bundle-quick-links, .quicktabs-tabs {
+    ul {
+      li:before {
+        content: "";
+        text-indent: 0;
+        margin-left: 0;
+      }
+    }
+  }
+  .flexslider ul {
+    margin-left: 0;
+    li {
+      margin-left: 0;
+      margin-bottom: 0;
+    }
+  }
+  ul li .field-name-field-image-caption p:first-child{ // 2014.1006 frankfarm - fix for when image captions at size sixth don't fit within the box at browser widths less than 800px
+    word-wrap:break-word;
+    display:block;
+  }
+}
+
+.pane-bundle-quick-links .pane-content ul { // edge case for quick links on home pages
+  li:before
+  , .contextual-links-region li:before {
+    content: "";
+  }
+}
+
+// end .content,.view-content,.pane-content
+
+/*
+// 2014.0723 - frankfarm - add this back if susie and robin really want no bullets for callout boxes on landing pages
+
+#content .landing .pane-background-callout ul li {
+  text-indent:-1.4em;
+  &:before {
+    content: "";
+  }
+}
+*/
+
+.view-funding {
+  td
+  , .views-field
+  , .awards .view-content
+  , .awards .views-label
+  , .view-header {
+    //    font-size: $font-13-on-base-14;
+
+  }
+}
+
+.pane-node-field-funding-budget {
+  //  font-size: $font-13-on-base-14;
+}
+
+.content .field-name-field-image-credit {
+  line-height: 1em;
+  .field-label
+  , .field-items {
+    font-size: $font-09-on-base-14;
+  }
+}
+
+div.slidercaption
+, .view-content .views_field_featured_image_credit {
+  font-size: $font-09-on-base-14;
+  line-height: 1em;
+}
+
+.view-content .field-name-field-image-credit {
+  line-height: 1em;
+  .field-label
+  , .field-items {
+    font-size: $font-09-on-base-14;
+  }
+}
+
+table p {
+  font-size: $font-13-on-base-14;
+  line-height: $line-height-13on21;
+}
+
+#content .view-id-people ul {
+  margin-left: 0;
+  li {
+    overflow: visible;
+  }
+}
+
+// but in the following cases *don't* use the same list styles as defined directly above
+/*.item-list ul
+,*/
+
+ul.contextual-links
+, ul.panels-ipe-linkbar
+, .flexslider ul
+, .vertical-tabs ul
+, .markItUpHeader ul
+, ul.menu
+, .view-content .flexslider ul {
+  margin-left: 0;
+  li {
+    padding-left: 0;
+    text-indent: 0;
+    margin-left: 0;
+    margin-top: 0;
+    &:before {
+      content: "";
+    }
+  }
+}
+
+.quicktabs-wrapper .view-content ul.quicktabs-tabs {
+  // these are ul elements inside the content area on quicktabs pages
+  border-bottom: 0;
+  margin-left: .5em;
+  li {
+    padding-left: 1em;
+    text-indent: -1em;
+    margin-bottom: .5em;
+    &:before {
+      content: "• ";
+    }
+  }
+}
+
+.vertical-tabs fieldset.vertical-tabs-pane {
+  background: #fff;
+  border-left: 1px solid #ccc;
+}
+
+.vertical-tabs ul.vertical-tabs-list li {
+  border-left: 0;
+  border-right: 0;
+}
+
+.vertical-tabs ul.vertical-tabs-list li.selected {
+  border-right: 1px solid #fff;
+}
+
+form ul li:before {
+  content: "";
+}
+
+// resolve too much vertical whitespace above and below p and ul,ol.
+p + ol, p + ul {
+  margin-bottom: .5em;
+}
+
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+  font-size: 79%;
+}
+
+sub {
+  top: 0.4em;
+}
+
+.content ul li.leaf {
+  list-style-image: none;
+}

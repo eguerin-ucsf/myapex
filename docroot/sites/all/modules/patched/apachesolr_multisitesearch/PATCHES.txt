@@ -1,0 +1,7 @@
+Fix for multisite index metadata only pulling down ten names, showing the rest as hashes.
+
+Probably will need more work before it goes into module commit.
+
+apachesolr_multisitesearch-add-row-params-1145924-6.patch
+
+https://www.drupal.org/node/1145924

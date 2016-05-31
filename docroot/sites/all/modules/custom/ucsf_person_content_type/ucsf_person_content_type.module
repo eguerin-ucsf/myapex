@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the UCSF Person Content Type feature.
+ */
+
+include_once 'ucsf_person_content_type.features.inc';

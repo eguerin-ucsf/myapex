@@ -1,0 +1,10 @@
+name = "Reset Media Modes for Panopoly"
+description = "Sets the names of Media Module display modes back to defaults that correspond to the admin interfaces, corrects behavior of Panopoly Images which is confusing if you wish to alter image handling at all"
+core = 7.x
+package = "Media"
+version = 7.x-1.0
+
+dependencies[] = media
+dependencies[] = panopoly_images
+
+

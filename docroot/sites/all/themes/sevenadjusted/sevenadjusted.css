@@ -1,0 +1,16 @@
+/* If someone uploads a huge image as a thumbnail for a theme, this prevents it from displaying huge in the list of themes at /admin/appearance. */
+#domain-theme-form img{
+  max-width:300px;
+}
+.form-item-title{
+  margin-bottom:0;
+  padding-bottom:0;
+}
+.form-item-title input{
+  font-size:2em;
+}
+ul.secondary li a:hover,
+ul.secondary li.active a,
+ul.secondary li.active a.active {
+  margin-bottom: 1em;
+}

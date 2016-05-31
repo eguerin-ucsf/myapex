@@ -1,0 +1,19 @@
+7.x-2.4
+-------
+* resolve issue where invisible h2 can cause weird page phantom page margins
+* set video captions to always be weight 1 one more-resolves caption above preview image --REQUIRES REVERT
+
+
+7.x-2.3
+-------
+* ucsf images changes so that squares and field images have a max-width on their container
+* ucsf_images fix for stropos() warning
+* add support for gallery landing to css in ucsf)images
+* missing IMG on images def for ucsf_images (images inside cntainrs)
+* ucsf_images module, added new class to array for box-sizing
+* add a class to ucsf_images for video preview support overlay thingys
+* fix weight inconsistency for UCSF_IMAGES
+
+7.x-2.0-beta6
+-------------
+Initial public release.

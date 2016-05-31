@@ -1,0 +1,7 @@
+@font-face {
+  font-family:'web_symbolsregular';
+  src:url('./web-symbols/websymbols-regular-webfont.eot');
+  src:url('./web-symbols/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('./web-symbols/websymbols-regular-webfont.woff') format('woff'),
+       url('./web-symbols/websymbols-regular-webfont.ttf') format('truetype');
+}

@@ -1,0 +1,62 @@
+
+/**
+ * General Views Styling
+ */
+.views-row {
+  margin-bottom: 1em;
+}
+
+.views-row-last {
+  padding-bottom: 0em;
+}
+
+/******************************************************************************
+   View blocks that require special attention to layout.
+   */
+.front .view-openacademy-news,
+.front .view-id-media_coverage,
+.front .view-display-id-news_listing,
+.front .view-display-id-upcoming_events {
+	.views-field-title {
+		padding-left: 140px;
+		font-size: 13px;
+		a {
+			color: $primary-text;
+		}
+	}
+
+	.views-field-created,
+	.views-field-field-event-date-2 {
+		color: $secondary-text;
+		position: absolute;
+		top: 0;
+		left: 0;
+		text-transform: uppercase;
+		font-size: .75em;
+
+		@include breakpoint(small) {
+			left: 1em;
+		}
+	}
+}
+
+/******************************************************************************
+   Featured News article
+   */
+
+.view-display-id-featured_news {
+	padding-bottom: 1em;
+	border-bottom: 1px solid $secondary-border;
+	h2 {
+		margin: .1em 0 .1em 0;
+	}
+	.submitted {
+		color: $secondary-text;
+		font-size: .75em;
+		text-transform: uppercase;
+	}
+	.view .view-content .views-row {
+		margin: 0;
+		padding: 0;
+	}
+}

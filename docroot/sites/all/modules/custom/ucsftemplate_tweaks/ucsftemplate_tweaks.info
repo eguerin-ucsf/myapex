@@ -1,0 +1,4 @@
+name = UCSF Template Tweaks
+core = 7.x
+version = 7.x-1.0
+package = UCSF Starter Kit

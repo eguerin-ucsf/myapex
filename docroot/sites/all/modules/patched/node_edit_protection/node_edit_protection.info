@@ -1,0 +1,16 @@
+name = Node Edit Protection
+description = Protect the user against navigating away from a node edit form before saving their changes.
+core = 7.x
+
+files[] = node_edit_protection.module
+scripts[] = node-edit-protection.js
+
+
+
+
+; Information added by drupal.org packaging script on 2011-05-12
+version = "7.x-1.0"
+core = "7.x"
+project = "node_edit_protection"
+datestamp = "1305211916"
+

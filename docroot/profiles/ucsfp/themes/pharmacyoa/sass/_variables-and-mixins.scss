@@ -1,0 +1,165 @@
+/******************************************************************************
+* Base widths for desktop & devices
+*/
+$desktop-width: 	  940px;
+$device-width-medium: 767px; 
+$device-width-small:  480px; 
+
+// Break point mixins
+// Setting this up for later. The css needs a lot of refactoring
+// and to handle this size of a site. This will help a lot with
+// dealing with the responsive/adaptive changes. 
+@mixin breakpoint($point) {
+	@if $point == small {
+		@media screen and (max-width: $device-width-small) { @content; }
+	}
+	@if $point == medium {
+		@media screen and (max-width: $device-width-medium) { @content; }
+	}
+
+	@if $point == desktop {
+		@media screen and (min-width: $desktop-width) { @content; }
+	}
+}
+
+/******************************************************************************
+* Base colors: what everything sits on top of with out alteration;
+* if items aren't styled otherwise, these are the colors that 
+* are inherited to elements. 
+*/
+
+// Text colors
+$primary-text:   #333333;
+$secondary-text: #999999; // color found mostly as block quotes etc. 
+$tertiary-text:  #000000;
+
+// Links
+$primary-link:       #1B518A;
+$primary-link-hover: #333333;
+
+// Backgrounds
+$background-color:           #F4F3F0;
+$background-color-secondary: #ECECE6;
+$mobile-background-color:    #000;
+
+
+// Header h1, h2, h3, etc. 
+$header-color: #333333;
+
+// Borders and Horizontal Rule
+$primary-border: #3168A9;
+$secondary-border: #D9D9D9;
+$tertiary-border: #000;
+
+$mobile-background: #CADDE4; // color used when resized to mobile
+
+// Footer
+$footer-quote: #5E7613; // text color fo the quote
+
+// Subsite title
+$subsite-title: $primary-text;
+
+/******************************************************************************
+* Fonts
+* 
+*/
+
+.BodoniBT-BookItalic { 
+    font-family: BodoniBT-BookItalic;
+    font-weight: normal;
+    font-style: normal;
+}
+// Base font for entire site
+$base-font: 'Verdana', sans-serif;
+$pre-font:	'Courier New', 'DejaVu Sans Mono', monospace;
+
+// Main font type for select headers
+$header-font: 'BodoniBT-BookItalic', serif;
+
+// Secondary font type for select header
+$header-font-alt: 'BodoniBT-BookItalic', serif;
+
+// Navigation Fonts
+$primary-nav: 'Verdana', sans-serif;
+$primary-nav-sub: 'Verdana', sans-serif;
+
+
+/******************************************************************************
+* Buttons
+* 
+* These colors are for the main submit type buttons and inputs. 
+* If more need to be like this, they need to be defined so in the
+* _forms.scss file. 
+*/
+
+// Genral
+$button-radius: 1px;
+
+// Default State
+$button-text:           #ffffff;
+$button-text-shadow: 	#666666;
+$button-background:     #666666;
+$button-foreground:     #666666;
+$button-border:         #666666;
+$button-border-bottom:  #666666;
+$button-shadow-inner: 	#666666;
+
+// Hover state
+$button-hover-text:         $button-text;
+$button-hover-text-shadow:  #4c9021;
+$button-hover-background:   #76b347;
+$button-hover-foreground:   #5e9e2e;
+$button-hover-border: 		#63a62f;
+$button-hover-border-bottom:#5b992b;
+$button-hover-shadow-inner: #8dbf67;
+
+// Active state
+$button-active-text:            $button-text;
+$button-active-text-shadow:     #4c9021;
+$button-active-background: 	    #76b347;
+$button-active-foreground: 	    #5e9e2e;
+$button-active-border:          #63a62f;
+$button-active-border-bottom:   #5b992b;
+$button-active-shadow-inner: 	#8dbf67;
+
+
+
+/******************************************************************************
+* Flare: images that are on intermittently placed on site that match 
+* and are color matched to the theme/design.
+*/
+
+// Header top right image;
+// since the graphics that may be changed here are likely
+// to not be the same each time. The entire background code is here
+// to allow for background position tweeking. 
+// Probably should be a mixin instead. 
+$flare-header:    transparent url('../images/bg-abstract-1.png') no-repeat 54px -86px;
+$flare-footer:    transparent url('../images/bg-abstract-footer.png') no-repeat top left;
+$flare-spotlight: transparent url('../images/flare-spotlight.png') no-repeat 0 0;
+$flare-small-ad:  transparent url('../images/bg-abstract-1.png') no-repeat 54px -86px;;
+
+
+
+/******************************************************************************
+ * Helper Mixins
+ */
+
+.clearfix-after {
+	content: "."; 
+	visibility: hidden; 
+	display: block; 
+	height: 0; 
+	clear: both;
+}
+
+.clearfix:after { 
+	@extend .clearfix-after;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,221 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function ics_menu() {
+  $items['node/%node/%/ical.ics'] = array(
+    'title' => 'Add to calendar',
+    'page callback' => 'ics_download',
+    'page arguments' => array(1, 2),
+    'access callback' => 'node_access',
+    'access arguments' => array('view', 1),
+    'type' => MENU_CALLBACK,
+  );
+  $items['admin/config/ics'] = array(
+    'title' => t('ICS Settings'),
+    'description' => t('Administer ICS icalendar download settings.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ics_settings'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Set valid node types for generating ics files.
+ */
+function ics_settings($form, &$form_state) {
+  // Get all node types
+  $types = node_type_get_types();
+
+  foreach ($types as $k => $v) {
+    $content_types[$k] = $v->name;
+  }
+
+  $form['ics_types'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('Create iCal node link for content types'),
+    '#default_value' => variable_get('ics_types', 'event'),
+    '#options' => $content_types,
+  );
+
+  return system_settings_form($form);
+}
+
+/**
+ * Generate ics download file
+ */
+function ics_download($node, $field) {
+  $field = 'field_' . str_replace('-', '_', $field);
+  $t = strtotime($node->{$field}['und'][0]['value']);
+  $title = $node->title;
+  //Pull the teaser as the event description, this should probably be a configurable field
+  $description = strip_tags(text_summary($node->body['und'][0]['safe_value']));
+  $desctrimmed = trim ($description);
+  if (strlen($description) != strlen($desctrimmed)) {
+    $description = $desctrimmed . '\n';
+  }
+  elseif (!$description) {}
+  else {
+    $description .= '...\n';
+  }
+
+
+  $path = drupal_lookup_path('alias','node/'.$node->nid);
+  if(!empty($path)) {
+    $description .= t('Details: ') . url($path, array('absolute' => true));
+  }
+
+  // $location (text area type) is custom to the events content type
+  if ($node->field_event_address) {
+    $location = strip_tags($node->field_event_address['und'][0]['value']);
+  } 
+  elseif ($node->field_event_location) {
+    $location = strip_tags($node->field_event_location['und'][0]['value']);
+  }
+  else {
+    $location = t('See link');
+  }
+
+ /*
+ //look at $fields = new EntityFieldQuery; to update this location lookup
+
+  $fields = field_get_instances("node", $node->type);
+  foreach ($fields as $cur_field) {
+    if ($cur_field['type'] == 'location' && isset($node->{$cur_field['field_name']}[0]['lid']) && !empty($node->{$cur_field['field_name']}[0]['lid'])) {
+      $location = $node->{$cur_field['field_name']}[0]['name'] . ', ' . $node->{$cur_field['field_name']}[0]['street'] . ', ' . $node->{$cur_field['field_name']}[0]['city'] . ', ' . $node->{$cur_field['field_name']}[0]['province'] . ' ' . $node->{$cur_field['field_name']}[0]['postal_code'];
+    }
+  }
+ */
+
+
+  $dtstart = _ics_date_parse($node->{$field}['und'][0]['value']);
+
+  if (isset($node->{$field}['und'][0]['value2']) && !empty($node->{$field}['und'][0]['value2'])) {
+    $dtend = _ics_date_parse($node->{$field}['und'][0]['value2']);
+  }
+  else {
+    $dtend = $dtstart;
+  }
+
+  $uid = $node->nid . '@' . $_SERVER['HTTP_HOST'];
+
+  $ical_entry = "BEGIN:VCALENDAR
+PRODID:-//" . (variable_get('site_name', NULL) ? variable_get('site_name', NULL) . ' ' : '') . "Calendar//Calendar Event//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+DTSTAMP:$dtstart
+BEGIN:VEVENT
+UID:$uid
+DTSTART:$dtstart
+DTEND:$dtend
+SUMMARY:$title
+DESCRIPTION:$description
+" . (isset($location) ? 'LOCATION:' . $location . "\r\n" : ''). "SEQUENCE:0
+END:VEVENT
+END:VCALENDAR";
+
+  drupal_add_http_header('Content-Type', 'text/calendar; charset=utf-8;');
+  drupal_add_http_header('Content-Disposition', 'inline; filename="ical.ics";');
+
+  print($ical_entry);
+}
+
+/**
+ * @todo Please document this function.
+ * @see http://drupal.org/node/1354
+ */
+function ics_link($type, $node, $teaser = false) {
+  if ($type == 'node' && in_array($node->type, variable_get('ics_types', 'event'))) {
+    $fields = content_fields(NULL, $node->type);
+    foreach ($fields as $field) {
+      if ($field['type'] == 'date' && isset($node->{$field['field_name']}[0]['value'])) {
+        $links['ical_' . $i++] = array(
+          'title' => t("Add to my calendar"),
+          'href' => 'node/' . $node->nid . '/' . substr(str_replace('_', '-', $field['field_name']), 6) . '/ical.ics',
+        );
+      }
+    }
+    return $links;
+  }
+}
+
+/**
+ * @todo Please document this function.
+ * @see http://drupal.org/node/1354
+ * format: 20130524T180000  
+ */
+function _ics_date_parse($date) {
+  // Convert to correct time zone -- Not Working, commented-out
+  // $t = strtotime($date);
+  // $t = format_date($t + variable_get('date_default_timezone', 0), 'custom', 'Ymd His');
+
+  // Convert to correct time zone
+  $t = convert_UTC_Date_to_timezone($date);
+
+  return strtr($t, array(' ' => 'T'));
+}
+
+
+/** 
+ * Added function, GHall 3/26/2013 
+ * Convert UTC Date to America/LA time zone 
+ */ 
+function convert_UTC_Date_to_timezone($date) { 
+  $utcTimezone = new DateTimeZone('UTC'); 
+  //$timezone = new DateTimeZone('America/Los_Angeles'); 
+  $timezone = new DateTimeZone(variable_get('date_default_timezone', 0)); 
+  $dateTime = new DateTime($date, $timezone); 
+  $offset = $timezone->getOffset($dateTime); 
+  $date_correct_timezone = date('Ymd His', $dateTime->format('U') + $offset); 
+  return $date_correct_timezone;
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function ics_field_formatter_info() {
+  return array(
+    'ics' => array(
+      'label' => t('iCal ICS File Download'),
+      'field types' => array('datetime'),
+      'multiple values' => FIELD_BEHAVIOR_DEFAULT,
+    ),
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ics_theme() {
+  $theme = array();
+  $theme['ics_formatter_ics'] = array(
+    'render element' => 'element',
+  );
+  return $theme;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function ics_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $elements = array();
+  foreach ($items as $delta => $item) {
+    $elements[$delta] = array(
+      '#markup' => theme('ics_formatter_'. $display['type'], array('element' => $item, 'field' => $instance)),
+    );
+  }
+  return $elements;
+}
+
+/**
+ * Formatter theme function for date fields presented as an iCal download.
+ */
+function theme_ics_formatter_ics($variables) {
+  $element = $variables['element'];
+  $output = l(t('Add to my calendar'), 'node/' . arg(1) . '/' . substr(str_replace('_', '-', $variables['field']['field_name']), 6) . '/ical.ics');
+  return $output;
+}

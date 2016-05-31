@@ -1,0 +1,3253 @@
+@media screen and (max-width: 480px) {
+  /* line 2, ucsf-pharmacy-images-responsive.scss */
+  .file-entity-two-thirds
+  , .file-entity-square-two-thirds
+  , .media-square-two-thirds
+  , .media-two-thirds {
+    width: 100%;
+  }
+
+  /* line 7, ucsf-pharmacy-images-responsive.scss */
+  .file-entity-three-quarters
+  , .file-entity-square-three-quarters
+  , .media-square-three-quarters
+  , .media-three-quarters {
+    width: 100%;
+  }
+
+  /* line 12, ucsf-pharmacy-images-responsive.scss */
+  .file-entity-half
+  , .file-entity-square-half
+  , .media-square-half
+  , .media-half {
+    width: 100%;
+  }
+
+  /* line 17, ucsf-pharmacy-images-responsive.scss */
+  .file-entity-third
+  , .file-entity-square-third
+  , .media-square-third
+  , .media-third {
+    width: 100%;
+  }
+
+  /* line 22, ucsf-pharmacy-images-responsive.scss */
+  .file-entity-quarter
+  , .file-entity-square-quarter
+  , .media-square-quarter
+  , .media-quarter {
+    width: 50%;
+  }
+
+  /* line 27, ucsf-pharmacy-images-responsive.scss */
+  .file-entity-sixth
+  , .file-entity-square-sixth
+  , .media-square-sixth
+  , .media-sixth {
+    width: 25%;
+    min-width: 140px;
+  }
+
+  /* line 32, ucsf-pharmacy-images-responsive.scss */
+  table .media-element-container {
+    width: auto;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  /*
+   * at this size, all of our panels layouts are effectively single column
+   */
+  /* line 40, ucsf-pharmacy-images-responsive.scss */
+  .file-entity-full,
+  .file-entity-square-full,
+  .media-square-full,
+  .media-full {
+    width: 100%;
+  }
+
+  /* line 44, ucsf-pharmacy-images-responsive.scss */
+  .file-entity-three-quarters,
+  .file-entity-square-three-quarters,
+  .media-square-three-quarters,
+  .media-three-quarters {
+    width: 75%;
+  }
+
+  /* line 48, ucsf-pharmacy-images-responsive.scss */
+  .file-entity-twothirds,
+  .file-entity-square-twothirds,
+  .media-square-twothirds,
+  .media-twothirds {
+    width: 66.6666666666667%;
+  }
+
+  /* line 52, ucsf-pharmacy-images-responsive.scss */
+  .file-entity-half,
+  .file-entity-square-half,
+  .media-square-half,
+  .media-half {
+    width: 50%;
+  }
+
+  /* line 56, ucsf-pharmacy-images-responsive.scss */
+  .file-entity-third,
+  .file-entity-square-third,
+  .media-square-third,
+  .media-third {
+    width: 33.3333333333333%;
+  }
+
+  /* line 60, ucsf-pharmacy-images-responsive.scss */
+  .file-entity-quarter,
+  .file-entity-square-quarter,
+  .media-square-quarter,
+  .media-quarter {
+    width: 25%;
+  }
+
+  /* line 64, ucsf-pharmacy-images-responsive.scss */
+  .file-entity-sixth,
+  .file-entity-square-sixth,
+  .media-square-sixth,
+  .media-sixth {
+    width: 16.6666666666667%;
+    min-width: 140px;
+  }
+
+  /* line 68, ucsf-pharmacy-images-responsive.scss */
+  table .media-element-container {
+    width: auto;
+  }
+}
+@media screen and (min-width: 801px) {
+  /**
+   * 3/4
+   */
+  /* line 80, ucsf-pharmacy-images-responsive.scss */
+  .bryant-content .file-entity-three-quarters
+  , .bryant-content .file-entity-square-three-quarters
+  , .bryant-content .media-square-three-quarters
+  , .bryant-content .media-three-quarters,
+  .bryant-flipped-content .file-entity-three-quarters
+  ,
+  .bryant-flipped-content .file-entity-square-three-quarters
+  ,
+  .bryant-flipped-content .media-square-three-quarters
+  ,
+  .bryant-flipped-content .media-three-quarters {
+    width: 100%;
+  }
+  /* line 85, ucsf-pharmacy-images-responsive.scss */
+  .bryant-content .file-entity-two-thirds
+  , .bryant-content .file-entity-square-two-thirds
+  , .bryant-content .media-square-two-thirds
+  , .bryant-content .media-two-thirds,
+  .bryant-flipped-content .file-entity-two-thirds
+  ,
+  .bryant-flipped-content .file-entity-square-two-thirds
+  ,
+  .bryant-flipped-content .media-square-two-thirds
+  ,
+  .bryant-flipped-content .media-two-thirds {
+    width: 88.8888888888889%;
+  }
+  /* line 90, ucsf-pharmacy-images-responsive.scss */
+  .bryant-content .file-entity-half
+  , .bryant-content .file-entity-square-half
+  , .bryant-content .media-square-half
+  , .bryant-content .media-half,
+  .bryant-flipped-content .file-entity-half
+  ,
+  .bryant-flipped-content .file-entity-square-half
+  ,
+  .bryant-flipped-content .media-square-half
+  ,
+  .bryant-flipped-content .media-half {
+    width: 66.6666666666667%;
+  }
+  /* line 95, ucsf-pharmacy-images-responsive.scss */
+  .bryant-content .file-entity-third
+  , .bryant-content .file-entity-square-third
+  , .bryant-content .media-square-third
+  , .bryant-content .media-third,
+  .bryant-flipped-content .file-entity-third
+  ,
+  .bryant-flipped-content .file-entity-square-third
+  ,
+  .bryant-flipped-content .media-square-third
+  ,
+  .bryant-flipped-content .media-third {
+    width: 44.4444444444444%;
+  }
+  /* line 100, ucsf-pharmacy-images-responsive.scss */
+  .bryant-content .file-entity-quarter
+  , .bryant-content .file-entity-square-quarter
+  , .bryant-content .media-square-quarter
+  , .bryant-content .media-quarter,
+  .bryant-flipped-content .file-entity-quarter
+  ,
+  .bryant-flipped-content .file-entity-square-quarter
+  ,
+  .bryant-flipped-content .media-square-quarter
+  ,
+  .bryant-flipped-content .media-quarter {
+    width: 33.3333333333333%;
+  }
+  /* line 105, ucsf-pharmacy-images-responsive.scss */
+  .bryant-content .file-entity-sixth
+  , .bryant-content .file-entity-square-sixth
+  , .bryant-content .media-square-sixth
+  , .bryant-content .media-sixth,
+  .bryant-flipped-content .file-entity-sixth
+  ,
+  .bryant-flipped-content .file-entity-square-sixth
+  ,
+  .bryant-flipped-content .media-square-sixth
+  ,
+  .bryant-flipped-content .media-sixth {
+    width: 22.2222222222222%;
+  }
+  /* line 110, ucsf-pharmacy-images-responsive.scss */
+  .bryant-content table .media-element-container,
+  .bryant-flipped-content table .media-element-container {
+    width: auto;
+  }
+
+  /**
+   * 2/3
+   */
+  /* line 136, ucsf-pharmacy-images-responsive.scss */
+  .bartlett-content-header .file-entity-three-quarters
+  , .bartlett-content-header .file-entity-square-three-quarters
+  , .bartlett-content-header .media-square-three-quarters
+  , .bartlett-content-header .media-three-quarters,
+  .bartlett-flipped-content-header .file-entity-three-quarters
+  ,
+  .bartlett-flipped-content-header .file-entity-square-three-quarters
+  ,
+  .bartlett-flipped-content-header .media-square-three-quarters
+  ,
+  .bartlett-flipped-content-header .media-three-quarters,
+  .brenham-content .file-entity-three-quarters
+  ,
+  .brenham-content .file-entity-square-three-quarters
+  ,
+  .brenham-content .media-square-three-quarters
+  ,
+  .brenham-content .media-three-quarters,
+  .brenham-flipped-content .file-entity-three-quarters
+  ,
+  .brenham-flipped-content .file-entity-square-three-quarters
+  ,
+  .brenham-flipped-content .media-square-three-quarters
+  ,
+  .brenham-flipped-content .media-three-quarters,
+  .brown-slider .file-entity-three-quarters
+  ,
+  .brown-slider .file-entity-square-three-quarters
+  ,
+  .brown-slider .media-square-three-quarters
+  ,
+  .brown-slider .media-three-quarters,
+  .burr-content .file-entity-three-quarters
+  ,
+  .burr-content .file-entity-square-three-quarters
+  ,
+  .burr-content .media-square-three-quarters
+  ,
+  .burr-content .media-three-quarters,
+  .burr-flipped-content .file-entity-three-quarters
+  ,
+  .burr-flipped-content .file-entity-square-three-quarters
+  ,
+  .burr-flipped-content .media-square-three-quarters
+  ,
+  .burr-flipped-content .media-three-quarters,
+  .hewston-slider .file-entity-three-quarters
+  ,
+  .hewston-slider .file-entity-square-three-quarters
+  ,
+  .hewston-slider .media-square-three-quarters
+  ,
+  .hewston-slider .media-three-quarters,
+  .hewston-flipped-slider .file-entity-three-quarters
+  ,
+  .hewston-flipped-slider .file-entity-square-three-quarters
+  ,
+  .hewston-flipped-slider .media-square-three-quarters
+  ,
+  .hewston-flipped-slider .media-three-quarters,
+  .moscone-content .file-entity-three-quarters
+  ,
+  .moscone-content .file-entity-square-three-quarters
+  ,
+  .moscone-content .media-square-three-quarters
+  ,
+  .moscone-content .media-three-quarters,
+  .moscone-flipped-content .file-entity-three-quarters
+  ,
+  .moscone-flipped-content .file-entity-square-three-quarters
+  ,
+  .moscone-flipped-content .media-square-three-quarters
+  ,
+  .moscone-flipped-content .media-three-quarters,
+  .selby-content-header .file-entity-three-quarters
+  ,
+  .selby-content-header .file-entity-square-three-quarters
+  ,
+  .selby-content-header .media-square-three-quarters
+  ,
+  .selby-content-header .media-three-quarters,
+  .selby-content-footer .file-entity-three-quarters
+  ,
+  .selby-content-footer .file-entity-square-three-quarters
+  ,
+  .selby-content-footer .media-square-three-quarters
+  ,
+  .selby-content-footer .media-three-quarters,
+  .selby-flipped-content-header .file-entity-three-quarters
+  ,
+  .selby-flipped-content-header .file-entity-square-three-quarters
+  ,
+  .selby-flipped-content-header .media-square-three-quarters
+  ,
+  .selby-flipped-content-header .media-three-quarters,
+  .selby-flipped-content-footer .file-entity-three-quarters
+  ,
+  .selby-flipped-content-footer .file-entity-square-three-quarters
+  ,
+  .selby-flipped-content-footer .media-square-three-quarters
+  ,
+  .selby-flipped-content-footer .media-three-quarters,
+  .webb-content-header .file-entity-three-quarters
+  ,
+  .webb-content-header .file-entity-square-three-quarters
+  ,
+  .webb-content-header .media-square-three-quarters
+  ,
+  .webb-content-header .media-three-quarters,
+  .webb-flipped-content-header .file-entity-three-quarters
+  ,
+  .webb-flipped-content-header .file-entity-square-three-quarters
+  ,
+  .webb-flipped-content-header .media-square-three-quarters
+  ,
+  .webb-flipped-content-header .media-three-quarters {
+    width: 100%;
+  }
+  /* line 141, ucsf-pharmacy-images-responsive.scss */
+  .bartlett-content-header .file-entity-two-thirds
+  , .bartlett-content-header .file-entity-square-two-thirds
+  , .bartlett-content-header .media-square-two-thirds
+  , .bartlett-content-header .media-two-thirds,
+  .bartlett-flipped-content-header .file-entity-two-thirds
+  ,
+  .bartlett-flipped-content-header .file-entity-square-two-thirds
+  ,
+  .bartlett-flipped-content-header .media-square-two-thirds
+  ,
+  .bartlett-flipped-content-header .media-two-thirds,
+  .brenham-content .file-entity-two-thirds
+  ,
+  .brenham-content .file-entity-square-two-thirds
+  ,
+  .brenham-content .media-square-two-thirds
+  ,
+  .brenham-content .media-two-thirds,
+  .brenham-flipped-content .file-entity-two-thirds
+  ,
+  .brenham-flipped-content .file-entity-square-two-thirds
+  ,
+  .brenham-flipped-content .media-square-two-thirds
+  ,
+  .brenham-flipped-content .media-two-thirds,
+  .brown-slider .file-entity-two-thirds
+  ,
+  .brown-slider .file-entity-square-two-thirds
+  ,
+  .brown-slider .media-square-two-thirds
+  ,
+  .brown-slider .media-two-thirds,
+  .burr-content .file-entity-two-thirds
+  ,
+  .burr-content .file-entity-square-two-thirds
+  ,
+  .burr-content .media-square-two-thirds
+  ,
+  .burr-content .media-two-thirds,
+  .burr-flipped-content .file-entity-two-thirds
+  ,
+  .burr-flipped-content .file-entity-square-two-thirds
+  ,
+  .burr-flipped-content .media-square-two-thirds
+  ,
+  .burr-flipped-content .media-two-thirds,
+  .hewston-slider .file-entity-two-thirds
+  ,
+  .hewston-slider .file-entity-square-two-thirds
+  ,
+  .hewston-slider .media-square-two-thirds
+  ,
+  .hewston-slider .media-two-thirds,
+  .hewston-flipped-slider .file-entity-two-thirds
+  ,
+  .hewston-flipped-slider .file-entity-square-two-thirds
+  ,
+  .hewston-flipped-slider .media-square-two-thirds
+  ,
+  .hewston-flipped-slider .media-two-thirds,
+  .moscone-content .file-entity-two-thirds
+  ,
+  .moscone-content .file-entity-square-two-thirds
+  ,
+  .moscone-content .media-square-two-thirds
+  ,
+  .moscone-content .media-two-thirds,
+  .moscone-flipped-content .file-entity-two-thirds
+  ,
+  .moscone-flipped-content .file-entity-square-two-thirds
+  ,
+  .moscone-flipped-content .media-square-two-thirds
+  ,
+  .moscone-flipped-content .media-two-thirds,
+  .selby-content-header .file-entity-two-thirds
+  ,
+  .selby-content-header .file-entity-square-two-thirds
+  ,
+  .selby-content-header .media-square-two-thirds
+  ,
+  .selby-content-header .media-two-thirds,
+  .selby-content-footer .file-entity-two-thirds
+  ,
+  .selby-content-footer .file-entity-square-two-thirds
+  ,
+  .selby-content-footer .media-square-two-thirds
+  ,
+  .selby-content-footer .media-two-thirds,
+  .selby-flipped-content-header .file-entity-two-thirds
+  ,
+  .selby-flipped-content-header .file-entity-square-two-thirds
+  ,
+  .selby-flipped-content-header .media-square-two-thirds
+  ,
+  .selby-flipped-content-header .media-two-thirds,
+  .selby-flipped-content-footer .file-entity-two-thirds
+  ,
+  .selby-flipped-content-footer .file-entity-square-two-thirds
+  ,
+  .selby-flipped-content-footer .media-square-two-thirds
+  ,
+  .selby-flipped-content-footer .media-two-thirds,
+  .webb-content-header .file-entity-two-thirds
+  ,
+  .webb-content-header .file-entity-square-two-thirds
+  ,
+  .webb-content-header .media-square-two-thirds
+  ,
+  .webb-content-header .media-two-thirds,
+  .webb-flipped-content-header .file-entity-two-thirds
+  ,
+  .webb-flipped-content-header .file-entity-square-two-thirds
+  ,
+  .webb-flipped-content-header .media-square-two-thirds
+  ,
+  .webb-flipped-content-header .media-two-thirds {
+    width: 100%;
+  }
+  /* line 146, ucsf-pharmacy-images-responsive.scss */
+  .bartlett-content-header .file-entity-half
+  , .bartlett-content-header .file-entity-square-half
+  , .bartlett-content-header .media-square-half
+  , .bartlett-content-header .media-half,
+  .bartlett-flipped-content-header .file-entity-half
+  ,
+  .bartlett-flipped-content-header .file-entity-square-half
+  ,
+  .bartlett-flipped-content-header .media-square-half
+  ,
+  .bartlett-flipped-content-header .media-half,
+  .brenham-content .file-entity-half
+  ,
+  .brenham-content .file-entity-square-half
+  ,
+  .brenham-content .media-square-half
+  ,
+  .brenham-content .media-half,
+  .brenham-flipped-content .file-entity-half
+  ,
+  .brenham-flipped-content .file-entity-square-half
+  ,
+  .brenham-flipped-content .media-square-half
+  ,
+  .brenham-flipped-content .media-half,
+  .brown-slider .file-entity-half
+  ,
+  .brown-slider .file-entity-square-half
+  ,
+  .brown-slider .media-square-half
+  ,
+  .brown-slider .media-half,
+  .burr-content .file-entity-half
+  ,
+  .burr-content .file-entity-square-half
+  ,
+  .burr-content .media-square-half
+  ,
+  .burr-content .media-half,
+  .burr-flipped-content .file-entity-half
+  ,
+  .burr-flipped-content .file-entity-square-half
+  ,
+  .burr-flipped-content .media-square-half
+  ,
+  .burr-flipped-content .media-half,
+  .hewston-slider .file-entity-half
+  ,
+  .hewston-slider .file-entity-square-half
+  ,
+  .hewston-slider .media-square-half
+  ,
+  .hewston-slider .media-half,
+  .hewston-flipped-slider .file-entity-half
+  ,
+  .hewston-flipped-slider .file-entity-square-half
+  ,
+  .hewston-flipped-slider .media-square-half
+  ,
+  .hewston-flipped-slider .media-half,
+  .moscone-content .file-entity-half
+  ,
+  .moscone-content .file-entity-square-half
+  ,
+  .moscone-content .media-square-half
+  ,
+  .moscone-content .media-half,
+  .moscone-flipped-content .file-entity-half
+  ,
+  .moscone-flipped-content .file-entity-square-half
+  ,
+  .moscone-flipped-content .media-square-half
+  ,
+  .moscone-flipped-content .media-half,
+  .selby-content-header .file-entity-half
+  ,
+  .selby-content-header .file-entity-square-half
+  ,
+  .selby-content-header .media-square-half
+  ,
+  .selby-content-header .media-half,
+  .selby-content-footer .file-entity-half
+  ,
+  .selby-content-footer .file-entity-square-half
+  ,
+  .selby-content-footer .media-square-half
+  ,
+  .selby-content-footer .media-half,
+  .selby-flipped-content-header .file-entity-half
+  ,
+  .selby-flipped-content-header .file-entity-square-half
+  ,
+  .selby-flipped-content-header .media-square-half
+  ,
+  .selby-flipped-content-header .media-half,
+  .selby-flipped-content-footer .file-entity-half
+  ,
+  .selby-flipped-content-footer .file-entity-square-half
+  ,
+  .selby-flipped-content-footer .media-square-half
+  ,
+  .selby-flipped-content-footer .media-half,
+  .webb-content-header .file-entity-half
+  ,
+  .webb-content-header .file-entity-square-half
+  ,
+  .webb-content-header .media-square-half
+  ,
+  .webb-content-header .media-half,
+  .webb-flipped-content-header .file-entity-half
+  ,
+  .webb-flipped-content-header .file-entity-square-half
+  ,
+  .webb-flipped-content-header .media-square-half
+  ,
+  .webb-flipped-content-header .media-half {
+    width: 75%;
+  }
+  /* line 151, ucsf-pharmacy-images-responsive.scss */
+  .bartlett-content-header .file-entity-third
+  , .bartlett-content-header .file-entity-square-third
+  , .bartlett-content-header .media-square-third
+  , .bartlett-content-header .media-third,
+  .bartlett-flipped-content-header .file-entity-third
+  ,
+  .bartlett-flipped-content-header .file-entity-square-third
+  ,
+  .bartlett-flipped-content-header .media-square-third
+  ,
+  .bartlett-flipped-content-header .media-third,
+  .brenham-content .file-entity-third
+  ,
+  .brenham-content .file-entity-square-third
+  ,
+  .brenham-content .media-square-third
+  ,
+  .brenham-content .media-third,
+  .brenham-flipped-content .file-entity-third
+  ,
+  .brenham-flipped-content .file-entity-square-third
+  ,
+  .brenham-flipped-content .media-square-third
+  ,
+  .brenham-flipped-content .media-third,
+  .brown-slider .file-entity-third
+  ,
+  .brown-slider .file-entity-square-third
+  ,
+  .brown-slider .media-square-third
+  ,
+  .brown-slider .media-third,
+  .burr-content .file-entity-third
+  ,
+  .burr-content .file-entity-square-third
+  ,
+  .burr-content .media-square-third
+  ,
+  .burr-content .media-third,
+  .burr-flipped-content .file-entity-third
+  ,
+  .burr-flipped-content .file-entity-square-third
+  ,
+  .burr-flipped-content .media-square-third
+  ,
+  .burr-flipped-content .media-third,
+  .hewston-slider .file-entity-third
+  ,
+  .hewston-slider .file-entity-square-third
+  ,
+  .hewston-slider .media-square-third
+  ,
+  .hewston-slider .media-third,
+  .hewston-flipped-slider .file-entity-third
+  ,
+  .hewston-flipped-slider .file-entity-square-third
+  ,
+  .hewston-flipped-slider .media-square-third
+  ,
+  .hewston-flipped-slider .media-third,
+  .moscone-content .file-entity-third
+  ,
+  .moscone-content .file-entity-square-third
+  ,
+  .moscone-content .media-square-third
+  ,
+  .moscone-content .media-third,
+  .moscone-flipped-content .file-entity-third
+  ,
+  .moscone-flipped-content .file-entity-square-third
+  ,
+  .moscone-flipped-content .media-square-third
+  ,
+  .moscone-flipped-content .media-third,
+  .selby-content-header .file-entity-third
+  ,
+  .selby-content-header .file-entity-square-third
+  ,
+  .selby-content-header .media-square-third
+  ,
+  .selby-content-header .media-third,
+  .selby-content-footer .file-entity-third
+  ,
+  .selby-content-footer .file-entity-square-third
+  ,
+  .selby-content-footer .media-square-third
+  ,
+  .selby-content-footer .media-third,
+  .selby-flipped-content-header .file-entity-third
+  ,
+  .selby-flipped-content-header .file-entity-square-third
+  ,
+  .selby-flipped-content-header .media-square-third
+  ,
+  .selby-flipped-content-header .media-third,
+  .selby-flipped-content-footer .file-entity-third
+  ,
+  .selby-flipped-content-footer .file-entity-square-third
+  ,
+  .selby-flipped-content-footer .media-square-third
+  ,
+  .selby-flipped-content-footer .media-third,
+  .webb-content-header .file-entity-third
+  ,
+  .webb-content-header .file-entity-square-third
+  ,
+  .webb-content-header .media-square-third
+  ,
+  .webb-content-header .media-third,
+  .webb-flipped-content-header .file-entity-third
+  ,
+  .webb-flipped-content-header .file-entity-square-third
+  ,
+  .webb-flipped-content-header .media-square-third
+  ,
+  .webb-flipped-content-header .media-third {
+    width: 50%;
+  }
+  /* line 156, ucsf-pharmacy-images-responsive.scss */
+  .bartlett-content-header .file-entity-quarter
+  , .bartlett-content-header .file-entity-square-quarter
+  , .bartlett-content-header .media-square-quarter
+  , .bartlett-content-header .media-quarter,
+  .bartlett-flipped-content-header .file-entity-quarter
+  ,
+  .bartlett-flipped-content-header .file-entity-square-quarter
+  ,
+  .bartlett-flipped-content-header .media-square-quarter
+  ,
+  .bartlett-flipped-content-header .media-quarter,
+  .brenham-content .file-entity-quarter
+  ,
+  .brenham-content .file-entity-square-quarter
+  ,
+  .brenham-content .media-square-quarter
+  ,
+  .brenham-content .media-quarter,
+  .brenham-flipped-content .file-entity-quarter
+  ,
+  .brenham-flipped-content .file-entity-square-quarter
+  ,
+  .brenham-flipped-content .media-square-quarter
+  ,
+  .brenham-flipped-content .media-quarter,
+  .brown-slider .file-entity-quarter
+  ,
+  .brown-slider .file-entity-square-quarter
+  ,
+  .brown-slider .media-square-quarter
+  ,
+  .brown-slider .media-quarter,
+  .burr-content .file-entity-quarter
+  ,
+  .burr-content .file-entity-square-quarter
+  ,
+  .burr-content .media-square-quarter
+  ,
+  .burr-content .media-quarter,
+  .burr-flipped-content .file-entity-quarter
+  ,
+  .burr-flipped-content .file-entity-square-quarter
+  ,
+  .burr-flipped-content .media-square-quarter
+  ,
+  .burr-flipped-content .media-quarter,
+  .hewston-slider .file-entity-quarter
+  ,
+  .hewston-slider .file-entity-square-quarter
+  ,
+  .hewston-slider .media-square-quarter
+  ,
+  .hewston-slider .media-quarter,
+  .hewston-flipped-slider .file-entity-quarter
+  ,
+  .hewston-flipped-slider .file-entity-square-quarter
+  ,
+  .hewston-flipped-slider .media-square-quarter
+  ,
+  .hewston-flipped-slider .media-quarter,
+  .moscone-content .file-entity-quarter
+  ,
+  .moscone-content .file-entity-square-quarter
+  ,
+  .moscone-content .media-square-quarter
+  ,
+  .moscone-content .media-quarter,
+  .moscone-flipped-content .file-entity-quarter
+  ,
+  .moscone-flipped-content .file-entity-square-quarter
+  ,
+  .moscone-flipped-content .media-square-quarter
+  ,
+  .moscone-flipped-content .media-quarter,
+  .selby-content-header .file-entity-quarter
+  ,
+  .selby-content-header .file-entity-square-quarter
+  ,
+  .selby-content-header .media-square-quarter
+  ,
+  .selby-content-header .media-quarter,
+  .selby-content-footer .file-entity-quarter
+  ,
+  .selby-content-footer .file-entity-square-quarter
+  ,
+  .selby-content-footer .media-square-quarter
+  ,
+  .selby-content-footer .media-quarter,
+  .selby-flipped-content-header .file-entity-quarter
+  ,
+  .selby-flipped-content-header .file-entity-square-quarter
+  ,
+  .selby-flipped-content-header .media-square-quarter
+  ,
+  .selby-flipped-content-header .media-quarter,
+  .selby-flipped-content-footer .file-entity-quarter
+  ,
+  .selby-flipped-content-footer .file-entity-square-quarter
+  ,
+  .selby-flipped-content-footer .media-square-quarter
+  ,
+  .selby-flipped-content-footer .media-quarter,
+  .webb-content-header .file-entity-quarter
+  ,
+  .webb-content-header .file-entity-square-quarter
+  ,
+  .webb-content-header .media-square-quarter
+  ,
+  .webb-content-header .media-quarter,
+  .webb-flipped-content-header .file-entity-quarter
+  ,
+  .webb-flipped-content-header .file-entity-square-quarter
+  ,
+  .webb-flipped-content-header .media-square-quarter
+  ,
+  .webb-flipped-content-header .media-quarter {
+    width: 37.5%;
+  }
+  /* line 161, ucsf-pharmacy-images-responsive.scss */
+  .bartlett-content-header .file-entity-sixth
+  , .bartlett-content-header .file-entity-square-sixth
+  , .bartlett-content-header .media-square-sixth
+  , .bartlett-content-header .media-sixth,
+  .bartlett-flipped-content-header .file-entity-sixth
+  ,
+  .bartlett-flipped-content-header .file-entity-square-sixth
+  ,
+  .bartlett-flipped-content-header .media-square-sixth
+  ,
+  .bartlett-flipped-content-header .media-sixth,
+  .brenham-content .file-entity-sixth
+  ,
+  .brenham-content .file-entity-square-sixth
+  ,
+  .brenham-content .media-square-sixth
+  ,
+  .brenham-content .media-sixth,
+  .brenham-flipped-content .file-entity-sixth
+  ,
+  .brenham-flipped-content .file-entity-square-sixth
+  ,
+  .brenham-flipped-content .media-square-sixth
+  ,
+  .brenham-flipped-content .media-sixth,
+  .brown-slider .file-entity-sixth
+  ,
+  .brown-slider .file-entity-square-sixth
+  ,
+  .brown-slider .media-square-sixth
+  ,
+  .brown-slider .media-sixth,
+  .burr-content .file-entity-sixth
+  ,
+  .burr-content .file-entity-square-sixth
+  ,
+  .burr-content .media-square-sixth
+  ,
+  .burr-content .media-sixth,
+  .burr-flipped-content .file-entity-sixth
+  ,
+  .burr-flipped-content .file-entity-square-sixth
+  ,
+  .burr-flipped-content .media-square-sixth
+  ,
+  .burr-flipped-content .media-sixth,
+  .hewston-slider .file-entity-sixth
+  ,
+  .hewston-slider .file-entity-square-sixth
+  ,
+  .hewston-slider .media-square-sixth
+  ,
+  .hewston-slider .media-sixth,
+  .hewston-flipped-slider .file-entity-sixth
+  ,
+  .hewston-flipped-slider .file-entity-square-sixth
+  ,
+  .hewston-flipped-slider .media-square-sixth
+  ,
+  .hewston-flipped-slider .media-sixth,
+  .moscone-content .file-entity-sixth
+  ,
+  .moscone-content .file-entity-square-sixth
+  ,
+  .moscone-content .media-square-sixth
+  ,
+  .moscone-content .media-sixth,
+  .moscone-flipped-content .file-entity-sixth
+  ,
+  .moscone-flipped-content .file-entity-square-sixth
+  ,
+  .moscone-flipped-content .media-square-sixth
+  ,
+  .moscone-flipped-content .media-sixth,
+  .selby-content-header .file-entity-sixth
+  ,
+  .selby-content-header .file-entity-square-sixth
+  ,
+  .selby-content-header .media-square-sixth
+  ,
+  .selby-content-header .media-sixth,
+  .selby-content-footer .file-entity-sixth
+  ,
+  .selby-content-footer .file-entity-square-sixth
+  ,
+  .selby-content-footer .media-square-sixth
+  ,
+  .selby-content-footer .media-sixth,
+  .selby-flipped-content-header .file-entity-sixth
+  ,
+  .selby-flipped-content-header .file-entity-square-sixth
+  ,
+  .selby-flipped-content-header .media-square-sixth
+  ,
+  .selby-flipped-content-header .media-sixth,
+  .selby-flipped-content-footer .file-entity-sixth
+  ,
+  .selby-flipped-content-footer .file-entity-square-sixth
+  ,
+  .selby-flipped-content-footer .media-square-sixth
+  ,
+  .selby-flipped-content-footer .media-sixth,
+  .webb-content-header .file-entity-sixth
+  ,
+  .webb-content-header .file-entity-square-sixth
+  ,
+  .webb-content-header .media-square-sixth
+  ,
+  .webb-content-header .media-sixth,
+  .webb-flipped-content-header .file-entity-sixth
+  ,
+  .webb-flipped-content-header .file-entity-square-sixth
+  ,
+  .webb-flipped-content-header .media-square-sixth
+  ,
+  .webb-flipped-content-header .media-sixth {
+    width: 25%;
+  }
+  /* line 166, ucsf-pharmacy-images-responsive.scss */
+  .bartlett-content-header table .media-element-container,
+  .bartlett-flipped-content-header table .media-element-container,
+  .brenham-content table .media-element-container,
+  .brenham-flipped-content table .media-element-container,
+  .brown-slider table .media-element-container,
+  .burr-content table .media-element-container,
+  .burr-flipped-content table .media-element-container,
+  .hewston-slider table .media-element-container,
+  .hewston-flipped-slider table .media-element-container,
+  .moscone-content table .media-element-container,
+  .moscone-flipped-content table .media-element-container,
+  .selby-content-header table .media-element-container,
+  .selby-content-footer table .media-element-container,
+  .selby-flipped-content-header table .media-element-container,
+  .selby-flipped-content-footer table .media-element-container,
+  .webb-content-header table .media-element-container,
+  .webb-flipped-content-header table .media-element-container {
+    width: auto;
+  }
+
+  /**
+   * 1/2
+   */
+  /* line 183, ucsf-pharmacy-images-responsive.scss */
+  .harris-content .file-entity-three-quarters
+  , .harris-content .file-entity-square-three-quarters
+  , .harris-content .media-square-three-quarters
+  , .harris-content .media-three-quarters,
+  .phelan-container .file-entity-three-quarters
+  ,
+  .phelan-container .file-entity-square-three-quarters
+  ,
+  .phelan-container .media-square-three-quarters
+  ,
+  .phelan-container .media-three-quarters,
+  .sanderson-column-content-row1 .file-entity-three-quarters
+  ,
+  .sanderson-column-content-row1 .file-entity-square-three-quarters
+  ,
+  .sanderson-column-content-row1 .media-square-three-quarters
+  ,
+  .sanderson-column-content-row1 .media-three-quarters,
+  .sanderson-flipped-column-content-row2 .file-entity-three-quarters
+  ,
+  .sanderson-flipped-column-content-row2 .file-entity-square-three-quarters
+  ,
+  .sanderson-flipped-column-content-row2 .media-square-three-quarters
+  ,
+  .sanderson-flipped-column-content-row2 .media-three-quarters,
+  .sutro-column-content .file-entity-three-quarters
+  ,
+  .sutro-column-content .file-entity-square-three-quarters
+  ,
+  .sutro-column-content .media-square-three-quarters
+  ,
+  .sutro-column-content .media-three-quarters,
+  .sutro-double-column-content .file-entity-three-quarters
+  ,
+  .sutro-double-column-content .file-entity-square-three-quarters
+  ,
+  .sutro-double-column-content .media-square-three-quarters
+  ,
+  .sutro-double-column-content .media-three-quarters,
+  .taylor-half .file-entity-three-quarters
+  ,
+  .taylor-half .file-entity-square-three-quarters
+  ,
+  .taylor-half .media-square-three-quarters
+  ,
+  .taylor-half .media-three-quarters,
+  .taylor-flipped-half .file-entity-three-quarters
+  ,
+  .taylor-flipped-half .file-entity-square-three-quarters
+  ,
+  .taylor-flipped-half .media-square-three-quarters
+  ,
+  .taylor-flipped-half .media-three-quarters,
+  .whelan-content .file-entity-three-quarters
+  ,
+  .whelan-content .file-entity-square-three-quarters
+  ,
+  .whelan-content .media-square-three-quarters
+  ,
+  .whelan-content .media-three-quarters {
+    width: 100%;
+  }
+  /* line 188, ucsf-pharmacy-images-responsive.scss */
+  .harris-content .file-entity-two-thirds
+  , .harris-content .file-entity-square-two-thirds
+  , .harris-content .media-square-two-thirds
+  , .harris-content .media-two-thirds,
+  .phelan-container .file-entity-two-thirds
+  ,
+  .phelan-container .file-entity-square-two-thirds
+  ,
+  .phelan-container .media-square-two-thirds
+  ,
+  .phelan-container .media-two-thirds,
+  .sanderson-column-content-row1 .file-entity-two-thirds
+  ,
+  .sanderson-column-content-row1 .file-entity-square-two-thirds
+  ,
+  .sanderson-column-content-row1 .media-square-two-thirds
+  ,
+  .sanderson-column-content-row1 .media-two-thirds,
+  .sanderson-flipped-column-content-row2 .file-entity-two-thirds
+  ,
+  .sanderson-flipped-column-content-row2 .file-entity-square-two-thirds
+  ,
+  .sanderson-flipped-column-content-row2 .media-square-two-thirds
+  ,
+  .sanderson-flipped-column-content-row2 .media-two-thirds,
+  .sutro-column-content .file-entity-two-thirds
+  ,
+  .sutro-column-content .file-entity-square-two-thirds
+  ,
+  .sutro-column-content .media-square-two-thirds
+  ,
+  .sutro-column-content .media-two-thirds,
+  .sutro-double-column-content .file-entity-two-thirds
+  ,
+  .sutro-double-column-content .file-entity-square-two-thirds
+  ,
+  .sutro-double-column-content .media-square-two-thirds
+  ,
+  .sutro-double-column-content .media-two-thirds,
+  .taylor-half .file-entity-two-thirds
+  ,
+  .taylor-half .file-entity-square-two-thirds
+  ,
+  .taylor-half .media-square-two-thirds
+  ,
+  .taylor-half .media-two-thirds,
+  .taylor-flipped-half .file-entity-two-thirds
+  ,
+  .taylor-flipped-half .file-entity-square-two-thirds
+  ,
+  .taylor-flipped-half .media-square-two-thirds
+  ,
+  .taylor-flipped-half .media-two-thirds,
+  .whelan-content .file-entity-two-thirds
+  ,
+  .whelan-content .file-entity-square-two-thirds
+  ,
+  .whelan-content .media-square-two-thirds
+  ,
+  .whelan-content .media-two-thirds {
+    width: 100%;
+  }
+  /* line 193, ucsf-pharmacy-images-responsive.scss */
+  .harris-content .file-entity-half
+  , .harris-content .file-entity-square-half
+  , .harris-content .media-square-half
+  , .harris-content .media-half,
+  .phelan-container .file-entity-half
+  ,
+  .phelan-container .file-entity-square-half
+  ,
+  .phelan-container .media-square-half
+  ,
+  .phelan-container .media-half,
+  .sanderson-column-content-row1 .file-entity-half
+  ,
+  .sanderson-column-content-row1 .file-entity-square-half
+  ,
+  .sanderson-column-content-row1 .media-square-half
+  ,
+  .sanderson-column-content-row1 .media-half,
+  .sanderson-flipped-column-content-row2 .file-entity-half
+  ,
+  .sanderson-flipped-column-content-row2 .file-entity-square-half
+  ,
+  .sanderson-flipped-column-content-row2 .media-square-half
+  ,
+  .sanderson-flipped-column-content-row2 .media-half,
+  .sutro-column-content .file-entity-half
+  ,
+  .sutro-column-content .file-entity-square-half
+  ,
+  .sutro-column-content .media-square-half
+  ,
+  .sutro-column-content .media-half,
+  .sutro-double-column-content .file-entity-half
+  ,
+  .sutro-double-column-content .file-entity-square-half
+  ,
+  .sutro-double-column-content .media-square-half
+  ,
+  .sutro-double-column-content .media-half,
+  .taylor-half .file-entity-half
+  ,
+  .taylor-half .file-entity-square-half
+  ,
+  .taylor-half .media-square-half
+  ,
+  .taylor-half .media-half,
+  .taylor-flipped-half .file-entity-half
+  ,
+  .taylor-flipped-half .file-entity-square-half
+  ,
+  .taylor-flipped-half .media-square-half
+  ,
+  .taylor-flipped-half .media-half,
+  .whelan-content .file-entity-half
+  ,
+  .whelan-content .file-entity-square-half
+  ,
+  .whelan-content .media-square-half
+  ,
+  .whelan-content .media-half {
+    width: 100%;
+  }
+  /* line 198, ucsf-pharmacy-images-responsive.scss */
+  .harris-content .file-entity-third
+  , .harris-content .file-entity-square-third
+  , .harris-content .media-square-third
+  , .harris-content .media-third,
+  .phelan-container .file-entity-third
+  ,
+  .phelan-container .file-entity-square-third
+  ,
+  .phelan-container .media-square-third
+  ,
+  .phelan-container .media-third,
+  .sanderson-column-content-row1 .file-entity-third
+  ,
+  .sanderson-column-content-row1 .file-entity-square-third
+  ,
+  .sanderson-column-content-row1 .media-square-third
+  ,
+  .sanderson-column-content-row1 .media-third,
+  .sanderson-flipped-column-content-row2 .file-entity-third
+  ,
+  .sanderson-flipped-column-content-row2 .file-entity-square-third
+  ,
+  .sanderson-flipped-column-content-row2 .media-square-third
+  ,
+  .sanderson-flipped-column-content-row2 .media-third,
+  .sutro-column-content .file-entity-third
+  ,
+  .sutro-column-content .file-entity-square-third
+  ,
+  .sutro-column-content .media-square-third
+  ,
+  .sutro-column-content .media-third,
+  .sutro-double-column-content .file-entity-third
+  ,
+  .sutro-double-column-content .file-entity-square-third
+  ,
+  .sutro-double-column-content .media-square-third
+  ,
+  .sutro-double-column-content .media-third,
+  .taylor-half .file-entity-third
+  ,
+  .taylor-half .file-entity-square-third
+  ,
+  .taylor-half .media-square-third
+  ,
+  .taylor-half .media-third,
+  .taylor-flipped-half .file-entity-third
+  ,
+  .taylor-flipped-half .file-entity-square-third
+  ,
+  .taylor-flipped-half .media-square-third
+  ,
+  .taylor-flipped-half .media-third,
+  .whelan-content .file-entity-third
+  ,
+  .whelan-content .file-entity-square-third
+  ,
+  .whelan-content .media-square-third
+  ,
+  .whelan-content .media-third {
+    width: 66.6666666666667%;
+  }
+  /* line 203, ucsf-pharmacy-images-responsive.scss */
+  .harris-content .file-entity-quarter
+  , .harris-content .file-entity-square-quarter
+  , .harris-content .media-square-quarter
+  , .harris-content .media-quarter,
+  .phelan-container .file-entity-quarter
+  ,
+  .phelan-container .file-entity-square-quarter
+  ,
+  .phelan-container .media-square-quarter
+  ,
+  .phelan-container .media-quarter,
+  .sanderson-column-content-row1 .file-entity-quarter
+  ,
+  .sanderson-column-content-row1 .file-entity-square-quarter
+  ,
+  .sanderson-column-content-row1 .media-square-quarter
+  ,
+  .sanderson-column-content-row1 .media-quarter,
+  .sanderson-flipped-column-content-row2 .file-entity-quarter
+  ,
+  .sanderson-flipped-column-content-row2 .file-entity-square-quarter
+  ,
+  .sanderson-flipped-column-content-row2 .media-square-quarter
+  ,
+  .sanderson-flipped-column-content-row2 .media-quarter,
+  .sutro-column-content .file-entity-quarter
+  ,
+  .sutro-column-content .file-entity-square-quarter
+  ,
+  .sutro-column-content .media-square-quarter
+  ,
+  .sutro-column-content .media-quarter,
+  .sutro-double-column-content .file-entity-quarter
+  ,
+  .sutro-double-column-content .file-entity-square-quarter
+  ,
+  .sutro-double-column-content .media-square-quarter
+  ,
+  .sutro-double-column-content .media-quarter,
+  .taylor-half .file-entity-quarter
+  ,
+  .taylor-half .file-entity-square-quarter
+  ,
+  .taylor-half .media-square-quarter
+  ,
+  .taylor-half .media-quarter,
+  .taylor-flipped-half .file-entity-quarter
+  ,
+  .taylor-flipped-half .file-entity-square-quarter
+  ,
+  .taylor-flipped-half .media-square-quarter
+  ,
+  .taylor-flipped-half .media-quarter,
+  .whelan-content .file-entity-quarter
+  ,
+  .whelan-content .file-entity-square-quarter
+  ,
+  .whelan-content .media-square-quarter
+  ,
+  .whelan-content .media-quarter {
+    width: 50%;
+  }
+  /* line 208, ucsf-pharmacy-images-responsive.scss */
+  .harris-content .file-entity-sixth
+  , .harris-content .file-entity-square-sixth
+  , .harris-content .media-square-sixth
+  , .harris-content .media-sixth,
+  .phelan-container .file-entity-sixth
+  ,
+  .phelan-container .file-entity-square-sixth
+  ,
+  .phelan-container .media-square-sixth
+  ,
+  .phelan-container .media-sixth,
+  .sanderson-column-content-row1 .file-entity-sixth
+  ,
+  .sanderson-column-content-row1 .file-entity-square-sixth
+  ,
+  .sanderson-column-content-row1 .media-square-sixth
+  ,
+  .sanderson-column-content-row1 .media-sixth,
+  .sanderson-flipped-column-content-row2 .file-entity-sixth
+  ,
+  .sanderson-flipped-column-content-row2 .file-entity-square-sixth
+  ,
+  .sanderson-flipped-column-content-row2 .media-square-sixth
+  ,
+  .sanderson-flipped-column-content-row2 .media-sixth,
+  .sutro-column-content .file-entity-sixth
+  ,
+  .sutro-column-content .file-entity-square-sixth
+  ,
+  .sutro-column-content .media-square-sixth
+  ,
+  .sutro-column-content .media-sixth,
+  .sutro-double-column-content .file-entity-sixth
+  ,
+  .sutro-double-column-content .file-entity-square-sixth
+  ,
+  .sutro-double-column-content .media-square-sixth
+  ,
+  .sutro-double-column-content .media-sixth,
+  .taylor-half .file-entity-sixth
+  ,
+  .taylor-half .file-entity-square-sixth
+  ,
+  .taylor-half .media-square-sixth
+  ,
+  .taylor-half .media-sixth,
+  .taylor-flipped-half .file-entity-sixth
+  ,
+  .taylor-flipped-half .file-entity-square-sixth
+  ,
+  .taylor-flipped-half .media-square-sixth
+  ,
+  .taylor-flipped-half .media-sixth,
+  .whelan-content .file-entity-sixth
+  ,
+  .whelan-content .file-entity-square-sixth
+  ,
+  .whelan-content .media-square-sixth
+  ,
+  .whelan-content .media-sixth {
+    width: 33.3333333333333%;
+  }
+  /* line 213, ucsf-pharmacy-images-responsive.scss */
+  .harris-content table .media-element-container,
+  .phelan-container table .media-element-container,
+  .sanderson-column-content-row1 table .media-element-container,
+  .sanderson-flipped-column-content-row2 table .media-element-container,
+  .sutro-column-content table .media-element-container,
+  .sutro-double-column-content table .media-element-container,
+  .taylor-half table .media-element-container,
+  .taylor-flipped-half table .media-element-container,
+  .whelan-content table .media-element-container {
+    width: auto;
+  }
+
+  /**
+   * 1/3
+   */
+  /* line 254, ucsf-pharmacy-images-responsive.scss */
+  .bartlett-sidebar .file-entity-three-quarters
+  , .bartlett-sidebar .file-entity-square-three-quarters
+  , .bartlett-sidebar .media-square-three-quarters
+  , .bartlett-sidebar .media-three-quarters,
+  .bartlett-column-content-region .file-entity-three-quarters
+  ,
+  .bartlett-column-content-region .file-entity-square-three-quarters
+  ,
+  .bartlett-column-content-region .media-square-three-quarters
+  ,
+  .bartlett-column-content-region .media-three-quarters,
+  .bartlett-sidebar .file-entity-three-quarters
+  ,
+  .bartlett-sidebar .file-entity-square-three-quarters
+  ,
+  .bartlett-sidebar .media-square-three-quarters
+  ,
+  .bartlett-sidebar .media-three-quarters,
+  .bartlett-flipped-content-region .file-entity-three-quarters
+  ,
+  .bartlett-flipped-content-region .file-entity-square-three-quarters
+  ,
+  .bartlett-flipped-content-region .media-square-three-quarters
+  ,
+  .bartlett-flipped-content-region .media-three-quarters,
+  .brenham-sidebar .file-entity-three-quarters
+  ,
+  .brenham-sidebar .file-entity-square-three-quarters
+  ,
+  .brenham-sidebar .media-square-three-quarters
+  ,
+  .brenham-sidebar .media-three-quarters,
+  .brenham-flipped-sidebar .file-entity-three-quarters
+  ,
+  .brenham-flipped-sidebar .file-entity-square-three-quarters
+  ,
+  .brenham-flipped-sidebar .media-square-three-quarters
+  ,
+  .brenham-flipped-sidebar .media-three-quarters,
+  .brown-middle .file-entity-three-quarters
+  ,
+  .brown-middle .file-entity-square-three-quarters
+  ,
+  .brown-middle .media-square-three-quarters
+  ,
+  .brown-middle .media-three-quarters,
+  .brown-footer .file-entity-three-quarters
+  ,
+  .brown-footer .file-entity-square-three-quarters
+  ,
+  .brown-footer .media-square-three-quarters
+  ,
+  .brown-footer .media-three-quarters,
+  .brown-slider-gutter .file-entity-three-quarters
+  ,
+  .brown-slider-gutter .file-entity-square-three-quarters
+  ,
+  .brown-slider-gutter .media-square-three-quarters
+  ,
+  .brown-slider-gutter .media-three-quarters,
+  .burr-sidebar .file-entity-three-quarters
+  ,
+  .burr-sidebar .file-entity-square-three-quarters
+  ,
+  .burr-sidebar .media-square-three-quarters
+  ,
+  .burr-sidebar .media-three-quarters,
+  .burr-flipped-sidebar .file-entity-three-quarters
+  ,
+  .burr-flipped-sidebar .file-entity-square-three-quarters
+  ,
+  .burr-flipped-sidebar .media-square-three-quarters
+  ,
+  .burr-flipped-sidebar .media-three-quarters,
+  .geary-column-content .file-entity-three-quarters
+  ,
+  .geary-column-content .file-entity-square-three-quarters
+  ,
+  .geary-column-content .media-square-three-quarters
+  ,
+  .geary-column-content .media-three-quarters,
+  .hewston-middle .file-entity-three-quarters
+  ,
+  .hewston-middle .file-entity-square-three-quarters
+  ,
+  .hewston-middle .media-square-three-quarters
+  ,
+  .hewston-middle .media-three-quarters,
+  .hewston-slider-gutter .file-entity-three-quarters
+  ,
+  .hewston-slider-gutter .file-entity-square-three-quarters
+  ,
+  .hewston-slider-gutter .media-square-three-quarters
+  ,
+  .hewston-slider-gutter .media-three-quarters,
+  .hewston-flipped-middle .file-entity-three-quarters
+  ,
+  .hewston-flipped-middle .file-entity-square-three-quarters
+  ,
+  .hewston-flipped-middle .media-square-three-quarters
+  ,
+  .hewston-flipped-middle .media-three-quarters,
+  .hewston-flipped-slider-gutter .file-entity-three-quarters
+  ,
+  .hewston-flipped-slider-gutter .file-entity-square-three-quarters
+  ,
+  .hewston-flipped-slider-gutter .media-square-three-quarters
+  ,
+  .hewston-flipped-slider-gutter .media-three-quarters,
+  .mccoppin-container .file-entity-three-quarters
+  ,
+  .mccoppin-container .file-entity-square-three-quarters
+  ,
+  .mccoppin-container .media-square-three-quarters
+  ,
+  .mccoppin-container .media-three-quarters,
+  .moscone-sidebar .file-entity-three-quarters
+  ,
+  .moscone-sidebar .file-entity-square-three-quarters
+  ,
+  .moscone-sidebar .media-square-three-quarters
+  ,
+  .moscone-sidebar .media-three-quarters,
+  .moscone-flipped-sidebar .file-entity-three-quarters
+  ,
+  .moscone-flipped-sidebar .file-entity-square-three-quarters
+  ,
+  .moscone-flipped-sidebar .media-square-three-quarters
+  ,
+  .moscone-flipped-sidebar .media-three-quarters,
+  .pond-column-content-row1 .file-entity-three-quarters
+  ,
+  .pond-column-content-row1 .file-entity-square-three-quarters
+  ,
+  .pond-column-content-row1 .media-square-three-quarters
+  ,
+  .pond-column-content-row1 .media-three-quarters,
+  .pond-column-content-row2 .file-entity-three-quarters
+  ,
+  .pond-column-content-row2 .file-entity-square-three-quarters
+  ,
+  .pond-column-content-row2 .media-square-three-quarters
+  ,
+  .pond-column-content-row2 .media-three-quarters,
+  .sanderson-column-content-row2 .file-entity-three-quarters
+  ,
+  .sanderson-column-content-row2 .file-entity-square-three-quarters
+  ,
+  .sanderson-column-content-row2 .media-square-three-quarters
+  ,
+  .sanderson-column-content-row2 .media-three-quarters,
+  .sanderson-flipped-column-content-row1 .file-entity-three-quarters
+  ,
+  .sanderson-flipped-column-content-row1 .file-entity-square-three-quarters
+  ,
+  .sanderson-flipped-column-content-row1 .media-square-three-quarters
+  ,
+  .sanderson-flipped-column-content-row1 .media-three-quarters,
+  .selby-sidebar .file-entity-three-quarters
+  ,
+  .selby-sidebar .file-entity-square-three-quarters
+  ,
+  .selby-sidebar .media-square-three-quarters
+  ,
+  .selby-sidebar .media-three-quarters,
+  .selby-content-column1 .file-entity-three-quarters
+  ,
+  .selby-content-column1 .file-entity-square-three-quarters
+  ,
+  .selby-content-column1 .media-square-three-quarters
+  ,
+  .selby-content-column1 .media-three-quarters,
+  .selby-content-column2 .file-entity-three-quarters
+  ,
+  .selby-content-column2 .file-entity-square-three-quarters
+  ,
+  .selby-content-column2 .media-square-three-quarters
+  ,
+  .selby-content-column2 .media-three-quarters,
+  .selby-flipped-sidebar .file-entity-three-quarters
+  ,
+  .selby-flipped-sidebar .file-entity-square-three-quarters
+  ,
+  .selby-flipped-sidebar .media-square-three-quarters
+  ,
+  .selby-flipped-sidebar .media-three-quarters,
+  .selby-flipped-content-column1 .file-entity-three-quarters
+  ,
+  .selby-flipped-content-column1 .file-entity-square-three-quarters
+  ,
+  .selby-flipped-content-column1 .media-square-three-quarters
+  ,
+  .selby-flipped-content-column1 .media-three-quarters,
+  .selby-flipped-content-column2 .file-entity-three-quarters
+  ,
+  .selby-flipped-content-column2 .file-entity-square-three-quarters
+  ,
+  .selby-flipped-content-column2 .media-square-three-quarters
+  ,
+  .selby-flipped-content-column2 .media-three-quarters,
+  .webb-sidebar .file-entity-three-quarters
+  ,
+  .webb-sidebar .file-entity-square-three-quarters
+  ,
+  .webb-sidebar .media-square-three-quarters
+  ,
+  .webb-sidebar .media-three-quarters,
+  .webb-content-container-column-container .file-entity-three-quarters
+  ,
+  .webb-content-container-column-container .file-entity-square-three-quarters
+  ,
+  .webb-content-container-column-container .media-square-three-quarters
+  ,
+  .webb-content-container-column-container .media-three-quarters,
+  .webb-flipped-sidebar .file-entity-three-quarters
+  ,
+  .webb-flipped-sidebar .file-entity-square-three-quarters
+  ,
+  .webb-flipped-sidebar .media-square-three-quarters
+  ,
+  .webb-flipped-sidebar .media-three-quarters,
+  .webb-flipped-content-container-column-container .file-entity-three-quarters
+  ,
+  .webb-flipped-content-container-column-container .file-entity-square-three-quarters
+  ,
+  .webb-flipped-content-container-column-container .media-square-three-quarters
+  ,
+  .webb-flipped-content-container-column-container .media-three-quarters {
+    width: 100%;
+  }
+  /* line 259, ucsf-pharmacy-images-responsive.scss */
+  .bartlett-sidebar .file-entity-two-thirds
+  , .bartlett-sidebar .file-entity-square-two-thirds
+  , .bartlett-sidebar .media-square-two-thirds
+  , .bartlett-sidebar .media-two-thirds,
+  .bartlett-column-content-region .file-entity-two-thirds
+  ,
+  .bartlett-column-content-region .file-entity-square-two-thirds
+  ,
+  .bartlett-column-content-region .media-square-two-thirds
+  ,
+  .bartlett-column-content-region .media-two-thirds,
+  .bartlett-sidebar .file-entity-two-thirds
+  ,
+  .bartlett-sidebar .file-entity-square-two-thirds
+  ,
+  .bartlett-sidebar .media-square-two-thirds
+  ,
+  .bartlett-sidebar .media-two-thirds,
+  .bartlett-flipped-content-region .file-entity-two-thirds
+  ,
+  .bartlett-flipped-content-region .file-entity-square-two-thirds
+  ,
+  .bartlett-flipped-content-region .media-square-two-thirds
+  ,
+  .bartlett-flipped-content-region .media-two-thirds,
+  .brenham-sidebar .file-entity-two-thirds
+  ,
+  .brenham-sidebar .file-entity-square-two-thirds
+  ,
+  .brenham-sidebar .media-square-two-thirds
+  ,
+  .brenham-sidebar .media-two-thirds,
+  .brenham-flipped-sidebar .file-entity-two-thirds
+  ,
+  .brenham-flipped-sidebar .file-entity-square-two-thirds
+  ,
+  .brenham-flipped-sidebar .media-square-two-thirds
+  ,
+  .brenham-flipped-sidebar .media-two-thirds,
+  .brown-middle .file-entity-two-thirds
+  ,
+  .brown-middle .file-entity-square-two-thirds
+  ,
+  .brown-middle .media-square-two-thirds
+  ,
+  .brown-middle .media-two-thirds,
+  .brown-footer .file-entity-two-thirds
+  ,
+  .brown-footer .file-entity-square-two-thirds
+  ,
+  .brown-footer .media-square-two-thirds
+  ,
+  .brown-footer .media-two-thirds,
+  .brown-slider-gutter .file-entity-two-thirds
+  ,
+  .brown-slider-gutter .file-entity-square-two-thirds
+  ,
+  .brown-slider-gutter .media-square-two-thirds
+  ,
+  .brown-slider-gutter .media-two-thirds,
+  .burr-sidebar .file-entity-two-thirds
+  ,
+  .burr-sidebar .file-entity-square-two-thirds
+  ,
+  .burr-sidebar .media-square-two-thirds
+  ,
+  .burr-sidebar .media-two-thirds,
+  .burr-flipped-sidebar .file-entity-two-thirds
+  ,
+  .burr-flipped-sidebar .file-entity-square-two-thirds
+  ,
+  .burr-flipped-sidebar .media-square-two-thirds
+  ,
+  .burr-flipped-sidebar .media-two-thirds,
+  .geary-column-content .file-entity-two-thirds
+  ,
+  .geary-column-content .file-entity-square-two-thirds
+  ,
+  .geary-column-content .media-square-two-thirds
+  ,
+  .geary-column-content .media-two-thirds,
+  .hewston-middle .file-entity-two-thirds
+  ,
+  .hewston-middle .file-entity-square-two-thirds
+  ,
+  .hewston-middle .media-square-two-thirds
+  ,
+  .hewston-middle .media-two-thirds,
+  .hewston-slider-gutter .file-entity-two-thirds
+  ,
+  .hewston-slider-gutter .file-entity-square-two-thirds
+  ,
+  .hewston-slider-gutter .media-square-two-thirds
+  ,
+  .hewston-slider-gutter .media-two-thirds,
+  .hewston-flipped-middle .file-entity-two-thirds
+  ,
+  .hewston-flipped-middle .file-entity-square-two-thirds
+  ,
+  .hewston-flipped-middle .media-square-two-thirds
+  ,
+  .hewston-flipped-middle .media-two-thirds,
+  .hewston-flipped-slider-gutter .file-entity-two-thirds
+  ,
+  .hewston-flipped-slider-gutter .file-entity-square-two-thirds
+  ,
+  .hewston-flipped-slider-gutter .media-square-two-thirds
+  ,
+  .hewston-flipped-slider-gutter .media-two-thirds,
+  .mccoppin-container .file-entity-two-thirds
+  ,
+  .mccoppin-container .file-entity-square-two-thirds
+  ,
+  .mccoppin-container .media-square-two-thirds
+  ,
+  .mccoppin-container .media-two-thirds,
+  .moscone-sidebar .file-entity-two-thirds
+  ,
+  .moscone-sidebar .file-entity-square-two-thirds
+  ,
+  .moscone-sidebar .media-square-two-thirds
+  ,
+  .moscone-sidebar .media-two-thirds,
+  .moscone-flipped-sidebar .file-entity-two-thirds
+  ,
+  .moscone-flipped-sidebar .file-entity-square-two-thirds
+  ,
+  .moscone-flipped-sidebar .media-square-two-thirds
+  ,
+  .moscone-flipped-sidebar .media-two-thirds,
+  .pond-column-content-row1 .file-entity-two-thirds
+  ,
+  .pond-column-content-row1 .file-entity-square-two-thirds
+  ,
+  .pond-column-content-row1 .media-square-two-thirds
+  ,
+  .pond-column-content-row1 .media-two-thirds,
+  .pond-column-content-row2 .file-entity-two-thirds
+  ,
+  .pond-column-content-row2 .file-entity-square-two-thirds
+  ,
+  .pond-column-content-row2 .media-square-two-thirds
+  ,
+  .pond-column-content-row2 .media-two-thirds,
+  .sanderson-column-content-row2 .file-entity-two-thirds
+  ,
+  .sanderson-column-content-row2 .file-entity-square-two-thirds
+  ,
+  .sanderson-column-content-row2 .media-square-two-thirds
+  ,
+  .sanderson-column-content-row2 .media-two-thirds,
+  .sanderson-flipped-column-content-row1 .file-entity-two-thirds
+  ,
+  .sanderson-flipped-column-content-row1 .file-entity-square-two-thirds
+  ,
+  .sanderson-flipped-column-content-row1 .media-square-two-thirds
+  ,
+  .sanderson-flipped-column-content-row1 .media-two-thirds,
+  .selby-sidebar .file-entity-two-thirds
+  ,
+  .selby-sidebar .file-entity-square-two-thirds
+  ,
+  .selby-sidebar .media-square-two-thirds
+  ,
+  .selby-sidebar .media-two-thirds,
+  .selby-content-column1 .file-entity-two-thirds
+  ,
+  .selby-content-column1 .file-entity-square-two-thirds
+  ,
+  .selby-content-column1 .media-square-two-thirds
+  ,
+  .selby-content-column1 .media-two-thirds,
+  .selby-content-column2 .file-entity-two-thirds
+  ,
+  .selby-content-column2 .file-entity-square-two-thirds
+  ,
+  .selby-content-column2 .media-square-two-thirds
+  ,
+  .selby-content-column2 .media-two-thirds,
+  .selby-flipped-sidebar .file-entity-two-thirds
+  ,
+  .selby-flipped-sidebar .file-entity-square-two-thirds
+  ,
+  .selby-flipped-sidebar .media-square-two-thirds
+  ,
+  .selby-flipped-sidebar .media-two-thirds,
+  .selby-flipped-content-column1 .file-entity-two-thirds
+  ,
+  .selby-flipped-content-column1 .file-entity-square-two-thirds
+  ,
+  .selby-flipped-content-column1 .media-square-two-thirds
+  ,
+  .selby-flipped-content-column1 .media-two-thirds,
+  .selby-flipped-content-column2 .file-entity-two-thirds
+  ,
+  .selby-flipped-content-column2 .file-entity-square-two-thirds
+  ,
+  .selby-flipped-content-column2 .media-square-two-thirds
+  ,
+  .selby-flipped-content-column2 .media-two-thirds,
+  .webb-sidebar .file-entity-two-thirds
+  ,
+  .webb-sidebar .file-entity-square-two-thirds
+  ,
+  .webb-sidebar .media-square-two-thirds
+  ,
+  .webb-sidebar .media-two-thirds,
+  .webb-content-container-column-container .file-entity-two-thirds
+  ,
+  .webb-content-container-column-container .file-entity-square-two-thirds
+  ,
+  .webb-content-container-column-container .media-square-two-thirds
+  ,
+  .webb-content-container-column-container .media-two-thirds,
+  .webb-flipped-sidebar .file-entity-two-thirds
+  ,
+  .webb-flipped-sidebar .file-entity-square-two-thirds
+  ,
+  .webb-flipped-sidebar .media-square-two-thirds
+  ,
+  .webb-flipped-sidebar .media-two-thirds,
+  .webb-flipped-content-container-column-container .file-entity-two-thirds
+  ,
+  .webb-flipped-content-container-column-container .file-entity-square-two-thirds
+  ,
+  .webb-flipped-content-container-column-container .media-square-two-thirds
+  ,
+  .webb-flipped-content-container-column-container .media-two-thirds {
+    width: 100%;
+  }
+  /* line 264, ucsf-pharmacy-images-responsive.scss */
+  .bartlett-sidebar .file-entity-half
+  , .bartlett-sidebar .file-entity-square-half
+  , .bartlett-sidebar .media-square-half
+  , .bartlett-sidebar .media-half,
+  .bartlett-column-content-region .file-entity-half
+  ,
+  .bartlett-column-content-region .file-entity-square-half
+  ,
+  .bartlett-column-content-region .media-square-half
+  ,
+  .bartlett-column-content-region .media-half,
+  .bartlett-sidebar .file-entity-half
+  ,
+  .bartlett-sidebar .file-entity-square-half
+  ,
+  .bartlett-sidebar .media-square-half
+  ,
+  .bartlett-sidebar .media-half,
+  .bartlett-flipped-content-region .file-entity-half
+  ,
+  .bartlett-flipped-content-region .file-entity-square-half
+  ,
+  .bartlett-flipped-content-region .media-square-half
+  ,
+  .bartlett-flipped-content-region .media-half,
+  .brenham-sidebar .file-entity-half
+  ,
+  .brenham-sidebar .file-entity-square-half
+  ,
+  .brenham-sidebar .media-square-half
+  ,
+  .brenham-sidebar .media-half,
+  .brenham-flipped-sidebar .file-entity-half
+  ,
+  .brenham-flipped-sidebar .file-entity-square-half
+  ,
+  .brenham-flipped-sidebar .media-square-half
+  ,
+  .brenham-flipped-sidebar .media-half,
+  .brown-middle .file-entity-half
+  ,
+  .brown-middle .file-entity-square-half
+  ,
+  .brown-middle .media-square-half
+  ,
+  .brown-middle .media-half,
+  .brown-footer .file-entity-half
+  ,
+  .brown-footer .file-entity-square-half
+  ,
+  .brown-footer .media-square-half
+  ,
+  .brown-footer .media-half,
+  .brown-slider-gutter .file-entity-half
+  ,
+  .brown-slider-gutter .file-entity-square-half
+  ,
+  .brown-slider-gutter .media-square-half
+  ,
+  .brown-slider-gutter .media-half,
+  .burr-sidebar .file-entity-half
+  ,
+  .burr-sidebar .file-entity-square-half
+  ,
+  .burr-sidebar .media-square-half
+  ,
+  .burr-sidebar .media-half,
+  .burr-flipped-sidebar .file-entity-half
+  ,
+  .burr-flipped-sidebar .file-entity-square-half
+  ,
+  .burr-flipped-sidebar .media-square-half
+  ,
+  .burr-flipped-sidebar .media-half,
+  .geary-column-content .file-entity-half
+  ,
+  .geary-column-content .file-entity-square-half
+  ,
+  .geary-column-content .media-square-half
+  ,
+  .geary-column-content .media-half,
+  .hewston-middle .file-entity-half
+  ,
+  .hewston-middle .file-entity-square-half
+  ,
+  .hewston-middle .media-square-half
+  ,
+  .hewston-middle .media-half,
+  .hewston-slider-gutter .file-entity-half
+  ,
+  .hewston-slider-gutter .file-entity-square-half
+  ,
+  .hewston-slider-gutter .media-square-half
+  ,
+  .hewston-slider-gutter .media-half,
+  .hewston-flipped-middle .file-entity-half
+  ,
+  .hewston-flipped-middle .file-entity-square-half
+  ,
+  .hewston-flipped-middle .media-square-half
+  ,
+  .hewston-flipped-middle .media-half,
+  .hewston-flipped-slider-gutter .file-entity-half
+  ,
+  .hewston-flipped-slider-gutter .file-entity-square-half
+  ,
+  .hewston-flipped-slider-gutter .media-square-half
+  ,
+  .hewston-flipped-slider-gutter .media-half,
+  .mccoppin-container .file-entity-half
+  ,
+  .mccoppin-container .file-entity-square-half
+  ,
+  .mccoppin-container .media-square-half
+  ,
+  .mccoppin-container .media-half,
+  .moscone-sidebar .file-entity-half
+  ,
+  .moscone-sidebar .file-entity-square-half
+  ,
+  .moscone-sidebar .media-square-half
+  ,
+  .moscone-sidebar .media-half,
+  .moscone-flipped-sidebar .file-entity-half
+  ,
+  .moscone-flipped-sidebar .file-entity-square-half
+  ,
+  .moscone-flipped-sidebar .media-square-half
+  ,
+  .moscone-flipped-sidebar .media-half,
+  .pond-column-content-row1 .file-entity-half
+  ,
+  .pond-column-content-row1 .file-entity-square-half
+  ,
+  .pond-column-content-row1 .media-square-half
+  ,
+  .pond-column-content-row1 .media-half,
+  .pond-column-content-row2 .file-entity-half
+  ,
+  .pond-column-content-row2 .file-entity-square-half
+  ,
+  .pond-column-content-row2 .media-square-half
+  ,
+  .pond-column-content-row2 .media-half,
+  .sanderson-column-content-row2 .file-entity-half
+  ,
+  .sanderson-column-content-row2 .file-entity-square-half
+  ,
+  .sanderson-column-content-row2 .media-square-half
+  ,
+  .sanderson-column-content-row2 .media-half,
+  .sanderson-flipped-column-content-row1 .file-entity-half
+  ,
+  .sanderson-flipped-column-content-row1 .file-entity-square-half
+  ,
+  .sanderson-flipped-column-content-row1 .media-square-half
+  ,
+  .sanderson-flipped-column-content-row1 .media-half,
+  .selby-sidebar .file-entity-half
+  ,
+  .selby-sidebar .file-entity-square-half
+  ,
+  .selby-sidebar .media-square-half
+  ,
+  .selby-sidebar .media-half,
+  .selby-content-column1 .file-entity-half
+  ,
+  .selby-content-column1 .file-entity-square-half
+  ,
+  .selby-content-column1 .media-square-half
+  ,
+  .selby-content-column1 .media-half,
+  .selby-content-column2 .file-entity-half
+  ,
+  .selby-content-column2 .file-entity-square-half
+  ,
+  .selby-content-column2 .media-square-half
+  ,
+  .selby-content-column2 .media-half,
+  .selby-flipped-sidebar .file-entity-half
+  ,
+  .selby-flipped-sidebar .file-entity-square-half
+  ,
+  .selby-flipped-sidebar .media-square-half
+  ,
+  .selby-flipped-sidebar .media-half,
+  .selby-flipped-content-column1 .file-entity-half
+  ,
+  .selby-flipped-content-column1 .file-entity-square-half
+  ,
+  .selby-flipped-content-column1 .media-square-half
+  ,
+  .selby-flipped-content-column1 .media-half,
+  .selby-flipped-content-column2 .file-entity-half
+  ,
+  .selby-flipped-content-column2 .file-entity-square-half
+  ,
+  .selby-flipped-content-column2 .media-square-half
+  ,
+  .selby-flipped-content-column2 .media-half,
+  .webb-sidebar .file-entity-half
+  ,
+  .webb-sidebar .file-entity-square-half
+  ,
+  .webb-sidebar .media-square-half
+  ,
+  .webb-sidebar .media-half,
+  .webb-content-container-column-container .file-entity-half
+  ,
+  .webb-content-container-column-container .file-entity-square-half
+  ,
+  .webb-content-container-column-container .media-square-half
+  ,
+  .webb-content-container-column-container .media-half,
+  .webb-flipped-sidebar .file-entity-half
+  ,
+  .webb-flipped-sidebar .file-entity-square-half
+  ,
+  .webb-flipped-sidebar .media-square-half
+  ,
+  .webb-flipped-sidebar .media-half,
+  .webb-flipped-content-container-column-container .file-entity-half
+  ,
+  .webb-flipped-content-container-column-container .file-entity-square-half
+  ,
+  .webb-flipped-content-container-column-container .media-square-half
+  ,
+  .webb-flipped-content-container-column-container .media-half {
+    width: 100%;
+  }
+  /* line 269, ucsf-pharmacy-images-responsive.scss */
+  .bartlett-sidebar .file-entity-third
+  , .bartlett-sidebar .file-entity-square-third
+  , .bartlett-sidebar .media-square-third
+  , .bartlett-sidebar .media-third,
+  .bartlett-column-content-region .file-entity-third
+  ,
+  .bartlett-column-content-region .file-entity-square-third
+  ,
+  .bartlett-column-content-region .media-square-third
+  ,
+  .bartlett-column-content-region .media-third,
+  .bartlett-sidebar .file-entity-third
+  ,
+  .bartlett-sidebar .file-entity-square-third
+  ,
+  .bartlett-sidebar .media-square-third
+  ,
+  .bartlett-sidebar .media-third,
+  .bartlett-flipped-content-region .file-entity-third
+  ,
+  .bartlett-flipped-content-region .file-entity-square-third
+  ,
+  .bartlett-flipped-content-region .media-square-third
+  ,
+  .bartlett-flipped-content-region .media-third,
+  .brenham-sidebar .file-entity-third
+  ,
+  .brenham-sidebar .file-entity-square-third
+  ,
+  .brenham-sidebar .media-square-third
+  ,
+  .brenham-sidebar .media-third,
+  .brenham-flipped-sidebar .file-entity-third
+  ,
+  .brenham-flipped-sidebar .file-entity-square-third
+  ,
+  .brenham-flipped-sidebar .media-square-third
+  ,
+  .brenham-flipped-sidebar .media-third,
+  .brown-middle .file-entity-third
+  ,
+  .brown-middle .file-entity-square-third
+  ,
+  .brown-middle .media-square-third
+  ,
+  .brown-middle .media-third,
+  .brown-footer .file-entity-third
+  ,
+  .brown-footer .file-entity-square-third
+  ,
+  .brown-footer .media-square-third
+  ,
+  .brown-footer .media-third,
+  .brown-slider-gutter .file-entity-third
+  ,
+  .brown-slider-gutter .file-entity-square-third
+  ,
+  .brown-slider-gutter .media-square-third
+  ,
+  .brown-slider-gutter .media-third,
+  .burr-sidebar .file-entity-third
+  ,
+  .burr-sidebar .file-entity-square-third
+  ,
+  .burr-sidebar .media-square-third
+  ,
+  .burr-sidebar .media-third,
+  .burr-flipped-sidebar .file-entity-third
+  ,
+  .burr-flipped-sidebar .file-entity-square-third
+  ,
+  .burr-flipped-sidebar .media-square-third
+  ,
+  .burr-flipped-sidebar .media-third,
+  .geary-column-content .file-entity-third
+  ,
+  .geary-column-content .file-entity-square-third
+  ,
+  .geary-column-content .media-square-third
+  ,
+  .geary-column-content .media-third,
+  .hewston-middle .file-entity-third
+  ,
+  .hewston-middle .file-entity-square-third
+  ,
+  .hewston-middle .media-square-third
+  ,
+  .hewston-middle .media-third,
+  .hewston-slider-gutter .file-entity-third
+  ,
+  .hewston-slider-gutter .file-entity-square-third
+  ,
+  .hewston-slider-gutter .media-square-third
+  ,
+  .hewston-slider-gutter .media-third,
+  .hewston-flipped-middle .file-entity-third
+  ,
+  .hewston-flipped-middle .file-entity-square-third
+  ,
+  .hewston-flipped-middle .media-square-third
+  ,
+  .hewston-flipped-middle .media-third,
+  .hewston-flipped-slider-gutter .file-entity-third
+  ,
+  .hewston-flipped-slider-gutter .file-entity-square-third
+  ,
+  .hewston-flipped-slider-gutter .media-square-third
+  ,
+  .hewston-flipped-slider-gutter .media-third,
+  .mccoppin-container .file-entity-third
+  ,
+  .mccoppin-container .file-entity-square-third
+  ,
+  .mccoppin-container .media-square-third
+  ,
+  .mccoppin-container .media-third,
+  .moscone-sidebar .file-entity-third
+  ,
+  .moscone-sidebar .file-entity-square-third
+  ,
+  .moscone-sidebar .media-square-third
+  ,
+  .moscone-sidebar .media-third,
+  .moscone-flipped-sidebar .file-entity-third
+  ,
+  .moscone-flipped-sidebar .file-entity-square-third
+  ,
+  .moscone-flipped-sidebar .media-square-third
+  ,
+  .moscone-flipped-sidebar .media-third,
+  .pond-column-content-row1 .file-entity-third
+  ,
+  .pond-column-content-row1 .file-entity-square-third
+  ,
+  .pond-column-content-row1 .media-square-third
+  ,
+  .pond-column-content-row1 .media-third,
+  .pond-column-content-row2 .file-entity-third
+  ,
+  .pond-column-content-row2 .file-entity-square-third
+  ,
+  .pond-column-content-row2 .media-square-third
+  ,
+  .pond-column-content-row2 .media-third,
+  .sanderson-column-content-row2 .file-entity-third
+  ,
+  .sanderson-column-content-row2 .file-entity-square-third
+  ,
+  .sanderson-column-content-row2 .media-square-third
+  ,
+  .sanderson-column-content-row2 .media-third,
+  .sanderson-flipped-column-content-row1 .file-entity-third
+  ,
+  .sanderson-flipped-column-content-row1 .file-entity-square-third
+  ,
+  .sanderson-flipped-column-content-row1 .media-square-third
+  ,
+  .sanderson-flipped-column-content-row1 .media-third,
+  .selby-sidebar .file-entity-third
+  ,
+  .selby-sidebar .file-entity-square-third
+  ,
+  .selby-sidebar .media-square-third
+  ,
+  .selby-sidebar .media-third,
+  .selby-content-column1 .file-entity-third
+  ,
+  .selby-content-column1 .file-entity-square-third
+  ,
+  .selby-content-column1 .media-square-third
+  ,
+  .selby-content-column1 .media-third,
+  .selby-content-column2 .file-entity-third
+  ,
+  .selby-content-column2 .file-entity-square-third
+  ,
+  .selby-content-column2 .media-square-third
+  ,
+  .selby-content-column2 .media-third,
+  .selby-flipped-sidebar .file-entity-third
+  ,
+  .selby-flipped-sidebar .file-entity-square-third
+  ,
+  .selby-flipped-sidebar .media-square-third
+  ,
+  .selby-flipped-sidebar .media-third,
+  .selby-flipped-content-column1 .file-entity-third
+  ,
+  .selby-flipped-content-column1 .file-entity-square-third
+  ,
+  .selby-flipped-content-column1 .media-square-third
+  ,
+  .selby-flipped-content-column1 .media-third,
+  .selby-flipped-content-column2 .file-entity-third
+  ,
+  .selby-flipped-content-column2 .file-entity-square-third
+  ,
+  .selby-flipped-content-column2 .media-square-third
+  ,
+  .selby-flipped-content-column2 .media-third,
+  .webb-sidebar .file-entity-third
+  ,
+  .webb-sidebar .file-entity-square-third
+  ,
+  .webb-sidebar .media-square-third
+  ,
+  .webb-sidebar .media-third,
+  .webb-content-container-column-container .file-entity-third
+  ,
+  .webb-content-container-column-container .file-entity-square-third
+  ,
+  .webb-content-container-column-container .media-square-third
+  ,
+  .webb-content-container-column-container .media-third,
+  .webb-flipped-sidebar .file-entity-third
+  ,
+  .webb-flipped-sidebar .file-entity-square-third
+  ,
+  .webb-flipped-sidebar .media-square-third
+  ,
+  .webb-flipped-sidebar .media-third,
+  .webb-flipped-content-container-column-container .file-entity-third
+  ,
+  .webb-flipped-content-container-column-container .file-entity-square-third
+  ,
+  .webb-flipped-content-container-column-container .media-square-third
+  ,
+  .webb-flipped-content-container-column-container .media-third {
+    width: 100%;
+  }
+  /* line 274, ucsf-pharmacy-images-responsive.scss */
+  .bartlett-sidebar .file-entity-quarter
+  , .bartlett-sidebar .file-entity-square-quarter
+  , .bartlett-sidebar .media-square-quarter
+  , .bartlett-sidebar .media-quarter,
+  .bartlett-column-content-region .file-entity-quarter
+  ,
+  .bartlett-column-content-region .file-entity-square-quarter
+  ,
+  .bartlett-column-content-region .media-square-quarter
+  ,
+  .bartlett-column-content-region .media-quarter,
+  .bartlett-sidebar .file-entity-quarter
+  ,
+  .bartlett-sidebar .file-entity-square-quarter
+  ,
+  .bartlett-sidebar .media-square-quarter
+  ,
+  .bartlett-sidebar .media-quarter,
+  .bartlett-flipped-content-region .file-entity-quarter
+  ,
+  .bartlett-flipped-content-region .file-entity-square-quarter
+  ,
+  .bartlett-flipped-content-region .media-square-quarter
+  ,
+  .bartlett-flipped-content-region .media-quarter,
+  .brenham-sidebar .file-entity-quarter
+  ,
+  .brenham-sidebar .file-entity-square-quarter
+  ,
+  .brenham-sidebar .media-square-quarter
+  ,
+  .brenham-sidebar .media-quarter,
+  .brenham-flipped-sidebar .file-entity-quarter
+  ,
+  .brenham-flipped-sidebar .file-entity-square-quarter
+  ,
+  .brenham-flipped-sidebar .media-square-quarter
+  ,
+  .brenham-flipped-sidebar .media-quarter,
+  .brown-middle .file-entity-quarter
+  ,
+  .brown-middle .file-entity-square-quarter
+  ,
+  .brown-middle .media-square-quarter
+  ,
+  .brown-middle .media-quarter,
+  .brown-footer .file-entity-quarter
+  ,
+  .brown-footer .file-entity-square-quarter
+  ,
+  .brown-footer .media-square-quarter
+  ,
+  .brown-footer .media-quarter,
+  .brown-slider-gutter .file-entity-quarter
+  ,
+  .brown-slider-gutter .file-entity-square-quarter
+  ,
+  .brown-slider-gutter .media-square-quarter
+  ,
+  .brown-slider-gutter .media-quarter,
+  .burr-sidebar .file-entity-quarter
+  ,
+  .burr-sidebar .file-entity-square-quarter
+  ,
+  .burr-sidebar .media-square-quarter
+  ,
+  .burr-sidebar .media-quarter,
+  .burr-flipped-sidebar .file-entity-quarter
+  ,
+  .burr-flipped-sidebar .file-entity-square-quarter
+  ,
+  .burr-flipped-sidebar .media-square-quarter
+  ,
+  .burr-flipped-sidebar .media-quarter,
+  .geary-column-content .file-entity-quarter
+  ,
+  .geary-column-content .file-entity-square-quarter
+  ,
+  .geary-column-content .media-square-quarter
+  ,
+  .geary-column-content .media-quarter,
+  .hewston-middle .file-entity-quarter
+  ,
+  .hewston-middle .file-entity-square-quarter
+  ,
+  .hewston-middle .media-square-quarter
+  ,
+  .hewston-middle .media-quarter,
+  .hewston-slider-gutter .file-entity-quarter
+  ,
+  .hewston-slider-gutter .file-entity-square-quarter
+  ,
+  .hewston-slider-gutter .media-square-quarter
+  ,
+  .hewston-slider-gutter .media-quarter,
+  .hewston-flipped-middle .file-entity-quarter
+  ,
+  .hewston-flipped-middle .file-entity-square-quarter
+  ,
+  .hewston-flipped-middle .media-square-quarter
+  ,
+  .hewston-flipped-middle .media-quarter,
+  .hewston-flipped-slider-gutter .file-entity-quarter
+  ,
+  .hewston-flipped-slider-gutter .file-entity-square-quarter
+  ,
+  .hewston-flipped-slider-gutter .media-square-quarter
+  ,
+  .hewston-flipped-slider-gutter .media-quarter,
+  .mccoppin-container .file-entity-quarter
+  ,
+  .mccoppin-container .file-entity-square-quarter
+  ,
+  .mccoppin-container .media-square-quarter
+  ,
+  .mccoppin-container .media-quarter,
+  .moscone-sidebar .file-entity-quarter
+  ,
+  .moscone-sidebar .file-entity-square-quarter
+  ,
+  .moscone-sidebar .media-square-quarter
+  ,
+  .moscone-sidebar .media-quarter,
+  .moscone-flipped-sidebar .file-entity-quarter
+  ,
+  .moscone-flipped-sidebar .file-entity-square-quarter
+  ,
+  .moscone-flipped-sidebar .media-square-quarter
+  ,
+  .moscone-flipped-sidebar .media-quarter,
+  .pond-column-content-row1 .file-entity-quarter
+  ,
+  .pond-column-content-row1 .file-entity-square-quarter
+  ,
+  .pond-column-content-row1 .media-square-quarter
+  ,
+  .pond-column-content-row1 .media-quarter,
+  .pond-column-content-row2 .file-entity-quarter
+  ,
+  .pond-column-content-row2 .file-entity-square-quarter
+  ,
+  .pond-column-content-row2 .media-square-quarter
+  ,
+  .pond-column-content-row2 .media-quarter,
+  .sanderson-column-content-row2 .file-entity-quarter
+  ,
+  .sanderson-column-content-row2 .file-entity-square-quarter
+  ,
+  .sanderson-column-content-row2 .media-square-quarter
+  ,
+  .sanderson-column-content-row2 .media-quarter,
+  .sanderson-flipped-column-content-row1 .file-entity-quarter
+  ,
+  .sanderson-flipped-column-content-row1 .file-entity-square-quarter
+  ,
+  .sanderson-flipped-column-content-row1 .media-square-quarter
+  ,
+  .sanderson-flipped-column-content-row1 .media-quarter,
+  .selby-sidebar .file-entity-quarter
+  ,
+  .selby-sidebar .file-entity-square-quarter
+  ,
+  .selby-sidebar .media-square-quarter
+  ,
+  .selby-sidebar .media-quarter,
+  .selby-content-column1 .file-entity-quarter
+  ,
+  .selby-content-column1 .file-entity-square-quarter
+  ,
+  .selby-content-column1 .media-square-quarter
+  ,
+  .selby-content-column1 .media-quarter,
+  .selby-content-column2 .file-entity-quarter
+  ,
+  .selby-content-column2 .file-entity-square-quarter
+  ,
+  .selby-content-column2 .media-square-quarter
+  ,
+  .selby-content-column2 .media-quarter,
+  .selby-flipped-sidebar .file-entity-quarter
+  ,
+  .selby-flipped-sidebar .file-entity-square-quarter
+  ,
+  .selby-flipped-sidebar .media-square-quarter
+  ,
+  .selby-flipped-sidebar .media-quarter,
+  .selby-flipped-content-column1 .file-entity-quarter
+  ,
+  .selby-flipped-content-column1 .file-entity-square-quarter
+  ,
+  .selby-flipped-content-column1 .media-square-quarter
+  ,
+  .selby-flipped-content-column1 .media-quarter,
+  .selby-flipped-content-column2 .file-entity-quarter
+  ,
+  .selby-flipped-content-column2 .file-entity-square-quarter
+  ,
+  .selby-flipped-content-column2 .media-square-quarter
+  ,
+  .selby-flipped-content-column2 .media-quarter,
+  .webb-sidebar .file-entity-quarter
+  ,
+  .webb-sidebar .file-entity-square-quarter
+  ,
+  .webb-sidebar .media-square-quarter
+  ,
+  .webb-sidebar .media-quarter,
+  .webb-content-container-column-container .file-entity-quarter
+  ,
+  .webb-content-container-column-container .file-entity-square-quarter
+  ,
+  .webb-content-container-column-container .media-square-quarter
+  ,
+  .webb-content-container-column-container .media-quarter,
+  .webb-flipped-sidebar .file-entity-quarter
+  ,
+  .webb-flipped-sidebar .file-entity-square-quarter
+  ,
+  .webb-flipped-sidebar .media-square-quarter
+  ,
+  .webb-flipped-sidebar .media-quarter,
+  .webb-flipped-content-container-column-container .file-entity-quarter
+  ,
+  .webb-flipped-content-container-column-container .file-entity-square-quarter
+  ,
+  .webb-flipped-content-container-column-container .media-square-quarter
+  ,
+  .webb-flipped-content-container-column-container .media-quarter {
+    width: 75%;
+  }
+  /* line 279, ucsf-pharmacy-images-responsive.scss */
+  .bartlett-sidebar .file-entity-sixth
+  , .bartlett-sidebar .file-entity-square-sixth
+  , .bartlett-sidebar .media-square-sixth
+  , .bartlett-sidebar .media-sixth,
+  .bartlett-column-content-region .file-entity-sixth
+  ,
+  .bartlett-column-content-region .file-entity-square-sixth
+  ,
+  .bartlett-column-content-region .media-square-sixth
+  ,
+  .bartlett-column-content-region .media-sixth,
+  .bartlett-sidebar .file-entity-sixth
+  ,
+  .bartlett-sidebar .file-entity-square-sixth
+  ,
+  .bartlett-sidebar .media-square-sixth
+  ,
+  .bartlett-sidebar .media-sixth,
+  .bartlett-flipped-content-region .file-entity-sixth
+  ,
+  .bartlett-flipped-content-region .file-entity-square-sixth
+  ,
+  .bartlett-flipped-content-region .media-square-sixth
+  ,
+  .bartlett-flipped-content-region .media-sixth,
+  .brenham-sidebar .file-entity-sixth
+  ,
+  .brenham-sidebar .file-entity-square-sixth
+  ,
+  .brenham-sidebar .media-square-sixth
+  ,
+  .brenham-sidebar .media-sixth,
+  .brenham-flipped-sidebar .file-entity-sixth
+  ,
+  .brenham-flipped-sidebar .file-entity-square-sixth
+  ,
+  .brenham-flipped-sidebar .media-square-sixth
+  ,
+  .brenham-flipped-sidebar .media-sixth,
+  .brown-middle .file-entity-sixth
+  ,
+  .brown-middle .file-entity-square-sixth
+  ,
+  .brown-middle .media-square-sixth
+  ,
+  .brown-middle .media-sixth,
+  .brown-footer .file-entity-sixth
+  ,
+  .brown-footer .file-entity-square-sixth
+  ,
+  .brown-footer .media-square-sixth
+  ,
+  .brown-footer .media-sixth,
+  .brown-slider-gutter .file-entity-sixth
+  ,
+  .brown-slider-gutter .file-entity-square-sixth
+  ,
+  .brown-slider-gutter .media-square-sixth
+  ,
+  .brown-slider-gutter .media-sixth,
+  .burr-sidebar .file-entity-sixth
+  ,
+  .burr-sidebar .file-entity-square-sixth
+  ,
+  .burr-sidebar .media-square-sixth
+  ,
+  .burr-sidebar .media-sixth,
+  .burr-flipped-sidebar .file-entity-sixth
+  ,
+  .burr-flipped-sidebar .file-entity-square-sixth
+  ,
+  .burr-flipped-sidebar .media-square-sixth
+  ,
+  .burr-flipped-sidebar .media-sixth,
+  .geary-column-content .file-entity-sixth
+  ,
+  .geary-column-content .file-entity-square-sixth
+  ,
+  .geary-column-content .media-square-sixth
+  ,
+  .geary-column-content .media-sixth,
+  .hewston-middle .file-entity-sixth
+  ,
+  .hewston-middle .file-entity-square-sixth
+  ,
+  .hewston-middle .media-square-sixth
+  ,
+  .hewston-middle .media-sixth,
+  .hewston-slider-gutter .file-entity-sixth
+  ,
+  .hewston-slider-gutter .file-entity-square-sixth
+  ,
+  .hewston-slider-gutter .media-square-sixth
+  ,
+  .hewston-slider-gutter .media-sixth,
+  .hewston-flipped-middle .file-entity-sixth
+  ,
+  .hewston-flipped-middle .file-entity-square-sixth
+  ,
+  .hewston-flipped-middle .media-square-sixth
+  ,
+  .hewston-flipped-middle .media-sixth,
+  .hewston-flipped-slider-gutter .file-entity-sixth
+  ,
+  .hewston-flipped-slider-gutter .file-entity-square-sixth
+  ,
+  .hewston-flipped-slider-gutter .media-square-sixth
+  ,
+  .hewston-flipped-slider-gutter .media-sixth,
+  .mccoppin-container .file-entity-sixth
+  ,
+  .mccoppin-container .file-entity-square-sixth
+  ,
+  .mccoppin-container .media-square-sixth
+  ,
+  .mccoppin-container .media-sixth,
+  .moscone-sidebar .file-entity-sixth
+  ,
+  .moscone-sidebar .file-entity-square-sixth
+  ,
+  .moscone-sidebar .media-square-sixth
+  ,
+  .moscone-sidebar .media-sixth,
+  .moscone-flipped-sidebar .file-entity-sixth
+  ,
+  .moscone-flipped-sidebar .file-entity-square-sixth
+  ,
+  .moscone-flipped-sidebar .media-square-sixth
+  ,
+  .moscone-flipped-sidebar .media-sixth,
+  .pond-column-content-row1 .file-entity-sixth
+  ,
+  .pond-column-content-row1 .file-entity-square-sixth
+  ,
+  .pond-column-content-row1 .media-square-sixth
+  ,
+  .pond-column-content-row1 .media-sixth,
+  .pond-column-content-row2 .file-entity-sixth
+  ,
+  .pond-column-content-row2 .file-entity-square-sixth
+  ,
+  .pond-column-content-row2 .media-square-sixth
+  ,
+  .pond-column-content-row2 .media-sixth,
+  .sanderson-column-content-row2 .file-entity-sixth
+  ,
+  .sanderson-column-content-row2 .file-entity-square-sixth
+  ,
+  .sanderson-column-content-row2 .media-square-sixth
+  ,
+  .sanderson-column-content-row2 .media-sixth,
+  .sanderson-flipped-column-content-row1 .file-entity-sixth
+  ,
+  .sanderson-flipped-column-content-row1 .file-entity-square-sixth
+  ,
+  .sanderson-flipped-column-content-row1 .media-square-sixth
+  ,
+  .sanderson-flipped-column-content-row1 .media-sixth,
+  .selby-sidebar .file-entity-sixth
+  ,
+  .selby-sidebar .file-entity-square-sixth
+  ,
+  .selby-sidebar .media-square-sixth
+  ,
+  .selby-sidebar .media-sixth,
+  .selby-content-column1 .file-entity-sixth
+  ,
+  .selby-content-column1 .file-entity-square-sixth
+  ,
+  .selby-content-column1 .media-square-sixth
+  ,
+  .selby-content-column1 .media-sixth,
+  .selby-content-column2 .file-entity-sixth
+  ,
+  .selby-content-column2 .file-entity-square-sixth
+  ,
+  .selby-content-column2 .media-square-sixth
+  ,
+  .selby-content-column2 .media-sixth,
+  .selby-flipped-sidebar .file-entity-sixth
+  ,
+  .selby-flipped-sidebar .file-entity-square-sixth
+  ,
+  .selby-flipped-sidebar .media-square-sixth
+  ,
+  .selby-flipped-sidebar .media-sixth,
+  .selby-flipped-content-column1 .file-entity-sixth
+  ,
+  .selby-flipped-content-column1 .file-entity-square-sixth
+  ,
+  .selby-flipped-content-column1 .media-square-sixth
+  ,
+  .selby-flipped-content-column1 .media-sixth,
+  .selby-flipped-content-column2 .file-entity-sixth
+  ,
+  .selby-flipped-content-column2 .file-entity-square-sixth
+  ,
+  .selby-flipped-content-column2 .media-square-sixth
+  ,
+  .selby-flipped-content-column2 .media-sixth,
+  .webb-sidebar .file-entity-sixth
+  ,
+  .webb-sidebar .file-entity-square-sixth
+  ,
+  .webb-sidebar .media-square-sixth
+  ,
+  .webb-sidebar .media-sixth,
+  .webb-content-container-column-container .file-entity-sixth
+  ,
+  .webb-content-container-column-container .file-entity-square-sixth
+  ,
+  .webb-content-container-column-container .media-square-sixth
+  ,
+  .webb-content-container-column-container .media-sixth,
+  .webb-flipped-sidebar .file-entity-sixth
+  ,
+  .webb-flipped-sidebar .file-entity-square-sixth
+  ,
+  .webb-flipped-sidebar .media-square-sixth
+  ,
+  .webb-flipped-sidebar .media-sixth,
+  .webb-flipped-content-container-column-container .file-entity-sixth
+  ,
+  .webb-flipped-content-container-column-container .file-entity-square-sixth
+  ,
+  .webb-flipped-content-container-column-container .media-square-sixth
+  ,
+  .webb-flipped-content-container-column-container .media-sixth {
+    width: 50%;
+  }
+  /* line 284, ucsf-pharmacy-images-responsive.scss */
+  .bartlett-sidebar table .media-element-container,
+  .bartlett-column-content-region table .media-element-container,
+  .bartlett-sidebar table .media-element-container,
+  .bartlett-flipped-content-region table .media-element-container,
+  .brenham-sidebar table .media-element-container,
+  .brenham-flipped-sidebar table .media-element-container,
+  .brown-middle table .media-element-container,
+  .brown-footer table .media-element-container,
+  .brown-slider-gutter table .media-element-container,
+  .burr-sidebar table .media-element-container,
+  .burr-flipped-sidebar table .media-element-container,
+  .geary-column-content table .media-element-container,
+  .hewston-middle table .media-element-container,
+  .hewston-slider-gutter table .media-element-container,
+  .hewston-flipped-middle table .media-element-container,
+  .hewston-flipped-slider-gutter table .media-element-container,
+  .mccoppin-container table .media-element-container,
+  .moscone-sidebar table .media-element-container,
+  .moscone-flipped-sidebar table .media-element-container,
+  .pond-column-content-row1 table .media-element-container,
+  .pond-column-content-row2 table .media-element-container,
+  .sanderson-column-content-row2 table .media-element-container,
+  .sanderson-flipped-column-content-row1 table .media-element-container,
+  .selby-sidebar table .media-element-container,
+  .selby-content-column1 table .media-element-container,
+  .selby-content-column2 table .media-element-container,
+  .selby-flipped-sidebar table .media-element-container,
+  .selby-flipped-content-column1 table .media-element-container,
+  .selby-flipped-content-column2 table .media-element-container,
+  .webb-sidebar table .media-element-container,
+  .webb-content-container-column-container table .media-element-container,
+  .webb-flipped-sidebar table .media-element-container,
+  .webb-flipped-content-container-column-container table .media-element-container {
+    width: auto;
+  }
+
+  /**
+   * 1/4
+   */
+  /* line 304, ucsf-pharmacy-images-responsive.scss */
+  .bryant-sidebar .file-entity-three-quarters
+  , .bryant-sidebar .file-entity-square-three-quarters
+  , .bryant-sidebar .media-square-three-quarters
+  , .bryant-sidebar .media-three-quarters,
+  .bryant-flipped-sidebar .file-entity-three-quarters
+  ,
+  .bryant-flipped-sidebar .file-entity-square-three-quarters
+  ,
+  .bryant-flipped-sidebar .media-square-three-quarters
+  ,
+  .bryant-flipped-sidebar .media-three-quarters,
+  .harris-column1 .file-entity-three-quarters
+  ,
+  .harris-column1 .file-entity-square-three-quarters
+  ,
+  .harris-column1 .media-square-three-quarters
+  ,
+  .harris-column1 .media-three-quarters,
+  .harris-column2 .file-entity-three-quarters
+  ,
+  .harris-column2 .file-entity-square-three-quarters
+  ,
+  .harris-column2 .media-square-three-quarters
+  ,
+  .harris-column2 .media-three-quarters,
+  .rolph-quarter-content .file-entity-three-quarters
+  ,
+  .rolph-quarter-content .file-entity-square-three-quarters
+  ,
+  .rolph-quarter-content .media-square-three-quarters
+  ,
+  .rolph-quarter-content .media-three-quarters,
+  .taylor-quarter1 .file-entity-three-quarters
+  ,
+  .taylor-quarter1 .file-entity-square-three-quarters
+  ,
+  .taylor-quarter1 .media-square-three-quarters
+  ,
+  .taylor-quarter1 .media-three-quarters,
+  .taylor-quarter2 .file-entity-three-quarters
+  ,
+  .taylor-quarter2 .file-entity-square-three-quarters
+  ,
+  .taylor-quarter2 .media-square-three-quarters
+  ,
+  .taylor-quarter2 .media-three-quarters,
+  .taylor-flipped-quarter1 .file-entity-three-quarters
+  ,
+  .taylor-flipped-quarter1 .file-entity-square-three-quarters
+  ,
+  .taylor-flipped-quarter1 .media-square-three-quarters
+  ,
+  .taylor-flipped-quarter1 .media-three-quarters,
+  .taylor-flipped-quarter2 .file-entity-three-quarters
+  ,
+  .taylor-flipped-quarter2 .file-entity-square-three-quarters
+  ,
+  .taylor-flipped-quarter2 .media-square-three-quarters
+  ,
+  .taylor-flipped-quarter2 .media-three-quarters,
+  .whelan-column1 .file-entity-three-quarters
+  ,
+  .whelan-column1 .file-entity-square-three-quarters
+  ,
+  .whelan-column1 .media-square-three-quarters
+  ,
+  .whelan-column1 .media-three-quarters,
+  .whelan-column2 .file-entity-three-quarters
+  ,
+  .whelan-column2 .file-entity-square-three-quarters
+  ,
+  .whelan-column2 .media-square-three-quarters
+  ,
+  .whelan-column2 .media-three-quarters {
+    width: 100%;
+  }
+  /* line 309, ucsf-pharmacy-images-responsive.scss */
+  .bryant-sidebar .file-entity-two-thirds
+  , .bryant-sidebar .file-entity-square-two-thirds
+  , .bryant-sidebar .media-square-two-thirds
+  , .bryant-sidebar .media-two-thirds,
+  .bryant-flipped-sidebar .file-entity-two-thirds
+  ,
+  .bryant-flipped-sidebar .file-entity-square-two-thirds
+  ,
+  .bryant-flipped-sidebar .media-square-two-thirds
+  ,
+  .bryant-flipped-sidebar .media-two-thirds,
+  .harris-column1 .file-entity-two-thirds
+  ,
+  .harris-column1 .file-entity-square-two-thirds
+  ,
+  .harris-column1 .media-square-two-thirds
+  ,
+  .harris-column1 .media-two-thirds,
+  .harris-column2 .file-entity-two-thirds
+  ,
+  .harris-column2 .file-entity-square-two-thirds
+  ,
+  .harris-column2 .media-square-two-thirds
+  ,
+  .harris-column2 .media-two-thirds,
+  .rolph-quarter-content .file-entity-two-thirds
+  ,
+  .rolph-quarter-content .file-entity-square-two-thirds
+  ,
+  .rolph-quarter-content .media-square-two-thirds
+  ,
+  .rolph-quarter-content .media-two-thirds,
+  .taylor-quarter1 .file-entity-two-thirds
+  ,
+  .taylor-quarter1 .file-entity-square-two-thirds
+  ,
+  .taylor-quarter1 .media-square-two-thirds
+  ,
+  .taylor-quarter1 .media-two-thirds,
+  .taylor-quarter2 .file-entity-two-thirds
+  ,
+  .taylor-quarter2 .file-entity-square-two-thirds
+  ,
+  .taylor-quarter2 .media-square-two-thirds
+  ,
+  .taylor-quarter2 .media-two-thirds,
+  .taylor-flipped-quarter1 .file-entity-two-thirds
+  ,
+  .taylor-flipped-quarter1 .file-entity-square-two-thirds
+  ,
+  .taylor-flipped-quarter1 .media-square-two-thirds
+  ,
+  .taylor-flipped-quarter1 .media-two-thirds,
+  .taylor-flipped-quarter2 .file-entity-two-thirds
+  ,
+  .taylor-flipped-quarter2 .file-entity-square-two-thirds
+  ,
+  .taylor-flipped-quarter2 .media-square-two-thirds
+  ,
+  .taylor-flipped-quarter2 .media-two-thirds,
+  .whelan-column1 .file-entity-two-thirds
+  ,
+  .whelan-column1 .file-entity-square-two-thirds
+  ,
+  .whelan-column1 .media-square-two-thirds
+  ,
+  .whelan-column1 .media-two-thirds,
+  .whelan-column2 .file-entity-two-thirds
+  ,
+  .whelan-column2 .file-entity-square-two-thirds
+  ,
+  .whelan-column2 .media-square-two-thirds
+  ,
+  .whelan-column2 .media-two-thirds {
+    width: 100%;
+  }
+  /* line 314, ucsf-pharmacy-images-responsive.scss */
+  .bryant-sidebar .file-entity-half
+  , .bryant-sidebar .file-entity-square-half
+  , .bryant-sidebar .media-square-half
+  , .bryant-sidebar .media-half,
+  .bryant-flipped-sidebar .file-entity-half
+  ,
+  .bryant-flipped-sidebar .file-entity-square-half
+  ,
+  .bryant-flipped-sidebar .media-square-half
+  ,
+  .bryant-flipped-sidebar .media-half,
+  .harris-column1 .file-entity-half
+  ,
+  .harris-column1 .file-entity-square-half
+  ,
+  .harris-column1 .media-square-half
+  ,
+  .harris-column1 .media-half,
+  .harris-column2 .file-entity-half
+  ,
+  .harris-column2 .file-entity-square-half
+  ,
+  .harris-column2 .media-square-half
+  ,
+  .harris-column2 .media-half,
+  .rolph-quarter-content .file-entity-half
+  ,
+  .rolph-quarter-content .file-entity-square-half
+  ,
+  .rolph-quarter-content .media-square-half
+  ,
+  .rolph-quarter-content .media-half,
+  .taylor-quarter1 .file-entity-half
+  ,
+  .taylor-quarter1 .file-entity-square-half
+  ,
+  .taylor-quarter1 .media-square-half
+  ,
+  .taylor-quarter1 .media-half,
+  .taylor-quarter2 .file-entity-half
+  ,
+  .taylor-quarter2 .file-entity-square-half
+  ,
+  .taylor-quarter2 .media-square-half
+  ,
+  .taylor-quarter2 .media-half,
+  .taylor-flipped-quarter1 .file-entity-half
+  ,
+  .taylor-flipped-quarter1 .file-entity-square-half
+  ,
+  .taylor-flipped-quarter1 .media-square-half
+  ,
+  .taylor-flipped-quarter1 .media-half,
+  .taylor-flipped-quarter2 .file-entity-half
+  ,
+  .taylor-flipped-quarter2 .file-entity-square-half
+  ,
+  .taylor-flipped-quarter2 .media-square-half
+  ,
+  .taylor-flipped-quarter2 .media-half,
+  .whelan-column1 .file-entity-half
+  ,
+  .whelan-column1 .file-entity-square-half
+  ,
+  .whelan-column1 .media-square-half
+  ,
+  .whelan-column1 .media-half,
+  .whelan-column2 .file-entity-half
+  ,
+  .whelan-column2 .file-entity-square-half
+  ,
+  .whelan-column2 .media-square-half
+  ,
+  .whelan-column2 .media-half {
+    width: 100%;
+  }
+  /* line 319, ucsf-pharmacy-images-responsive.scss */
+  .bryant-sidebar .file-entity-third
+  , .bryant-sidebar .file-entity-square-third
+  , .bryant-sidebar .media-square-third
+  , .bryant-sidebar .media-third,
+  .bryant-flipped-sidebar .file-entity-third
+  ,
+  .bryant-flipped-sidebar .file-entity-square-third
+  ,
+  .bryant-flipped-sidebar .media-square-third
+  ,
+  .bryant-flipped-sidebar .media-third,
+  .harris-column1 .file-entity-third
+  ,
+  .harris-column1 .file-entity-square-third
+  ,
+  .harris-column1 .media-square-third
+  ,
+  .harris-column1 .media-third,
+  .harris-column2 .file-entity-third
+  ,
+  .harris-column2 .file-entity-square-third
+  ,
+  .harris-column2 .media-square-third
+  ,
+  .harris-column2 .media-third,
+  .rolph-quarter-content .file-entity-third
+  ,
+  .rolph-quarter-content .file-entity-square-third
+  ,
+  .rolph-quarter-content .media-square-third
+  ,
+  .rolph-quarter-content .media-third,
+  .taylor-quarter1 .file-entity-third
+  ,
+  .taylor-quarter1 .file-entity-square-third
+  ,
+  .taylor-quarter1 .media-square-third
+  ,
+  .taylor-quarter1 .media-third,
+  .taylor-quarter2 .file-entity-third
+  ,
+  .taylor-quarter2 .file-entity-square-third
+  ,
+  .taylor-quarter2 .media-square-third
+  ,
+  .taylor-quarter2 .media-third,
+  .taylor-flipped-quarter1 .file-entity-third
+  ,
+  .taylor-flipped-quarter1 .file-entity-square-third
+  ,
+  .taylor-flipped-quarter1 .media-square-third
+  ,
+  .taylor-flipped-quarter1 .media-third,
+  .taylor-flipped-quarter2 .file-entity-third
+  ,
+  .taylor-flipped-quarter2 .file-entity-square-third
+  ,
+  .taylor-flipped-quarter2 .media-square-third
+  ,
+  .taylor-flipped-quarter2 .media-third,
+  .whelan-column1 .file-entity-third
+  ,
+  .whelan-column1 .file-entity-square-third
+  ,
+  .whelan-column1 .media-square-third
+  ,
+  .whelan-column1 .media-third,
+  .whelan-column2 .file-entity-third
+  ,
+  .whelan-column2 .file-entity-square-third
+  ,
+  .whelan-column2 .media-square-third
+  ,
+  .whelan-column2 .media-third {
+    width: 100%;
+  }
+  /* line 324, ucsf-pharmacy-images-responsive.scss */
+  .bryant-sidebar .file-entity-quarter
+  , .bryant-sidebar .file-entity-square-quarter
+  , .bryant-sidebar .media-square-quarter
+  , .bryant-sidebar .media-quarter,
+  .bryant-flipped-sidebar .file-entity-quarter
+  ,
+  .bryant-flipped-sidebar .file-entity-square-quarter
+  ,
+  .bryant-flipped-sidebar .media-square-quarter
+  ,
+  .bryant-flipped-sidebar .media-quarter,
+  .harris-column1 .file-entity-quarter
+  ,
+  .harris-column1 .file-entity-square-quarter
+  ,
+  .harris-column1 .media-square-quarter
+  ,
+  .harris-column1 .media-quarter,
+  .harris-column2 .file-entity-quarter
+  ,
+  .harris-column2 .file-entity-square-quarter
+  ,
+  .harris-column2 .media-square-quarter
+  ,
+  .harris-column2 .media-quarter,
+  .rolph-quarter-content .file-entity-quarter
+  ,
+  .rolph-quarter-content .file-entity-square-quarter
+  ,
+  .rolph-quarter-content .media-square-quarter
+  ,
+  .rolph-quarter-content .media-quarter,
+  .taylor-quarter1 .file-entity-quarter
+  ,
+  .taylor-quarter1 .file-entity-square-quarter
+  ,
+  .taylor-quarter1 .media-square-quarter
+  ,
+  .taylor-quarter1 .media-quarter,
+  .taylor-quarter2 .file-entity-quarter
+  ,
+  .taylor-quarter2 .file-entity-square-quarter
+  ,
+  .taylor-quarter2 .media-square-quarter
+  ,
+  .taylor-quarter2 .media-quarter,
+  .taylor-flipped-quarter1 .file-entity-quarter
+  ,
+  .taylor-flipped-quarter1 .file-entity-square-quarter
+  ,
+  .taylor-flipped-quarter1 .media-square-quarter
+  ,
+  .taylor-flipped-quarter1 .media-quarter,
+  .taylor-flipped-quarter2 .file-entity-quarter
+  ,
+  .taylor-flipped-quarter2 .file-entity-square-quarter
+  ,
+  .taylor-flipped-quarter2 .media-square-quarter
+  ,
+  .taylor-flipped-quarter2 .media-quarter,
+  .whelan-column1 .file-entity-quarter
+  ,
+  .whelan-column1 .file-entity-square-quarter
+  ,
+  .whelan-column1 .media-square-quarter
+  ,
+  .whelan-column1 .media-quarter,
+  .whelan-column2 .file-entity-quarter
+  ,
+  .whelan-column2 .file-entity-square-quarter
+  ,
+  .whelan-column2 .media-square-quarter
+  ,
+  .whelan-column2 .media-quarter {
+    width: 100%;
+  }
+  /* line 329, ucsf-pharmacy-images-responsive.scss */
+  .bryant-sidebar .file-entity-sixth
+  , .bryant-sidebar .file-entity-square-sixth
+  , .bryant-sidebar .media-square-sixth
+  , .bryant-sidebar .media-sixth,
+  .bryant-flipped-sidebar .file-entity-sixth
+  ,
+  .bryant-flipped-sidebar .file-entity-square-sixth
+  ,
+  .bryant-flipped-sidebar .media-square-sixth
+  ,
+  .bryant-flipped-sidebar .media-sixth,
+  .harris-column1 .file-entity-sixth
+  ,
+  .harris-column1 .file-entity-square-sixth
+  ,
+  .harris-column1 .media-square-sixth
+  ,
+  .harris-column1 .media-sixth,
+  .harris-column2 .file-entity-sixth
+  ,
+  .harris-column2 .file-entity-square-sixth
+  ,
+  .harris-column2 .media-square-sixth
+  ,
+  .harris-column2 .media-sixth,
+  .rolph-quarter-content .file-entity-sixth
+  ,
+  .rolph-quarter-content .file-entity-square-sixth
+  ,
+  .rolph-quarter-content .media-square-sixth
+  ,
+  .rolph-quarter-content .media-sixth,
+  .taylor-quarter1 .file-entity-sixth
+  ,
+  .taylor-quarter1 .file-entity-square-sixth
+  ,
+  .taylor-quarter1 .media-square-sixth
+  ,
+  .taylor-quarter1 .media-sixth,
+  .taylor-quarter2 .file-entity-sixth
+  ,
+  .taylor-quarter2 .file-entity-square-sixth
+  ,
+  .taylor-quarter2 .media-square-sixth
+  ,
+  .taylor-quarter2 .media-sixth,
+  .taylor-flipped-quarter1 .file-entity-sixth
+  ,
+  .taylor-flipped-quarter1 .file-entity-square-sixth
+  ,
+  .taylor-flipped-quarter1 .media-square-sixth
+  ,
+  .taylor-flipped-quarter1 .media-sixth,
+  .taylor-flipped-quarter2 .file-entity-sixth
+  ,
+  .taylor-flipped-quarter2 .file-entity-square-sixth
+  ,
+  .taylor-flipped-quarter2 .media-square-sixth
+  ,
+  .taylor-flipped-quarter2 .media-sixth,
+  .whelan-column1 .file-entity-sixth
+  ,
+  .whelan-column1 .file-entity-square-sixth
+  ,
+  .whelan-column1 .media-square-sixth
+  ,
+  .whelan-column1 .media-sixth,
+  .whelan-column2 .file-entity-sixth
+  ,
+  .whelan-column2 .file-entity-square-sixth
+  ,
+  .whelan-column2 .media-square-sixth
+  ,
+  .whelan-column2 .media-sixth {
+    width: 66.6666666666667%;
+  }
+  /* line 334, ucsf-pharmacy-images-responsive.scss */
+  .bryant-sidebar table .media-element-container,
+  .bryant-flipped-sidebar table .media-element-container,
+  .harris-column1 table .media-element-container,
+  .harris-column2 table .media-element-container,
+  .rolph-quarter-content table .media-element-container,
+  .taylor-quarter1 table .media-element-container,
+  .taylor-quarter2 table .media-element-container,
+  .taylor-flipped-quarter1 table .media-element-container,
+  .taylor-flipped-quarter2 table .media-element-container,
+  .whelan-column1 table .media-element-container,
+  .whelan-column2 table .media-element-container {
+    width: auto;
+  }
+}

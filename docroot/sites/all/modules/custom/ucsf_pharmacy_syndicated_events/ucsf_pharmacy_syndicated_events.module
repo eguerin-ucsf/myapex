@@ -1,0 +1,24 @@
+<?php
+/**
+ * @file
+ * Code for the UCSF Pharmacy Syndicated Events feature.
+ */
+
+include_once 'ucsf_pharmacy_syndicated_events.features.inc';
+
+define('UCSF_PHARMACY_SYNDICATED_EVENTS_PATH','feed/events');
+
+/**
+ * Implements hook_form_FORM_ID_alter
+ */
+function ucsf_pharmacy_syndicated_events_form_feeds_import_form_alter(&$form,$form_state,$form_id) {
+
+	//if it is the form for events syndication, automate some things
+	if ($form['#importer_id'] == 'syndicated_events') {
+
+		$form['feeds']['FeedsHTTPFetcherTimestamp']['source']['#default_value'] = UCSF_PHARMACY_MAIN_URL . UCSF_PHARMACY_SYNDICATED_EVENTS_PATH . $filter;
+
+		//disable the field, because "no touchy!"
+		$form['feeds']['FeedsHTTPFetcherTimestamp']['source']['#disabled'] = TRUE;
+	}
+}

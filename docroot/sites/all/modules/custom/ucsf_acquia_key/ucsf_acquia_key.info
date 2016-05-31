@@ -1,0 +1,13 @@
+name = UCSF Acquia Key
+description = Acquia Network credentials, identifier and network key
+core = 7.x
+package = UCSF
+version = 7.x-1.0
+project = ucsf_acquia_key
+dependencies[] = ctools
+dependencies[] = strongarm
+dependencies[] = acquia_agent
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:1
+features[variable][] = acquia_identifier
+features[variable][] = acquia_key

@@ -1,0 +1,670 @@
+@charset "UTF-8";
+
+/**
+ * General Views Styling
+ */
+.views-row {
+  margin-bottom: 1em;
+}
+
+.views-row-last {
+  padding-bottom: 0em;
+}
+
+.views-exposed-form label {
+  color: $primary-text-bold;
+}
+
+/******************************************************************************
+   View blocks that require special attention to layout.
+   */
+.front .view-openacademy-news
+, .front .view-id-media_coverage
+, .front .view-display-id-news_listing
+, .front .view-display-id-upcoming_events
+, .front .view-syndicated-events
+, .front .view-openacademy-events {
+  .views-field-title {
+    padding-left: 120px;
+    // or should this be 140px? -Kevin
+    // font-size: $font-13-on-base-14; // removed because it was making fonts 12px due to doubling calc'd em's -Kevin 08/26/2014
+    a {
+      color: $primary-text;
+    }
+  }
+  .views-field-created
+  , .views-field-field-event-date
+  , .views-field-field-event-date-1
+  , .views-field-field-event-date-2
+  , .views-field-field-media-publish-date
+  , .views-field-field-event-sort-date
+  , .views-field-field-event-datetime
+  , .views-field-field-article-date {
+    @include news_date;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+/******************************************************************************
+   Featured News article
+   */
+
+.view-display-id-featured_news {
+  h2 {
+    margin: .1em 0 .1em 0;
+  }
+  .submitted {
+    // should this be news_date mixin instead? -K
+    color: $secondary-text;
+    font-size: .75em;
+    text-transform: uppercase;
+  }
+  .view .view-content .views-row {
+    margin: 0;
+    padding: 0;
+  }
+  @media only screen and (min-width: 481px) {
+    .views-field-title {
+      position: relative;
+      top: -8px;
+    }
+    .field-name-field-image-credit {
+      position: relative;
+      // for pharmacy
+
+    }
+    .views_field_featured_image_credit {
+      position: absolute;
+      // for syndicated
+
+    }
+    .views_field_featured_image_credit
+    , .field-name-field-image-credit {
+      display: block;
+      bottom: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+  .views_field_featured_image_credit
+  , .field-name-field-image-credit {
+    color: $secondary-text;
+    a {
+      color: $secondary-text;
+    }
+  }
+}
+
+#panels-ipe-display-panel-context-page-openacademy-news-page-openacademy-news-panel-context .brenham-flipped-container {
+  margin-bottom: 0;
+}
+
+.views-field-nothing-1 {
+  float: left;
+  margin-right: 20px;
+  img {
+    margin-bottom: 10px;
+    border: 1px solid $secondary-border;
+  }
+}
+
+// News archvie
+
+.pane-views-panes .view-archive-of-news ul {
+  width: 100%;
+  overflow: hidden;
+  // padding-left: 1.5em; removed becuase it no longer works w/ new bullet style -- Kevin 09/08/2014
+  margin-left: 0;
+}
+
+.pane-views-panes .view-archive-of-news li {
+  width: 7.714285714em;
+  float: left;
+  display: inline;
+}
+
+/******************************************************************************
+   People Page :  basic structure.
+   */
+
+.node-type-ucsf-person .pane-content .view .view-content .views-row {
+  padding-bottom: 0;
+  // replacing what was commented out before 08/20/2014 in _styles.scss:750 because it was overriding default styles for lists everywhere. -K
+}
+
+.pane-ucsf-person-profile-panel-pane-10
+, #panels-ipe-paneid-1406 {
+  margin-bottom: 0;
+}
+
+.view-id-ucsf_person_profile {
+  .views-field-nothing
+  , .views-field-field-research-area
+  , .views-field-field-licensure-and-certificatio {
+    margin-bottom: 1em;
+  }
+}
+
+#panels-ipe-paneid-1116 {
+  margin-top: 0;
+}
+
+.view-people {
+  .view-content {
+    table.views-table {
+      tr {
+        position: relative;
+        min-height: 110px;
+        h2, h3 {
+          margin-top: 0;
+        }
+        td:first-child {
+          width: 140px;
+        }
+      }
+      .views-field {
+        word-break: break-word;
+      }
+      .views-field-field-person-headshot-photo {
+        max-width: 150px;
+      }
+      .views-field-nothing {
+        width: auto;
+      }
+      .views-field-field-research-area-1
+      ,.views-field-field-person-clinical-expertise-1
+      {
+        width: 23%;
+      }
+      .views-field-nothing
+      ,.views-field-field-research-area-1
+      {
+        padding-right: 2em;
+      }
+      @media only screen and (max-width: 786px) {
+        .views-field-field-research-area-1
+        , .views-field-field-person-research-area-1
+        , .views-field-field-person-clinical-expertise-1
+        , .views-field-field-person-clinical-experise-1 {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(small) {
+  .view-people .view-content .views-row {
+    .views-field-field-person-primary-dept-unit {
+      width: 60%;
+    }
+    .views-field-field-person-dept-expertise,
+    .views-field-field-person-clinical-expertise {
+      display: none;
+    }
+  }
+}
+
+
+/*****************************************************************************
+  Hero and Spotlight
+  */
+
+.flex-nav-container {
+  float: left;
+  position: relative;
+  width: 100%;
+  // for IE?
+  max-width: 940px;
+  margin-bottom: 2em;
+  // overflow: hidden;
+  // overflow-x: hidden;
+  // -ms-overflow-style: none;
+  // hide scrollbars in IE 10+
+  ul.slides li {
+    display: none;
+    background: none;
+    &:first-child {
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: $device-width-landscape + 1) {
+    // (>=640px)
+    @include shadowright;
+    .flexslider {
+      background: #fff;
+      border: none;
+      position: relative;
+      // @include border-radius(0);
+      // zoom: 1;
+      // width: 100%;
+      // max-width: 940px;
+      .slides > li {
+        /* fun */
+        // Scrollbars show in IE
+        position: initial;
+        .flex-image-wrap {
+          // @include shadowright; -- was being added 2x
+          overflow: auto;
+          // need to put in other media queries?
+          overflow-x: hidden;
+          -ms-overflow-style: none;
+        }
+      }
+      // @media screen and (min-width: 0\0) {
+      // .slides > li {
+      // IE9 and IE10 rule sets go here, in this hack
+      // overflow: auto;
+      // overflow-x: hidden;
+      // -ms-overflow-style: none;
+      // text-overflow: clip;
+      // }
+      // }
+
+    }
+    // add crazy overlay
+    // .flexslider:before {
+    //  content: "";
+    //  width: 100%; // 35%;
+    //  height: 100%;
+    //  position: absolute;
+    //  top: 0;
+    //  left: 0;
+    //  background: $flare-spotlight-patch; // school_hero_overlay.png
+    // }
+    .flexslider:after {
+      content: "";
+      width: 360px;
+      // 35%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: $flare-spotlight;
+      // school_hero_overlay.png
+
+    }
+    //      .slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+    .flex-direction-nav {
+      display: none;
+    }
+    ol.flex-control-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      // background:rgba(128, 128, 255, .5) url('../images/flare-spotlight.png') no-repeat -12em -10em;
+      width: 50%;
+      text-align: left;
+      padding: 0 0 10px 30px;
+      z-index: 16;
+      li {
+        margin: 0 0 0 5px !important;
+        a {
+          width: 18px;
+          height: 29px;
+          background: transparent url("../images/bullets.png") no-repeat 7px 7px;
+          &.active {
+            background-position: -22px 7px;
+          }
+        }
+      }
+    }
+    .flex-caption {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 275px;
+      background: transparent;
+      font-size: 19px;
+      line-height: 1.5em;
+      text-shadow: none;
+      padding: 30px 0 0 35px;
+      z-index: 15;
+      font-family: $specialty-font;
+      overflow: hidden;
+      // So on preview, it's clear where text ends.
+      a {
+        font-family: $base-font;
+        font-weight: bold;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+// bucket solution for dancing in mobile
+.flex-control-nav li {margin-bottom: 0 !important;}
+
+// added because we now float the interior left, not cernter, and at this range it needs to be 100 or stuff wraps around on right. -K 08/25/2014
+div#flexslider_views_slideshow_main_nodequeue_1-subtle_spotlight {
+  width: 100%;
+  float: left;
+}
+
+.view-display-id-subtle_spotlight
+, .view-display-id-panel_pane_4 {
+  .flex-nav-container {
+    @extend .clearafter-fix !optional;
+    margin-bottom: 2em;
+    @media screen and (min-width: $device-width-landscape + 1) {
+      @include shadowright;
+      // add crazy overlay
+      .flexslider:after {
+        background: $flare-subtle-spotlight;
+        width: 100%;
+      }
+      ol.flex-control-nav {
+        width: 155px;
+        // when there are more than 7 dots, should wrap. -K 08/25/2014
+        left: 15px;
+        right: auto;
+        text-align: left;
+        padding: 0 0 20px 0;
+        li {
+          margin: 0 0 0 5px !important;
+          a {
+            background: transparent url("../images/bullets.png") no-repeat 5px -50px;
+            height: 17px;
+            overflow: hidden;
+            text-indent: 100%;
+            width: 17px;
+            &.active {
+              background-position: -25px -50px;
+            }
+          }
+        }
+      }
+      .flex-caption {
+        background: none;
+        color: #264820;
+        font-family: $base-font;
+        font-size: 12px;
+        left: 0;
+        line-height: 17px;
+        padding: 45px 0 0 25px;
+        // https://app.asana.com/0/2271687128880/15744940102764
+        position: absolute;
+        text-shadow: none;
+        top: 0;
+        width: 155px;
+        max-height: 250px;
+        overflow: hidden;
+        z-index: 15;
+        strong {
+          display: block;
+          color: #FFF;
+          font-family: $specialty-font;
+          font-size: 16px;
+          line-height: 21px;
+          font-weight: normal;
+          // Comp/PSD has this not bold.
+          margin-bottom: -22px;
+          // Due to <br>s we make this block and subtract the margin to pull it up... K 08/25/2014
+
+        }
+        a {
+          font-size: 10px;
+        }
+      }
+    }
+    @include breakpoint(landscape) {
+
+      .flex-caption {
+        position: static;
+        width: 274px;
+        margin: 0 auto;
+      }
+
+    }
+  }
+}
+
+.views_slideshow_main:after {
+  @extend .clearafter-fix !optional;
+}
+
+.view-nodequeue-1 {
+  .flexslider-views-slideshow-main-frame-row {
+    height: auto;
+  }
+  div.slidercaption {
+    float: right;
+    position: relative;
+    bottom: -1px;
+    right: 3px;
+    color: #999;
+    height: 0;
+    @include opacity(0.5);
+  }
+  div.slidercaption a {
+    color: #999;
+  }
+  &.view-display-id-subtle_spotlight
+  , &.view-display-id-panel_pane_4 {
+    .flex-nav-container {
+      max-width: 450px;
+      // overflow-y: hidden; // to allow the image to center while hiding the right portion when responsive?
+
+    }
+    @media screen and (min-width: 801px) and (max-width: 870px) {
+      .flexslider {
+        zoom: .875;
+        /* test */
+      }
+    }
+    img {
+      // float: right;
+      position: relative;
+      left: 176px;
+      // fallback for calc()
+      left: calc(100% - (100% / 450) * 273);
+      // (current size of div / ratio of the current size to the known size * number to move the image over
+
+    }
+  }
+  // Hero Slider breakpoints
+  &.view-display-id-panel_pane_3
+  , &.view-display-id-panel_pane_1 {
+    // welcome to breakpoint city!
+    @media screen and (min-width: 851px) and (max-width: 870px) {
+      .flex-nav-container {
+        zoom: 0.926;
+        @media screen and (min-width: 0\0) {
+          width: 108.04598%;
+        }
+        // (870px / 940px)
+
+      }
+    }
+    @media screen and (min-width: 801px) and (max-width: 850px) {
+      .flex-nav-container {
+        zoom: 0.904;
+        @media screen and (min-width: 0\0) {
+          width: 110.58824%;
+        }
+        // (850px / 940px)
+
+      }
+    }
+    @media screen and (min-width: 751px) and (max-width: 800px) {
+      .flex-nav-container {
+        zoom: 0.851;
+        @media screen and (min-width: 0\0) {
+          width: 117.499999971%;
+        }
+        // (800px / 940px)
+
+      }
+    }
+    @media screen and (min-width: 701px) and (max-width: 750px) {
+      .flex-nav-container {
+        zoom: 0.798;
+        @media screen and (min-width: 0\0) {
+          width: 125.3333334%;
+        }
+        // (750px / 940px)
+
+      }
+    }
+    @media screen and (min-width: 641px) and (max-width: 700px) {
+      // <=640 we'll show mobile version
+      .flex-nav-container {
+        zoom: 0.745;
+        @media screen and (min-width: 0\0) {
+          width: 134.285714297%;
+        }
+        // (700px / 940px)
+
+      }
+    }
+    @media screen and (min-width: 641px) {
+      .flexslider-views-slideshow-main-frame-row img {
+        max-width: none;
+        position: relative;
+        float: right;
+        // for smaller images, we want them to apper to the right, under the overlay.
+        right: calc(50% - 470px);
+      }
+      .flexslider {
+        // overflow: auto;
+        // overflow-x: hidden;
+        // -ms-overflow-style: none; // hide scrollbars in IE 10+
+
+      }
+      .flex-caption {
+        height: 64%;
+        /* this needs to be a image mask or something similar
+        HTML5 to wrap the text into the shape.
+        pharmd does not use, the other 4 sites all have different
+        are so you may need to put stuff in each subtheme. */
+        overflow: hidden;
+      }
+    }
+    @include breakpoint(landscape) {
+      .flex-caption {
+        font-family: $specialty-font;
+        font-size: 19px;
+        line-height: 28.5px;
+        padding: .5em .75em;
+      }
+    }
+  }
+}
+
+@include breakpoint(landscape) {
+  // (<=640px)
+  .flex-nav-container {
+    margin-bottom: 0;
+    .flex-direction-nav {
+      display: none; // see http://tinyurl.com/lt7xavo
+      li {
+        .next {
+          right: 0;
+        }
+        .prev {
+          left: 0;
+        }
+        a {
+          top: 140px;
+        }
+      }
+    }
+    .flex-control-nav {
+      position: static;
+      background: none;
+      width: 100%;
+    }
+    max-width: 100% !important;
+    .flexslider img {
+      // width: 100%;
+      // for smaller images
+      left: auto;
+      float: none !important;
+      // increase spec.?
+      margin: 0 auto !important;
+    }
+    .slidercaption {
+      display: none;
+    }
+    .flex-caption {
+      width: 100%;
+      position: static;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      background: #a3b638;
+      color: #fff;
+      text-shadow: none;
+      strong {
+        display: block;
+        margin-bottom: -22px;
+        font-weight: normal;
+        font-family: $specialty-font;
+        color: #fff;
+        font-size: 17px;
+        line-height: 21px;
+        text-shadow: none;
+      }
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 10px;
+        text-shadow: none;
+        font-family: $base-font;
+        &:hover
+        , &:active {
+          text-decoration: underline;
+        }
+      }
+    }
+    // See PC theme for .flex-caption {background: rgba(103,152,200,1)}
+    // See BTS theme for .flex-caption {background: rgba(222,180,8,1)}
+    // See CP theme for .flex-caption {background: rgba(116,115,169,1)}
+
+  }
+}
+
+
+@include breakpoint(maxdesktop) {
+  // (<=1030px)
+}
+
+
+/****************************************************************************
+ News Related Profiles
+ */
+
+.view-display-id-news_related_profiles_pane {
+  .view-content {}
+  .relatedprofile {
+    display: inline-block;
+    max-width: 140px;
+    margin-bottom: 1em;
+    vertical-align: top;
+  }
+  .relatedprofile img {
+    width: 100%;
+  }
+}
+
+.view-empty {
+  margin-top: 1em;
+}
+/****************************************************************************
+ Update from the Dean pane
+ */
+
+.view-openacademy-news.view-display-id-panel_pane_uftd {
+  .field-content {
+    display: block;
+    margin-top: 1em;
+  }
+  .more-link {
+    display:block;
+  }
+}
+

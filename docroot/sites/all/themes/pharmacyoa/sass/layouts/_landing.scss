@@ -1,0 +1,62 @@
+/**
+ * @file
+ * Landing Page panel layout
+**/
+
+.landing-container{
+  margin-bottom:1em;
+}
+
+.landing-content{
+  min-height:1px;
+  width: 70%;
+  float:left;
+}
+  .landing-content-inner{
+    margin-right:30px;
+    padding-right:30px;
+    border-right:2px dotted #d9d9d9;
+  }
+
+.landing-sidebar{
+  min-height:1px;
+  width:30%;
+  float:left;
+}
+
+/* this would replace all the stuff below to make behavior consistent */
+@include breakpoint(medium) {
+  .landing-sidebar,
+  .landing-content{
+    width:100%;
+    float:none;
+    border:0;
+  }
+
+  .landing-content-inner{
+    margin-right:0;
+  }
+}
+/*
+@media only screen and (max-width:900px){
+  .landing-content{
+    width:calc( 60% - 32px );
+  }
+  .landing-sidebar{
+    width:40%;
+  }
+}
+@media only screen and (max-width:700px){
+}
+@media only screen and (max-width:600px){
+  .landing-sidebar,
+  .landing-content{
+    width:100%;
+    float:none;
+    border:0;
+  }
+
+  .landing-content-inner{
+    margin-right:0;
+  }
+}*/

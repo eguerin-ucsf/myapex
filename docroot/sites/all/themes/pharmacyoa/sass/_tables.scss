@@ -1,0 +1,152 @@
+$table-header:        transparent;
+$table-header-text:   #999;     // hsv = 0 0 60
+$table-row-odd:       #f4f4f4;  // hsv = 0 0 96
+$table-row-even:      #e5e5e5;  // hsv = 0 0 90
+table{
+  width:100%;
+
+  thead{
+    text-transform:uppercase;
+    tr{
+      background:$table-header;
+      th,td{ color:$table-header-text;}
+    }
+    th,td{
+      padding:2px 4px;
+      border:1px solid $secondary-border;
+      border-width:0 0 1px 0;
+//      font-weight:bold;
+    }
+  }
+  th,td{
+    padding:4px;
+    vertical-align:top;
+//    font-size:$font-13-on-base-14;
+  }
+  th{
+    background-color:rgba(255,255,255,.6); // 60% white, translucent
+  }
+  th:last-child{
+//    padding-right:0;
+  }
+  tr.odd{ background:$table-row-odd;}
+  tr.even{ background:$table-row-even;}
+}
+table.contact{
+  width:auto;
+}
+table.cols-2-50-50{
+  td{
+    width:50%;
+  }
+}
+table.cols-3-33-33-33{
+  td{
+    width:33.333333333333333333333%;
+  }
+}
+table.cols-4-16-28-28-28{
+  td{
+    width:28%;
+  }
+  td:nth-child(1){
+    width:16%;
+  }
+}
+table.cols-4-25-25-25-25{
+  td{
+    width:25%;
+  }
+}
+table.maps{ // for http://local.dev.pharmacy.ucsf.edu:8082/maps
+  td:nth-child(1),td:nth-child(4){
+    width:46%;
+  }
+  td:nth-child(2),td:nth-child(5){
+    width:100px;
+  }
+  td:nth-child(3){
+    min-width:40px;
+  }
+}
+table.min-width-72px-in-col-1{ //for images, example: local.dev.pharmd.ucsf.edu:8082/about/students/profiles
+  th:first-child,td:first-child{
+    min-width: 72px;
+  }
+}
+table.width-25-percent-in-col-1{ // e.g., https://preview-pharmd.ucsf.edu/admissions/deadlines/2014 and https://preview-pharmd.ucsf.edu/admissions/deadlines/2015
+  th:first-child,td:first-child{
+    width: 25%;
+  }
+}
+table.min-width-125px-in-col-2{ //for images, example: http://local.dev.pharmd.ucsf.edu:8082/admissions/ecap/how-it-works
+  th:nth-child(2),td:nth-child(2){
+    min-width: 125px;
+  }
+}
+table.width-25-percent-in-col-2{ // e.g., https://preview-pharmd.ucsf.edu/admissions/requirements/academic/verify/ap or http://local.dev.pharmd.ucsf.edu:8082/admissions/reqs/academic/verify/ap
+  th:nth-child(2),td:nth-child(2){
+    width: 25%;
+  }
+}
+table.width-25-percent-in-col-3{ // e.g., https://preview-pharmd.ucsf.edu/tech/security/accounts/list 
+  th:nth-child(3),td:nth-child(3){
+    width: 25%;
+  }
+}
+table.width-50-percent-in-col-3{ // e.g., https://preview-pharmd.ucsf.edu/admissions/requirements/academic/verify/ap or http://local.dev.pharmd.ucsf.edu:8082/admissions/reqs/academic/verify/ap
+  th:nth-child(3),td:nth-child(3){
+    width: 50%;
+  }
+}
+table.width-25-percent-in-col-4{ // e.g., https://preview-pharmd.ucsf.edu/tech/security/accounts/list
+  th:nth-child(4),td:nth-child(4){
+    width: 25%;
+  }
+}
+table.calendar-thin{
+  th:first-child,td:first-child{
+    min-width: 5em;
+  }
+}
+table.calendar-academic{
+  td{
+    width:40%;
+  }
+}
+table.conferences{
+  td:first-child,td:nth-child(2){
+    min-width: 10em;
+  }
+  td:nth-child(3){
+    min-width: 15em;
+  }
+}
+li table{
+  margin:.5em auto;
+  th,td{
+    font-size:inherit;
+  }
+}
+.content
+,.view-content{
+  th p,td p,th li,td li{
+    font-size:inherit;
+  }
+  th .emphatic,td .emphatic{
+    font-size:19px;
+    font-size: $font-18-on-base-13;
+    border:0;
+    margin:0;
+  }
+  th .emphatic:first-child,td .emphatic:first-child{
+    padding-top:0;
+  }
+}
+#panels-ipe-paneid-185
+,#panels-ipe-paneid-636
+{
+  table.contact{
+    width:auto;
+  }
+}

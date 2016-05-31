@@ -1,0 +1,134 @@
+<?php
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ */
+function meded_install() {
+  // Enable some standard blocks.
+  $default_theme = 'meded_portal';
+  $admin_theme = 'bartik';
+  $values = array(
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => 'meded_subsite',
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'help',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'help',
+      'pages' => '',
+      'cache' => -1,
+    ),
+  );
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
+  foreach ($values as $record) {
+    $query->values($record);
+  }
+  $query->execute();
+
+  // Enable user picture support and set the default to a square thumbnail option.
+  variable_set('user_pictures', '1');
+  variable_set('user_picture_dimensions', '1024x1024');
+  variable_set('user_picture_file_size', '800');
+  variable_set('user_picture_style', 'thumbnail');
+
+  // Allow visitor account creation, but with administrative approval.
+  variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
+
+  // Set default frontpage to the 'home' panels page
+  variable_set('site_frontpage', 'home');
+
+  // // TODO: Move this to features.
+  // // Create a default vocabulary named "Tags", enabled for the 'article' content type.
+  // $description = st('Use tags to group articles on similar topics into categories.');
+  // $help = st('Enter a comma-separated list of words to describe your content.');
+  // $vocabulary = (object) array(
+  //   'name' => st('Tags'),
+  //   'description' => $description,
+  //   'machine_name' => 'tags',
+  //   'help' => $help,
+  // );
+  // taxonomy_vocabulary_save($vocabulary);
+
+  // Enable default permissions for system roles.
+  // $filtered_html_permission = filter_permission_name($filtered_html_format);
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', 'post comments', 'search content', 'sign up for content'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'access user profiles', 'post comments', 'skip comment approval', 'search content', 'sign up for content', 'cancel own signups',));
+
+  // Create a default role for site administrators, with all available permissions assigned.
+  $admin_role = new stdClass();
+  $admin_role->name = 'administrator';
+  $admin_role->weight = 10;
+  user_role_save($admin_role);
+  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
+  // Set this as the administrator role.
+  variable_set('user_admin_role', $admin_role->rid);
+
+  // Assign user 1 the "administrator" role.
+  db_insert('users_roles')
+    ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
+    ->execute();
+
+  // Create a Home link in the main menu.
+  $item = array(
+    'link_title' => st('Home'),
+    'link_path' => '<front>',
+    'menu_name' => 'main-menu',
+  );
+  menu_link_save($item);
+
+  // Update the menu router information.
+  menu_rebuild();
+
+  // Enable themes this site needs
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', array($admin_theme, 'meded_base', 'meded_portal', 'meded_subsite'), 'IN')
+    ->execute();
+
+  // Set the default thene and the admin theme.
+  variable_set('theme_default', $default_theme);
+  variable_set('admin_theme', $admin_theme);
+  variable_set('node_admin_theme', '1');
+
+  // Default pathauto for nodes should use the subsite prefix
+  variable_set('pathauto_node_pattern', '[node:subsite-name]/[node:title]');
+
+  // Date formats and types
+  db_insert('date_format_type')
+    ->fields(array('type' => 'upcoming_events', 'title' => 'Upcoming Events', 'locked' => 0))
+    ->execute();
+  $formats = array(
+    'medium' => 'F d, o',
+    'upcoming_events' => 'j F g:ia'
+  );
+  foreach ($formats as $type => $format) {
+    db_insert('date_formats')
+      ->fields(array('format' => $format, 'type' => 'custom', 'locked' => 0))
+      ->execute();
+
+    variable_set('date_format_' . $type, $format);
+  }
+}

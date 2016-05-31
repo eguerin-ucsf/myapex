@@ -1,0 +1,339 @@
+@media screen and (max-width: 480px) {
+    .file-entity-two-thirds
+    ,.file-entity-square-two-thirds
+    ,.media-square-two-thirds
+    ,.media-two-thirds
+    {width:100%;}
+    .file-entity-three-quarters
+    ,.file-entity-square-three-quarters
+    ,.media-square-three-quarters
+    ,.media-three-quarters
+    {width:100%;}
+    .file-entity-half
+    ,.file-entity-square-half
+    ,.media-square-half
+    ,.media-half
+    {width:100%;}
+    .file-entity-third
+    ,.file-entity-square-third
+    ,.media-square-third
+    ,.media-third
+    {width:100%;}
+    .file-entity-quarter
+    ,.file-entity-square-quarter
+    ,.media-square-quarter
+    ,.media-quarter
+    {width:50%;}
+    .file-entity-sixth
+    ,.file-entity-square-sixth
+    ,.media-square-sixth
+    ,.media-sixth
+    {width:25%;min-width: 140px;}
+    table .media-element-container
+    {width:auto;}
+
+}
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  /*
+   * at this size, all of our panels layouts are effectively single column
+   */
+  .file-entity-full,
+  .file-entity-square-full,
+  .media-square-full,
+  .media-full {width:100%;}
+  .file-entity-three-quarters,
+  .file-entity-square-three-quarters,
+  .media-square-three-quarters,
+  .media-three-quarters {width:75%;}
+  .file-entity-twothirds,
+  .file-entity-square-twothirds,
+  .media-square-twothirds,
+  .media-twothirds {width:66.6666666666667%;}
+  .file-entity-half,
+  .file-entity-square-half,
+  .media-square-half,
+  .media-half {width:50%;}
+  .file-entity-third,
+  .file-entity-square-third,
+  .media-square-third,
+  .media-third {width:33.3333333333333%;}
+  .file-entity-quarter,
+  .file-entity-square-quarter,
+  .media-square-quarter,
+  .media-quarter {width:25%;}
+  .file-entity-sixth,
+  .file-entity-square-sixth,
+  .media-square-sixth,
+  .media-sixth {width:16.6666666666667%;min-width: 140px;}
+    table .media-element-container
+    {width:auto;}
+}
+
+@media screen and (min-width: 801px) {
+
+  /**
+   * 3/4
+   */
+  .bryant-content,
+  .bryant-flipped-content
+  {
+    .file-entity-three-quarters
+    ,.file-entity-square-three-quarters
+    ,.media-square-three-quarters
+    ,.media-three-quarters
+    {width:100%;}
+    .file-entity-two-thirds
+    ,.file-entity-square-two-thirds
+    ,.media-square-two-thirds
+    ,.media-two-thirds
+    {width:88.8888888888889%;}
+    .file-entity-half
+    ,.file-entity-square-half
+    ,.media-square-half
+    ,.media-half
+    {width:66.6666666666667%;}
+    .file-entity-third
+    ,.file-entity-square-third
+    ,.media-square-third
+    ,.media-third
+    {width:44.4444444444444%;}
+    .file-entity-quarter
+    ,.file-entity-square-quarter
+    ,.media-square-quarter
+    ,.media-quarter
+    {width:33.3333333333333%;}
+    .file-entity-sixth
+    ,.file-entity-square-sixth
+    ,.media-square-sixth
+    ,.media-sixth
+    {width:22.2222222222222%;}
+    table .media-element-container
+    {width:auto;}
+
+  }
+
+  /**
+   * 2/3
+   */
+  .bartlett-content-header,
+  .bartlett-flipped-content-header,
+  .brenham-content,
+  .brenham-flipped-content,
+  .brown-slider,
+  .burr-content,
+  .burr-flipped-content,
+  .hewston-slider,
+  .hewston-flipped-slider,
+  .moscone-content,
+  .moscone-flipped-content,
+  .selby-content-header,
+  .selby-content-footer,
+  .selby-flipped-content-header,
+  .selby-flipped-content-footer,
+  .webb-content-header,
+  .webb-flipped-content-header
+  {
+    .file-entity-three-quarters
+    ,.file-entity-square-three-quarters
+    ,.media-square-three-quarters
+    ,.media-three-quarters
+    {width:100%;}
+    .file-entity-two-thirds
+    ,.file-entity-square-two-thirds
+    ,.media-square-two-thirds
+    ,.media-two-thirds
+    {width:100%;}
+    .file-entity-half
+    ,.file-entity-square-half
+    ,.media-square-half
+    ,.media-half
+    {width:75%;}
+    .file-entity-third
+    ,.file-entity-square-third
+    ,.media-square-third
+    ,.media-third
+    {width:50%;}
+    .file-entity-quarter
+    ,.file-entity-square-quarter
+    ,.media-square-quarter
+    ,.media-quarter
+    {width:37.5%;}
+    .file-entity-sixth
+    ,.file-entity-square-sixth
+    ,.media-square-sixth
+    ,.media-sixth
+    {width:25%;}
+    table .media-element-container
+    {width:auto;}
+  }
+
+  /**
+   * 1/2
+   */
+  .harris-content,
+  .phelan-container,
+  .sanderson-column-content-row1,
+  .sanderson-flipped-column-content-row2,
+  .sutro-column-content,
+  .sutro-double-column-content,
+  .taylor-half,
+  .taylor-flipped-half,
+  .whelan-content
+  {
+    .file-entity-three-quarters
+    ,.file-entity-square-three-quarters
+    ,.media-square-three-quarters
+    ,.media-three-quarters
+    {width:100%;}
+    .file-entity-two-thirds
+    ,.file-entity-square-two-thirds
+    ,.media-square-two-thirds
+    ,.media-two-thirds
+    {width:100%;}
+    .file-entity-half
+    ,.file-entity-square-half
+    ,.media-square-half
+    ,.media-half
+    {width:100%;}
+    .file-entity-third
+    ,.file-entity-square-third
+    ,.media-square-third
+    ,.media-third
+    {width:66.6666666666667%;}
+    .file-entity-quarter
+    ,.file-entity-square-quarter
+    ,.media-square-quarter
+    ,.media-quarter
+    {width:50%;}
+    .file-entity-sixth
+    ,.file-entity-square-sixth
+    ,.media-square-sixth
+    ,.media-sixth
+    {width:33.3333333333333%;}
+    table .media-element-container
+    {width:auto;}
+  }
+
+  /**
+   * 1/3
+   */
+  .bartlett-sidebar,
+  .bartlett-column-content-region,
+  .bartlett-sidebar,
+  .bartlett-flipped-content-region,
+  .brenham-sidebar,
+  .brenham-flipped-sidebar,
+  .brown-middle,
+  .brown-footer,
+  .brown-slider-gutter,
+  .burr-sidebar,
+  .burr-flipped-sidebar,
+  .geary-column-content,
+  .hewston-middle,
+  .hewston-slider-gutter,
+  .hewston-flipped-middle,
+  .hewston-flipped-slider-gutter,
+  .mccoppin-container,
+  .moscone-sidebar,
+  .moscone-flipped-sidebar,
+  .pond-column-content-row1,
+  .pond-column-content-row2,
+  .sanderson-column-content-row2,
+  .sanderson-flipped-column-content-row1,
+  .selby-sidebar,
+  .selby-content-column1,
+  .selby-content-column2,
+  .selby-flipped-sidebar,
+  .selby-flipped-content-column1,
+  .selby-flipped-content-column2,
+  .webb-sidebar,
+  .webb-content-container-column-container,
+  .webb-flipped-sidebar,
+  .webb-flipped-content-container-column-container
+  {
+    .file-entity-three-quarters
+    ,.file-entity-square-three-quarters
+    ,.media-square-three-quarters
+    ,.media-three-quarters
+    {width:100%;}
+    .file-entity-two-thirds
+    ,.file-entity-square-two-thirds
+    ,.media-square-two-thirds
+    ,.media-two-thirds
+    {width:100%;}
+    .file-entity-half
+    ,.file-entity-square-half
+    ,.media-square-half
+    ,.media-half
+    {width:100%;}
+    .file-entity-third
+    ,.file-entity-square-third
+    ,.media-square-third
+    ,.media-third
+    {width:100%;}
+    .file-entity-quarter
+    ,.file-entity-square-quarter
+    ,.media-square-quarter
+    ,.media-quarter
+    {width:75%;}
+    .file-entity-sixth
+    ,.file-entity-square-sixth
+    ,.media-square-sixth
+    ,.media-sixth
+    {width:50%;}
+    table .media-element-container
+    {width:auto;}
+
+  }
+
+  /**
+   * 1/4
+   */
+  .bryant-sidebar,
+  .bryant-flipped-sidebar,
+  .harris-column1,
+  .harris-column2,
+  .rolph-quarter-content,
+  .taylor-quarter1,
+  .taylor-quarter2,
+  .taylor-flipped-quarter1,
+  .taylor-flipped-quarter2,
+  .whelan-column1,
+  .whelan-column2
+  {
+    .file-entity-three-quarters
+    ,.file-entity-square-three-quarters
+    ,.media-square-three-quarters
+    ,.media-three-quarters
+    {width:100%;}
+    .file-entity-two-thirds
+    ,.file-entity-square-two-thirds
+    ,.media-square-two-thirds
+    ,.media-two-thirds
+    {width:100%;}
+    .file-entity-half
+    ,.file-entity-square-half
+    ,.media-square-half
+    ,.media-half
+    {width:100%;}
+    .file-entity-third
+    ,.file-entity-square-third
+    ,.media-square-third
+    ,.media-third
+    {width:100%;}
+    .file-entity-quarter
+    ,.file-entity-square-quarter
+    ,.media-square-quarter
+    ,.media-quarter
+    {width:100%;}
+    .file-entity-sixth
+    ,.file-entity-square-sixth
+    ,.media-square-sixth
+    ,.media-sixth
+    {width:66.6666666666667%;}
+    table .media-element-container
+    {width:auto;}
+
+  }
+
+}

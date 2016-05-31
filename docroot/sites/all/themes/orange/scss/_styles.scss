@@ -1,0 +1,21 @@
+
+
+.footer-container footer .footer-socialmedias {
+
+	.footer-facebook,
+	.footer-googleplus,
+	.footer-twitter { background: url('../images/social-icons.png') no-repeat 0 0; }
+
+	.footer-facebook { background-position: -67px 0;}
+	.footer-googleplus { background-position: -134px 0;}
+	.footer-twitter { background-position: 0 0;}
+
+}
+
+.footer-container footer .footer-contact {
+	.footer-contact-address,
+	.footer-contact-phonefax { background: url('../images/contact-icons.png') no-repeat 0 0 ; }
+
+	.footer-contact-address { }
+	.footer-contact-phonefax { background-position: 0 -72px;}
+}

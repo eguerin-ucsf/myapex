@@ -1,0 +1,150 @@
+/******************************************************************************
+ * Page Media Queries
+ */
+@include breakpoint(small) {
+  // (<=480px)
+  #page {
+    width: 100%;
+    border: none;
+  }
+  #main {
+    padding: 0 20px;
+    background: $mobile-background;
+    #content {
+      background: #FFF;
+    }
+  }
+  // Counter padding on headers to sit flush.
+  body.front .sutro-header {
+    margin: 0 -20px;
+  }
+  // event node view
+  .node-type-openacademy-event {
+    #content-header {
+      padding: 2em 20px;
+    }
+  }
+  input[type='text']
+  , input[type='email'] {
+    width: 90%;
+  }
+  input[type='submit'], button {
+    width: auto;
+  }
+  .media-element-container.media-third.ucsf-images-wrapping-left:not(.media-sixth)
+  , .media-element-container.ucsf-images-wrapping-left:not(.media-sixth) {
+    padding-right: 0px;
+  }
+  .media-element-container.media-third.ucsf-images-wrapping-right:not(.media-sixth)
+  , .media-element-container.ucsf-images-wrapping-right:not(.media-sixth) {
+    padding-left: 0px;
+  }
+  .media-element-container.ucsf-images-wrapping-left:not(.media-sixth)
+  , .media-element-container.ucsf-images-wrapping-right:not(.media-sixth) {
+    float: none;
+    padding-bottom: 10px;
+  }
+  .paddingbottomnone .media-element-container.ucsf-images-wrapping-left
+  , .paddingbottomnone .media-element-container.ucsf-images-wrapping-right {
+    padding-bottom: 10px;
+  }
+  .media-element-container {
+    margin-top: 1em;
+  }
+  .pane-landingoverview div.wrapper {
+    background-size: 200%;
+    background-position: -100px 0;
+  }
+  .is-dept-pharmchem
+  , .is-dept-bts
+  , .is-dept-clinicalpharmacy
+  , .is-sop-secondary {
+    .pane-landingoverview div.wrapper {
+      padding: 2.2em 10% 2.5em;
+    }
+  }
+}
+
+
+// End 480px
+/*
+@media only screen and (max-width:600px) {
+  .media-element-container.media-sixth.ucsf-images-wrapping-left{
+    float:left;
+  }
+  .media-element-container.media-sixth.ucsf-images-wrapping-right{
+    float:right;
+  }
+  .file-entity-sixth
+  ,.file-entity-square-sixth
+  ,.media-square-sixth
+  ,.media-sixth{
+    width:30%;
+  }
+}
+*/
+@include breakpoint(medium) {
+  // (<=800px)
+  #page {
+    padding-bottom: 3em;
+  }
+  #content-area .quicktabs-wrapper .quicktabs-wrapper {
+    #quicktabs-container-people_department {
+      td {
+        //  set table cell padding
+        float: left;
+        padding: 1em 0 0 1em;
+      }
+      td.views-field-field-person-headshot-photo {}
+      td.views-field-nothing {
+        // this is the group of name, title, dept, and links
+
+      }
+      td.views-field-field-person-dept-expertise-1 {
+        // research area
+        clear: both;
+        width: 50%;
+        padding-bottom: .5em;
+      }
+      td.views-field-field-person-clinical-expertise-1 {
+        // clinical specialty
+        padding-bottom: .5em;
+      }
+    }
+  }
+  input[type='text']
+  , input[type='email'] {
+    width: 100%;
+  }
+  input[type='submit'], button {
+    width: auto;
+  }
+  .panel-panel {
+    margin-bottom: 1em;
+  }
+  .panel-panel:first-child {
+    //    margin-bottom:0;
+
+  }
+  .columns-3 {
+    column-count: 2;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+  }
+  .columns-4 {
+    column-count: 2;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+  }
+}
+
+
+@include breakpoint(maxdesktop) {
+  // ok to use this solution for any large-width tables
+  table.conferences
+  , table.maps {
+    th, td {
+      display: block;
+    }
+  }
+}

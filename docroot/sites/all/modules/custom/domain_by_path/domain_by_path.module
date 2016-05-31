@@ -1,0 +1,402 @@
+<?php
+
+/**
+ * @file
+ * Domain By Path module 
+ * 
+ * This module will allow a domain_access domain to be accessed via machine generated url
+ * 
+ */
+
+/**
+ * Implements hook_init
+ */
+function domain_by_path_init(){
+  // Keep track of the users domain
+  // If the domain changes flush admin menu cache
+  if(module_exists('admin_menu') && user_access('access administration menu') && variable_get('admin_menu_cache_server', TRUE)){
+    // Get the current domain and the last recorded domain
+    $_domain = domain_get_domain();
+    $domain_id = domain_by_path_last_domain();
+    // If they don't match, clear out the admin menu cache
+    if($_domain['domain_id'] != $domain_id){
+      global $user;
+      // Make sure the admin menu is loaded
+      module_load_include('module', 'admin_menu');
+      // actually flush the admin menu cache for the current user
+      admin_menu_flush_caches($user->uid);
+      // Reset the current domain
+      domain_by_path_last_domain(TRUE);
+    }
+  }
+}
+
+/**
+ * Get the last domain for this user and session
+ *   - Reset the cached value on if forced
+ * 
+ * @param Boolean $reset
+ * @return int
+ */
+function domain_by_path_last_domain($reset = FALSE) {
+  // Get the static variable if persisted
+  $domain_id = &drupal_static(__FUNCTION__);
+  // Grab the domain id from the drupal cache or reset it if forced
+  if (!isset($domain_id) || $reset === TRUE) {
+    global $user, $language;
+    // Build the Cache ID
+    $cid = __FUNCTION__.":{$user->uid}:".session_id().":{$language->language}";
+    if (($cache = cache_get($cid)) && $reset !== TRUE) {
+      // Just set the domain_id from cache
+      $domain_id = $cache->data;
+    }
+    else {
+      // Clear out previeous caches for this user
+      cache_clear_all(__FUNCTION__.":{$user->uid}", 'cache', TRUE);
+      // Set the domain_id to the current domain_id
+      $_domain = domain_get_domain();
+      $domain_id = $_domain['domain_id'];
+      // Cache the domain_id
+      cache_set($cid, $domain_id, 'cache');
+    }
+  }
+  return $domain_id;
+}
+
+/**
+ * Implements hook_domain_bootstrap_lookup().
+ */
+function domain_by_path_domain_bootstrap_lookup($domain) {
+  global $base_path;
+
+  // Strip out path arguments
+  $uri = preg_replace('/\?.*$/', '', request_uri());
+
+  // Strip out the base path from the uri
+  // $request = substr($full_uri,strpos($full_uri,$base_path)+strlen($base_path));
+  $request = (strlen($base_path) > 1 ) ? str_replace( $base_path, '', $uri ) : trim(trim($uri), '/') ; 
+  
+  $_path = explode('/', $request);
+  if (empty($_path[0])) {
+    return;
+  }
+  $path = $_path[0];
+  $path_cleaned = str_replace('_', '-', $path);
+  
+  // Path accessed by the machine name instead of the hyphenated alteration
+  // We should redirect instead allowing the access of the same data via multiple paths
+  if($path != $path_cleaned){
+    $uri = ncspp_get_full_url();
+    $str_pos = strpos($uri, $path);
+    $str_end = $str_pos + strlen($path);
+		$uri = substr($uri, 0, $str_pos) . $path_cleaned . substr($uri, $str_end);
+		header('Location: '. $uri, TRUE, 302);
+		exit(0);
+  }
+  $active = domain_by_path_check($path);
+  if ($active === FALSE) {
+    return;
+  }
+  $new_domain = domain_lookup($active);
+  //if ($new_domain != -1 && strpos($new_domain['subdomain'],$domain['subdomain'])===0) {
+  if ($new_domain != -1) {
+    $domain = $new_domain;
+    $domain['domain_by_path'] = $path;
+  }
+  return $domain;
+}
+
+function domain_by_path_check($path) {
+  $return = &drupal_static(__FUNCTION__);
+  if (empty($path)) {
+    return NULL;
+  }
+  if (isset($return[$path])) {
+    return $return[$path];
+  }
+  
+  $path = str_replace('-', '_', $path);
+  $sql = "SELECT `domain_id` FROM {domain} WHERE `machine_name` = :machine_name";
+  $return[$path] = db_query($sql, array(':machine_name' => $path))->fetchField();
+  
+  return $return[$path];
+}
+
+function ncspp_get_full_url()
+{
+    $s = empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on") ? "s" : "";
+    $sp = strtolower($_SERVER["SERVER_PROTOCOL"]);
+    $protocol = substr($sp, 0, strpos($sp, "/")) . $s;
+    $port = ($_SERVER["SERVER_PORT"] == "80") ? "" : (":".$_SERVER["SERVER_PORT"]);
+    return $protocol . "://" . $_SERVER['SERVER_NAME'] . $port . $_SERVER['REQUEST_URI'];
+}
+
+/**
+ * API wrapper callback for 7.x.2.
+ */
+function domain_by_path_domainload(&$domain) {
+  domain_by_path_domain_load($domain);
+}
+
+function domain_by_path_domain_load(&$domain) {
+  global $base_path, $base_url;
+  $paths = &drupal_static(__FUNCTION__);
+  if (!isset($paths)) {
+    $sql = "SELECT domain_id, machine_name FROM {domain}";
+    $result = db_query($sql)->FetchAll();
+    foreach ($result as $data) {
+      $paths[$data->domain_id][] = str_replace('_', '-', $data->machine_name);
+    }
+  }
+  if (isset($paths[$domain['domain_id']]) && !isset($domain['canonical_subdomain'])) {
+    $temp = $base_url;
+    $base_url = '';
+    $base = $paths[$domain['domain_id']][0];
+    $subdomain = explode('.', $domain['subdomain']);
+    foreach ($paths[$domain['domain_id']] as $path) {
+      if ($path == $subdomain[0]) {
+        $domain['domain_by_path'] = $path;
+        $domain['canonical_subdomain'] = $domain['subdomain'];
+        $domain['canonical_path'] = $domain['path'];
+        if (empty($base_path)) {
+          $domain['subdomain'] = str_replace($path . '.', '', $domain['subdomain']) . '/' . $path;
+          $domain['path'] = domain_get_path($domain);
+        }
+        else {
+          $domain['subdomain'] = str_replace($path . '.', '', $domain['subdomain']) . $base_path . $path . '/';
+          $domain['path'] = domain_get_path($domain);
+        }
+      }
+    }
+    $base_url = $temp;
+  }
+}
+
+/**
+ * Implements hook_domainupdate().
+ *
+ * When a {domain} entry is deleted also delete all related {domain_by_path} entries.
+ */
+function domain_by_path_domainupdate($op, $domain = array(), $form_state = array()) {
+//  switch ($op) {
+//    case 'delete':
+//    //@TODO remove any aliases from the alias table
+//      break;
+//  }
+}
+
+/**
+ * Ensure that destinations are set properly.
+ *
+ * This fixes a known issue with the search form.
+ * CNR that issue -- this code interferes with redirect problems...
+ */
+
+function domain_by_path_drupal_goto_alter(&$path, &$options, &$http_response_code) {
+  //external check could help when domain aspect of redicrect loop is resolved
+  if(!url_is_external($path)) {
+      $_domain = domain_get_domain();
+    if (isset($_domain['domain_by_path']) && empty($options['absolute'])) {
+      $path = $_domain['domain_by_path'] . '/' . $path;
+    }
+  }
+}
+/**
+ * Implements hook_domain_invalid_request
+ */
+function domain_by_path_domain_invalid_request($path, $_domain, $account) {
+  //if the invalid domain is a domain by path domain
+  if (isset($_domain['domain_by_path'])){
+    //get the installations base_url
+    global $base_url;
+    //make a note in the watchdog
+    watchdog('domain_by_path', 'Invalid domain requested by %user on %domain; redirected to %default.', array('%user' => isset($user->name) ? $user->name : variable_get('anonymous', t('Anonymous')), '%domain' => $_domain['sitename'], '%default' => $base_url), WATCHDOG_WARNING);
+
+    //and go back there instead
+    drupal_goto($base_url);
+  }
+  return FALSE;
+}
+
+/**
+ * Implements hook_url_inbound_alter().
+ *
+ * Map the incoming path to a domain path.
+ */
+function domain_by_path_url_inbound_alter(&$path, $original_path, $path_language) {
+  $_domain = domain_get_domain();
+  if (isset($_domain['domain_by_path'])) {
+    $_path = explode('/', $original_path);
+    if (empty($_path[0]) || $_path[0] != $_domain['domain_by_path']) {
+      return;
+    }
+    unset($_path[0]);
+    if (empty($_path)) {
+      $path = variable_get('site_frontpage', 'node');
+    }
+    else {
+      $path = implode('/', $_path);
+    }
+    if ($source = drupal_lookup_path('source', $path, $path_language)) {
+      $path = $source;
+    }
+    //added code to check for domain_path urls (EFD&GH 20130311)
+    else if (module_exists('domain_path')){
+      if ($source = domain_path_lookup_path('source', $path, NULL, $path_language)) {
+       $path = $source;
+     }
+    }
+  }
+}
+
+/**
+ * Implements hook_url_outbound_alter().
+ *
+ * Map the outbound path a domain path.
+ */
+function domain_by_path_url_outbound_alter(&$path, &$options, $original_path) {
+  // Get the base path
+  global $base_path;
+  
+  // Check to see if we are dealing with a full URI url() function checks this for us 
+  // and sets the external option
+  $full_url = $options['external'] == TRUE ? TRUE : FALSE;
+
+  // Exit if we are dealing with a truly external URI
+  // In other words, Don't modify external links
+  if ($full_url){
+    return;
+  }
+  
+  // @TODO Check for subdomains in full urls
+  
+  //We need to check to see if there are any alias's set for the link and deal with them now, 
+  //as url() will overwrite our changes with them otherwise.
+  $language = isset($options['language']) && isset($options['language']->language) ? $options['language']->language : '';
+  $alias = drupal_get_path_alias($original_path, $language);
+  if ($alias != $original_path) {
+    if(!empty($path)){
+      $path = $alias;      
+    }
+    $options['alias'] = TRUE;
+  }
+
+  // Try to modify internal links properly.
+  $domain = domain_get_domain();
+  if (!isset($domain['domain_by_path'])) {
+    $find = '/' . $base_path;
+    $path = str_replace($find, '/', $path);
+  }
+  elseif (!empty($options['absolute'])) {
+    $find = '/' . $base_path . $domain['domain_by_path'];
+    if (substr_count($path, $find) > 0) {
+      $path = str_replace($find, '', $path);
+    }
+    else {
+      $find = $base_path . $domain['domain_by_path'] .'/';
+      $path = str_replace($find, $base_path, $path);
+    }
+  }
+  else {
+    if (empty($path) || $path == '<front>' || $path == variable_get('site_frontpage', 'node')) {
+      $path = $domain['domain_by_path'];
+    }
+    else {
+      $path = $domain['domain_by_path'] . '/' . $path;
+    }
+  }
+
+  // Handle destination=foo.
+  if (isset($domain['domain_by_path']) && isset($options['query']['destination'])) {
+    $options['query']['destination'] = $domain['domain_by_path'] . '/' . $options['query']['destination'];
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_page().
+ * Add some variables with the default domain information
+ * @param string $variables
+ */
+function domain_by_path_preprocess_page(&$variables) {
+  // Get the current domain information
+  $_domain = domain_get_domain();
+  
+  // Check to see if domain by path variable is set
+  if(isset($_domain['domain_by_path'])){
+    
+    // Look up the info for the default domain
+    $_default_domain = domain_default();    
+
+    // Add an array to pass information to the theme layer
+    $variables['domain_by_path'] = array(
+        'default_domain_path'=>domain_get_path($_default_domain),
+        'default_domain_site_name'=>$_default_domain['sitename'],
+        ''=>'',
+    );        
+  }
+}
+
+/**
+* implimentation of hook_form_alter()
+*/
+function domain_by_path_form_domain_form_alter(&$form, &$form_state){
+  // Don't modifiy domain creation form @TODO add support for the auto creation 
+  // of the url in the creation for like the machine name
+//  if($form['#action'] == '/admin/structure/domain/create'){ 
+
+  //if the form is for a new domain (no id)
+  //todo?: this code would break if used for the master domain....
+  if (empty($form['#domain']['domain_id'])){
+    $form['stylefix']['#markup'] = '<style>.form-item-machine-name{display:block !important} #edit-subdomain-machine-name-suffix{display:none !important}</style>';
+    //pop the machine name down
+    $form['machine_name']['#machine_name']['standalone'] = TRUE;
+
+    //clarify the description where the key names are entered
+    $form['subdomain']['#description'] = 'Use the a format like <i>sitename.lab</i> or <i>sitename.micro</i><br>Must contain only dots, lowercase alphanumeric characters, and dashes.<br /><br /><strong>The machine name will become the path to the site</strong> (underscores=dashes).';
+    //don't display default here, the thing should already exist, right?
+    $form['is_default']['#type'] = 'hidden';
+    return; //don't do the other stuff
+  }
+  
+  // RE-order some things in order to have the domain path info in the right place
+  $form['subdomain']['#weight'] = '-3';
+  $form['sitename']['#weight'] = '-2';
+
+  $default_path_name = str_replace('_', '-', $form['machine_name']['#default_value']);
+  $form['domain_path_info'] = array(
+      '#weight'         => '-1',
+      '#markup'=>'
+          <div class="form-item" id="domain-path-info">
+            <label>Accessible by path </label> &nbsp; &nbsp;'
+              . $default_path_name .
+           '<div class="description">Your domain is accessible by the path provided. Path aliases are not supported.</div>
+          </div>
+',
+  );
+}
+
+/**
+ * Determine if a URL is really external to our installation.
+ *
+ * @param $path
+ *  The path being rewritten.
+ *
+ * @return
+ *  Boolean TRUE or FALSE.
+ */
+function domain_by_path_is_external($path) {
+  $list = &drupal_static(__FUNCTION__);
+  if (empty($list)) {
+    $domains = domain_domains();
+    foreach ($domains as $domain) {
+      $list[$domain['subdomain']] = $domain;
+    }
+  }
+  $parts = @parse_url($path);
+  $host = isset($parts['host']) ? strtolower($parts['host']) : '';
+  if (!isset($list[$host])) {
+    return TRUE;
+  }
+  return FALSE;
+}

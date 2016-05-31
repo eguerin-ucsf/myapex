@@ -1,0 +1,25 @@
+/* @license
+ * MyFonts Webfont Build ID 2371206, 2012-09-24T14:49:06-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: Bodoni Book Italic by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/atf-bodoni/bodoni-book-italic/
+ * Copyright: Copyright 1990-2003 Bitstream Inc. All rights reserved.
+ * Licensed pageviews: 300,000
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=2371206
+ * 
+ * © 2012 Bitstream Inc
+*/
+
+ 
+@font-face {
+  font-family: 'BodoniBT-Italic';
+  src: url("../webfonts/bodoni-italic/2500E7_0_0.eot");
+  src: url("../webfonts/bodoni-italic/2500E7_0_0.eot?#iefix") format("embedded-opentype"), url("../webfonts/bodoni-italic/2500E7_0_0.woff") format("woff"), url("../webfonts/bodoni-italic/2500E7_0_0.ttf") format("truetype"); }

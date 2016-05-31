@@ -1,0 +1,7 @@
+#ucsf-nav-wrapper, #header, #main-nav, #sidebar-first, #sidebar-second, .region-footer {
+	display:none;
+	}
+	
+#content-middle {
+	width:650px;
+	}

@@ -1,0 +1,47 @@
+<?php
+/**
+ *
+ * Eric Davila for UCSF and UCSF School of Pharmacy
+ *
+ */
+
+/**
+ *
+ * implments hook_url_outbound_alter
+ *
+ */
+function better_login_url_outbound_alter(&$path, &$options, $original_path){
+  //if the login or logout path is generated, add the current page destination info to the query string -- only when there is a blank "?destination=" provided
+
+  if ($path == "user/login" && isset($options['query']['destination']) && empty($options['query']['destination'])){
+    $options['query']['destination'] = _better_login_request_path();
+  }
+  elseif ($path == "user/logout" && isset($options['query']['destination']) && empty($options['query']['destination'])){
+    $options['query']['destination'] = _better_login_request_path();
+  }
+
+}
+
+//helper function for finding out appropriate return paths, including support for "domain_by_path"
+function _better_login_request_path(){
+
+  if (drupal_is_front_page()){
+    $request_path = "";
+  }
+  else {
+    $request_path = request_path();  	
+  }
+  if(module_exists('domain_by_path')){
+    global $_domain;
+    if(!empty($_domain['domain_by_path'])){
+      $request_arr = explode('/', request_path());
+      if (!empty($request_arr) && $request_arr[0] == $_domain['domain_by_path']) {
+      	unset($request_arr[0]);
+      	if (!empty($request_arr)) {
+      	  $request_path = implode('/', $request_arr);
+      	}
+      }
+    }
+  }
+  return $request_path;
+}

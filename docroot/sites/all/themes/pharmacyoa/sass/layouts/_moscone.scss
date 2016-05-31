@@ -1,0 +1,38 @@
+/**
+ * @file
+ * OA Moscone panel layout
+**/
+
+.moscone-container {
+//  margin-bottom:0;
+  margin-bottom:1em; // 2014.1021.1252 frankfarm - resolve too little space under images at http://local.dev.pharmd.ucsf.edu:8082/career-services by changing margin-bottom from 0 to 1em but i'm uncertain whether this is the best fix
+}
+
+.moscone-sidebar {
+  width: 34.043%;
+  float: left;
+}
+
+.moscone-sidebar-inner {
+  margin-right: 20px;
+}
+
+.moscone-content {
+  width: 65.957%;
+  float: left;
+}
+
+@include breakpoint(medium) {
+  .moscone-content,
+  .moscone-sidebar {
+    width: 100%;
+    float: none;
+  }
+  
+  .moscone-sidebar-inner {
+    margin-right: 0;
+  }
+  .moscone-container {
+    margin-bottom:0;
+  }
+}

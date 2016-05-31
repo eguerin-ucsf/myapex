@@ -1,0 +1,5 @@
+name = "Development for Pharmacy"
+description = "Generic test module for School of Pharmacy developers to test hooks and debug, School of Pharmacy use only, DO NOT use on production sites!!!"
+core = 7.x
+package = "Development"
+version = 7.x-Unstable

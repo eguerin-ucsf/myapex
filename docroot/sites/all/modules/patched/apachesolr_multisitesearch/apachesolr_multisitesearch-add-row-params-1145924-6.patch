@@ -1,0 +1,12 @@
+diff --git a/apachesolr_multisitesearch.index.inc b/apachesolr_multisitesearch.index.inc
+index d4ad666..4565b5a 100644
+--- a/apachesolr_multisitesearch.index.inc
++++ b/apachesolr_multisitesearch.index.inc
+@@ -67,6 +67,7 @@ function apachesolr_multisitesearch_retrieve_metadata() {
+     $solr = apachesolr_get_solr();
+     $params['qt'] = 'standard';
+     $params['fl'] = '*';
++    $params['rows'] = '1000';
+     $response = $solr->search('entity_type:multisite.meta', $params);
+     foreach ($response->response->docs as $doc) {
+       // Convert doc into a simple array.

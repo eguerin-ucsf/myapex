@@ -1,0 +1,6 @@
+name = "Webedit - additional settings for Pharmacy"
+description = "Additional hook-based webedit settings for school of pharmacy"
+core = 7.x
+package = "UCSF Pharmacy"
+version = 7.x-1.2
+dependencies[] = ucsf_webedit

@@ -1,0 +1,37 @@
+/**
+ * @file
+ * OA Pond panel layout
+**/
+
+.pond-container{
+  margin-bottom:0;
+}
+.pond-column3 .pond-column-inner{
+  margin-right:0;
+}
+/*
+.pond-column{
+  width:34.043%;
+  width:calc( 900px / 3 );
+  width:312px;
+  float:left;
+//  border:1px solid #ccc;
+}
+.pond-column-inner{
+//  margin-right:20px;
+}
+.pond-column3 .pond-column-inner{
+  margin-right:0;
+}
+@include breakpoint(medium){
+  .pond-column,
+  .pond-column3,
+  .pond-secondary-column3{
+    width:100%;
+    float:none;
+  }
+  .pond-column-inner {
+    margin-right:0;
+  }
+}
+*/

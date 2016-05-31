@@ -1,0 +1,181 @@
+.file-entity-element-container,
+.file-entity-square-element-container,
+.media-square-element-container,
+.media-element-container {
+  margin: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.file-entity-full,
+.file-entity-square-full,
+.media-square-full,
+.media-full {width:100%;}
+.file-entity-three-quarters,
+.file-entity-square-three-quarters,
+.media-square-three-quarters,
+.media-three-quarters {width:75%;}
+.file-entity-twothirds,
+.file-entity-square-twothirds,
+.media-square-twothirds,
+.media-twothirds {width:66.6666666666667%;}
+.file-entity-half,
+.file-entity-square-half,
+.media-square-half,
+.media-half {width:50%;}
+.file-entity-third,
+.file-entity-square-third,
+.media-square-third,
+.media-third {width:33.3333333333333%;}
+.file-entity-quarter,
+.file-entity-square-quarter,
+.media-square-quarter,
+.media-quarter {width:25%;}
+.file-entity-sixth,
+.file-entity-square-sixth,
+.media-square-sixth,
+.media-sixth {width:16.6666666666667%;}
+
+.file-entity-element-container img,
+.file-entity-square-element-container img,
+.media-square-element-container img,
+.media-element-container img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  vertical-align: bottom;
+}
+#media-wysiwyg-format-form #preview img{
+  max-height: 50%;
+  max-width:100%;
+  width:auto;
+}
+
+table .file-entity-full,
+table .file-entity-square-full,
+table .media-square-full,
+table .media-full {width:auto;}
+table .file-entity-three-quarters,
+table .file-entity-square-three-quarters,
+table .media-square-three-quarters,
+table .media-three-quarters {width:auto;}
+table .file-entity-twothirds,
+table .file-entity-square-twothirds,
+table .media-square-twothirds,
+table .media-twothirds {width:auto;}
+table .file-entity-half,
+table .file-entity-square-half,
+table .media-square-half,
+table .media-half {width:auto;}
+table .file-entity-third,
+table .file-entity-square-third,
+table .media-square-third,
+table .media-third {width:auto;}
+table .file-entity-quarter,
+table .file-entity-square-quarter,
+table .media-square-quarter,
+table .media-quarter {width:auto;}
+table .file-entity-sixth,
+table .file-entity-square-sixth,
+table .media-square-sixth,
+table .media-sixth {width:auto;}
+
+.ucsf-images-wrapping-left {
+	float:left;
+}
+.ucsf-images-wrapping-right {
+	float:right;
+}
+
+/* could be in editor-specific css file, but minimal at this point */
+.webedit-content .media-element {height:auto;}
+.webedit-content .media-element.file-full {width:100%;}
+.webedit-content .media-element.file-raw-square {width:100%;}
+.webedit-content .media-element.file-three-quarters {width:75%;}
+.webedit-content .media-element.file-twothirds {width:66.6666666666667%;}
+.webedit-content .media-element.file-half {width:50%;}
+.webedit-content .media-element.file-third {width:33.3333333333333%;}
+.webedit-content .media-element.file-quarter {width:25%;}
+.webedit-content .media-element.file-sixth {width:16.6666666666667%;}
+.webedit-content .media-element.file-thumbnail {width:10%;}
+.webedit-content .media-element {height:auto;}
+.webedit-content .media-element.file-square-full {width:100%;}
+.webedit-content .media-element.file-square-three-quarters {width:75%;}
+.webedit-content .media-element.file-square-twothirds {width:66.6666666666667%;}
+.webedit-content .media-element.file-square-half {width:50%;}
+.webedit-content .media-element.file-square-third {width:33.3333333333333%;}
+.webedit-content .media-element.file-square-quarter {width:25%;}
+.webedit-content .media-element.file-square-sixth {width:16.6666666666667%;}
+.webedit-content .media-element.file-square-thumbnail {width:10%;}
+/* tables are funky in the editor */
+.webedit-content table .media-element.file-square-full,
+.webedit-content table .media-element.file-square-three-quarters,
+.webedit-content table .media-element.file-square-twothirds,
+.webedit-content table .media-element.file-square-half,
+.webedit-content table .media-element.file-square-third,
+.webedit-content table .media-element.file-square-quarter,
+.webedit-content table .media-element.file-square-sixth,
+.webedit-content table .media-element.file-square-thumbnail,
+.webedit-content table .media-element.file-full,
+.webedit-content table .media-element.file-three-quarters,
+.webedit-content table .media-element.file-twothirds,
+.webedit-content table .media-element.file-half,
+.webedit-content table .media-element.file-third,
+.webedit-content table .media-element.file-quarter,
+.webedit-content table .media-element.file-sixth,
+.webedit-content table .media-element.file-thumbnail {
+	width:auto;
+}
+
+
+.file-entity-youtube-video,
+.file-entity-square-youtube-video,
+.media-square-youtube-video,
+.media-youtube-video,
+.file-entity-vimeo-preview-wrapper,
+.file-entity-square-vimeo-preview-wrapper,
+.media-square-vimeo-preview-wrapper,
+.media-vimeo-preview-wrapper {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+	margin-bottom: 1em;
+}
+
+ 
+.file-entity-youtube-video,
+.file-entity-square-youtube-video,
+.media-square-youtube-video,
+.media-youtube-video iframe,
+.file-entity-vimeo-outer-wrapper,
+.file-entity-square-vimeo-outer-wrapper,
+.media-square-vimeo-outer-wrapper,
+.media-vimeo-outer-wrapper iframe,
+.file-entity-vimeo-preview-wrapper,
+.file-entity-square-vimeo-preview-wrapper,
+.media-square-vimeo-preview-wrapper,
+.media-vimeo-preview-wrapper object {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.view-gallery.view-display-id-gallery_landing_page .views-row {
+	max-width:50%;
+}
+
+.ucsf-images-fill-parent {
+	width: 100%;
+	height: auto;
+}
+p:empty {
+	display:none;
+}
+.file-entity-element-container h2.element-invisible {
+	display: none
+}

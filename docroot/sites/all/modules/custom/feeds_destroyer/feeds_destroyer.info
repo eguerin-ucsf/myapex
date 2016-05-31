@@ -1,0 +1,11 @@
+name = "Feeds Destroyer"
+description = "Clears field data when not in the import data. Runs on all feeds importers set to REPLACE nodes--May not work with field groups"
+core = 7.x
+package = "Feeds"
+version = 7.x-2.0
+
+dependencies[] = feeds
+dependencies[] = entity
+
+
+

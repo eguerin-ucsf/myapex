@@ -1,0 +1,674 @@
+<?php
+/**
+ * EDS/LDAP and Profiles JSON data syncing for UCSF Person Content Type.
+ * Created 11/2012 by Brad Erickson @ Chapter Three, eosrei:http://drupal.org/user/372772
+ */
+include_once "ucsf_eds_profiles.api.inc";
+include_once "ucsf_eds_profiles.form.inc";
+/**
+ *
+ * Implements hook_init()
+ *
+ * This sets acquia env stuff for LDAP
+ */
+function ucsf_eds_profiles_init(){
+  //acquia environment variables
+  if (isset($_ENV["AH_SITE_GROUP"]) && isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+    $ldappath = "/mnt/www/html/" . $_ENV["AH_SITE_GROUP"] . "." . $_ENV['AH_SITE_ENVIRONMENT'] . "/ldap/" . $_ENV['AH_SITE_ENVIRONMENT'] . ".conf";
+    if (file_exists($ldappath)) {
+      putenv("LDAPCONF=$ldappath");
+    }
+  }
+  //a little extra memory for most sites!
+  if (isset($_GET['q']) && strpos($_GET['q'], 'ucsf-person') === 0) {
+    ini_set('memory_limit', '256M');
+  }
+}
+/*
+ * Implements hook_menu_alter()
+ *
+ * Replaces original node/add/ucsf-person form with an email field.
+ */
+function ucsf_eds_profiles_menu_alter(&$items) {
+  $items['node/add/ucsf-person']['page callback'] = 'drupal_get_form';
+  $items['node/add/ucsf-person']['page arguments'] = array('ucsf_eds_profiles_add_person');
+  unset($items['node/add/ucsf-person']['file']);
+  unset($items['node/add/ucsf-person']['module']);
+}
+
+/*
+ * Implements hook_cron()
+ *
+ * Adds every UCSF Person content type node to the Queue to be processed once per week.
+ */
+function ucsf_eds_profiles_cron() {
+  // How often to run in seconds: 60 * 60 * 24 * 7 = 1 week
+  $delta =  60 * 60 * 24 * 7;
+  // When was the cron last run
+  $last_run = variable_get('ucsf_eds_profiles_cron_last_run', 0);
+
+  // If more than $delta seconds have past since nodes were updated, update them.
+  if ($last_run + $delta < time()) {
+    // Store the current runtime
+    variable_set('ucsf_eds_profiles_cron_last_run', REQUEST_TIME);
+    watchdog('ucsf_eds_profiles', 'Adding all available UCSF Person nodes to the Queue.');
+
+    // Search for all available ucsf_person nodes
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+      ->entityCondition('bundle', 'ucsf_person')
+      ->addMetaData('account', user_load(1)); // Run the query as user 1.
+
+    $result = $query->execute();
+
+    // If there are some values
+    if (isset($result['node'])) {
+      // Get all the NIDs
+      $items = array_keys($result['node']);
+
+      // Put them in the queue
+      $queue = DrupalQueue::get('ucsf_eds_profiles_update');
+      foreach($items as $item) {
+        $queue->createItem($item);
+      }
+    }
+  }
+}
+
+/**
+ * Implementation of hook_cron_queue_info()
+ */
+function ucsf_eds_profiles_cron_queue_info() {
+  $queues['ucsf_eds_profiles_update'] = array(
+    'worker callback' => 'ucsf_eds_profiles_update_node', // This is the callback function for each queue item.
+  );
+  return $queues;
+}
+
+/*
+ * Update function called by cron queue
+ *
+ */
+function ucsf_eds_profiles_update_node($nid, $quiet=TRUE) {
+  //watchdog('ucsf_eds_profiles', 'Updating LDAP/Profiles data for nid: @nid', array('@nid' => $nid), WATCHDOG_INFO);
+  ucsf_eds_profiles_log('Updating EDS/Profiles data  -- Please note that automatic updates happen once a week.', 'Updating LDAP/Profiles data for nid: @nid', array('@nid' => $nid), $type = 'status', $quiet);
+
+  // Attempt to load the node needing updating.
+  if ($node = node_load($nid)) {
+    // Assume correct content type ;)
+    $entity = entity_metadata_wrapper('node',  $node);
+
+    //TODO: this instance of email should come from the DB
+    //if ($email = $entity->field_person_email->value()) {
+    // Get the data and be quite about it.
+    //query against the DB table
+    $db_result = db_select('ucsf_eds_profiles_nodes', 'n')
+      ->fields('n')
+      ->condition('nid', $nid,'=')
+      ->execute()
+      ->fetchAssoc();
+
+    if (empty($db_result['ucid'])) {
+      //log message for error and quit
+      watchdog('ucsf_eds_profiles', 'Unable to find UCID to make LDAP/Profiles call for nid: @nid', array('@nid' => $nid), WATCHDOG_ERROR);
+      //todo: consider adding a warning in the log messages
+     return;
+    }
+    else {
+      //set identifier to ucid
+      $identifier = sprintf('%09d',$db_result['ucid']);
+    }
+
+
+    list($ldap, $profile) = ucsf_eds_profiles_get_data($identifier, $quiet);
+    // If there is data, then update the node.
+    if ($ldap) {
+      ucsf_eds_profiles_add_update($entity, $ldap, $profile, $identifier, $quiet, $node);
+    }
+  }
+}
+
+/*
+ * Add/Update fields in a given entity.
+ *
+ */
+function ucsf_eds_profiles_add_update($entity, $ldap, $profile, $identifier, $quiet = TRUE, $node = NULL) {
+  //testing
+  //  dpm($entity->getPropertyInfo());
+  // Add LDAP Field data
+  //do some fancy stuf for releases and tacking on degrees
+  $degrees = "";
+  if (isset($ldap['ucsfedudegree'])) {
+    if (isset($ldap['ucsfedudegreereleaseflag']) && ($ldap['ucsfedudegreereleaseflag'][0] == 'true' )) {
+      $entity->field_person_eds_degrees = $ldap['ucsfedudegree'][0];
+      $degrees = ", " . $ldap['ucsfedudegree'][0];
+    }
+    else
+    {
+      $ldap['ucsfedsprofilesimportmessages'][] = ucsf_eds_profiles_log('Degrees release restricted from EDS/LDAP for @email.', NULL, array('@email' => $ldap['identifier'][0]), 'warning');
+    }
+  }
+  include_once "ucsf_eds_profiles.name_fixes.inc";
+  if (isset($name_fixes[$ldap['ucsfeduidnumber'][0]])) {
+     _ucsf_eds_profies_fix_names($ldap,$name_fixes[$ldap['ucsfeduidnumber'][0]]);
+  } 
+  //this is the fix if some ids zink out in ladp causing issue
+  //https://app.asana.com/0/2271687128880/15522205871868
+  else if (isset($name_fixes[$identifier])) {
+     _ucsf_eds_profies_fix_names($ldap,$name_fixes[$identifier]);
+  } 
+
+  $entity->title = $ldap['displayname'][0] . $degrees;
+  $entity->field_person_first_name = $ldap['givenname'][0];
+  $entity->field_person_display_name = $ldap['displayname'][0];
+
+  //deprecated: this can be removed after preview-pharmacy db is correct
+  if (isset($entity->field_person_ucid)) {
+    $entity->field_person_ucid = $ldap['ucsfeduidnumber'][0];
+  }
+  //end deprecated
+
+  // Always check for existence of non-validated fields
+  if (isset($ldap['initials'])) {
+    $entity->field_person_middle_name = $ldap['initials'][0];
+  }
+  $entity->field_person_last_name = $ldap['sn'][0];
+
+  if (isset($ldap['ucsfedupreferredgivenname'])) {
+    $entity->field_person_preferred_name = $ldap['ucsfedupreferredgivenname'][0];
+  }
+
+ //if main values all exist -- do address stuff
+  if (isset($ldap['street'][0],$ldap['l'][0],$ldap['st'][0],$ldap['postalcode'][0])) {
+
+    if (!is_numeric(substr(trim($ldap['street'][0]),0,1))) {
+      $ldap['ucsfedsprofilesimportmessages'][] = ucsf_eds_profiles_log('EDS/LDAP Street address field does not begin with a number for @email. Please update HR.', NULL, array('@email' => $ldap['identifier'][0]), 'warning');
+    }
+
+    if (isset($ldap['roomnumber'])) {
+      //$entity->field_room_number = $ldap['roomnumber'][0];
+      $roomnumber = ", Rm " . $ldap['roomnumber'][0];
+    }
+    else {
+      $roomnumber = '';
+    }
+
+    //non-field collection version of address population
+    $entity->field_person_address_postal->thoroughfare = $ldap['street'][0] . $roomnumber;
+    $entity->field_person_address_postal->locality = $ldap['l'][0];
+    $entity->field_person_address_postal->administrative_area = $ldap['st'][0];
+    $entity->field_person_address_postal->postal_code = $ldap['postalcode'][0];
+    $entity->field_person_address_postal->country = 'US';
+    //todo: no idae why box doesn't work
+    if (isset($ldap['ucsfeducampusbox'])) {
+      $entity->field_person_address_postal->premise = 'UCSF Box ' . $ldap['ucsfeducampusbox'][0];
+    }
+  }
+  else if (!isset($ldap['street'][0]) && !isset($ldap['l'][0]) && !isset($ldap['st'][0]) && !isset($ldap['postalcode'][0])) {
+    $ldap['ucsfedsprofilesimportmessages'][] = ucsf_eds_profiles_log('Campus address fields are completely missing from EDS/LDAP for @email. Please update HR.', NULL, array('@email' => $ldap['identifier'][0]), 'warning');
+    $entity->field_person_address_postal->country = '';
+  }
+  else {
+    $ldap['ucsfedsprofilesimportmessages'][] = ucsf_eds_profiles_log('Missing recommended campus address fields from EDS/LDAP for @email. Skipping malformed address. Please update HR. (See import messages for more detail).', NULL, array('@email' => $ldap['identifier'][0]), 'warning');
+    $entity->field_person_address_postal->country = '';
+  }
+
+
+  //if private practice address exists -- do address stuff
+  if (isset($ldap['privatepracticeaddress'])) {
+    $ppaddress = $ldap['privatepracticeaddress'];
+    if (isset($ppaddress['street'][0],$ppaddress['l'][0],$ppaddress['st'][0],$ppaddress['postalcode'][0])) {
+
+      $ppaddresslines=explode("$", $ppaddress['street'][0]);
+      //non-field collection version of address population
+      $entity->field_private_practice_address->thoroughfare = $ppaddresslines[0];
+      if (isset($ppaddresslines[1])){
+        $entity->field_private_practice_address->premise = $ppaddresslines[1];
+      }
+      $entity->field_private_practice_address->locality = $ppaddress['l'][0];
+      $entity->field_private_practice_address->administrative_area = $ppaddress['st'][0];
+      $entity->field_private_practice_address->postal_code = $ppaddress['postalcode'][0];
+      $entity->field_private_practice_address->country = 'US';
+    }
+    else {
+      $ldap['ucsfedsprofilesimportmessages'][] = ucsf_eds_profiles_log('Missing recommended private practice address fields from EDS/LDAP for @email. Skipping malformed address. Please update HR. (See import messages for more detail).', NULL, array('@email' => $ldap['identifier'][0]), 'warning');
+      $entity->field_private_practice_address->country = '';
+    }
+
+    if (isset($ppaddress['telephonenumber'])){
+      if (isset($ppaddress['ucsfedutelephonenumberreleasecode'])) {
+        $ppphone_release = $ppaddress['ucsfedutelephonenumberreleasecode'][0];
+      }
+      elseif (isset($ppaddress['ucsfedutelephonenumberreleaseflag'])) {
+        // This field (and all other flags) doesn't appear to be used in LDAP
+        // According to John K: Flag 1 = Code 1, Flag 0 = Code 9
+        if ($ppaddress['ucsfedutelephonenumberreleaseflag'][0]) {
+          $ppphone_release = 1;
+        }
+        else {
+          $ppphone_release = 9;
+        }
+      }
+      else {
+        $ppphone_release = 9;
+      }
+      //only populate if release == 1
+      if ($ppphone_release == 1){
+          $entity->field_private_practice_phone = $ppaddress['telephonenumber'][0];
+      }
+      else {
+        $entity->field_private_practice_phone = '';
+        $ldap['ucsfedsprofilesimportmessages'][] = ucsf_eds_profiles_log('Private practice telephone number release from EDS restricted for @email.', NULL, array('@email' => $ldap['identifier'][0]), 'warning');
+      }
+    }
+  }
+
+  if (isset($ldap['mail'][0])) {
+    if (isset($ldap['ucsfedumailreleasecode'])) {
+      $email_release = $ldap['ucsfedumailreleasecode'][0];
+    }
+    elseif (isset($ldap['ucsfedumailreleaseflag'])) {
+      // This field (and all other flags) doesn't appear to be used in LDAP
+      // According to John K: Flag 1 = Code 1, Flag 0 = Code 9
+      if ($ldap['ucsfedumailreleaseflag'][0]) {
+        $email_release = 1;
+      }
+      else {
+        $email_release = 9;
+      }
+    }
+    //only populate if release == 1
+    if ($email_release == 1){
+      $entity->field_person_email = $ldap['mail'][0];
+    }
+    else {
+      $entity->field_person_email = "";
+      $ldap['ucsfedsprofilesimportmessages'][] = ucsf_eds_profiles_log('Email address release from EDS restricted for @email.', NULL, array('@email' => $ldap['identifier'][0]), 'warning');
+    }
+  }
+
+  if (isset($ldap['telephonenumber'])){
+    if (isset($ldap['ucsfedutelephonenumberreleasecode'])) {
+      $phone_release = $ldap['ucsfedutelephonenumberreleasecode'][0];
+    }
+    elseif (isset($ldap['ucsfedutelephonenumberreleaseflag'])) {
+      // This field (and all other flags) doesn't appear to be used in LDAP
+      // According to John K: Flag 1 = Code 1, Flag 0 = Code 9
+      if ($ldap['ucsfedutelephonenumberreleaseflag'][0]) {
+        $phone_release = 1;
+      }
+      else {
+        $phone_release = 9;
+      }
+    }
+    //only populate if release == 1
+    if ($phone_release == 1){
+      $entity->field_campus_phone = $ldap['telephonenumber'][0];
+    }
+    else {
+      $entity->field_campus_phone = "";
+      $ldap['ucsfedsprofilesimportmessages'][] = ucsf_eds_profiles_log('Telephone number release from EDS restricted for @email.', NULL, array('@email' => $ldap['identifier'][0]), 'warning');
+    }
+  }
+
+  if (isset($ldap['facsimiletelephonenumber'])) {
+    if (isset($ldap['ucsfedufacsimiletelephonenumberreleasecode'])) {
+      $fax_release = $ldap['ucsfedufacsimiletelephonenumberreleasecode'][0];
+    }
+    elseif (isset($ldap['ucsfedufacsimiletelephonenumberreleaseflag'])) {
+      // This field (and all other flags) doesn't appear to be used in LDAP
+      // According to John K: Flag 1 = Code 1, Flag 0 = Code 9
+      if ($ldap['ucsfedufacsimiletelephonenumberreleaseflag'][0]) {
+        $fax_release = 1;
+      }
+      else {
+        $fax_release = 9;
+      }
+    }
+    //only populate if release == 1
+    if ($fax_release == 1) {
+      $entity->field_person_fax = $ldap['facsimiletelephonenumber'][0];
+    }
+    else {
+      $entity->field_person_fax = '';
+      $ldap['ucsfedsprofilesimportmessages'][] = ucsf_eds_profiles_log('Fax number release from EDS restricted for @email.', NULL, array('@email' => $ldap['identifier'][0]), 'warning');
+    }
+  }
+
+
+  // Use the first one of these available, at least one exists.
+  /*
+  if (isset($ldap['ucsfeduempstartdate'])) {
+    $entity->field_person_ucsf_start = strtotime($ldap['ucsfeduempstartdate'][0]);
+  }
+  elseif (isset($ldap['ucsfedustustartdate'])) {
+    $entity->field_person_ucsf_start = strtotime($ldap['ucsfedustustartdate'][0]);
+  }field_person_keywords_profiles
+  elseif (isset($ldap['ucsfeduaffiliatestartdate'])) {
+    $entity->field_person_ucsf_start = strtotime($ldap['ucsfeduaffiliatestartdate'][0]);
+  }
+  */
+  // This is a multi-field in LDAP, but only the first value is accepted here.
+
+  if (isset($ldap['title'])) {
+    $entity->field_person_payroll_title = $ldap['title'][0];
+  }
+  if (isset($ldap['ucsfeduworkingtitle'])) {
+    $entity->field_person_working_title = $ldap['ucsfeduworkingtitle'][0];
+  }
+  // if no working title, set it to payroll title
+  else if (isset($ldap['title'])) {
+    $entity->field_person_working_title = $ldap['title'][0];
+  }
+  // Get/create the term ID for the department name
+  $tid = ucsf_eds_profiles_get_term('field_person_primary_dept', $ldap['ucsfedudepartmentname'][0]);
+  $entity->field_person_primary_dept = $tid;
+
+  // Get/create term id and populate for Person Type
+  if (isset($ldap['edupersonprimaryaffiliation'])) {
+      $tid = ucsf_eds_profiles_get_term('field_person_type', $ldap['edupersonprimaryaffiliation'][0]);
+      $entity->field_person_type = $tid;
+  }
+  // Get/create term id and populate for Person Type Full
+  if (isset($ldap['edupersonaffiliation'])) {
+    //unset old values
+    $entity->field_person_type_full = array();
+    foreach ($ldap['edupersonaffiliation'] as $affiliation) {
+
+      $tid = ucsf_eds_profiles_get_term('field_person_type_full',$affiliation);
+      $entity->field_person_type_full[] = $tid;
+    }
+  }
+
+  // Add Profile Field data, if available
+  if ($profile) {
+    //todo: profiles link would go here, probably $profile['ProfileURL']
+    if (isset($profile['ProfilesURL'])) {
+        $entity->field_profiles_link->url = $profile['ProfilesURL'];
+      }
+    //only fire this insert portion if the fields feature exists
+    if (module_exists('ucsf_person_profiles_extended')) {
+
+      if (isset($profile['Narrative'])) {
+        //$entity->field_person_research_biography->value = $profile['Narrative'];
+        $entity->field_person_research_biography = array('value' => $profile['Narrative'], 'format' => 'plain_text');
+
+
+      }
+      if (isset($profile['Publications'])) {
+        //insert the pub data for each item
+        //clear out the existing field
+        $entity->field_person_publications_list = array();
+        //write in the values
+        foreach ($profile['Publications'] as $publication) {
+          $entity->field_person_publications_list[] = $publication['PublicationTitle'];
+        }
+      }
+      if (isset($profile['AwardOrHonors'])) {
+        //clear out the existing field
+        $entity->field_profiles_honors_awards = array();
+        //write in the values
+        foreach ($profile['AwardOrHonors'] as $awardorhonor) {
+          $entity->field_profiles_honors_awards[] = $awardorhonor['Summary'];
+        }
+      }
+
+      if (!isset($profile['Keywords']) && isset($profile['FreetextKeywords'])) {
+        $profile['Keywords'] = $profile['FreetextKeywords'];
+      }
+      else if (isset($profile['Keywords']) && isset($profile['FreetextKeywords'])) {
+        $profile['Keywords'] = array_merge($profile['FreetextKeywords'],$profile['Keywords']);
+      }
+
+      if (isset($profile['Keywords'])){
+        $entity->field_person_keywords_profiles = array();
+        foreach ($profile['Keywords'] as $keyword) {
+          $tid = ucsf_eds_profiles_get_term('field_person_keywords_profiles', $keyword);
+          $entity->field_person_keywords_profiles[] = $tid;
+        }
+      }
+
+    }
+
+  }
+  // set a flag so we know if we're going to save this beast or not
+  $save_flag = TRUE;
+
+  //check if the node argument is set, if so it should be an existing node
+  if (isset($node)) {
+    //existing nodes will not be saved unless confirmed to be different
+    //reason: maintains good date info in /admin/content
+    $save_flag = FALSE;
+    //grab names of the fields we care about
+    $field_list = preg_grep("/title|body|field_.*/", array_keys($entity->getPropertyInfo()));
+    //load an unchanged (db) version of the entiti'es wrapper
+    $unchanged = entity_metadata_wrapper('node', entity_load_unchanged('node',$node->nid));
+    
+    //for each field in our list
+    foreach ($field_list as $field_name) {
+      //if the versions appear to be different
+      if ($entity->$field_name->value() != $unchanged->$field_name->value()) {
+        //dig in and check closer
+        $entity_field_val = $entity->$field_name->value();
+        $unchanged_field_val = $unchanged->$field_name->value();
+        //some things don't matter to us
+        if (is_array($entity_field_val)){
+          unset($entity_field_val['safe_value']);
+        }
+        if (is_array($unchanged_field_val)){
+          unset($unchanged_field_val['safe_value']);
+        }
+        //if they are still different
+        if ($entity_field_val != $unchanged_field_val) {
+          //then we be savin
+          $save_flag = TRUE;
+          //and we be exiting this for loop
+          break;
+        }
+      }
+    }//end foreach
+  }//end if node
+
+  //if it's time to save
+  if ($save_flag === TRUE) {
+    //set the import messages
+    $ldap['ucsfedsprofilesimportmessages'][] = "EDS/Profiles last imported " . date("Y-m-d H:i:s", time());
+    if (isset($ldap['ucsfedsprofilesimportmessages'])) {
+      $entity->field_import_messages = $ldap['ucsfedsprofilesimportmessages'];
+    }
+    // Save the entity/node
+    $entity->save();    
+  } else {
+    //it isn't time to save, let's leave a handy message!
+    ucsf_eds_profiles_log('No new EDS/Profiles data for @name, node/@nid', NULL, array('@name' => $ldap['displayname'][0],'@nid' => $node->nid), $type = 'status', $quiet);
+  }
+}
+
+/**
+ * An attempt to make messages and logging consistent.
+ */
+function ucsf_eds_profiles_log($user_message, $admin_message = NULL, $variables = array(), $type = 'status', $quiet = FALSE, $is_form = FALSE) {
+  // If admin message isn't set use user message.
+  if (!$admin_message) {
+    $admin_message = $user_message;
+  }
+  // If quiet don't attempt to display user messages
+  if (!$quiet) {
+    // If needed on a form
+    if ($is_form && $type=='error') {
+      form_set_error('email', t($user_message, $variables));
+    }
+    else {
+      drupal_set_message(t($user_message, $variables), $type);
+    }
+  }
+  // Generate a severity from the dsm type
+  switch($type) {
+    case 'status':
+      $severity = WATCHDOG_INFO;
+      break;
+    case 'warning':
+      $severity = WATCHDOG_WARNING;
+      break;
+    case 'error':
+      $severity = WATCHDOG_ERROR;
+  }
+  watchdog('ucsf_eds_profiles', $admin_message, $variables, $severity);
+  return t($user_message, $variables);
+}
+
+/**
+ * Gets a tid for a term in a vocabulary, creates term if it doesn't exist.
+ */
+function ucsf_eds_profiles_get_term($field_name, $name) {
+  $field_info = field_info_field($field_name);
+  if ($field_info['module'] != 'taxonomy') {
+    // @todo: Throw exception?
+    return;
+  }
+  $vocabulary_name = $field_info['settings']['allowed_values'][0]['vocabulary'];
+  
+  //compatibility with Synonyms module
+  if (module_exists('synonyms')){
+    $vocabulary = taxonomy_vocabulary_machine_name_load($vocabulary_name);
+    $name_plain = check_plain($name);
+    $terms = synonyms_get_term_by_synonym($name_plain, $vocabulary);
+    if (($terms)!=0) {
+      return $terms;
+    }
+  }
+  else {
+    //standard lookup --firing it is redundant if synonym stuff fired
+    $terms = taxonomy_get_term_by_name($name, $vocabulary_name);
+    // If found return tid
+    if (!empty($terms)) {
+      return key($terms);
+    }    
+  }
+
+  //Find Vocab ID
+  $vocabs = taxonomy_get_vocabularies(NULL);
+  foreach ($vocabs as $vocab_object) {
+    if ($vocab_object->machine_name == $vocabulary_name) {
+      $vocabulary = $vocab_object;
+      break;
+    }
+  }
+  if (!isset($vocabulary)) {
+    // @todo: Throw exception?
+    return;
+  }
+  //Create the term in the selected vocabulary
+  $term = (object) array(
+    'vid' => $vocabulary->vid,
+    'name' => $name,
+  );
+  taxonomy_term_save($term);
+  //Return TID
+  return $term->tid;
+}
+
+/*
+ * Checks required LDAP data fields
+ */
+function ucsf_eds_profiles_required_ldap_fields($ldap, $quiet = FALSE) {
+  $return = array();
+  //EDS: displayName
+  $return[] = _ucsf_eds_profiles_required_ldap_fields($ldap, 'displayName', $quiet);
+  //EDS: ucsfEduIDNumber
+  $return[] = _ucsf_eds_profiles_required_ldap_fields($ldap, 'ucsfEduIDNumber', $quiet);
+  //EDS: givenName
+  $return[] = _ucsf_eds_profiles_required_ldap_fields($ldap, 'givenName', $quiet);
+  //EDS: sn
+  $return[] = _ucsf_eds_profiles_required_ldap_fields($ldap, 'sn', $quiet);
+  //EDS: ucsfEduEmpStartDate, ucsfEduStuStartDate, ucsfEduAffiliateStartDate
+  /*
+  if (!isset($ldap['ucsfeduempstartdate']) && !isset($ldap['ucsfedustustartdate']) && !isset($ldap['ucsfeduaffiliatestartdate'])) {
+    ucsf_eds_profiles_log('ucsfEduEmpStartDate, ucsfEduStuStartDate and ucsfEduAffiliateStartDate are missing from EDS/LDAP for @email. One is required. Please update HR.',
+                          NULL, array('@email' => $ldap['identifier'][0]), 'warning', $quiet);
+    $return[] = FALSE;
+  }
+  */
+
+  //EDS: ucsfEduDepartmentName - already validated, so this is just reference.
+  //$return[] = _ucsf_eds_profiles_required_ldap_fields($ldap, 'ucsfEduDepartmentName', $quiet);
+
+  // If one returned false, return false.
+  return !in_array(FALSE, $return);
+}
+
+/*
+ * Helper function for ucsf_eds_profiles_required_ldap_fields to reduce code use
+ */
+function _ucsf_eds_profiles_required_ldap_fields($ldap, $field, $quiet = FALSE) {
+  if (!isset($ldap[strtolower($field)][0])) {
+    ucsf_eds_profiles_log('"@field" is missing from EDS/LDAP for @email. Please update HR.',
+                          NULL, array('@field' => $field, '@email' => $ldap['identifier'][0]), 'warning', $quiet);
+    return FALSE;
+  }
+  return TRUE;
+}
+
+/*
+ * Checks recommended LDAP data fields
+ */
+function ucsf_eds_profiles_recommended_ldap_fields($ldap, $quiet = FALSE) {
+  $return = array();
+  //EDS: Address (multi-fields) street, l, st, postalcode, postaladdress
+  //($quiet = true) squelch these warnings until later
+  $return[] = _ucsf_eds_profiles_recommended_ldap_fields($ldap, 'street', TRUE);
+  $return[] = _ucsf_eds_profiles_recommended_ldap_fields($ldap, 'l', TRUE);
+  $return[] = _ucsf_eds_profiles_recommended_ldap_fields($ldap, 'st', TRUE);
+  $return[] = _ucsf_eds_profiles_recommended_ldap_fields($ldap, 'postalcode', TRUE);
+  $return[] = _ucsf_eds_profiles_recommended_ldap_fields($ldap, 'postaladdress', TRUE);
+
+  //if all of the address fields are missing, remove the indicidual warnings
+  if (isset($return[0],$return[1],$return[2],$return[3],$return[4])) {
+    $return = array();
+  }
+
+  //EDS: mail
+  $return[] = _ucsf_eds_profiles_recommended_ldap_fields($ldap, 'mail', $quiet);
+
+
+
+  //EDS: telephoneNumber
+  $return[] = _ucsf_eds_profiles_recommended_ldap_fields($ldap, 'telephoneNumber', $quiet);
+  //EDS: ucsfEduWorkingTitle
+  $return[] = _ucsf_eds_profiles_recommended_ldap_fields($ldap, 'ucsfEduWorkingTitle', $quiet);
+  $return[] = _ucsf_eds_profiles_recommended_ldap_fields($ldap, 'eduPersonPrimaryAffiliation', $quiet);
+
+  $messages = array();
+  foreach ($return as $message) {
+    if(isset($message)){
+      $messages[] = $message;
+    }
+  }
+
+  return $messages;
+}
+
+/*
+ * Helper function for ucsf_eds_profiles_recommended_ldap_fields to reduce code use
+ */
+function _ucsf_eds_profiles_recommended_ldap_fields($ldap, $field, $quiet = FALSE) {
+  if (!isset($ldap[strtolower($field)][0])) {
+    $message = ucsf_eds_profiles_log('Recommended field "@field" is missing from EDS/LDAP for @email. Please update HR.',
+                          NULL, array('@field' => $field, '@email' => $ldap['identifier'][0]), 'warning', $quiet);
+    return $message;
+  }
+  //return TRUE;
+}
+
+/**
+ *
+ *
+ */
+function _ucsf_eds_profies_fix_names(&$ldap,$replacements) {
+  $allowed_replacements = array('displayname','sn','givenname');
+  foreach ($allowed_replacements as $item) {
+    if (isset($replacements[$item])){
+      $ldap[$item][0] = $replacements[$item];
+    }
+  }
+}

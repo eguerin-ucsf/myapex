@@ -1,0 +1,1 @@
+git diff 88317c7b569b2e361c97ab36d0a220ccb0121b77 footnote-links.js > footnote-links.patched.diff

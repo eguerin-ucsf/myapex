@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ucsf_person_display feature.
+ */
+
+include_once 'ucsf_person_display.features.inc';

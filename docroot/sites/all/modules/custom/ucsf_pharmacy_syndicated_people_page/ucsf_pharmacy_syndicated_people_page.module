@@ -1,0 +1,48 @@
+<?php
+/**
+ * @file
+ * Code for the UCSF Pharmacy Syndicated People Page feature.
+ */
+
+include_once 'ucsf_pharmacy_syndicated_people_page.features.inc';
+
+/**
+ * Implements hook_quicktabs_alter
+ */
+function ucsf_pharmacy_syndicated_people_page_quicktabs_alter(&$quicktabs) {
+	//if this is the people set of quicktabs
+	//if(property_exists($quicktabs, 'machine_name') && ($quicktabs->machine_name == 'people' || $quicktabs->machine_name == 'people_faculty')){
+		//dpm($quicktabs);
+		//load the site code variable (from $conf)
+		$site = variable_get('ucsf_pharmacy_site_code','');
+		//grab the set of tabs
+		$tabs = $quicktabs->tabs;
+		//loop over them
+		foreach ($tabs as $index => $tab) {
+			//if it's a tab for a view
+			/*
+			if($tab['type'] == 'view'){
+				//set the args as the site code (contextual filters)
+				$tabs[$index]['args'] = $site;
+			}*/
+			if($tab['type'] == 'node'){
+				//set the relevant node tabs to the pre-installed pages
+				switch($tab['nid']) {
+					case 'alumni':
+					$tabs[$index]['nid'] = variable_get('ucsf_pharmacy_syndicated_people_page_quicktabs_alumni','');
+					break;
+					case 'jointfac':
+					$tabs[$index]['nid'] = variable_get('ucsf_pharmacy_syndicated_people_page_quicktabs_jointfac','');
+					break;
+					case 'affilfac':
+					$tabs[$index]['nid'] = variable_get('ucsf_pharmacy_syndicated_people_page_quicktabs_affilfac','');
+					break;
+					default:
+					break;
+				}
+			}
+		}
+		//set the tabs to the altered version
+		$quicktabs->tabs = $tabs;
+	//}
+}

@@ -1,0 +1,96 @@
+<?php
+/**
+ * @file
+ * Code for the ucsf_pharmacy_funding_section feature.
+ */
+
+include_once 'ucsf_pharmacy_funding_section.features.inc';
+
+function ucsf_pharmacy_funding_section_chart_definition_alter(&$definition, $chart, $chart_id){
+
+  $definition['options']['chartArea']['width'] = "82%";
+  $definition['options']['chartArea']['height'] = "78%";
+	switch ($chart_id) {
+		case 'funding__panel_pane_1':
+		case 'funding__panel_pane_3':
+      $definition['options']['chartArea']['left'] = "12";
+		  $definition['options']['tooltip']['text'] = "percentage";
+		  /*     $colors[0]='000000';
+		         $colors[1]='555555';
+		         $colors[2]='999999';
+		         $colors[3]='cccccc';
+		         $colors[4]='444444';
+		         $colors[5]='555555';
+		         $definition['options']['colors'] = $colors;
+		  */
+		break;
+	}
+}
+
+function ucsf_pharmacy_funding_section_form_funding_node_form_alter(&$form, $form_state, $form_id){
+
+	$categories = array('state','federal','other','indirect','studentfees','private','facultyfees','calpoison');
+	//content type should be set to # above 
+	if (isset($form['field_funding_categories']['und'][count($categories)-1])) {     
+		//new or not -- works if field_funding type is required
+		if (empty($form['field_funding_categories']['und'][0]['field_funding_type']['und']['#default_value'])) {
+			$cats = TRUE;
+		}
+		else {
+			$cats = FALSE;
+		}
+
+		foreach ($categories as $key => $category) {
+		    if ($cats == TRUE) {
+		      $form['field_funding_categories']['und'][$key]['field_funding_type']['und']['#default_value'] = $category;	
+		    }
+		    $form['field_funding_categories']['und'][$key]['field_funding_type']['und']['#disabled'] = TRUE;
+		}
+	}
+	$form['field_funding_budget']['und']['#disabled'] = TRUE;
+	$form['field_funding_total_awards']['und']['#disabled'] = TRUE;
+
+	//dpm($form);
+
+}
+
+/**
+ * Implmentation of hook_node_presave()
+ */
+function ucsf_pharmacy_funding_section_node_presave($node) {
+	//only process this block on 'funding' nodes
+	//this block is to sum the various budget sources into a total amount
+	if ($node->type == 'funding'){
+		//grab the ID of each field_collection entity (field_funding_categories)
+		foreach ($node->field_funding_categories['und'] as $field_collection) {
+			$entity_ids[] = $field_collection['value'];
+		}
+		//load the field collection entities(field_funding_categories)
+		$collection_items = entity_load('field_collection_item',$entity_ids);
+		//set the sum to 0 initially
+		$budget_sum = 0;
+		//loop over the field collection items
+		foreach ($collection_items as $collection_item) {
+			//if the amount value exists
+			if (!empty($collection_item->field_funding_amount['und'][0]['value'])){
+				//add that to the sum total budget
+				$budget_sum += $collection_item->field_funding_amount['und'][0]['value'];
+			}
+		}
+		//drop the calcuated budget value into the budget field
+		$node->field_funding_budget['und'][0]['value'] = $budget_sum;
+
+		$awards_sum = 0;
+		if(isset($node->field_funding_nih_awards['und'][0]['value'])){
+			$awards_sum = $awards_sum + $node->field_funding_nih_awards['und'][0]['value'];
+		}
+		if(isset($node->field_funding_federal_awards['und'][0]['value'])){
+			$awards_sum = $awards_sum + $node->field_funding_federal_awards['und'][0]['value'];
+		}
+		if(isset($node->field_funding_non_federal['und'][0]['value'])){
+			$awards_sum = $awards_sum + $node->field_funding_non_federal['und'][0]['value'];
+		}
+
+		$node->field_funding_total_awards['und'][0]['value'] = $awards_sum;
+	}
+}

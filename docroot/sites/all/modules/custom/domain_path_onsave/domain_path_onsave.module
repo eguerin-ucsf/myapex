@@ -1,0 +1,76 @@
+<?php
+/**
+ * Implementation of hook_node_presave()
+ *
+ * Invoked before a content item is saved.
+ *
+ */
+function domain_path_onsave_form_alter(&$form, &$form_state, $form_id) {
+
+  switch ($form_id) {
+    //delete forms should hit the domain homepage
+    case 'node_delete_confirm':
+    case 'file_entity_delete_form':
+      $form['#submit'][] = 'domain_path_delete_redirect';
+    break;
+    //other forms
+    default:
+      //node save redirection
+      if(isset($form['nid'])){
+        //get the domain access info
+        global $_domain;
+        //get the id for the current domain 
+          $did=$_domain['domain_id'];
+          //if a domain_path info exists -- use the custom callback
+          if (!empty($form['domain_path'])) {
+              $form['actions']['submit']['#submit'][] = 'domain_path_onsave_redirect_callback';
+          }
+      }
+    break;
+  }
+}
+/**
+ * callback function for $form['actions']['submit']['#submit'][]
+ * specified in domain_path_onsave_form_alter()
+ * sets destination to respect domain_path
+ *
+ */
+function domain_path_onsave_redirect_callback($form, &$form_state){
+ // dpm($form_state);
+ //dpm($form);
+  //get the domain access info
+  global $_domain;
+  //get the id for the current domain 
+  $did=$_domain['domain_id'];
+  //if a domain_path is set on the current domain
+  if (!empty($form_state['input']['domain_path'][$did])) {
+    //then set the save redirect to the domain_path ...
+    $form_state['redirect'] = $form_state['input']['domain_path'][$did];
+  }
+/*
+  //old version
+  if (!empty($form['domain_path'][$did]['#default_value'])) {
+  	    //then set the save redirect to the domain_path ...
+    	$form_state['redirect'] = $form['domain_path'][$did]['#default_value'];
+  } 
+*/
+  else {
+    //try and check if that node is the front page
+    $homepage = explode('/',variable_get('site_frontpage'));
+//    dpm($form['nid']['#value']);
+//    dpm($homepage[1]);
+    if (isset($homepage[1]) && $form['nid']['#value'] == $homepage[1]){
+      $form_state['redirect'] = "";
+    }
+    //or do nothing
+  }
+}
+
+/**
+ *
+ * callback function for node_delete_confirm
+ * overcomes page not found behavior on injecting "front"
+ */
+function domain_path_delete_redirect(){
+  drupal_goto("");
+}

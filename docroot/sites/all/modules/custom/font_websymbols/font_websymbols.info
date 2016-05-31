@@ -1,0 +1,6 @@
+name = "Web Symbols Font"
+description = "Open Font License symbols font implemented as a module for great good"
+core = 7.x
+package = "Development"
+version = 7.x-1.0
+stylesheets[all][] = web-symbols.css

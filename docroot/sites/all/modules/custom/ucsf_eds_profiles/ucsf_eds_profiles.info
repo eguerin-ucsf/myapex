@@ -1,0 +1,9 @@
+name = UCSF Person EDS/Profiles
+description = Create and sync UCSF person content type data with the EDS/Profiles systems.
+core = 7.x
+package = UCSF
+version = 7.x-2.0-beta12
+project = ucsf_person_content_type
+dependencies[] = ucsf_person_content_type
+dependencies[] = entity
+

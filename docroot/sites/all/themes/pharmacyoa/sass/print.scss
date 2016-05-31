@@ -1,0 +1,573 @@
+@charset "UTF-8";
+
+body
+, #footer-wrapper #footer
+, #footer-wrapper #footer #footer-copy
+, #parent-1-name-wrapper
+, #block-menu-footer .menu {
+  background: #fff;
+}
+
+div.view
+, div.pane-node-content
+, div.pane-token .pane-content
+, div.pane-entity-field .field
+, div.pane-block .pane-content {
+  font-size: 7pt;
+  p, li {
+    font-size: 7pt;
+  }
+}
+
+#parent-1-name-wrapper
+, #parent-1-name-wrapper div
+, #parent-1-name
+, #header #site-name {
+  display: inline;
+  margin-left: 0;
+  margin-right: 2em;
+  letter-spacing: 0;
+}
+
+#header #parent-2-name
+, .symbol .footnote
+, h3 {
+  letter-spacing: 0;
+}
+
+h3 {
+  font-weight: normal;
+}
+
+#parent-1-name-wrapper {
+  left: 0;
+  margin-right: 0;
+}
+
+h1.title {
+  font-size: 16pt;
+  margin-bottom: .2em;
+}
+
+#block-menu-footer .menu a
+, h3, h4 {
+  color: #000;
+}
+
+#menu-and-search
+, #footer .footer.menu
+, .messages
+, .flex-direction-nav
+, .flex-control-nav
+, .pager
+, #topbar-wrapper
+, #skip
+, #make-a-gift
+, #footer-quote
+, #menu-and-social
+, #footer-wrapper #footer #social-links
+, #content-header div.tabs
+, .menu-block-main-menu
+, .page-type-6 hr
+, #skip a:link, #skip a:hover, #skip a:visited
+, #skip a:active, #skip a:focus
+, #block-menu-footer
+, .contextual-links-wrapper {
+  display: none !important;
+}
+
+.printOnly {
+  display: block;
+}
+
+#page {
+  margin: 0 1in;
+}
+
+#content-header {
+  margin-bottom: 12pt;
+}
+
+#page
+, #main
+, #content-area .quicktabs-wrapper ul
+, .rolph-container
+, #content-area {
+  border: 0;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.content
+, .view-content
+, .pane-content {
+  p {
+    margin: 0 0 .2em;
+  }
+  p, li {
+    line-height: 195%;
+  }
+}
+
+table {
+  h2, h3, h4, h5, h6 {
+    &:first-child {
+      margin-bottom: .2em;
+    }
+  }
+}
+
+#footer-wrapper {
+  max-width: 940px;
+  margin: 0 1in;
+  padding: 0;
+  border: 0;
+  #footer {
+    height: auto !important;
+    #block-menu-footer {
+      margin-left: 0;
+      width: 100%;
+      ul {
+        padding-top: 0;
+        li.first a {
+          padding-left: 0;
+        }
+      }
+    }
+    .menu {
+      position: relative;
+      top: -35px;
+    }
+    #footer-copy {
+      p {
+        font-size: 6pt;
+      }
+      border: 0;
+      line-height: 1.5em;
+      color: #333;
+      text-align: left;
+      float: none;
+    }
+  }
+}
+
+// start - pharm.ucsf.edu home page
+.view-list-of-sites {
+  margin-top: 2em;
+}
+
+.view-list-of-sites .views-field-sitename {
+  font-size: 1em;
+}
+
+// end - pharm.ucsf.edu home page
+.lab-title-group {
+  padding: 0 !important;
+  border: 0;
+  margin: 0 0 1em;
+  .person-name {
+    font-size: .9em;
+    line-height: 100%;
+  }
+}
+
+.page-type-5
+, .page-type-6
+, .page-type-7 {
+  #content-area {
+    box-shadow: none;
+    border-top: 0;
+    background: none;
+  }
+}
+
+#parent-1-name-wrapper {
+  min-height: 1em;
+  font-size: 1em;
+}
+
+#parent-1-name-wrapper #parent-1-name {
+  position: static;
+}
+
+#block-system-main {
+  padding-bottom: 0;
+  padding-left: 0;
+  width: auto;
+}
+
+#header {
+  margin-bottom: 0;
+  #parent-2-name {}
+}
+
+.page-type-5 img {
+  width: 20%;
+}
+
+.page-type-6 img
+, .page-type-7 img
+, .people img {
+  width: 60%;
+}
+
+.contact img {
+  max-width: 100px !important;
+}
+
+h1 {
+  font-size: 1em;
+}
+
+.page-type-7 h1 {
+  font-size: 1.25em;
+}
+
+h2 {
+  font-size: 1em;
+}
+
+h3, ul {
+  font-size: .85em;
+}
+
+h4, h5, h6 {
+  font-size: .75em;
+}
+
+b, strong {
+  color: #333;
+}
+
+div.view
+, div.pane-node-content
+, div.pane-token .pane-content
+, div.pane-entity-field .field
+, div.pane-block .pane-content {
+  font-size: 8pt;
+}
+
+.content .field-name-field-image-caption, p, li, th, td, th p, td p {
+  font-size: 7pt !important;
+  line-height: 130%;
+}
+
+ul, ol {
+  margin-left: 2em;
+}
+
+.content {
+  ul {
+    margin: .75em 0 .75em 1.5em;
+  }
+  ol {
+    margin: .75em 0 .75em 2em;
+  }
+}
+
+.page-type-2 {
+  #site-name {
+    font-size: 16pt;
+  }
+}
+
+.page-type-3
+, .page-type-4
+, .page-type-5
+, .page-type-6
+, .page-type-7
+, .page-type-8
+, .page-type-9 {
+  #site-name, #parent-2-name {
+    font-size: 1em;
+  }
+}
+
+.lab-title-group h1.lab-title, .lab-title-group div.lab-title {
+  font-size: 1.25em;
+}
+
+.prefix, .subtitle {
+  font-size: .7em;
+  line-height: 100%;
+}
+
+.content {
+  p, ul, ol, h1, h2, h3, h4, h5, h6, .field-name-field-image-caption {
+    color: #000;
+    margin-right: 0;
+  }
+  th, th p {
+    color: #666;
+  }
+}
+
+.page-type-7 #block-system-main {
+  padding-bottom: 0;
+}
+
+.content .field-name-field-image-caption {
+  font-size: .45em;
+}
+
+// cleanly break long urls
+a {
+  word-wrap: break-word;
+}
+
+// begin - url links
+a[href^="http://"]:after,
+a[href^="/"]:after {
+  text-transform: lowercase;
+  font-weight: normal;
+}
+
+a[href^="http://"]:after {
+  content: " [" attr(href) "] ";
+}
+
+a[href^="/"]:after {
+  content: " [http://pharmacy.ucsf.edu" attr(href) "] ";
+  // end - url links
+}
+
+a.footnoted:link:after,
+a.footnoted:visited:after {
+  content: "";
+}
+
+sup.footnote {
+  font-size: 0.6em;
+  position: relative;
+  top: -.5em;
+  /*  margin-left:6pt;*/
+}
+
+sup.footnote::before {
+  content: " ";
+}
+
+/*
+*/
+
+.file-image sup.footnote
+, .views-field-field-featured-image sup.footnote {
+  // Let's hide those duplicate footnotes that are on images, in most cases.
+  display: none;
+}
+
+thead {
+  display: table-header-group !important;
+}
+
+table {
+  tbody {
+    border-top: 1px solid transparent;
+  }
+  tbody tr, th, td {
+    background-color: transparent;
+    padding: 4px 0 2px;
+  }
+  tbody tr:nth-child(even)
+  , tbody tr:nth-child(odd) {
+    background-color: transparent;
+  }
+}
+
+#main {
+  margin-bottom: 1em;
+}
+
+#content-area .quicktabs-wrapper .quicktabs-wrapper {
+  margin-top: .5em;
+  #quicktabs-container-people_department {
+    margin-top: 1em;
+  }
+  h2, h3 {
+    font-size: 1em;
+  }
+}
+
+.is-pc
+, .is-bts
+, .is-cp
+, .is-dept-pc
+, .is-dept-bts
+, .is-dept-cp {}
+
+.webedit-left div {
+  vertical-align: top;
+  //    border:5px solid red;
+  img {
+    //    max-width:200px;
+
+  }
+  //  float:left;
+  display: inline-block;
+}
+
+// funding
+.view-funding.category .charts-google {
+  // pie charts
+  // left:-75px;
+}
+
+// Panels, such as Home page, etc.
+
+.sutro-column
+, .landing-content
+, .landing-sidebar {
+  width: 100% !important;
+}
+
+// Show hidden quicktab content on People pages, for example
+.quicktabs-hide {
+  display: block;
+}
+
+.is-sop-secondary
+, .is-pharmd-secondary {
+  h2
+  , .pane-views-panes .view-event-page .field-label {
+    color: #000;
+  }
+  .eyecatching {
+    background: transparent;
+    border: 2px solid #000;
+    border-width: 2px 1px 1px;
+    padding: .5em .75em;
+  }
+}
+
+.page-type-1 {
+  h1, div #site-name, div #parent-2-name {
+    font-size: 3em;
+  }
+  h1, div #site-name, div #parent-2-name, h1 a, div #site-name a, div #parent-2-name a {}
+}
+
+// All other pages
+.page-type-2
+, .page-type-3
+, .page-type-4
+, .page-type-5
+, .page-type-6
+, .page-type-7
+, .page-type-8
+, .page-type-9
+, .page-type-11 {
+  h1, h1 a, #site-name a, #parent-2-name a {
+    color: #000;
+  }
+}
+
+.footnote-links {
+  border: 1pt solid #000;
+  border-width: 1pt 0 0;
+  padding-top: 12pt;
+  display: block !important;
+}
+
+.page-type-2
+, .page-type-4
+, .page-type-7 #block-system-main
+, .page-type-7 #block-views-gallery-block
+, .page-type-9
+, .page-type-10
+, .page-type-11 {
+  .content
+  , .pane-content {
+    a, a:link, a:visited, a:focus, a:active {
+      //    text-decoration:underline;
+      border: 1px solid #0059b3;
+      border-width: 0 0 1px;
+    }
+    a:visited {
+      border: 1px solid #5000b3;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    .symbol a {
+      border: 0;
+    }
+  }
+}
+
+.symbol {
+  font-size: 8pt;
+  .footnote {
+    font-family: helvetica,arial,sans-serif;
+  }
+}
+
+.is-sop-secondary
+, .is-pharmd-secondary
+, .is-lab-secondary
+, .is-microsite-home
+, .is-dept-pharmchem
+, .is-pharmchem
+, .is-dept-bts
+, .is-bts
+, .is-dept-clinicalpharmacy
+, .is-clinicalpharmacy {
+  .subtitle
+  , h2 {
+    color: #000;
+  }
+  .eyecatching
+  , .pane-background-callout {
+    background: transparent;
+    border: 2px solid #000;
+    border-width: 2pt 1pt 1pt;
+    padding: 1em 1.5em;
+  }
+  .content
+  , .view-content
+  , .pane-content {
+    ul {
+      margin-left: 0;
+      margin-left: 1.5em;
+      margin-left: 2em;
+      li
+      , li li li
+      , li li li li li {
+        background: none;
+      }
+      li {
+        padding-left: 1em;
+        padding-left: 0;
+        margin-left: .5em;
+        margin-left: 1em;
+        margin-left: 0;
+        text-indent: -.9em;
+        &:before {
+          content: "";
+          content: "• ";
+          position: relative;
+          left: 0;
+          left: -.5em;
+          left: -1em;
+          vertical-align: top;
+        }
+        ul {
+          margin-left: 0;
+          margin-left: 2.3em;
+          li ul li:before {
+            content: "• ";
+          }
+        }
+      }
+      li li
+      , li li li li
+      , li li li li li li {
+        background: none;
+      }
+      li li {
+        &:before {
+          content: "» ";
+        }
+      }
+    }
+  }
+}

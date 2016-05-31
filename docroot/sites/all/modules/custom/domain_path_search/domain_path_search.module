@@ -1,0 +1,25 @@
+<?php
+
+/**
+ *
+ * Implementation of theme_preprocess_search_result
+ *
+ * Changes search result URL to use domain path URLS
+ *
+ */
+
+function domain_path_search_preprocess_search_result(&$variables) {
+   //get the domain access info
+    global $_domain;
+    //get the id for the current domain 
+	$did=$_domain['domain_id'];
+
+	//if the item exists on the current domain
+	if (!empty($variables['result']['node']->domains[$did])) {
+		//get the path info from domain access
+		$alias = domain_path_path_load('node/' . $variables['result']['node']->nid);
+		//replace the URL with the aliased path
+		$variables['url'] = url($alias['alias']);
+	} //todo: this would be the 'catch' if you wanted to extend search beyond the current domain_by_path
+}
+

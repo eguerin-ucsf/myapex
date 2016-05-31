@@ -1,0 +1,37 @@
+.field-name-field-panels-chunks .field-multiple-drag
+,.field-name-field-panels-chunks .delta-order
+,.field-name-field-panels-chunks .tabledrag-toggle-weight-wrapper
+,.field-name-field-panels-chunks thead /* remove unnecessary extra CHUNKS just above Chunk 0 */
+,.form-item-menu-description /* this implements user-generated-content as a title attribute on links, but this is bad for accessibility and we don't need it, so hide it */
+{
+  display:none; 
+}
+.field-name-field-panels-chunks table
+,.field-name-field-panels-chunks tr.even
+,.field-name-field-panels-chunks tr.odd
+{
+  border:0;
+  background:none;
+}
+.field-name-field-panels-chunks table td{
+  padding:0;
+}
+.field-name-field-panels-chunks .form-type-textarea label{
+  font-size:1.5em;
+  color:#fff;
+  background:#aaa;
+  padding:.5em 1em !important;
+}
+.field-name-field-panels-chunks .form-type-select label{
+  font-size:1em;
+}
+.field-name-field-panels-chunks .form-item{
+  margin:0;
+  padding:0;
+}
+.field-name-field-panels-chunks .field-add-more-submit{
+  margin-bottom:0;
+}
+.container-inline-date .date-padding{
+  padding:0;
+}

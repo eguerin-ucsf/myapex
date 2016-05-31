@@ -1,0 +1,396 @@
+/******************************************************************************
+ * General styles
+ */
+
+// School of Pharmacy (pharmacy.ucsf.edu)
+.page-type-1
+{
+  h1, div #site-name, div #parent-2-name{
+    font-family:$header-font;
+    font-size:3em;
+  }
+  h1, div #site-name, div #parent-2-name, h1 a, div #site-name a, div #parent-2-name a {
+    color:$primary-text;
+  }
+}
+
+// All other pages
+.page-type-2
+,.page-type-3
+,.page-type-4
+,.page-type-5
+,.page-type-6
+,.page-type-7
+,.page-type-8
+,.page-type-9
+,.page-type-11
+{
+  h1, #site-name, #parent-2-name {
+    font-family:$header-font-alt;
+    font-size:2.5em;
+    padding-top:.25em;
+  }
+  h1, h1 a, #site-name a, #parent-2-name a {
+    color:$subsite-title;
+  }
+}
+.page-type-6 h1{
+  padding-top:0;
+}
+#parent-1-name-wrapper{
+  min-height:61px;
+  background:rgba(237, 232, 228, 0.5);
+  margin:0 100px 0 -100em;
+  text-indent:100em;
+  font-family:$header-font;
+  font-size:2em;
+  letter-spacing:1.4px;
+  padding:0;
+  position:relative;
+  left:2px;
+  a, #parent-1-name a {
+    line-height:1em;
+    color:$primary-text;
+  }
+  #parent-1-name{
+      position:absolute;
+      bottom:-.25em;
+  }
+}
+#header {
+  margin-top:0;
+  position:relative;
+  margin-bottom:1.5em;
+  clear:both;
+  h1, #site-name, #parent-2-name {
+    margin:0;
+    padding:.6em 0 0;
+    font-family:$header-font;
+    letter-spacing:1.35px;
+  }
+  #site-name, #parent-2-name{
+    position:relative;
+    left:2px;
+    margin-bottom:.5em;
+  }
+}
+
+// for these secondary pages, make titles lowercase
+.page-type-2
+,.page-type-4
+,.page-type-7
+,.page-type-9
+,.page-type-11
+{
+  h1{
+    color:$primary-text;
+    text-transform:lowercase;
+  }
+}
+.page-type-6
+,.page-type-7
+{
+  h1{
+//    padding-top:0;
+//    margin-top:-10px;
+  }
+}
+
+#name-and-slogan {
+  margin-bottom:1em;
+}
+
+#site-name, #parent-2-name {
+  line-height:1em;
+  padding:0;
+  font-family:$header-font;
+  font-style:normal;
+  font-weight:normal;
+}
+
+#header #menu-and-search-mobile {
+  display:none;
+}
+
+#menu-and-search #navigation {
+  display:block;
+}
+
+
+/******************************************************************************
+ * Main menu styles
+ */
+#primary { // basic menu with no drop downs ( not using nice menu )
+
+  width:100%;
+  padding:7px 0;
+  margin:0;
+
+  ul {
+    a {
+      color:#333;
+      text-decoration:none;
+      &:hover {
+        text-decoration:underline;
+      }
+    }
+
+    li {
+      display:inline;
+      list-style-type:none;
+      border-right:1px solid #CCCCCC;
+      margin-right:15px;
+      padding-right:15px;
+
+      &.first {}
+      &:last-child {
+        border-right:none;
+        margin-right:none;
+        padding-right:none;
+        margin-right:0;
+        padding-right:0;
+      }
+    }
+  }
+}
+
+// If nice menu is enabled.
+#navigation {
+
+
+  // Base, don't mess with unless you understand it.
+  ul.nice-menu {
+    &, ul {
+      list-style:none;
+      padding:0;
+      margin:0;
+      border-top:none;
+    }
+    li {
+      border:none;
+      border-top:0;
+      float:left; /* LTR */
+      background:none;
+      border-right:1px solid #CCCCCC;
+      margin-right:10px;
+      padding-right:10px; // remove this padding or border-box?
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      &.last {
+        border-right:none;
+        margin-right:0;
+        padding-right:0;
+      }
+
+    }
+
+
+    a {
+      padding:0.3em 5px 0.3em 0;
+    }
+
+    ul {
+      top:2em;
+      left:-1px; /* LTR */
+      border:0;
+      border-top:none;
+      margin-right:0; /* LTR */
+
+      li {
+        width:12.5em;
+        a { padding-left:5px; }
+      }
+    }
+  }
+
+  // Theme of the menu
+  ul.nice-menu-down {
+    float:left; /* LTR */
+    border:0;
+    z-index:125;
+
+
+
+    a {
+      color:$primary-text;
+
+    }
+    li {
+      border-top:none;
+      ul {
+        li { border-top:0; }
+      }
+    }
+
+    ul {
+      left:0; /* LTR */
+      padding-top:.5em;
+      @include box-shadow(rgba(55, 55, 55, 0.2) 0 5px 5px);
+      background:#FFF;
+      background:rgba(255,255,255, .96);
+
+      li {
+        clear:both;
+        border:none;
+        border-bottom:1px solid #EEE;
+        padding:5px 0;
+        margin:0;
+
+        &:last-child {
+          border-bottom:none;
+        }
+      }
+    }
+
+    li ul li ul {
+      left:12.5em; /* LTR */
+      top:-1px;
+    }
+
+    .menuparent a { padding-right:15px; /* LTR */ }
+
+    li.menuparent {
+      background:none;
+      &:after {
+        content:" ";
+        width:0;
+        height:0;
+
+        border-right:4px solid transparent;
+         border-left:4px solid transparent;
+          border-top:4px solid $primary-text;
+        position:absolute;
+        top:1em;
+        right:.7em;
+      }
+      &:hover { background:none; }
+    }
+    li li.menuparent {
+      background:none;
+      &:hover { background:none; }
+    }
+  }
+
+
+}
+
+#navigation ul.nice-menu-down li.menu-path-events.menuparent::after {
+  display:none;
+}
+
+/* Search Bar in header */
+#header  {
+    #search {
+//      border:1px solid orange;
+      position:absolute;
+      right:0;
+      top:-30px;
+      padding-top:30px;
+      background:$flare-header;
+      width:288px;
+      height:90px;
+      /*
+      display:block;
+      */
+    }
+    #search:hover {
+      @include dropshadow;
+    }
+
+    #search #search-form {
+        margin-bottom:0;
+        position:relative;
+    }
+
+    form.search-form .form-item-keys {
+        margin:0;
+    }
+
+    form.search-form .form-text,
+    form.search-form .form-submit {
+        width:172px;
+        border:none;
+        padding:.25em;
+        background-color:#FFF;
+        font-size:.857em; /* 14 -> 12px */
+    }
+
+    form.search-form .form-submit {
+        background:transparent url('../images/search.png') no-repeat center center;
+        color:#fff;
+        text-indent:-9999px;
+        width:30px;
+        border-left:1px solid #CCCCCC;
+        -webkit-box-shadow:none;
+        box-shadow:none;
+    }
+
+}
+.page-type-5 #header #search:hover{
+  -webkit-filter:none;
+  -ms-filter:none;
+  filter:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******************************************************************************
+ * Secondary menu styles
+ */
+#secondary {
+  position:absolute;
+  right:0;
+  top:0;
+  background:#000;
+  padding:3px 10px;
+  margin:0;
+  min-width:200px;
+  text-align:center;
+}
+
+#secondary li {
+  display:inline;
+  list-style-type:none;
+  margin-right:15px;
+}
+
+#secondary li.last {
+  margin-right:0px;
+}
+
+#secondary a {
+  color:#fff;
+  text-decoration:none;
+}
+
+#secondary a:hover {
+  color:red;
+}
+
+
+
+
+/*
+ * A bug in FireFox causes submit buttons to be 2px taller than an input
+ * text field with the same properities. Sadly, there is no good solution to
+ * this issue, but this is a hacky fix that solves the problem
+ * @see http://christophzillgens.com/en/articles/equal-height-input-and-button-elements-in-firefox-and-safari
+ */
+@-moz-document url-prefix() {
+  #search .form-submit {
+    border:0px;
+  }
+}
+

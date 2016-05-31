@@ -1,0 +1,19 @@
+<?php
+/**
+ * Implementation of hook_watchdog()
+ */
+function simple_backtrace_watchdog($log_entry){
+	switch($log_entry['severity']) {
+		case WATCHDOG_EMERGENCY:
+		case WATCHDOG_ALERT:
+		case WATCHDOG_CRITICAL:
+		case WATCHDOG_ERROR:
+		case WATCHDOG_WARNING:
+		case WATCHDOG_DEBUG:
+		  ddebug_backtrace(FALSE,4);
+		  break;
+		case WATCHDOG_NOTICE:
+		case WATCHDOG_INFO:
+		  return;
+	}
+}

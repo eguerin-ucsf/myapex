@@ -1,0 +1,292 @@
+//Need to add these in so drop down menus will work
+// Desktop & large display
+$display_large_max: 1230px;
+$display_large_min: 820px;
+
+// Devices and medium size displays
+$display_medium_max: 819px;
+$display_medium_min: 630px;
+
+// Handheld and small display screen
+$display_small_max: 629px;
+$display_small_min: 380px;
+
+//Fix for slider and menus in mobile view | fixes nice menus for mobile | fixes long titles and the mobile menu overlap
+@media screen and (max-width: $display_small_max) {
+    // Navigation for regular menus
+    
+    #main-content {
+      width: 100%;
+    }
+      
+    .header-container  {
+      
+      #mobile-link {
+        z-index: 10;
+        height: 65%;
+        margin-right: 0;
+          span {
+              background-color: $main-menu-background;
+          }
+          &.active { background: $main-menu-background; }
+      }
+      .header-region {
+        top:auto;
+        margin-top: -133px;
+        width:100%;
+      }
+        nav[role=navigation] {            
+            ul.menu {
+              z-index: 110 !important;
+              //border-top: 1px solid #fff;
+                li {
+                    a {
+                      //color: #fff;
+                      //background: $main-menu-background;
+                      text-decoration: none;
+                      //border-bottom: 1px solid #fff;
+                      font-weight: 300 !important;
+                      letter-spacing: .08em;
+                        &:hover {
+                            background: $main-menu-hover;
+                        }
+                    }
+                    &:first-child {
+                        a {
+                          border-radius: 0;
+                          border-top: 1px solid #fff;
+                        }
+                      }
+                }
+            }
+          }
+        }
+              ul.nice-menu-down, ul.nice-menu {
+                z-index: 110 !important;
+                box-shadow: (rgba(0,0,0, .5) 0 2px 4px);
+                li, li.menuparent, li.over.menuparent, li.active-trail.menuparent {
+                    float: none;
+                    border-right: none;
+                    background: none;
+                    padding: 0;
+                    &:first-child {
+                        a {
+                          border-radius: 0;
+                          border-top: 1px solid #fff;
+                        }
+                      }
+                      
+                    a, a:active { 
+                        color: #fff;
+                        text-align: left;
+                        background: $main-menu-background;
+                        padding: 10px 20px;
+                        border-bottom: 1px solid #fff;
+                        border-right: none;
+                        font-weight: 300 !important;
+                        font-size: 16px;
+                        letter-spacing: .08em;
+                        text-decoration: none;
+                        background-image: none !important;
+                        &:hover {
+                            background: $main-menu-hover;
+                            color: #FFF;
+                            background-image: none;
+                      }
+		      &:after {
+			border-top: none;
+		      }
+                    }
+                    ul {display:none !important;}
+                }
+    li a.active:after {
+		      border-top: none !important;
+		      border: none;
+		    }
+		    li a {
+		      border-right: none !important;
+		    }
+    
+    }
+    .flex-nav-container ul.flex-direction-nav {z-index: 10;}
+    .flex-nav-container .views-field.views-field-field-link a {font-size: 14px;}
+    .flex-nav-container .views-field.views-field-field-link .field-content {padding: 5px 8px; line-height: 1;}
+    
+    ul.quicktabs-tabs.quicktabs-style-zen {
+      border-bottom: none;
+      float:none;
+      li, li.active {
+        float: none;
+        a, a:hover {
+          &:before {
+            content: 'View ';
+          }
+          border: 1px solid #ccc;
+          border-radius: 0;
+          width:100%
+        }
+      }
+      li.active {
+          a.active, a.active:hover {
+            color: $body-link-hover;
+            background-color: #fff;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            &:before {
+            content: none;
+          }
+          }
+      }
+    }
+}
+//This is for dropdown menus
+ul.nice-menu-down {
+    background: $main-menu-background;
+    border-radius: 0;
+    float: none;
+    z-index: 109 !important;
+    li {
+        background-color: transparent;
+        border: none;
+        &.menuparent {
+            background: none;
+            a {
+                padding-right: 30px;
+                background: url("../images/arrow-down.png") no-repeat scroll right center transparent;
+            }
+            li {
+              width: 250px;
+              a {
+                background-image: none;
+              }
+            }
+        }
+        &.over.menuparent, &.active-trail.menuparent {
+            a, a.active {
+                background: url("../images/arrow-down.png") no-repeat scroll right center $main-menu-active;
+                
+            }
+            li {
+              a, a.active {
+                background-image: none;
+              }
+            }
+        }
+        ul {
+            background: $main-menu-active;
+            top: auto;
+            border: none;
+            z-index: 110 !important;
+            position: absolute;
+            a {
+                background: $main-menu-active;
+                background-image: none;
+                border-top: 1px solid #fff;
+                text-decoration: none;
+                &:hover {
+                  background: $main-menu-background;
+                  text-decoration: none;
+                }   
+            }
+        }
+        /*
+	 &:first-child {
+          a {
+          border-radius: 5px 0 0 0;
+          }
+        }
+	li {
+          &:first-child {
+            a {
+              border-radius: 0;
+            }
+          }
+        }*/
+        a {
+            color: #fff;
+            border-right: 1px solid #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            &:hover, &.active {
+                background: $main-menu-hover;
+                text-decoration: none;
+            }
+            &.active:after {
+              content: ".";
+              position: absolute;
+              top: 100%;
+              left: 0;
+              display: block;
+              background: none;
+              margin: 0 0 0 44%;
+              width: 0;
+              height: 0;
+              font-size: 0;
+              line-height: 0;
+              border-left: 5px solid transparent;
+              border-right: 5px solid transparent;
+              border-top: 5px solid $main-menu-active;
+            }
+        }
+    }
+}
+ul.nice-menu-down li ul li ul {
+    top: 0;
+    border: 1px solid #fff;
+    border-left: none;
+    box-shadow: (rgba(0,0,0, .5) 0 2px 4px);
+    li {
+        border-left: 1px solid #fff;
+        &:first-child {
+            //border-left: none;
+        }
+        a {
+            border-top: none;
+        }
+    }
+}
+// Adds a search button
+/*#search-block-form .form-actions  {
+    display: inline;
+    position: absolute;
+    top: -64px;
+    right: 1px;
+    input {
+        text-indent: -1000px;
+        background: url("../images/icon/searchglass.png") no-repeat scroll center transparent;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 0px 5px 5px 0px;
+        border: 1px solid #ccc;
+        &:hover {
+            background: url("../images/searchglass-hover.png") no-repeat scroll center $main-menu-hover;
+        }
+    }
+}
+.block.block-search .form-item-search-block-form {
+    top: -50px;
+    height: 30px;
+    right: 30px;
+    border: 1px solid #ccc;
+    background: none;
+    border-radius: 5px 0 0 5px !important;
+    border-right: none;
+    input {
+        width: 175px;
+    }
+}
+
+@media screen and (max-width: $display_small_max) {
+    .block.block-search .form-item-search-block-form {
+        height: 50px;
+    }
+    #search-block-form .form-actions {
+        top: auto;
+        right: auto;
+        input {
+            height: 50px;
+            width: 50px;
+        }
+    }
+}*/

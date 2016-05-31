@@ -1,0 +1,5 @@
+name = "ucsf_pharmacy_syndicated_launch"
+description = "launch helper for making preview- urls work at launch"
+core = 7.x
+package = "UCSF Pharmacy"
+version = 7.x-1.0

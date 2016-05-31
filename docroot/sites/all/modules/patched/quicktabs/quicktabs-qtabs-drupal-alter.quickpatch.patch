@@ -1,0 +1,12 @@
+diff --git a/docroot/sites/all/modules/patched/quicktabs/plugins/QuickQtabsContent.inc b/docroot/sites/all/modules/patched/quicktabs/plugins/QuickQtabsContent.inc
+index 7c395c6..05df3ca 100644
+--- a/docroot/sites/all/modules/patched/quicktabs/plugins/QuickQtabsContent.inc
++++ b/docroot/sites/all/modules/patched/quicktabs/plugins/QuickQtabsContent.inc
+@@ -46,6 +46,7 @@ class QuickQtabsContent extends QuickContent {
+     $output = array();
+     if (isset($item['machine_name'])) {
+       if ($quicktabs = quicktabs_load($item['machine_name'])) {
++        drupal_alter('quicktabs', $quicktabs);
+         $contents = $quicktabs->tabs;
+         $name = $quicktabs->machine_name;
+         unset($quicktabs->tabs, $quicktabs->machine_name);

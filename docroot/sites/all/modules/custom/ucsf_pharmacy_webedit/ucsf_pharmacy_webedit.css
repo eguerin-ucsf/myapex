@@ -1,0 +1,71 @@
+.webedit-content a{ /* underlining on links makes them easier to see */
+  text-decoration:underline;
+}
+
+/* begin - prevent very large images from appearing too big, standardize relative sizes */
+.webedit-content img.file-media-full
+,.webedit-content img.file-media-original
+,.webedit-content img.file-raw-square
+,.webedit-content img.file-original-cropped
+{
+  max-width:200px;
+}
+.webedit-content img.file-square-half
+,.webedit-content img.file-half{
+  max-width:150px;
+}
+.webedit-content img.file-square-third
+,.webedit-content img.file-third{
+  max-width:100px;
+}
+.webedit-content img.file-square-quarter
+,.webedit-content img.file-quarter{
+  max-width:75px;
+}
+.webedit-content img.file-square-sixth
+,.webedit-content img.file-sixth{
+  max-width:50px;
+}
+.webedit-content img.file-square-thumbnail
+,.webedit-content img.file-thumbnail{
+  max-width:40px;
+}
+/* end - prevent very large images from appearing too big, standardize relative sizes */
+
+.webedit-content p
+,.webedit-content li
+{
+  line-height:150%;
+}
+.webedit-content ol
+{
+  margin-left:3em;
+}
+.webedit-content ul
+{
+  margin-left:2em;
+}
+.webedit-content ul ul{
+  margin-bottom:0;
+}
+.webedit-content a:hover{ /* no need for underlining in the tooltip */
+  text-decoration:none;
+}
+.webedit-content a[href]:hover:after
+,.webedit-content a[id]:hover:after
+{ /* when hovering over links and anchors, reveal the name */
+  content:attr(href);
+  padding:2px 8px;
+  margin-left:.4em;
+  color:#000; /* black */
+  background-color:#ffc; /* very light yellow */
+  border:1px solid #000; /* black */
+}
+.webedit-content a[id]:hover:after{ /* when hovering over anchors, reveal the name */
+  content:attr(id);
+  color:#fff; /* white */
+  background-color:#f00; /* red, since the flag icon is red */
+}
+.webedit-content .hideonpageload{ /* related to interactive showhidetoggle */
+  display:block;
+}

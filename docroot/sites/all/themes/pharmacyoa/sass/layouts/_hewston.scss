@@ -1,0 +1,54 @@
+/**
+ * @file
+ * OA Hewston panel layout
+**/
+
+.hewston-container {
+  margin-bottom:0;
+}
+
+.hewston-slider {
+  float: left;
+  width: 68.085%;
+}
+
+  .hewston-slider-inner {
+    margin-right: 20px;
+  }
+
+.hewston-slider-gutter {
+  float: left;
+  width: 31.915%;
+}
+
+.hewston-middle-region {
+  width: 34.043%;
+  float: left;
+}
+
+  .hewston-middle-region-inner {
+    margin-right: 20px;
+  }
+
+  .hewston-column3 {
+    width: 31.915%;
+  }
+  
+    .hewston-column3-inner {
+      margin-right: 0;
+    }
+    
+@include breakpoint(medium) {
+  .hewston-slider,
+  .hewston-slider-gutter,
+  .hewston-middle-region,
+  .hewston-column3 {
+    width: 100%;
+    float: none;
+  }
+  
+  .hewston-slider-inner,
+  .hewston-middle-region-inner {
+    margin-right: 0;
+  }
+}

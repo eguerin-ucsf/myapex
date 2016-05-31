@@ -1,0 +1,260 @@
+@charset "UTF-8";
+/* line 3, ../sass/print.scss */
+body , #footer-wrapper #footer , #footer-wrapper #footer #footer-copy , #parent-1-name-wrapper , #block-menu-footer .menu { background: #fff; }
+
+/* line 11, ../sass/print.scss */
+div.view , div.pane-node-content , div.pane-token .pane-content , div.pane-entity-field .field , div.pane-block .pane-content { font-size: 7pt; }
+/* line 17, ../sass/print.scss */
+div.view p, div.view li, div.pane-node-content p, div.pane-node-content li, div.pane-token .pane-content p, div.pane-token .pane-content li, div.pane-entity-field .field p, div.pane-entity-field .field li, div.pane-block .pane-content p, div.pane-block .pane-content li { font-size: 7pt; }
+
+/* line 22, ../sass/print.scss */
+#parent-1-name-wrapper , #parent-1-name-wrapper div , #parent-1-name , #header #site-name { display: inline; margin-left: 0; margin-right: 2em; letter-spacing: 0; }
+
+/* line 32, ../sass/print.scss */
+#header #parent-2-name , .symbol .footnote , h3 { letter-spacing: 0; }
+
+/* line 38, ../sass/print.scss */
+h3 { font-weight: normal; }
+
+/* line 42, ../sass/print.scss */
+#parent-1-name-wrapper { left: 0; margin-right: 0; }
+
+/* line 47, ../sass/print.scss */
+h1.title { font-size: 16pt; margin-bottom: .2em; }
+
+/* line 52, ../sass/print.scss */
+#block-menu-footer .menu a , h3, h4 { color: #000; }
+
+/* line 57, ../sass/print.scss */
+#menu-and-search , #footer .footer.menu , .messages , .flex-direction-nav , .flex-control-nav , .pager , #topbar-wrapper , #skip , #make-a-gift , #footer-quote , #menu-and-social , #footer-wrapper #footer #social-links , #content-header div.tabs , .menu-block-main-menu , .page-type-6 hr , #skip a:link, #skip a:hover, #skip a:visited , #skip a:active, #skip a:focus , #block-menu-footer , .contextual-links-wrapper { display: none !important; }
+
+/* line 79, ../sass/print.scss */
+.printOnly { display: block; }
+
+/* line 83, ../sass/print.scss */
+#page { margin: 0 1in; }
+
+/* line 87, ../sass/print.scss */
+#content-header { margin-bottom: 12pt; }
+
+/* line 91, ../sass/print.scss */
+#page , #main , #content-area .quicktabs-wrapper ul , .rolph-container , #content-area { border: 0; margin-bottom: 0 !important; padding-bottom: 0 !important; }
+
+/* line 104, ../sass/print.scss */
+.content p, .view-content p, .pane-content p { margin: 0 0 .2em; }
+/* line 107, ../sass/print.scss */
+.content p, .content li, .view-content p, .view-content li, .pane-content p, .pane-content li { line-height: 195%; }
+
+/* line 114, ../sass/print.scss */
+table h2:first-child, table h3:first-child, table h4:first-child, table h5:first-child, table h6:first-child { margin-bottom: .2em; }
+
+/* line 120, ../sass/print.scss */
+#footer-wrapper { max-width: 940px; margin: 0 1in; padding: 0; border: 0; }
+/* line 125, ../sass/print.scss */
+#footer-wrapper #footer { height: auto !important; }
+/* line 127, ../sass/print.scss */
+#footer-wrapper #footer #block-menu-footer { margin-left: 0; width: 100%; }
+/* line 130, ../sass/print.scss */
+#footer-wrapper #footer #block-menu-footer ul { padding-top: 0; }
+/* line 132, ../sass/print.scss */
+#footer-wrapper #footer #block-menu-footer ul li.first a { padding-left: 0; }
+/* line 137, ../sass/print.scss */
+#footer-wrapper #footer .menu { position: relative; top: -35px; }
+/* line 141, ../sass/print.scss */
+#footer-wrapper #footer #footer-copy { border: 0; line-height: 1.5em; color: #333; text-align: left; float: none; }
+/* line 142, ../sass/print.scss */
+#footer-wrapper #footer #footer-copy p { font-size: 6pt; }
+
+/* line 155, ../sass/print.scss */
+.view-list-of-sites { margin-top: 2em; }
+
+/* line 159, ../sass/print.scss */
+.view-list-of-sites .views-field-sitename { font-size: 1em; }
+
+/* line 164, ../sass/print.scss */
+.lab-title-group { padding: 0 !important; border: 0; margin: 0 0 1em; }
+/* line 168, ../sass/print.scss */
+.lab-title-group .person-name { font-size: .9em; line-height: 100%; }
+
+/* line 177, ../sass/print.scss */
+.page-type-5 #content-area, .page-type-6 #content-area, .page-type-7 #content-area { box-shadow: none; border-top: 0; background: none; }
+
+/* line 184, ../sass/print.scss */
+#parent-1-name-wrapper { min-height: 1em; font-size: 1em; }
+
+/* line 189, ../sass/print.scss */
+#parent-1-name-wrapper #parent-1-name { position: static; }
+
+/* line 193, ../sass/print.scss */
+#block-system-main { padding-bottom: 0; padding-left: 0; width: auto; }
+
+/* line 199, ../sass/print.scss */
+#header { margin-bottom: 0; }
+
+/* line 204, ../sass/print.scss */
+.page-type-5 img { width: 20%; }
+
+/* line 208, ../sass/print.scss */
+.page-type-6 img , .page-type-7 img , .people img { width: 60%; }
+
+/* line 214, ../sass/print.scss */
+.contact img { max-width: 100px !important; }
+
+/* line 218, ../sass/print.scss */
+h1 { font-size: 1em; }
+
+/* line 222, ../sass/print.scss */
+.page-type-7 h1 { font-size: 1.25em; }
+
+/* line 226, ../sass/print.scss */
+h2 { font-size: 1em; }
+
+/* line 230, ../sass/print.scss */
+h3, ul { font-size: .85em; }
+
+/* line 234, ../sass/print.scss */
+h4, h5, h6 { font-size: .75em; }
+
+/* line 238, ../sass/print.scss */
+b, strong { color: #333; }
+
+/* line 242, ../sass/print.scss */
+div.view , div.pane-node-content , div.pane-token .pane-content , div.pane-entity-field .field , div.pane-block .pane-content { font-size: 8pt; }
+
+/* line 250, ../sass/print.scss */
+.content .field-name-field-image-caption, p, li, th, td, th p, td p { font-size: 7pt !important; line-height: 130%; }
+
+/* line 255, ../sass/print.scss */
+ul, ol { margin-left: 2em; }
+
+/* line 260, ../sass/print.scss */
+.content ul { margin: .75em 0 .75em 1.5em; }
+/* line 263, ../sass/print.scss */
+.content ol { margin: .75em 0 .75em 2em; }
+
+/* line 269, ../sass/print.scss */
+.page-type-2 #site-name { font-size: 16pt; }
+
+/* line 281, ../sass/print.scss */
+.page-type-3 #site-name, .page-type-3 #parent-2-name, .page-type-4 #site-name, .page-type-4 #parent-2-name, .page-type-5 #site-name, .page-type-5 #parent-2-name, .page-type-6 #site-name, .page-type-6 #parent-2-name, .page-type-7 #site-name, .page-type-7 #parent-2-name, .page-type-8 #site-name, .page-type-8 #parent-2-name, .page-type-9 #site-name, .page-type-9 #parent-2-name { font-size: 1em; }
+
+/* line 286, ../sass/print.scss */
+.lab-title-group h1.lab-title, .lab-title-group div.lab-title { font-size: 1.25em; }
+
+/* line 290, ../sass/print.scss */
+.prefix, .subtitle { font-size: .7em; line-height: 100%; }
+
+/* line 296, ../sass/print.scss */
+.content p, .content ul, .content ol, .content h1, .content h2, .content h3, .content h4, .content h5, .content h6, .content .field-name-field-image-caption { color: #000; margin-right: 0; }
+/* line 300, ../sass/print.scss */
+.content th, .content th p { color: #666; }
+
+/* line 305, ../sass/print.scss */
+.page-type-7 #block-system-main { padding-bottom: 0; }
+
+/* line 309, ../sass/print.scss */
+.content .field-name-field-image-caption { font-size: .45em; }
+
+/* line 314, ../sass/print.scss */
+a { word-wrap: break-word; }
+
+/* line 319, ../sass/print.scss */
+a[href^="http://"]:after, a[href^="/"]:after { text-transform: lowercase; font-weight: normal; }
+
+/* line 325, ../sass/print.scss */
+a[href^="http://"]:after { content: " [" attr(href) "] "; }
+
+/* line 329, ../sass/print.scss */
+a[href^="/"]:after { content: " [http://pharmacy.ucsf.edu" attr(href) "] "; }
+
+/* line 334, ../sass/print.scss */
+a.footnoted:link:after, a.footnoted:visited:after { content: ""; }
+
+/* line 339, ../sass/print.scss */
+sup.footnote { font-size: 0.6em; position: relative; top: -.5em; /*  margin-left:6pt;*/ }
+
+/* line 346, ../sass/print.scss */
+sup.footnote::before { content: " "; }
+
+/*
+*/
+/* line 353, ../sass/print.scss */
+.file-image sup.footnote , .views-field-field-featured-image sup.footnote { display: none; }
+
+/* line 359, ../sass/print.scss */
+thead { display: table-header-group !important; }
+
+/* line 364, ../sass/print.scss */
+table tbody { border-top: 1px solid transparent; }
+/* line 367, ../sass/print.scss */
+table tbody tr, table th, table td { background-color: transparent; padding: 4px 0 2px; }
+/* line 371, ../sass/print.scss */
+table tbody tr:nth-child(even) , table tbody tr:nth-child(odd) { background-color: transparent; }
+
+/* line 377, ../sass/print.scss */
+#main { margin-bottom: 1em; }
+
+/* line 381, ../sass/print.scss */
+#content-area .quicktabs-wrapper .quicktabs-wrapper { margin-top: .5em; }
+/* line 383, ../sass/print.scss */
+#content-area .quicktabs-wrapper .quicktabs-wrapper #quicktabs-container-people_department { margin-top: 1em; }
+/* line 386, ../sass/print.scss */
+#content-area .quicktabs-wrapper .quicktabs-wrapper h2, #content-area .quicktabs-wrapper .quicktabs-wrapper h3 { font-size: 1em; }
+
+/* line 398, ../sass/print.scss */
+.webedit-left div { vertical-align: top; display: inline-block; }
+
+/* line 417, ../sass/print.scss */
+.sutro-column , .landing-content , .landing-sidebar { width: 100% !important; }
+
+/* line 424, ../sass/print.scss */
+.quicktabs-hide { display: block; }
+
+/* line 430, ../sass/print.scss */
+.is-sop-secondary h2 , .is-sop-secondary .pane-views-panes .view-event-page .field-label, .is-pharmd-secondary h2 , .is-pharmd-secondary .pane-views-panes .view-event-page .field-label { color: #000; }
+/* line 434, ../sass/print.scss */
+.is-sop-secondary .eyecatching, .is-pharmd-secondary .eyecatching { background: transparent; border: 2px solid #000; border-width: 2px 1px 1px; padding: .5em .75em; }
+
+/* line 443, ../sass/print.scss */
+.page-type-1 h1, .page-type-1 div #site-name, .page-type-1 div #parent-2-name { font-size: 3em; }
+
+/* line 459, ../sass/print.scss */
+.page-type-2 h1, .page-type-2 h1 a, .page-type-2 #site-name a, .page-type-2 #parent-2-name a, .page-type-3 h1, .page-type-3 h1 a, .page-type-3 #site-name a, .page-type-3 #parent-2-name a, .page-type-4 h1, .page-type-4 h1 a, .page-type-4 #site-name a, .page-type-4 #parent-2-name a, .page-type-5 h1, .page-type-5 h1 a, .page-type-5 #site-name a, .page-type-5 #parent-2-name a, .page-type-6 h1, .page-type-6 h1 a, .page-type-6 #site-name a, .page-type-6 #parent-2-name a, .page-type-7 h1, .page-type-7 h1 a, .page-type-7 #site-name a, .page-type-7 #parent-2-name a, .page-type-8 h1, .page-type-8 h1 a, .page-type-8 #site-name a, .page-type-8 #parent-2-name a, .page-type-9 h1, .page-type-9 h1 a, .page-type-9 #site-name a, .page-type-9 #parent-2-name a, .page-type-11 h1, .page-type-11 h1 a, .page-type-11 #site-name a, .page-type-11 #parent-2-name a { color: #000; }
+
+/* line 464, ../sass/print.scss */
+.footnote-links { border: 1pt solid #000; border-width: 1pt 0 0; padding-top: 12pt; display: block !important; }
+
+/* line 480, ../sass/print.scss */
+.page-type-2 .content a, .page-type-2 .content a:link, .page-type-2 .content a:visited, .page-type-2 .content a:focus, .page-type-2 .content a:active, .page-type-2 .pane-content a, .page-type-2 .pane-content a:link, .page-type-2 .pane-content a:visited, .page-type-2 .pane-content a:focus, .page-type-2 .pane-content a:active, .page-type-4 .content a, .page-type-4 .content a:link, .page-type-4 .content a:visited, .page-type-4 .content a:focus, .page-type-4 .content a:active, .page-type-4 .pane-content a, .page-type-4 .pane-content a:link, .page-type-4 .pane-content a:visited, .page-type-4 .pane-content a:focus, .page-type-4 .pane-content a:active, .page-type-7 #block-system-main .content a, .page-type-7 #block-system-main .content a:link, .page-type-7 #block-system-main .content a:visited, .page-type-7 #block-system-main .content a:focus, .page-type-7 #block-system-main .content a:active, .page-type-7 #block-system-main .pane-content a, .page-type-7 #block-system-main .pane-content a:link, .page-type-7 #block-system-main .pane-content a:visited, .page-type-7 #block-system-main .pane-content a:focus, .page-type-7 #block-system-main .pane-content a:active, .page-type-7 #block-views-gallery-block .content a, .page-type-7 #block-views-gallery-block .content a:link, .page-type-7 #block-views-gallery-block .content a:visited, .page-type-7 #block-views-gallery-block .content a:focus, .page-type-7 #block-views-gallery-block .content a:active, .page-type-7 #block-views-gallery-block .pane-content a, .page-type-7 #block-views-gallery-block .pane-content a:link, .page-type-7 #block-views-gallery-block .pane-content a:visited, .page-type-7 #block-views-gallery-block .pane-content a:focus, .page-type-7 #block-views-gallery-block .pane-content a:active, .page-type-9 .content a, .page-type-9 .content a:link, .page-type-9 .content a:visited, .page-type-9 .content a:focus, .page-type-9 .content a:active, .page-type-9 .pane-content a, .page-type-9 .pane-content a:link, .page-type-9 .pane-content a:visited, .page-type-9 .pane-content a:focus, .page-type-9 .pane-content a:active, .page-type-10 .content a, .page-type-10 .content a:link, .page-type-10 .content a:visited, .page-type-10 .content a:focus, .page-type-10 .content a:active, .page-type-10 .pane-content a, .page-type-10 .pane-content a:link, .page-type-10 .pane-content a:visited, .page-type-10 .pane-content a:focus, .page-type-10 .pane-content a:active, .page-type-11 .content a, .page-type-11 .content a:link, .page-type-11 .content a:visited, .page-type-11 .content a:focus, .page-type-11 .content a:active, .page-type-11 .pane-content a, .page-type-11 .pane-content a:link, .page-type-11 .pane-content a:visited, .page-type-11 .pane-content a:focus, .page-type-11 .pane-content a:active { border: 1px solid #0059b3; border-width: 0 0 1px; }
+/* line 485, ../sass/print.scss */
+.page-type-2 .content a:visited, .page-type-2 .pane-content a:visited, .page-type-4 .content a:visited, .page-type-4 .pane-content a:visited, .page-type-7 #block-system-main .content a:visited, .page-type-7 #block-system-main .pane-content a:visited, .page-type-7 #block-views-gallery-block .content a:visited, .page-type-7 #block-views-gallery-block .pane-content a:visited, .page-type-9 .content a:visited, .page-type-9 .pane-content a:visited, .page-type-10 .content a:visited, .page-type-10 .pane-content a:visited, .page-type-11 .content a:visited, .page-type-11 .pane-content a:visited { border: 1px solid #5000b3; }
+/* line 488, ../sass/print.scss */
+.page-type-2 .content a:hover, .page-type-2 .pane-content a:hover, .page-type-4 .content a:hover, .page-type-4 .pane-content a:hover, .page-type-7 #block-system-main .content a:hover, .page-type-7 #block-system-main .pane-content a:hover, .page-type-7 #block-views-gallery-block .content a:hover, .page-type-7 #block-views-gallery-block .pane-content a:hover, .page-type-9 .content a:hover, .page-type-9 .pane-content a:hover, .page-type-10 .content a:hover, .page-type-10 .pane-content a:hover, .page-type-11 .content a:hover, .page-type-11 .pane-content a:hover { text-decoration: none; }
+/* line 491, ../sass/print.scss */
+.page-type-2 .content .symbol a, .page-type-2 .pane-content .symbol a, .page-type-4 .content .symbol a, .page-type-4 .pane-content .symbol a, .page-type-7 #block-system-main .content .symbol a, .page-type-7 #block-system-main .pane-content .symbol a, .page-type-7 #block-views-gallery-block .content .symbol a, .page-type-7 #block-views-gallery-block .pane-content .symbol a, .page-type-9 .content .symbol a, .page-type-9 .pane-content .symbol a, .page-type-10 .content .symbol a, .page-type-10 .pane-content .symbol a, .page-type-11 .content .symbol a, .page-type-11 .pane-content .symbol a { border: 0; }
+
+/* line 497, ../sass/print.scss */
+.symbol { font-size: 8pt; }
+/* line 499, ../sass/print.scss */
+.symbol .footnote { font-family: helvetica,arial,sans-serif; }
+
+/* line 514, ../sass/print.scss */
+.is-sop-secondary .subtitle , .is-sop-secondary h2, .is-pharmd-secondary .subtitle , .is-pharmd-secondary h2, .is-lab-secondary .subtitle , .is-lab-secondary h2, .is-microsite-home .subtitle , .is-microsite-home h2, .is-dept-pharmchem .subtitle , .is-dept-pharmchem h2, .is-pharmchem .subtitle , .is-pharmchem h2, .is-dept-bts .subtitle , .is-dept-bts h2, .is-bts .subtitle , .is-bts h2, .is-dept-clinicalpharmacy .subtitle , .is-dept-clinicalpharmacy h2, .is-clinicalpharmacy .subtitle , .is-clinicalpharmacy h2 { color: #000; }
+/* line 518, ../sass/print.scss */
+.is-sop-secondary .eyecatching , .is-sop-secondary .pane-background-callout, .is-pharmd-secondary .eyecatching , .is-pharmd-secondary .pane-background-callout, .is-lab-secondary .eyecatching , .is-lab-secondary .pane-background-callout, .is-microsite-home .eyecatching , .is-microsite-home .pane-background-callout, .is-dept-pharmchem .eyecatching , .is-dept-pharmchem .pane-background-callout, .is-pharmchem .eyecatching , .is-pharmchem .pane-background-callout, .is-dept-bts .eyecatching , .is-dept-bts .pane-background-callout, .is-bts .eyecatching , .is-bts .pane-background-callout, .is-dept-clinicalpharmacy .eyecatching , .is-dept-clinicalpharmacy .pane-background-callout, .is-clinicalpharmacy .eyecatching , .is-clinicalpharmacy .pane-background-callout { background: transparent; border: 2px solid #000; border-width: 2pt 1pt 1pt; padding: 1em 1.5em; }
+/* line 528, ../sass/print.scss */
+.is-sop-secondary .content ul, .is-sop-secondary .view-content ul, .is-sop-secondary .pane-content ul, .is-pharmd-secondary .content ul, .is-pharmd-secondary .view-content ul, .is-pharmd-secondary .pane-content ul, .is-lab-secondary .content ul, .is-lab-secondary .view-content ul, .is-lab-secondary .pane-content ul, .is-microsite-home .content ul, .is-microsite-home .view-content ul, .is-microsite-home .pane-content ul, .is-dept-pharmchem .content ul, .is-dept-pharmchem .view-content ul, .is-dept-pharmchem .pane-content ul, .is-pharmchem .content ul, .is-pharmchem .view-content ul, .is-pharmchem .pane-content ul, .is-dept-bts .content ul, .is-dept-bts .view-content ul, .is-dept-bts .pane-content ul, .is-bts .content ul, .is-bts .view-content ul, .is-bts .pane-content ul, .is-dept-clinicalpharmacy .content ul, .is-dept-clinicalpharmacy .view-content ul, .is-dept-clinicalpharmacy .pane-content ul, .is-clinicalpharmacy .content ul, .is-clinicalpharmacy .view-content ul, .is-clinicalpharmacy .pane-content ul { margin-left: 0; margin-left: 1.5em; margin-left: 2em; }
+/* line 532, ../sass/print.scss */
+.is-sop-secondary .content ul li , .is-sop-secondary .content ul li li li , .is-sop-secondary .content ul li li li li li, .is-sop-secondary .view-content ul li , .is-sop-secondary .view-content ul li li li , .is-sop-secondary .view-content ul li li li li li, .is-sop-secondary .pane-content ul li , .is-sop-secondary .pane-content ul li li li , .is-sop-secondary .pane-content ul li li li li li, .is-pharmd-secondary .content ul li , .is-pharmd-secondary .content ul li li li , .is-pharmd-secondary .content ul li li li li li, .is-pharmd-secondary .view-content ul li , .is-pharmd-secondary .view-content ul li li li , .is-pharmd-secondary .view-content ul li li li li li, .is-pharmd-secondary .pane-content ul li , .is-pharmd-secondary .pane-content ul li li li , .is-pharmd-secondary .pane-content ul li li li li li, .is-lab-secondary .content ul li , .is-lab-secondary .content ul li li li , .is-lab-secondary .content ul li li li li li, .is-lab-secondary .view-content ul li , .is-lab-secondary .view-content ul li li li , .is-lab-secondary .view-content ul li li li li li, .is-lab-secondary .pane-content ul li , .is-lab-secondary .pane-content ul li li li , .is-lab-secondary .pane-content ul li li li li li, .is-microsite-home .content ul li , .is-microsite-home .content ul li li li , .is-microsite-home .content ul li li li li li, .is-microsite-home .view-content ul li , .is-microsite-home .view-content ul li li li , .is-microsite-home .view-content ul li li li li li, .is-microsite-home .pane-content ul li , .is-microsite-home .pane-content ul li li li , .is-microsite-home .pane-content ul li li li li li, .is-dept-pharmchem .content ul li , .is-dept-pharmchem .content ul li li li , .is-dept-pharmchem .content ul li li li li li, .is-dept-pharmchem .view-content ul li , .is-dept-pharmchem .view-content ul li li li , .is-dept-pharmchem .view-content ul li li li li li, .is-dept-pharmchem .pane-content ul li , .is-dept-pharmchem .pane-content ul li li li , .is-dept-pharmchem .pane-content ul li li li li li, .is-pharmchem .content ul li , .is-pharmchem .content ul li li li , .is-pharmchem .content ul li li li li li, .is-pharmchem .view-content ul li , .is-pharmchem .view-content ul li li li , .is-pharmchem .view-content ul li li li li li, .is-pharmchem .pane-content ul li , .is-pharmchem .pane-content ul li li li , .is-pharmchem .pane-content ul li li li li li, .is-dept-bts .content ul li , .is-dept-bts .content ul li li li , .is-dept-bts .content ul li li li li li, .is-dept-bts .view-content ul li , .is-dept-bts .view-content ul li li li , .is-dept-bts .view-content ul li li li li li, .is-dept-bts .pane-content ul li , .is-dept-bts .pane-content ul li li li , .is-dept-bts .pane-content ul li li li li li, .is-bts .content ul li , .is-bts .content ul li li li , .is-bts .content ul li li li li li, .is-bts .view-content ul li , .is-bts .view-content ul li li li , .is-bts .view-content ul li li li li li, .is-bts .pane-content ul li , .is-bts .pane-content ul li li li , .is-bts .pane-content ul li li li li li, .is-dept-clinicalpharmacy .content ul li , .is-dept-clinicalpharmacy .content ul li li li , .is-dept-clinicalpharmacy .content ul li li li li li, .is-dept-clinicalpharmacy .view-content ul li , .is-dept-clinicalpharmacy .view-content ul li li li , .is-dept-clinicalpharmacy .view-content ul li li li li li, .is-dept-clinicalpharmacy .pane-content ul li , .is-dept-clinicalpharmacy .pane-content ul li li li , .is-dept-clinicalpharmacy .pane-content ul li li li li li, .is-clinicalpharmacy .content ul li , .is-clinicalpharmacy .content ul li li li , .is-clinicalpharmacy .content ul li li li li li, .is-clinicalpharmacy .view-content ul li , .is-clinicalpharmacy .view-content ul li li li , .is-clinicalpharmacy .view-content ul li li li li li, .is-clinicalpharmacy .pane-content ul li , .is-clinicalpharmacy .pane-content ul li li li , .is-clinicalpharmacy .pane-content ul li li li li li { background: none; }
+/* line 537, ../sass/print.scss */
+.is-sop-secondary .content ul li, .is-sop-secondary .view-content ul li, .is-sop-secondary .pane-content ul li, .is-pharmd-secondary .content ul li, .is-pharmd-secondary .view-content ul li, .is-pharmd-secondary .pane-content ul li, .is-lab-secondary .content ul li, .is-lab-secondary .view-content ul li, .is-lab-secondary .pane-content ul li, .is-microsite-home .content ul li, .is-microsite-home .view-content ul li, .is-microsite-home .pane-content ul li, .is-dept-pharmchem .content ul li, .is-dept-pharmchem .view-content ul li, .is-dept-pharmchem .pane-content ul li, .is-pharmchem .content ul li, .is-pharmchem .view-content ul li, .is-pharmchem .pane-content ul li, .is-dept-bts .content ul li, .is-dept-bts .view-content ul li, .is-dept-bts .pane-content ul li, .is-bts .content ul li, .is-bts .view-content ul li, .is-bts .pane-content ul li, .is-dept-clinicalpharmacy .content ul li, .is-dept-clinicalpharmacy .view-content ul li, .is-dept-clinicalpharmacy .pane-content ul li, .is-clinicalpharmacy .content ul li, .is-clinicalpharmacy .view-content ul li, .is-clinicalpharmacy .pane-content ul li { padding-left: 1em; padding-left: 0; margin-left: .5em; margin-left: 1em; margin-left: 0; text-indent: -.9em; }
+/* line 544, ../sass/print.scss */
+.is-sop-secondary .content ul li:before, .is-sop-secondary .view-content ul li:before, .is-sop-secondary .pane-content ul li:before, .is-pharmd-secondary .content ul li:before, .is-pharmd-secondary .view-content ul li:before, .is-pharmd-secondary .pane-content ul li:before, .is-lab-secondary .content ul li:before, .is-lab-secondary .view-content ul li:before, .is-lab-secondary .pane-content ul li:before, .is-microsite-home .content ul li:before, .is-microsite-home .view-content ul li:before, .is-microsite-home .pane-content ul li:before, .is-dept-pharmchem .content ul li:before, .is-dept-pharmchem .view-content ul li:before, .is-dept-pharmchem .pane-content ul li:before, .is-pharmchem .content ul li:before, .is-pharmchem .view-content ul li:before, .is-pharmchem .pane-content ul li:before, .is-dept-bts .content ul li:before, .is-dept-bts .view-content ul li:before, .is-dept-bts .pane-content ul li:before, .is-bts .content ul li:before, .is-bts .view-content ul li:before, .is-bts .pane-content ul li:before, .is-dept-clinicalpharmacy .content ul li:before, .is-dept-clinicalpharmacy .view-content ul li:before, .is-dept-clinicalpharmacy .pane-content ul li:before, .is-clinicalpharmacy .content ul li:before, .is-clinicalpharmacy .view-content ul li:before, .is-clinicalpharmacy .pane-content ul li:before { content: ""; content: "• "; position: relative; left: 0; left: -.5em; left: -1em; vertical-align: top; }
+/* line 553, ../sass/print.scss */
+.is-sop-secondary .content ul li ul, .is-sop-secondary .view-content ul li ul, .is-sop-secondary .pane-content ul li ul, .is-pharmd-secondary .content ul li ul, .is-pharmd-secondary .view-content ul li ul, .is-pharmd-secondary .pane-content ul li ul, .is-lab-secondary .content ul li ul, .is-lab-secondary .view-content ul li ul, .is-lab-secondary .pane-content ul li ul, .is-microsite-home .content ul li ul, .is-microsite-home .view-content ul li ul, .is-microsite-home .pane-content ul li ul, .is-dept-pharmchem .content ul li ul, .is-dept-pharmchem .view-content ul li ul, .is-dept-pharmchem .pane-content ul li ul, .is-pharmchem .content ul li ul, .is-pharmchem .view-content ul li ul, .is-pharmchem .pane-content ul li ul, .is-dept-bts .content ul li ul, .is-dept-bts .view-content ul li ul, .is-dept-bts .pane-content ul li ul, .is-bts .content ul li ul, .is-bts .view-content ul li ul, .is-bts .pane-content ul li ul, .is-dept-clinicalpharmacy .content ul li ul, .is-dept-clinicalpharmacy .view-content ul li ul, .is-dept-clinicalpharmacy .pane-content ul li ul, .is-clinicalpharmacy .content ul li ul, .is-clinicalpharmacy .view-content ul li ul, .is-clinicalpharmacy .pane-content ul li ul { margin-left: 0; margin-left: 2.3em; }
+/* line 556, ../sass/print.scss */
+.is-sop-secondary .content ul li ul li ul li:before, .is-sop-secondary .view-content ul li ul li ul li:before, .is-sop-secondary .pane-content ul li ul li ul li:before, .is-pharmd-secondary .content ul li ul li ul li:before, .is-pharmd-secondary .view-content ul li ul li ul li:before, .is-pharmd-secondary .pane-content ul li ul li ul li:before, .is-lab-secondary .content ul li ul li ul li:before, .is-lab-secondary .view-content ul li ul li ul li:before, .is-lab-secondary .pane-content ul li ul li ul li:before, .is-microsite-home .content ul li ul li ul li:before, .is-microsite-home .view-content ul li ul li ul li:before, .is-microsite-home .pane-content ul li ul li ul li:before, .is-dept-pharmchem .content ul li ul li ul li:before, .is-dept-pharmchem .view-content ul li ul li ul li:before, .is-dept-pharmchem .pane-content ul li ul li ul li:before, .is-pharmchem .content ul li ul li ul li:before, .is-pharmchem .view-content ul li ul li ul li:before, .is-pharmchem .pane-content ul li ul li ul li:before, .is-dept-bts .content ul li ul li ul li:before, .is-dept-bts .view-content ul li ul li ul li:before, .is-dept-bts .pane-content ul li ul li ul li:before, .is-bts .content ul li ul li ul li:before, .is-bts .view-content ul li ul li ul li:before, .is-bts .pane-content ul li ul li ul li:before, .is-dept-clinicalpharmacy .content ul li ul li ul li:before, .is-dept-clinicalpharmacy .view-content ul li ul li ul li:before, .is-dept-clinicalpharmacy .pane-content ul li ul li ul li:before, .is-clinicalpharmacy .content ul li ul li ul li:before, .is-clinicalpharmacy .view-content ul li ul li ul li:before, .is-clinicalpharmacy .pane-content ul li ul li ul li:before { content: "• "; }
+/* line 561, ../sass/print.scss */
+.is-sop-secondary .content ul li li , .is-sop-secondary .content ul li li li li , .is-sop-secondary .content ul li li li li li li, .is-sop-secondary .view-content ul li li , .is-sop-secondary .view-content ul li li li li , .is-sop-secondary .view-content ul li li li li li li, .is-sop-secondary .pane-content ul li li , .is-sop-secondary .pane-content ul li li li li , .is-sop-secondary .pane-content ul li li li li li li, .is-pharmd-secondary .content ul li li , .is-pharmd-secondary .content ul li li li li , .is-pharmd-secondary .content ul li li li li li li, .is-pharmd-secondary .view-content ul li li , .is-pharmd-secondary .view-content ul li li li li , .is-pharmd-secondary .view-content ul li li li li li li, .is-pharmd-secondary .pane-content ul li li , .is-pharmd-secondary .pane-content ul li li li li , .is-pharmd-secondary .pane-content ul li li li li li li, .is-lab-secondary .content ul li li , .is-lab-secondary .content ul li li li li , .is-lab-secondary .content ul li li li li li li, .is-lab-secondary .view-content ul li li , .is-lab-secondary .view-content ul li li li li , .is-lab-secondary .view-content ul li li li li li li, .is-lab-secondary .pane-content ul li li , .is-lab-secondary .pane-content ul li li li li , .is-lab-secondary .pane-content ul li li li li li li, .is-microsite-home .content ul li li , .is-microsite-home .content ul li li li li , .is-microsite-home .content ul li li li li li li, .is-microsite-home .view-content ul li li , .is-microsite-home .view-content ul li li li li , .is-microsite-home .view-content ul li li li li li li, .is-microsite-home .pane-content ul li li , .is-microsite-home .pane-content ul li li li li , .is-microsite-home .pane-content ul li li li li li li, .is-dept-pharmchem .content ul li li , .is-dept-pharmchem .content ul li li li li , .is-dept-pharmchem .content ul li li li li li li, .is-dept-pharmchem .view-content ul li li , .is-dept-pharmchem .view-content ul li li li li , .is-dept-pharmchem .view-content ul li li li li li li, .is-dept-pharmchem .pane-content ul li li , .is-dept-pharmchem .pane-content ul li li li li , .is-dept-pharmchem .pane-content ul li li li li li li, .is-pharmchem .content ul li li , .is-pharmchem .content ul li li li li , .is-pharmchem .content ul li li li li li li, .is-pharmchem .view-content ul li li , .is-pharmchem .view-content ul li li li li , .is-pharmchem .view-content ul li li li li li li, .is-pharmchem .pane-content ul li li , .is-pharmchem .pane-content ul li li li li , .is-pharmchem .pane-content ul li li li li li li, .is-dept-bts .content ul li li , .is-dept-bts .content ul li li li li , .is-dept-bts .content ul li li li li li li, .is-dept-bts .view-content ul li li , .is-dept-bts .view-content ul li li li li , .is-dept-bts .view-content ul li li li li li li, .is-dept-bts .pane-content ul li li , .is-dept-bts .pane-content ul li li li li , .is-dept-bts .pane-content ul li li li li li li, .is-bts .content ul li li , .is-bts .content ul li li li li , .is-bts .content ul li li li li li li, .is-bts .view-content ul li li , .is-bts .view-content ul li li li li , .is-bts .view-content ul li li li li li li, .is-bts .pane-content ul li li , .is-bts .pane-content ul li li li li , .is-bts .pane-content ul li li li li li li, .is-dept-clinicalpharmacy .content ul li li , .is-dept-clinicalpharmacy .content ul li li li li , .is-dept-clinicalpharmacy .content ul li li li li li li, .is-dept-clinicalpharmacy .view-content ul li li , .is-dept-clinicalpharmacy .view-content ul li li li li , .is-dept-clinicalpharmacy .view-content ul li li li li li li, .is-dept-clinicalpharmacy .pane-content ul li li , .is-dept-clinicalpharmacy .pane-content ul li li li li , .is-dept-clinicalpharmacy .pane-content ul li li li li li li, .is-clinicalpharmacy .content ul li li , .is-clinicalpharmacy .content ul li li li li , .is-clinicalpharmacy .content ul li li li li li li, .is-clinicalpharmacy .view-content ul li li , .is-clinicalpharmacy .view-content ul li li li li , .is-clinicalpharmacy .view-content ul li li li li li li, .is-clinicalpharmacy .pane-content ul li li , .is-clinicalpharmacy .pane-content ul li li li li , .is-clinicalpharmacy .pane-content ul li li li li li li { background: none; }
+/* line 567, ../sass/print.scss */
+.is-sop-secondary .content ul li li:before, .is-sop-secondary .view-content ul li li:before, .is-sop-secondary .pane-content ul li li:before, .is-pharmd-secondary .content ul li li:before, .is-pharmd-secondary .view-content ul li li:before, .is-pharmd-secondary .pane-content ul li li:before, .is-lab-secondary .content ul li li:before, .is-lab-secondary .view-content ul li li:before, .is-lab-secondary .pane-content ul li li:before, .is-microsite-home .content ul li li:before, .is-microsite-home .view-content ul li li:before, .is-microsite-home .pane-content ul li li:before, .is-dept-pharmchem .content ul li li:before, .is-dept-pharmchem .view-content ul li li:before, .is-dept-pharmchem .pane-content ul li li:before, .is-pharmchem .content ul li li:before, .is-pharmchem .view-content ul li li:before, .is-pharmchem .pane-content ul li li:before, .is-dept-bts .content ul li li:before, .is-dept-bts .view-content ul li li:before, .is-dept-bts .pane-content ul li li:before, .is-bts .content ul li li:before, .is-bts .view-content ul li li:before, .is-bts .pane-content ul li li:before, .is-dept-clinicalpharmacy .content ul li li:before, .is-dept-clinicalpharmacy .view-content ul li li:before, .is-dept-clinicalpharmacy .pane-content ul li li:before, .is-clinicalpharmacy .content ul li li:before, .is-clinicalpharmacy .view-content ul li li:before, .is-clinicalpharmacy .pane-content ul li li:before { content: "» "; }

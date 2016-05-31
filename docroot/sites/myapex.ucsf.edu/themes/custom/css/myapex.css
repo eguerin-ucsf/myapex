@@ -1,0 +1,466 @@
+/* general styles
+**************************************/
+
+/* prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g */
+html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; overflow-y: scroll; }
+
+body {	
+	font:100%/1.6 Verdana, Arial, Helvetica, sans-serif;
+	color:#333;
+	}
+	
+code, var, kbd, samp, tt, dir, listing, plaintext, xmp, abbr, acronym, blockquote, q {hyphens: none;}
+	
+a, a:link, a:visited { text-decoration:none;}
+
+a:hover { text-decoration:underline; }
+
+h1,h2,h3,h4,h5,h6 { font-weight:normal; }
+	
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #deb408; margin: 2em 0; padding: 0; clear:both;}
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; /*width:100%; height:auto;*/ }
+
+/* for ie 8 */
+/*
+@media \0screen {
+  img { 
+  	width: auto; 
+  }
+}
+*/
+
+li {
+	margin-bottom:10px;
+	}
+
+p, ol, li {
+	font-size:.875em;
+	margin-bottom:10px;
+	}
+	
+a { color:#3181ab; }
+
+h1.site-name {
+	padding:20px 0;
+	}
+
+h2 {
+	font-size:1.4em;
+	color:#18989B;
+	margin-bottom:10px;
+	}
+	
+.midcol h3 {
+	color:#333;
+	margin-bottom:10px;
+	font-size:1.1em;
+	}
+	
+
+#admin-menu .dropdown li {
+	font-size:1em;
+	}
+
+/* ucsf navigation
+**************************************/
+
+.ucsf-nav {
+	margin:0; 
+	padding:.3125em 0 .3125em 2em;
+	background:#888;
+	}
+
+#block-menu-menu-ucsf-navigation ul { 
+	font-size:.6875em;	
+	}
+
+	
+#block-menu-menu-ucsf-navigation ul li{
+	margin:0;
+	padding:0 0.9375em;
+	display:inline;
+	border-right:1px solid #fff;
+	}
+	
+#block-menu-menu-ucsf-navigation  ul li.last{
+	border-right:none;
+	}
+
+#block-menu-menu-ucsf-navigation  ul li a {
+	color:#eee;
+	}
+	
+/* masthead and search
+**************************************/
+	
+.masthead {
+	height:165px;
+	}
+	
+.site-name img {
+	float:left;
+	}
+	
+#search-block-form {
+	width:380px;
+	background:#e5e5e5;
+	padding:3px 5px 5px 5px;
+	float:right;
+	margin-top:40px;
+	}
+	
+.ie7 .search-block-form {
+	width:390px;
+	}
+
+.block-search .form-text {
+	border:none;
+	padding:5px;
+	width:300px;
+	}
+	
+.block-search  .form-submit{
+	background:#e5e5e5;
+	border:none;
+	color: #666666;
+	font-family: verdana;
+	font-size: 0.875em;
+	font-weight: bold;
+	}
+	
+.block-search .container-inline .form-actions {
+	float:right;
+	/*margin-top:-28px;*/
+	position:absolute;
+	}
+	
+.ie .block-search .container-inline .form-actions {
+	margin-top:0;
+	}
+	
+label.option {
+	font-size:13px;
+	}
+	
+/* search results */
+
+.search-results .search-snippet-info {
+	padding-left:0;
+	}
+	
+.midcol .search-results h3.title {
+	margin-bottom:0;
+	}
+	
+#block-block-16 {
+	padding:10px;
+	background:#efefef;
+	}
+	
+#block-block-16 p {
+	font-size:.75em;
+	}
+	
+.search-form input.form-text {
+	font-size: 1em;
+	height: 20px;
+}
+	
+/* search results - hide a couple things */
+
+.search-snippet span, .search-info {
+	display:none;
+	}
+	
+/* pagination
+**************************************/
+
+.item-list .pager {
+	padding:20px 0;
+	text-align:right;
+}
+
+.item-list ul.pager li {
+	display:inline;
+	margin-left:10px;
+	border:1px solid #999;	
+	padding:2px 4px;
+	list-style:none;
+	background:none;
+}
+
+.pager li a {
+	color:#999;
+}
+
+.item-list .pager li.pager-current {
+	border:none;
+} 
+
+
+/* subscribe / login
+**************************************/
+	
+.subscribe-cont {
+	background: #214883;
+	float: left;
+	padding: .3125em 0;
+	width:100%;
+	}	
+	
+.banner {
+	margin-bottom:30px;
+	}
+	
+.banner img {
+	width:100%;
+	height:auto;
+	}
+	
+.subscribe-cont a {
+	color:#fff;
+ }
+	
+.insight {
+	float:left;
+	margin-left:20px;
+	}
+
+.region-subscribe-login .block-menu {
+	margin-right:30px;
+	float:right;
+	}
+
+.region-subscribe-login  a {
+	margin-left:40px;
+	}
+	
+.region-subscribe-login  li {
+	margin-bottom:0;
+	font-size:.875em;
+	}
+	
+.region-subscribe-login  p {
+	margin-bottom:0;
+	}
+	
+/* content
+**************************************/
+
+.container-fluid {
+	max-width:1080px;
+	margin:0 auto;
+	}
+	
+.ie7 .container-fluid {
+	width:1080px;
+	}
+	
+.region-leftcol h2, .region-rightcol h2, .region-rightcol h2 {
+	color:#333;
+	padding:5px 10px;
+	background:#6766a3;
+	margin-bottom:0;
+	color:#fff;
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	}
+	
+.region-rightcol #block-block-4 h2 {
+	background:#6766a3;
+	color:#fff;
+	}
+	
+.region-rightcol .block-block, .region-rightcol .block-views {
+	margin-bottom:30px;
+	}
+	
+.region-rightcol .block-block .content,
+.view-apex-chatter-feed,
+.view-most-viewed-content {
+	background:#efefef;
+	padding:10px;
+	border-top:2px solid #fff;
+	}
+    
+.view-apex-chatter-feed .views-field-title {
+    font-size:.875em;
+}
+
+.view-most-viewed-content .views-row {
+    margin-bottom:10px;
+    font-size:.875em;
+}
+
+.views-field-totalcount {
+	color:#666;
+	}
+	
+.region-content .item-list ul li,
+.view-what-do-you-need-contentview-id-what_do_you_need_content .item-list ul li {
+	margin-bottom:1em;
+	}
+	
+.region-content .item-list ul,
+.view-what-do-you-need-contentview-id-what_do_you_need_content .item-list ul {
+	list-style:disc;
+	}
+	
+.region-leftcol li {
+	font-size:.75em;
+	}
+	
+.region-leftcol li ul li {
+	font-size:1em;
+	}
+    
+/* five star voting */
+
+.field-name-field-five-star-vote {
+    margin: 20px 0;
+}
+
+/* main menu */
+
+.region-leftcol .block-menu {
+	margin-bottom:30px;
+	}
+	
+.region-leftcol .block-menu li{
+	margin-bottom:0;
+	}
+	
+.region-leftcol .menu .expanded a ul li a, 
+.region-leftcol .menu .collapsed a ul li a{ 
+	background:none;
+	}
+		
+.region-leftcol .menu a {
+	color:#333;
+	display:block;
+	padding:5px 0 5px 20px;
+	background:#e5e5e5;
+	border-top:2px solid #fff;
+	}
+	
+.region-leftcol .menu .collapsed  a{
+	background:#efefef url(../images/closed.png) center left no-repeat;
+	}
+	
+.region-leftcol .menu .expanded a {
+	background:#efefef url(../images/open.png) center left no-repeat;
+	}
+	
+.region-leftcol .menu .expanded ul li a, 
+.region-leftcol .menu .collapsed ul li a {
+	background-image:none;
+	padding-left:30px;
+	}
+	
+.toggle-menu {
+	display:none;
+	}
+
+/* set height for tags select list when editing */
+
+.field-type-taxonomy-term-reference select {
+	height:400px;
+	}
+	
+/* media editor styles */
+
+.media-widget  a {
+	margin-rigth:15px;
+	}
+	
+/* dashboard
+**************************************/
+	
+.views-label-field-tags, .views-label-field-what-do-you-need-tags{
+	font-weight:bold;
+	}
+	
+.views-field-field-what-do-you-need-tags, .views-field-field-tags {
+	margin-top:10px;
+	}
+	
+.view-content-and-tags-list .views-row {
+	margin-bottom:20px;
+	padding-bottom:20px;
+	border-bottom:1px solid #ccc;
+	}
+
+/* footer
+**************************************/
+
+.footer {
+	clear:both;
+	padding:1.875em 0;
+	text-align:center;
+	background:#454040;
+	margin-top:6.25em;
+	}
+	
+.footer p {
+	color:#fff;
+	}
+
+/* media queries max-width: 767px
+****************************************************************************/
+@media all and (max-width: 767px) {
+
+.region-search-form, #block-menu-menu-ucsf-navigation ul li  {
+	display:none;
+	}
+	
+#block-menu-menu-ucsf-navigation ul li.first {
+	display:inline;
+	border-right:none;
+	}
+	
+.masthead {
+	background:none;
+	height:auto;
+	}
+	
+.subscribe-cont {
+	display:none;
+	}
+	
+h1.sitename {
+	padding:10px 0;
+	}
+	
+.insight {
+	margin-right:50px;
+	}
+	
+.region-leftcol {
+	display:none;
+	}
+
+.toggle-menu {
+	padding:10px;
+	background:#bdc163;
+	display:block;
+	border-bottom:2px solid #fff;
+	}
+	
+.toggle-menu:hover{ 
+	cursor:pointer;
+	}
+	
+}
+
+
+
+
+
+
+
+

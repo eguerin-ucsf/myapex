@@ -1,0 +1,19 @@
+
+.footer-container footer {
+	.footer-socialmedias .footer-facebook,
+	.footer-socialmedias .footer-googleplus,
+	.footer-socialmedias .footer-twitter,
+	.footer-contact .footer-contact-address,
+	.footer-contact .footer-contact-phonefax { background: url('../images/icons.png') no-repeat 0 0; }
+
+	.footer-socialmedias .footer-twitter { background-position: 0 -198px;}
+	.footer-socialmedias .footer-facebook { background-position: 0 -324px;}
+	.footer-socialmedias .footer-googleplus { background-position: 0 -437px;}
+	.footer-contact .footer-contact-address { background-position: 0 0px;}
+	.footer-contact .footer-contact-phonefax { background-position: 0 -91px;}
+
+}
+
+body .footer-container {
+  background: #4d737a !important;
+}

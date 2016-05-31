@@ -1,0 +1,1930 @@
+@charset "UTF-8";
+
+.clearfix-after {
+  content:".";
+  visibility:hidden;
+  display:block;
+  height:0;
+  clear:both;
+}
+
+.clearfix:after {
+  @extend .clearfix-after;
+}
+
+.submitted
+, .field-name-field-media-publish-date
+, .field-name-field-article-date
+, .field-name-field-event-datetime {
+  color: $secondary-text;
+  // text-transform: uppercase;
+  // font-size: .75em;
+  margin-bottom: 1em;
+}
+
+.node-teaser .field-name-field-event-datetime {
+  margin-bottom: 0;
+}
+
+.node-syndicated-media-coverage .submitted
+, .node-syndicated-news .submitted
+, .node-openacademy-news .submitted
+, .view-archive-of-news .submitted
+, .node-media-coverage .field-name-field-media-publish-date
+, .node-syndicated-media-coverage .field-name-field-article-date
+, .node-openacademy-event .field-name-field-event-datetime {
+  // @extend .submitted;
+  font-size: $font-10-on-base-13;
+}
+
+ul.action-links li{
+  list-style-type:none; // 2014.1014 frankfarm - remove bullet from "clone this webform" link on pages like http://local.dev.pharmd.ucsf.edu:8082/jobpost
+}
+#content-area {
+  padding-bottom: 100px;
+}
+
+/******************************************************************************
+   System Messages
+   */
+div.messages {
+  -webkit-background-size: 40px 40px;
+  -moz-background-size: 40px 40px;
+  background-size: 40px 40px;
+  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0.25, rgba(255, 255, 255, 0.05)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.05)), color-stop(0.75, rgba(255, 255, 255, 0.05)), color-stop(0.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  background-image: -ms-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  background-repeat: repeat;
+  -moz-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+  -webkit-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+  border: 1px solid;
+  color: #fff;
+  padding: 15px;
+  margin: 1em 0;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  -webkit-animation: animate-bg 1s linear infinite;
+  -moz-animation: animate-bg 1s linear infinite;
+  &.status {
+    background-color: #61b832;
+    border-color: #55a12c;
+  }
+  &.warning {
+    background-color: #eaaf51;
+    border-color: #d99a36;
+  }
+  &.error {
+    background-color: #de4343;
+    border-color: #c43d3d;
+  }
+  a {
+    text-shadow: none;
+    &:link, &:visited, &:active {
+      color: #f6ffb2;
+    }
+  }
+  .krumo-root {
+    color: #333;
+    text-shadow: none;
+  }
+}
+
+@-webkit-keyframes animate-bg {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -40px 0;
+  }
+}
+
+
+@-moz-keyframes animate-bg {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -40px 0;
+  }
+}
+
+
+/******************************************************************************
+   Quicktabs
+   */
+
+// quicktabs (level 1)
+#quicktabs-people > .item-list > ul.quicktabs-tabs {
+  min-height: 40px; // min-height only on first quicktab so if only "Primary" it's not a big space
+}
+.quicktabs-wrapper {
+  ul.quicktabs-tabs {
+    // min-height: 40px;
+    border-bottom: 1px solid #dbdbdb;
+    border-collapse: collapse;
+    margin-left: 0;
+    margin-bottom: 1em; // added with Events page in mind, but what else does it affect?
+    li {
+      line-height: normal;
+      margin: 0;
+      padding-left: 0;
+    }
+    li.active a:hover {
+      cursor: default;
+      text-decoration: none;
+    }
+    li.first {
+      //      margin-left:-2.8em;
+
+    }
+    li a {
+      text-decoration: none;
+      margin: 0;
+      background-color: $background-color;
+      border: 1px solid #dbdbdb !important;
+      padding: .5em 1em;
+      position: relative;
+      top: -.5em;
+    }
+    li a:hover {
+      color: #000;
+      background-color: #ccc;
+    }
+    li.active a {
+      color: $selected-text-fg;
+      background: $selected-text-bg;
+      border-bottom: 1px solid #dbdbdb;
+    }
+  }
+  ul.contextual-links li a {
+    border: 0;
+    background: #fff;
+  }
+  ul.quicktabs-tabs {
+    li.first:only-child {
+      display: none; // Hide the second quicktab if there's only one "Primary" tab
+    }
+    li {
+      line-height: 300%;
+      // prevent tabs from overlapping at browser widths < about 730
+      position: relative;
+      // we need this and the next line so that the tabs sit on top of the border-bottom line defined for .quicktabs-wrapper ul
+      top: .857142857em;
+      background: none;
+    }
+  }
+  #quicktabs-container-home_page {
+    border: 1px solid $background-color;
+    background-color: $background-color;
+    border-width: 0 1px 1px;
+    padding: 1em;
+  }
+}
+
+// quicktabs within quicktabs (level 2)
+.quicktabs-wrapper .quicktabs-wrapper {
+  //margin-top:1em;// causes problems with http://local.dev.pharmacy.ucsf.edu:8082/people
+  ul.quicktabs-tabs {
+    margin: 0 1em 1em 0;
+    border: 0;
+    li a {
+      font-size: $font-12-on-base-14;
+      @include border-radius(2em);
+    }
+    li.first {
+      margin-left: 0;
+    }
+  }
+}
+
+/*
+,#quicktabs-container-people div.item-list
+*/
+#quicktabs-people div.item-list {
+  margin-bottom: .5em;
+  &:after {
+    @extend .clearfix-after;
+  }
+}
+
+#quicktabs-people_department_faculty div.item-list
+, #quicktabs-people_department_staff div.item-list {
+  margin-bottom: 1.5em;
+}
+
+.quicktabs-wrapper .quicktabs-wrapper .quicktabs_main ul.quicktabs-tabs {
+  margin-left: .5em;
+}
+
+//  start - pharmd, courses, core curriculum
+#quicktabs-core_curriculum {
+  .views-field-view-node {
+    width: 8em;
+  }
+  td {
+    vertical-align: baseline;
+  }
+}
+
+.views-field-field-course-number {
+  width: 7em;
+  padding: .25em .5em;
+}
+
+#quicktabs-core_curriculum
+, div.view-openacademy-courses {
+  ul.quicktabs-tabs {
+    margin-top: -11px;
+  }
+  .views-field-title {
+    min-width: 16em;
+    padding: .25em 0;
+  }
+  .views-field-field-units {
+    text-align: right;
+    padding: .25em .5em;
+  }
+  #quicktabs-core_curriculum {
+    margin-top: -10px;
+  }
+  #quicktabs-tabpage-core_curriculum-3 {
+    margin-top: 1em;
+  }
+  td.view-groupfooter {
+    border: 0;
+  }
+  td.view-groupfooter:first-child {
+    color: transparent;
+  }
+  td.view-groupfooter:first-child:after {
+    content: "Total";
+    color: $primary-text;
+    position: relative;
+    top: -1.5em;
+  }
+  .views-table {
+    margin-top: -3em;
+  }
+  .views-table:first-child {
+    margin-top: 0;
+  }
+  td.view-footer {
+    border-top: 3px #000 double;
+    border-bottom: 0;
+  }
+  tfoot .view-footer-number td {
+    background-color: transparent;
+  }
+  tfoot .view-footer-number td:first-child {
+    color: transparent;
+  }
+  tfoot .view-footer-number td:first-child:after {
+    content: "Total";
+    color: $primary-text;
+    position: relative;
+    top: -1.5em;
+  }
+}
+
+div.view-openacademy-courses {
+  tfoot .view-footer-number td:first-child:after
+  , td.view-groupfooter:first-child:after {
+    top: -3.2em;
+  }
+}
+
+.view-curriculum-spotlight{
+  .flex-nav-container{
+    margin-bottom: 0;
+  }
+}
+//  end - pharmd, courses, core curriculum
+
+#panels-ipe-paneid-5356 td:first-child {
+  // http://local.dev.pharmd.ucsf.edu:8082/admissions/apply/tr
+  border-left: 1px solid $table-border-color;
+  border-right: 1px solid $table-border-color;
+}
+
+#panels-ipe-paneid-5386 td {
+  // http://local.dev.pharmd.ucsf.edu:8082/supplemental-application-fee
+  width: 29%;
+}
+
+#panels-ipe-paneid-5406 div.webedit-clearfix h2 {
+  // http://local.dev.pharmd.ucsf.edu:8082/admissions/apply/pharmcas/rec
+  margin-top: 1em;
+}
+
+/******************************************************************************
+   Top Bar
+   */
+
+#topbar-wrapper {
+  font-family: $topbar-font;
+  background: black;
+  //  min-height:30px;
+  overflow: hidden;
+  width: 100%;
+  #topbar {
+    //    height:30px;
+    max-width: $desktop-width;
+    margin: 0 auto;
+    padding-left: 20px;
+    position: relative;
+    left: -10px;
+    ul, ul li, ul li a {
+      line-height: 1em;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ul {}
+  }
+  #topbar ul li {
+    display: inline;
+    font-size: .75em;
+    border-right: 1px solid #FFF;
+    a {
+      color: #FFF;
+      margin: 0 .5em;
+      padding: 9px .5em 0 0;
+      white-space: nowrap;
+    }
+    &:first-child {
+      margin-right: 0;
+      a {
+        background: transparent url("../images/logo-ucsf.png") no-repeat left 3px;
+        display: inline-block;
+        margin-left: 0;
+        min-height: 20px;
+        padding-left: 5.5em;
+      }
+    }
+    &:last-child {
+      border: none;
+    }
+  }
+}
+
+/******************************************************************************
+   display:none things
+   */
+
+.secondary.menu {
+  display: none;
+}
+
+/******************************************************************************
+   Pagination / Pager
+   */
+// .item-list {
+//   .pager {
+//     li {
+//       display:inline-block;
+//       padding:0;
+//       margin:0 .25em;
+//       background:#EEE;
+//       text-transform:uppercase;
+
+//       &.pager-current, a {
+//         padding:0 10px;
+//       }
+//       a {
+//         display:block;
+//       }
+//     }
+//     // .pager-first { padding-left:1em; }
+//     .pager-previous { margin-right:1em;}
+//     .pager-item {}
+//     .pager-current { background-color:#333; color:#EEE; font-weight:normal;}
+//     .pager-next { margin-left:1em;}
+//     // .pager-last { padding-right:1em; }
+//   }
+// }
+
+// "Related news"
+
+.pane-apachesolr-search-mlt-002 ul {
+  margin-left: 0;
+}
+
+/******************************************************************************
+   News & Events listings
+   */
+
+.pane-content .view-openacademy-events .view-content .views-row-1.views-row
+, .pane-content  .view-syndicated-events .view-content .views-row-1.views-row {
+  margin-top: 1em; // To add margin between Quicklinks and first item in the list on Events page - K
+}
+
+.view-display-id-featured_news {
+  .views-row {
+    position: relative;
+    h2, .submitted, .field-type-text-with-summary {}
+    .panopoly-image-featured {
+      margin-right: 1.5em;
+      float: left;
+    }
+    .views-field-title {
+      font-size: 1.5em;
+      line-height: 1.5em;
+      margin-bottom: .05em;
+    }
+    .views-field-created {
+      // margin-bottom: 1em;
+    }
+    .node .content .field-name-field-featured-image {
+      .panopoly-image-quarter {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}
+
+@include breakpoint(small) {
+  .simple-gmap-link {
+    padding: 10px;
+    text-align: center;
+    background: #F4F3F0;
+    font-size: 1.2em;
+  }
+}
+
+//* "SEE ALL >" refs http://tinyurl.com/obbh9cm - Kevin 09/08/2014
+
+.view-display-id-news_titles        //x (Pharmacy) Home page
+, .view-display-id-upcoming_events  //x Doesn't exist?
+, .view-display-id-all_upcoming_events //x (Pharmacy) Events page, but not used?
+, .view-display-id-all_past_events  // (Pharmacy) Events page, but not used?
+, .view-display-id-all_events       //x Doesn't exist?
+, .view-display-id-news_listing     //x (Pharmacy) Home Media coverage on News sidebar
+, .view-syndicated-events           //x (Synd) Home, Media Coverage, and News pages
+, .view-openacademy-events          //x (Pharmacy) Home and Events pages
+, .view-display-id-panel_pane_uftd //update from dean pane
+, .field-name-field-basic-text-text {
+  position: relative;
+  .views-row {
+    .panopoly-image-quarter {
+      float: right;
+      margin-right: 0;
+      margin-left: 1em;
+    }
+  }
+  .more-link {
+    border-left: 3px dotted $secondary-border;
+    font-size: 10px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 0 0 10px;
+    position: absolute;
+    right: 0;
+    top: -4em;
+    a {
+      color: $primary-link;
+    }
+    @include breakpoint(small) {
+      right: 10px;
+      top: -4.5em;
+    }
+  }
+}
+
+// "SEE ALL >" needs space for long titles to wrap when in mobile view
+.pane-openacademy-news-panel-pane-uftd
+, .pane-media-coverage-news-listing {
+  h2.pane-title{
+    padding-right: 5em;
+  }
+}
+
+// "Recent news" pane on (Pharmacy & Synd) News and Media Coverage page sidebars, using both styles
+.not-front .pane-openacademy-news-news-listing .more-link // "Recent news" on MC and News items/nodes
+, .not-front .pane-media-coverage-news-listing .more-link // "Media coverage" on News page
+, .not-front .view-display-id-panel_pane_uftd .more-link { //update from dean on news page
+  top: -3.1em;
+}
+
+// Quick tabs override
+.pane-quicktabs-events h2.pane-title {
+  display: none;
+}
+
+/******************************************************************************
+   News Page
+   */
+
+// Related Profiles
+.field-name-field-related-profiles {
+  h2 {
+    border: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: $base-font;
+    margin: 0;
+    padding: 0;
+    text-transform: none;
+  }
+  .links {
+    display: none;
+  }
+  .field-items:after {
+    @extend .clearafter-fix !optional;
+  }
+  .field-items {
+    .field-item {
+      float: left;
+      width: 49%;
+      position: relative;
+      .node {
+        min-height: 170px;
+        padding-left: 110px;
+        .field-name-field-person-headshot-photo {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        &:after {
+          @extend .clearafter-fix !optional;
+        }
+      }
+      .node .field-item {
+        float: none;
+        width: auto;
+      }
+      ul.inline, ul.links.inline {
+        display: none;
+      }
+    }
+  }
+}
+
+/* styles for the news and events listing pages, e.g. pharmacy.ucsf.edu/news and /events */
+.view-openacademy-news {
+  .views-field-field-featured-image .file {
+    // this is the news listing thumbnail image for the featured image
+    float: left;
+    @include breakpoint(small) {
+      float: none;
+    }
+    padding-right: 1em;
+  }
+  .file-entity-square-thumbnail {
+    // margin-right: 15px; // seemed to be too much margin, and not in em's? -K
+  }
+}
+
+.view-openacademy-events
+, .panel-pane .view-display-id-news_listing {
+  .views-field-field-featured-image .file {
+    // this is the news listing thumbnail image for the featured image
+    float: right;
+    padding-left: 1em;
+    padding-right: 0;
+  }
+  .file-entity-square-thumbnail {
+    // margin-right: 15px; // seemed to be too much margin, and not in em's? -K
+  }
+}
+
+/* styles for the news item page */
+// Added Syndicated Events styling, good spot? - Kevin
+
+.field-type-image
+, .views-field-field-event-image {
+  // on news item pages this is the div that contains the image, the caption, and the image credit
+  .file-video iframe {
+    max-width: 100%;
+    border: 1px solid $secondary-border;
+    margin-bottom: 1em;
+  }
+  img {
+    max-width: 100%;
+    margin-bottom: 5px;
+  }
+  .field-name-field-image-caption {
+    margin: 0;
+    font-size: $font-13-on-base-14;
+    clear: both;
+  }
+  .field-name-field-image-credit {
+    line-height: 1em;
+    margin: 0;
+    padding: .25em 0 .75em 0;
+    .field-label {
+      display: inline;
+      color: $secondary-text;
+    }
+  }
+  .file-image, .file-video {
+    position: relative;
+    top: -5px;
+    padding: 10px 0 0 15px;
+    display: inline;
+    float: right;
+    .content {
+      max-width: 100%;
+    }
+    margin: 0 0 1em 0;
+  }
+}
+
+.media p {
+  margin-bottom: 0;
+}
+
+.field-name-field-image-credit .field-label {
+  font-weight: normal;
+}
+
+/******************************************************************************
+   Taxonomy
+*/
+
+#course-page {
+  .field-label
+  , .field-items {
+    display: table-cell;
+    max-width: 40%;
+  }
+  .panel-separator {
+    display: none;
+  }
+  .field-name-body {
+    width: 60%;
+    margin-right: 3em;
+    float: left;
+    min-height: 7em;
+  }
+  .field-type-taxonomy-term-reference:after {
+    display: inline;
+    content: "";
+  }
+}
+
+/*
+.field-type-taxonomy-term-reference
+,.field-type-taxonomy-term-reference div
+,.field-type-taxonomy-term-reference div div
+,.field-type-taxonomy-term-reference div div div
+*/
+/*
+.field-type-taxonomy-term-reference
+{
+  font-size:$font-13-on-base-14;
+  margin-bottom:0.5em;
+}
+.field-type-taxonomy-term-reference .field-label{
+  width:8em;
+  color:$secondary-text;
+}
+.field-type-taxonomy-term-reference .field-label,
+.field-type-taxonomy-term-reference .field-items{
+  float:none;
+  display:table-cell;
+}
+.field-type-taxonomy-term-reference div div
+,.field-type-taxonomy-term-reference div div a
+{
+  display:inline;
+}
+*/
+/*
+.field-name-field-categories:before
+,.field-name-field-syndication:before
+{
+  content:", ";
+}
+*/
+
+// "Tagged: " taxonomy term pages with teasers
+// This hr/line separation should be re-usable, IMO, K
+
+.page-taxonomy-term
+, .view-archive-of-news {
+  .term-listing-heading {
+    margin-bottom: 2em;
+    // padding-left: 1em; // refs http://tinyurl.com/mbld5w2 -Kevin
+    font-size: $font-15-on-base-13;
+    .field .field-label {
+      font-weight: normal;
+    }
+  }
+  .node-teaser {
+    border-bottom: 1px solid $secondary-border;
+    position: relative;
+    margin: 0 0 1em 0;
+    padding: 0 1em 1em 0;
+    .submitted
+    , .field-name-field-media-publish-date {
+      margin-bottom: 0;
+    }
+    .field-name-field-article-source {
+      margin-bottom: 1em;
+    }
+    .field-type-image
+    , .file-image {
+      margin: 0 0 0 1em;
+      padding-top: 0;
+    }
+  }
+}
+
+/******************************************************************************
+   Images (general)
+   */
+
+/* don't make images smaller than half-width stretch to fill the space */
+img.media-half
+, img.style-panopoly-image-half
+, img.panopoly-image-half {
+  width: auto;
+  //  margin:0 10px 10px;
+  margin: 0;
+}
+
+/******************************************************************************
+   Events Page view
+   */
+
+.field-name-field-event-address {
+  iframe {
+    width: 100%;
+  }
+  // allows it to be flexible
+}
+
+.node-type-openacademy-event {
+  .region-sidebar {
+    .field-name-field-event-location {
+      line-height: 1.75;
+    }
+    .field-name-field-event-date {
+      font-size: 1.2em;
+    }
+  }
+}
+
+// General reference to things in this node type view
+.node-type-openacademy-event {
+  #content-header {
+    .title {
+      margin: 0 0 30px 0;
+      &.with-subtitle {
+        margin: 0;
+      }
+    }
+    .subtitle {
+      margin: 0 0 30px 0;
+    }
+  }
+}
+
+// Focus the content body in the panel
+.node.node-openacademy-event {
+  .media-half
+  , .panopoly-image-half {
+    float: right;
+    margin-right: 0;
+    //    margin-left:1em;
+    margin-left: 0;
+  }
+}
+
+/******************************************************************************
+   Panel Views Listing
+   */
+
+.pane-openacademy-news-news-listing .view .view-content .views-row {
+  padding: 0 0 1em 0; // after removing Body field, adding padding to bottom of div. -K
+}
+
+.pane-content .view .view-content {
+  .views-row {
+    border-bottom: 1px solid $secondary-border;
+    position: relative;
+    margin: 0 0 1em 0;
+    padding: 0 0 1em 0;
+    &:last-child {
+      border-top: none;
+    }
+    .views-field-title
+    , .views-field-created
+    , .views-field-field-event-date
+    , .views-field-field-event-date-1
+    , .views-field-field-event-date-2
+    , .views-field-field-media-publish-date
+    , .views-field-field-article-date
+    , .views-field-field-event-sort-date
+    , .views-field-field-event-date-long
+    , .views-field-field-event-date-mdy
+    , .views-field-field-date-tbd
+    , .views-field-field-event-datetime {
+      display: block;
+    }
+    .views-field-created
+    , .views-field-field-event-date
+    , .views-field-field-event-date-1
+    , .views-field-field-event-date-2
+    , .views-field-field-media-publish-date
+    , .views-field-field-article-date
+    , .views-field-field-event-sort-date
+    , .views-field-field-event-date-mdy
+    , .views-field-field-event-datetime {
+      color: $secondary-text;
+      text-transform: uppercase;
+      font-size: .75em;
+    }
+    .views-field-field-event-date-long
+    ,.views-field-field-date-tbd
+    {
+      margin-bottom: .5em;
+    }
+  }
+  .views-row:last-child {
+    border-bottom: 0;
+  }
+}
+
+#panels-ipe-paneid-16 {
+  margin-bottom: 2em;
+  .pane-title {
+    font-family: $specialty-font;
+    font-style: normal;
+    color: $focus-box-color;
+  }
+  .pane-title, * {
+    border: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1.75em;
+    font-size: 17px;
+  }
+}
+
+/******************************************************************************
+  Special links on home page
+  */
+
+// redo later
+#panels-ipe-paneid-163 {
+  .field-item h2 {
+    font-family: $header-font;
+  }
+  .field-item p {
+    position: relative;
+    background: #EFEFEFEF;
+    &:after {
+      @extend .clearfix-after;
+    }
+    a {
+      display: block;
+      padding: 3px 5px;
+    }
+    strong {
+      position: absolute;
+      right: 5px;
+      top: 3px;
+    }
+  }
+}
+
+/******************************************************************************
+  Misc Page specific key areas
+  */
+// Research page
+// .page-research .pane-bundle-quick-links .item-list ul li a {
+//   display:block;
+//   color:white;
+//   background:#333;
+//   padding:10px 20px;
+//   width:50%;
+//   text-align:center;
+//   margin:34px 0 34px 34px;
+// }
+
+//  courses
+#course-page .field-label {
+  width: 8em;
+}
+
+//  search
+#content {
+  ol.search-results {
+    margin-left: 0;
+    padding-left: 0;
+    h3{ // 2014.1014 frankfarm - override default h3 behavior since all caps is hard to read
+      text-transform:none;
+      letter-spacing:0;
+      margin-bottom:0;
+      font-size: 100%;
+    }
+  }
+  div.search-snippet-info {
+    padding-left: 0;
+    margin-bottom: 1em;
+  }
+}
+
+/******************************************************************************
+  Image Captions
+  */
+.caption {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: $secondary-text;
+}
+
+// Hiding image captions for various reasons, and probably a better way to do this  -Kevin
+
+.view-openacademy-news .field-name-field-image-caption
+, .view-openacademy-news .views_field_featured_image_caption
+, .view-openacademy-news:not(.view-display-id-featured_news) .views_field_featured_image_credit
+, .view-openacademy-news:not(.view-display-id-featured_news) .field-name-field-image-credit
+, .page-taxonomy .field-name-field-image-credit
+, .page-taxonomy .field-name-field-image-caption
+, .view-people .views_field_person_image_credit
+, .view-people .views_field_image_credit
+, .view-syndicated-events .views_field_event_image_credit
+, .view-openacademy-events .field-name-field-image-caption
+, .view-openacademy-events .field-name-field-image-credit
+, .view-archive-of-news .field-name-field-image-caption
+, .view-archive-of-news .field-name-field-image-credit {
+  display: none;
+}
+
+/******************************************************************************
+  Media
+  */
+
+// begin - this sizes images and captions inserted using Media to the correct width
+div.media-element {
+  //  margin:0 0 1.5em;
+  //  margin:0;
+  margin-top: 1em;
+  background: #eee;
+  img {
+    border: 1px solid #ccc;
+    border-width: 0 0 1px;
+  }
+  br {
+    display: none;
+  }
+  .field-name-field-image-caption {
+    font-size: .9em;
+    &:after {
+      @extend .clearfix-after;
+    }
+  }
+}
+
+/*
+span.media-element{
+//  margin-bottom:.5em;
+  padding-bottom:.5em;
+  display:block;
+}
+*/
+.node-panopoly-page > h2 {
+  display: none;
+}
+
+//div.field-item > h2 // leaving this in produces too much space above h2s on about/support
+//,div.field-content > h2 // leaving this in messes up http://local.dev.pharmacy.ucsf.edu:8082/about/support
+/*
+div > .eyecatching
+{
+  margin-top:0;
+  padding-top:.5em;
+}
+*/
+h2 + table {
+  margin-top: 0;
+}
+
+div.media-half
+, div.panopoly-image-half {
+  img {
+    //    float:right;
+    //    margin:0 0 0 .75em;
+    margin: 0;
+    border-width: 0 0 0 1px;
+  }
+  .p1 {
+    margin-top: .5em;
+  }
+}
+
+.content .fine-print
+, .field-name-field-image-credit {
+  margin-top: .2em;
+  margin-bottom: .6em;
+  color: $secondary-text;
+  .field-item {
+    display: inline;
+  }
+}
+
+.page-type-4 .field-name-field-image-credit a {
+  text-decoration: none;
+}
+
+.field-name-field-image-caption {
+  //  background-color:$ph-main-bg-light;
+  background-color: $background-color-secondary;
+  padding: .75em 1.25em;
+  //  margin:.5em 0 2em 0;
+  //  margin:.5em 0 0;
+  margin: 5px 0 1em 0; // done battling em's for margins that don't need to be relative. - K
+  .field-item {
+    display: inline;
+  }
+  ul li {
+    margin-bottom: 0;
+  }
+}
+
+/*
+li .field-name-field-image-caption{
+  padding:2em 1.25em 1em;
+}
+*/
+.field-label-inline {
+  .field-label
+  , .field-items
+  , .field-item {
+    float: none;
+    display: inline;
+    word-break: break-word;
+  }
+}
+
+.field-item ul:last-child {
+  margin-bottom: 0;
+}
+
+/*
+.content > div > div > div > div *{
+  margin-right:0;
+}
+// end - this sizes images and captions inserted using Media to the correct width
+
+*/
+
+/******************************************************************************
+  Update from dean
+  */
+
+.view-update-fromt-he-dean {
+  .view-content, .more-link {
+    padding-left: 115px;
+    text-align: left;
+  }
+  .view-content {
+    background: transparent url("/sites/default/files/styles/thumbnail/public/person/photo/default-avatar-m.jpg") no-repeat left top;
+    .views-row {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+}
+
+/******************************************************************************
+  Publications
+  */
+.view-publications {
+  .views-field-field-publication-publisher {
+    word-break: break-word;
+  }
+}
+
+/******************************************************************************
+  Misc Micro Site theming.
+  */
+.node-gallery {
+  .content .field-items {
+    &:after {
+      @extend .clearfix-after;
+    }
+    .field-item {
+      width: 25%;
+      float: left;
+      margin-bottom: 2em;
+      text-align: center;
+    }
+  }
+}
+
+// UCSF Person Degree's listing. Example css'ing
+.field-name-field-person-degrees {
+  .field-items .field-item {
+    margin: 0;
+    .field-collection-view {
+      padding: 0;
+      margin: 0;
+      .field-type-taxonomy-term-reference {
+        margin: 0;
+        padding: 0;
+        border-top: none;
+      }
+    }
+  }
+}
+
+/******************************************************************************
+  Misc items for grid and layout
+  */
+.showgrid {
+  background: url("../images/grid.png") !important;
+}
+
+.showgrid-hover {
+  &#header,
+  &#footer,
+  .panel-panel {
+    &:hover {
+      background: rgba(0, 255, 128, 0.2);
+    }
+  }
+  .panel-panel .panel-panel-inner {
+    background: rgba(128, 128, 255, 0.3);
+  }
+}
+
+/* When admin style overlays are on.  */
+.admin-menu.panels-ipe {
+  #page {
+    margin-bottom: -7.4em;
+    padding-bottom: 12em;
+  }
+}
+
+.chromeframe {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* SPECIAL TYPOGRAPHY */
+
+/* separator */
+p.typography-definition {
+  border-bottom: 1px dotted #AAA;
+  font-family: monospace, sans-serif;
+  font-size: 10px;
+  display: block;
+  margin: 20px 0;
+}
+
+.subhead {
+  color: #637700;
+  font-size: 1.2em;
+}
+
+.sub-subhead {
+  color: #40969C;
+}
+
+.sub-sub-subhead {
+  color: #897E72;
+}
+
+p .fly-copy {
+  display: inline-block;
+  color: #897E72;
+  margin-right: 2em;
+  font-size: .9em;
+}
+
+/*
+#tinymce{
+  background:#fff; // white
+  line-height:1.5em;
+  margin:.125em .25em;
+}
+*/
+
+/* styles for the news listing page, e.g. pharmacy.ucsf.edu/news */
+.pane-content .view .view-content .views-row {
+  border-top: 0px;
+}
+
+/******************************************************************************
+   Pager
+   */
+.item-list:not(.date-nav) {
+  .pager {
+    line-height: 2em;
+    li a {
+      border: 1px solid $secondary-border;
+      padding: .25em .5em;
+      white-space: nowrap;
+    }
+    li a:hover {
+      text-decoration: none;
+      color: $special-link-hover-fg;
+      background-color: $special-link-hover-bg;
+    }
+  }
+}
+
+/******************************************************************************
+   uncategorized
+   */
+.keep {
+  // e.g. for keeping spans of text together
+  white-space: nowrap;
+}
+
+ul.primary {
+  //  margin:0 0 .5em;
+  margin: 0;
+}
+
+// People - page removed to defer to _views.scss ".view-people" ~:92 --Kevin 07/09/2014
+
+/******************************************************************************
+   people - person page
+*/
+.field-name-field-person-email {
+  text-transform: lowercase;
+}
+
+.pane-ucsf-person-profile-panel-pane-2 {
+  clear: both;
+}
+
+// People page titles and dept.
+.views-field-field-person-title-override
+, .views-field-field-person-office-dean-title
+, .views-field-field-person-primary-dept {
+  //  font-size: $font-16-on-base-14;
+}
+
+.field-name-field-person-headshot-photo .file-image {
+  padding: 0;
+  float: right;
+  .field-name-field-image-caption {
+    display: none;
+  }
+}
+
+.pane-node-field-person-headshot-photo {
+  width: 100%;
+  // 2014.1017.1639
+  float: left;
+  float: none;
+ .field-name-field-person-headshot-photo .file-image {
+    float: left;
+    // 2014.1017.1639
+    float: none;
+//    top:-8px; // make top of image line up with "What I do"
+    top:0;
+    top:5px;
+  }
+}
+
+/******************************************************************************
+   END - people
+*/
+/*
+table .media
+,.phelan-container .media-quarter
+{
+  width:100%;
+}
+*/
+/******************************************************************************
+   uncategorized
+*/
+.view-gallery .views-row {
+  display: inline-block;
+}
+
+#cboxTitle {
+  p:last-child {
+    margin-bottom: .45em;
+  }
+}
+
+.pane-announcements-panel-pane-announcements .pane-content .view .view-content .views-row {
+  border: 0;
+}
+
+#content-inner div.tabs {
+  //  margin-bottom:1em;
+}
+
+#block-system-main a.media-video-preview:link {
+  color: transparent;
+  // without this a blue underline appears over the play icon on videos
+}
+
+/******************************************************************************
+   colorbox
+*/
+/*
+#cboxWrapper{
+  padding:10px;
+  #cboxContent{
+//    padding:10px;
+    font-size:$font-base-size;
+    #cboxCurrent{
+      color:$primary-text;
+      font-size:$font-13-on-base-14;
+    }
+    #cboxLoadedContent{
+      font-size:$font-base-size;
+      font-size:100%;
+      p{
+        margin-top:10px;
+        font-size:$font-13-on-base-14;
+        line-height:$line-height-13on18;
+      }
+      p:last-child{
+        margin-bottom:0;
+      }
+    }
+  }
+}
+*/
+/*
+.media-video-preview:after{
+  content:"●";
+  content:"►";
+  text-decoration:none;
+  color:#fff;
+  position:relative;
+  top:calc( -1em + .1em );
+  left:calc( -50% + .1em );
+  font-size:1000%;
+  z-index:99;
+}
+*/
+
+/******************************************************************************
+   funding
+*/
+.charts-google {
+  height: 300px;
+}
+
+.view-funding.category .charts-google {
+  // pie charts
+  margin-top: -16px;
+  // above the pie chart
+  margin-bottom: -32px;
+  // below the pie chart
+  position: relative;
+  // left: -85px;
+}
+
+.view-funding {
+  th, td {
+    text-align: right;
+    padding-left: 2em;
+  }
+  th:first-child, td:first-child {
+    text-align: left;
+  }
+  td:first-child {
+    padding-left: 4px;
+  }
+}
+
+@include breakpoint(medium) {
+  .view-funding.category .charts-google {
+    left: 0px;
+  }
+  .pane-funding-panel-pane-6 h2.pane-title {
+    margin-top: 2em;
+  }
+}
+@media screen and (max-width: 850px) {
+  .view-funding {
+    th, td {
+      padding-left: 0;
+    }
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 850px) {
+  .view-funding {
+    th, td {
+      width: 20%;
+    }
+  }
+}
+.view-funding.view-display-id-panel_pane_2 table
+, .view-funding.view-display-id-panel_pane_4 table {
+  .charts-google {
+    max-width: 300px;
+  }
+  th {
+    border: 0;
+  }
+  tbody {
+    border-top: 0;
+    tr {
+      border: 1px solid #fff;
+      border-width: 0 0 1px 0;
+    }
+    tr:nth-child(1) {
+      background-color: rgba(47, 126, 216, 0.2);
+      td:first-child {
+        border-left: 4px solid rgba(47, 126, 216, 1);
+      }
+    }
+    tr:nth-child(2) {
+      background-color: rgba(13, 35, 58, 0.2);
+      td:first-child {
+        border-left: 4px solid rgba(13, 35, 58, 1);
+      }
+    }
+    tr:nth-child(3) {
+      background-color: rgba(139, 188, 33, 0.2);
+      td:first-child {
+        border-left: 4px solid rgba(139, 188, 33, 1);
+      }
+    }
+    tr:nth-child(4) {
+      background-color: rgba(145, 0, 0, 0.2);
+      td:first-child {
+        border-left: 4px solid rgba(145, 0, 0, 1);
+      }
+    }
+    tr:nth-child(5) {
+      background-color: rgba(26, 173, 206, 0.2);
+      td:first-child {
+        border-left: 4px solid rgba(26, 173, 206, 1);
+      }
+    }
+    tr:nth-child(6) {
+      background-color: rgba(73, 41, 112, 0.2);
+      td:first-child {
+        border-left: 4px solid rgba(73, 41, 112, 1);
+      }
+    }
+    tr:nth-child(7) {
+      background-color: rgba(242, 143, 67, 0.2);
+      td:first-child {
+        border-left: 4px solid rgba(242, 143, 67, 1);
+      }
+    }
+    tr:nth-child(8) {
+      background-color: rgba(119, 161, 229, 0.2);
+      td:first-child {
+        border-left: 4px solid rgba(119, 161, 229, 1);
+      }
+    }
+  }
+}
+
+.view-funding.awards {
+  th {
+    color: #666;
+    // dark gray
+    border-width: 0 0 3px 0;
+  }
+  tr:first-child {
+    th:first-child {
+      color: #999;
+      // medium light gray
+
+    }
+  }
+  th:nth-child(2) {
+    // total awards
+    border-color: rgba(145, 0, 0, 1);
+  }
+  th:nth-child(3) {
+    // fed nih
+    border-color: rgba(119, 161, 229, 1);
+  }
+  th:nth-child(4) {
+    // fed other
+    border-color: rgba(13, 35, 58, 1);
+  }
+  th:nth-child(5) {
+    // other
+    border-color: rgba(139, 188, 33, 1);
+  }
+  th:nth-child(2)
+  , td:nth-child(2) {
+    // total awards
+    background-color: rgba(145, 0, 0, 0.2);
+  }
+  th:nth-child(3)
+  , td:nth-child(3) {
+    // fed nih
+    background-color: rgba(119, 161, 229, 0.2);
+  }
+  th:nth-child(4)
+  , td:nth-child(4) {
+    // fed other
+    background-color: rgba(13, 35, 58, 0.2);
+  }
+  th:nth-child(5)
+  , td:nth-child(5) {
+    // other
+    background-color: rgba(139, 188, 33, 0.2);
+  }
+}
+
+// funding - bts & pc: hide calpoison
+.is-dept-pharmchem
+, .is-dept-bts {
+  .view-display-id-panel_pane_2 tbody tr:last-child
+  , .view-display-id-panel_pane_4 tbody tr:last-child {
+    display: none;
+  }
+}
+
+// funding - for pages such as /about/funding/2013
+.field-name-field-funding-budget .field-label {
+  font-weight: normal;
+}
+
+.field-name-field-funding-budget * {
+  display: inline;
+}
+
+.view-display-id-page_2
+, .view-display-id-panel_pane_7 {
+  .views-label
+  , .field-content {
+    display: table-cell;
+    font-size: 100%;
+    line-height: $line-height-13on21;
+  }
+  .views-label {
+    min-width: 9em;
+  }
+}
+
+// funding - for pages such as /about/funding/history
+#content {
+  .view-id-funding {
+    h2, h3, li {
+      font-size: 100%;
+      line-height: $line-height-13on21;
+    }
+    ul {
+      margin-left: 0;
+      li {
+        margin-left: 0;
+        text-indent: 0;
+        span {
+          display: table-cell;
+        }
+        span:nth-child(2) {
+          min-width: 8em;
+          text-align: right;
+        }
+        span:nth-child(3) {
+          min-width: 4.5em;
+          text-align: right;
+        }
+        &:before {
+          content: "";
+        }
+      }
+    }
+  }
+}
+
+.view-display-id-panel_pane_7 .view-content .field-content {
+  // funding - for pages such as /about/funding/2013
+  text-align: right;
+  min-width: 7.5em;
+}
+
+th.views-field-field-funding-type-1 {
+  padding-left: 0;
+}
+
+th.views-field-field-funding-fiscal-year:first-child {
+  padding-left: 4px;
+}
+
+.is-dept-bts .view-id-funding
+,.is-dept-pharmchem .view-id-funding
+/*
+    on pages like
+    http://local.dev.bts.ucsf.edu:8082/about/funding/recent
+    http://local.dev.pharmchem.ucsf.edu:8082/about/funding/recent
+    we need to hide calpoison
+*/
+{
+  div.item-list:nth-child(8)
+  , .calpoison {
+    display: none;
+  }
+}
+/******************************************************************************
+   columns
+*/
+.columns-2
+, .columns-3
+, .columns-4 {
+  li{
+    width:85%;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    display: inline-block; // 2014.0929 frankfarm - see http://stackoverflow.com/questions/7785374/how-to-prevent-column-break-within-an-element
+  }
+  li:first-child{
+    margin-top:0;
+  }
+  column-gap: 20px;
+  -moz-column-gap: 20px;
+  -webkit-column-gap: 20px;
+}
+
+.columns-2 {
+  column-count: 2;
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+}
+
+.columns-3 {
+  column-count: 3;
+  -moz-column-count: 3;
+  -webkit-column-count: 3;
+}
+
+.columns-4 {
+  column-count: 4;
+  -moz-column-count: 4;
+  -webkit-column-count: 4;
+}
+
+ul.columns-2
+, ul.columns-3
+, ul.columns-4 {
+  margin-left: 0;
+}
+
+.columns-2
+, .columns-3
+, .columns-4 {
+  li {
+    padding-left: 1.5em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    &:before {}
+  }
+}
+
+/******************************************************************************
+   office of the dean
+*/
+div.panels-ipe-portlet-wrapper + div.panels-ipe-portlet-wrapper thead:first-child h2 {
+  margin-top: 0;
+}
+
+.page-node-4031 .is-sop-secondary div.media.media-element-container.media-sixth._none img {
+  /*
+  http://pharmacy.ucsf.edu/office-dean/assistant-deans
+  Without this, the images shrink based on how much text is in the 2nd columns,
+  creating inconsistent sizes of images.
+  */
+  min-width: 140px;
+}
+
+#m-capsulatus {
+  /*
+  https://pharmchem.ucsf.edu/research/computational-chemistry-biology/visualizing-integrating-bioinformatics-biomolecular-data
+  */
+  tr:nth-child(1) {
+    td:nth-child(1) {
+      background-color: #ffff00;
+    }
+  }
+  tr:nth-child(2) {
+    td:nth-child(1) {
+      background-color: #66ff66;
+    }
+  }
+  tr:nth-child(3) {
+    td:nth-child(1) {
+      background-color: #ff6666;
+    }
+  }
+  tr:nth-child(4) {
+    td:nth-child(1) {
+      background-color: #993333;
+    }
+  }
+  tr:nth-child(5) {
+    td:nth-child(1) {
+      background-color: #9933ff;
+    }
+  }
+  tr:nth-child(6) {
+    td:nth-child(1) {
+      background-color: #ff9900;
+    }
+  }
+  tr:nth-child(7) {
+    td:nth-child(1) {
+      background-color: #66ccff;
+    }
+  }
+  tr:nth-child(8) {
+    td:nth-child(1) {
+      background-color: #666666;
+    }
+  }
+}
+
+ul li span.media-element.file-media-full {
+  /*
+  for pages such as
+  http://local.dev.pharmchem.ucsf.edu:8082/research/computational-chemistry-biology/visualizing-integrating-bioinformatics-biomolecular-data
+  where an image is within a list item we need to shift the image right by 1 em to account for the bullet
+  */
+  position: relative;
+  left: 1em;
+}
+
+/*
+#panels-ipe-paneid-2146 {
+// was this for http://local.dev.pharmacy.ucsf.edu:8082/deans-office ? frankfarm asks himself
+  margin-bottom: 0;
+  .pane-chunks-panes-chunks-panel-pane-1 {
+    // for http://local.dev.pharmacy.ucsf.edu:8082/office-dean
+    //  padding-bottom:0;
+    margin-bottom: 0;
+    .media-element-container {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .field-content {
+      .field-name-field-image-credit {
+        margin-bottom: 0;
+      }
+      //    padding-bottom:1em;
+
+    }
+    div.webedit-clearfix {
+      height: 0;
+    }
+  }
+}
+*/
+
+/******************************************************************************
+   floats
+*/
+.webedit-left
+, .webedit-right {
+  height: 0;
+}
+
+.webedit-left .media-element-container
+, .webedit-right .media-element-container {
+  margin-top: 0;
+  max-width: inherit !important;
+  // removing this messes up pharm.ucsf.edu/renslo/facility
+}
+
+.webedit-right .media-element-container {
+  padding-left: 20px;
+}
+
+.media-element-container img {
+  margin-bottom: 0;
+}
+
+.media-element-container.ucsf-images-wrapping-left {
+  margin-top: 0;
+  padding-right: 1em;
+  //  padding-bottom:1em;
+}
+
+.media-element-container.ucsf-images-wrapping-right {
+//  margin-top: 0;
+  margin-top: 1em; // so that the tops of images like Sharon's on http://local.dev.pharmacy.ucsf.edu:8082/deans-office line up with the top of the adjacent text
+  margin-bottom: .5em;
+  padding-left: 20px;
+  text-indent: 0;
+}
+
+.media-element-container + p:empty + .media-element-container {
+  margin-top: 1.5em;
+}
+
+p:empty + .media-element-container + p {
+  margin-top: 1em;
+}
+
+/******************************************************************************
+   images, general
+*/
+.field-name-field-featured-image {
+  margin: 1em auto;
+}
+
+th > .media-element-container
+, td > .media-element-container {
+  margin-top: 0;
+}
+
+/******************************************************************************
+*/
+div.field-item
+, .views-field-field-panels-chunks .field-content
+//, .panels-ipe-portlet-wrapper.panels-ipe-portlet-marker
+, .panel-panel-inner {
+  margin-bottom: 1em;
+}
+p.goto {
+  margin-top: 2em;
+  padding-top: 2em;
+  border-top: 3px dotted #d9d9d9;
+}
+// 2014.0929 frankfarm - adjust line spacing with nested unordered lists
+li > ul > li:first-child
+,li > ol > li:first-child
+{
+  margin-top:.8em;
+}
+
+/******************************************************************************
+   admissions menu
+*/
+.content .pane-menu-admissions {
+  h2.pane-title {
+    background-color: #f5f3f1;
+    padding: .25em .5em .5em;
+    margin-bottom: 0;
+  }
+  border: 3px solid #f5f3f1;
+  ul:not(.pager) li {
+    padding: .25em;
+    text-indent: 0;
+    &.active {
+      display: none;
+    }
+  }
+}
+
+/******************************************************************************
+   set padding-top or margin-top to 0 for certain first elements (e.g., images that have top and bottom
+   margins in other places but should have no top margin when at the start of a
+   section.
+*/
+div.field-item > h2:first-child
+, div.media-element-container + h2 {
+  padding-top: 0;
+  //  margin-top:-.5em; // putting this in causes problems for the page at, say, pharm.ucsf.edu/propeps - you need to find a different solution
+}
+
+div.content > .field-name-field-featured-image
+, .field-content .media-element-container:nth-child(1)
+, .field-content > h3:first-child
+, div.field-item > h3:first-child {
+  margin-top: 0;
+}
+
+/******************************************************************************
+   set margin-bottom to 0 for certain last elements (e.g., images that have top and bottom
+   margins in other places but should have no bottom margin when at the end of a
+   section.
+*/
+#content {
+  ol ol:last-child
+  , ul ul:last-child {
+    margin-bottom: .45em !important;
+  }
+}
+
+//#content-area {
+p:last-child
+, div.media-element-container:last-child
+, ol:last-child
+, ul:last-child
+, li:last-child
+, blockquote:last-child
+, .field-content > h2:last-child
+, div.field-item:last-child
+, .views-field-field-panels-chunks .field-content:last-child
+, div.panel-panel-inner:last-child
+, div.panels-ipe-portlet-wrapper:last-child
+, div.panels-ipe-portlet-marker:last-child
+, .eyecatching:last-child
+{
+  margin-bottom: 0 !important;
+}
+
+//}
+
+.paddingbottomnone .media-element-container.ucsf-images-wrapping-left
+, .paddingbottomnone .media-element-container.ucsf-images-wrapping-right {
+  padding-bottom: 0;
+}

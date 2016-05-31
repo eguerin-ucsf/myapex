@@ -1,0 +1,121 @@
+name = UCSF Medical Education Web System
+description = ""
+version = VERSION
+core = 7.x
+files[] = meded.profile
+
+; Core dependencies
+dependencies[] = block
+dependencies[] = color
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = dblog
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = toolbar
+dependencies[] = overlay
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = rdf
+
+; Development helpers
+dependencies[] = devel
+dependencies[] = devel_generate
+dependencies[] = diff
+; dependencies[] = coder_upgrade
+; dependencies[] = grammar_parser
+; dependencies[] = simpletest
+
+; Contrib dependencies
+dependencies[] = token
+dependencies[] = pathauto
+dependencies[] = features
+dependencies[] = strongarm
+dependencies[] = fe_block
+dependencies[] = views
+dependencies[] = views_ui
+dependencies[] = views_content
+dependencies[] = uuid
+dependencies[] = node_export
+dependencies[] = node_export_file
+dependencies[] = node_export_features
+dependencies[] = nodeblock
+dependencies[] = nodequeue
+dependencies[] = context
+dependencies[] = context_ui
+dependencies[] = panels
+dependencies[] = panels_node
+dependencies[] = page_manager
+dependencies[] = subsites
+dependencies[] = date_api
+dependencies[] = date
+dependencies[] = date_popup
+dependencies[] = date_views
+dependencies[] = link
+dependencies[] = jcarousel
+dependencies[] = menu_block
+dependencies[] = context_by_node
+dependencies[] = cep_node
+dependencies[] = location
+dependencies[] = location_cck
+dependencies[] = gmap
+dependencies[] = gmap_location
+dependencies[] = better_exposed_filters
+dependencies[] = captcha
+dependencies[] = recaptcha
+dependencies[] = email
+dependencies[] = field_collection
+dependencies[] = field_group
+dependencies[] = similarterms
+dependencies[] = calendar
+dependencies[] = calendar_ical
+dependencies[] = signup
+dependencies[] = search404
+dependencies[] = wysiwyg
+dependencies[] = wysiwyg_template
+dependencies[] = video_filter
+dependencies[] = shortcode
+dependencies[] = shortcode_wysiwyg
+dependencies[] = views_data_export
+dependencies[] = role_delegation
+dependencies[] = references
+dependencies[] = node_reference
+dependencies[] = nodeconnect
+dependencies[] = googleanalytics
+
+; Features (custom modules created by Features module)
+dependencies[] = meded_base_content_types_feature
+dependencies[] = meded_base_panels_feature
+dependencies[] = meded_base_global_feature
+dependencies[] = meded_base_portal_feature
+dependencies[] = meded_base_subsites_feature
+dependencies[] = meded_announcements_feature
+dependencies[] = meded_events_feature
+dependencies[] = meded_blog_feature
+dependencies[] = meded_member_directory_feature
+dependencies[] = meded_permissions_feature
+; Sample content must come last
+dependencies[] = meded_sample_content_feature
+
+; Custom modules
+dependencies[] = meded_context
+dependencies[] = meded_subsites
+dependencies[] = meded_subsites_portal
+dependencies[] = meded_jcarousel
+dependencies[] = meded_panels
+dependencies[] = meded_blog
+dependencies[] = meded_member_directory
+dependencies[] = meded_events
+dependencies[] = meded_node_export
+dependencies[] = meded_sample_content
+dependencies[] = meded_shortcode
+dependencies[] = meded_wysiwyg

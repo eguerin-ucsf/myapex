@@ -1,0 +1,5 @@
+version = 7.x-2.0-beta3 -- profiles fieldgroups moved to profiles
+version = 7.x-2.0-beta1 -- addition of department override field
+version = 7.x-2.0-rc28 -- marked all fields hidden to support starerkit display
+version = 7.x-2.0-rc27 -- ucsf_keywords_taxonomy dep., minor field arrangment 
+version = 7.x-2.0-rc26 -- Moved person_primary_dept_unit vocabulary to ucsf_keywords_taxonomy 7.x-2.0

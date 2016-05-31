@@ -1,0 +1,42 @@
+#page {
+  max-width: $desktop-width;
+  margin: 0 auto;
+
+}
+
+#page { 
+  border-left: 50px solid #FFF;
+  border-right: 50px solid #FFF;
+  background: #FFF;
+  min-height: 100%;
+    margin-bottom:-3em;
+    padding-bottom: 11em;
+  position: relative;
+}
+
+/*
+ * Fonts
+ *
+ * Our font size and line height declarations are based on the following
+ * articles:
+ * - http://www.alistapart.com/articles/howtosizetextincss
+ * - http://24ways.org/2006/compose-to-a-vertical-rhythm
+ *
+ * All modern browsers use a 16px default font size. Specifying the font-size
+ * and line-height in ems (relative to the 16px default font) allows the user
+ * to resize the font in the browser and produces the most consistent results
+ * across different browsers.
+ */
+body {
+  font-size: 100%; /* Fixes exaggerated text resizing in IE6 and IE7 */
+}
+
+#skip-link,
+#page {
+  /* Use a 14px base font size with a 21px line height */
+  font-size: 0.875em; /* 16px x .875 = 14px */
+  line-height: 1.5em; /* 14px x 1.5 = 21px */
+
+}
+
+

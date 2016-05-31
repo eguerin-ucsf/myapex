@@ -1,0 +1,6 @@
+/* line 7, ../sass/ie8.scss */
+.view-display-id-panel_pane_1 .flexslider, .view-display-id-subtle_spotlight .flexslider { z-index: 0; }
+/* line 9, ../sass/ie8.scss */
+.view-display-id-panel_pane_1 .flexslider .flex-caption, .view-display-id-subtle_spotlight .flexslider .flex-caption { -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)" !important; }
+/* line 14, ../sass/ie8.scss */
+.view-display-id-panel_pane_1 .flexslider .flex-image-wrap img, .view-display-id-subtle_spotlight .flexslider .flex-image-wrap img { z-index: -9; }

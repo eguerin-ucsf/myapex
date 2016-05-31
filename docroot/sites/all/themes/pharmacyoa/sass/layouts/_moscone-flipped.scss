@@ -1,0 +1,34 @@
+/**
+ * @file
+ * OA Moscone Flipped panel layout
+**/
+
+.moscone-flipped-container {
+  margin-bottom:0;
+}
+
+.moscone-flipped-content {
+  width: 68.085%;
+  float: left;
+}
+
+  .moscone-flipped-content-inner {
+    margin-right: 20px;
+  }
+
+.moscone-flipped-sidebar {
+  width: 31.915%;
+  float: left;
+}
+
+@include breakpoint(medium) {
+  .moscone-flipped-sidebar,
+  .moscone-flipped-content {
+    width: 100%;
+    float: none;
+  }
+  
+  .moscone-flipped-content-inner {
+    margin-right: 0;
+  }
+}

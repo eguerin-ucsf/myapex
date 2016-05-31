@@ -1,0 +1,577 @@
+@charset "UTF-8";
+
+/**
+ * @file
+ * Panels styling
+ *
+ * This file is excusively used for styling panel layouts and panes as they
+ * appear in regions at large.  It should not be used for styling the content
+ * within a panel pane
+ */
+
+/**
+ * General Styling of Panel Pane
+ */
+.panel-pane {
+  margin-bottom: 1em;
+}
+
+h2.pane-title:empty {
+  display: none;
+}
+
+// Hiding empty titles
+
+.front h2.pane-title {
+  border-bottom: 3px solid $primary-border;
+  font-weight: normal;
+  font-family: $header-font-alt;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.85em;
+  text-transform: lowercase;
+  margin: 0 0 .5em 0;
+  padding: 0 3em .25em 0;
+}
+
+.page-type-2 h2 {
+  color: #5E7613;
+  // olive
+}
+
+@media only screen and (max-width: 480px) {
+  .region-background-callout,
+  .pane-background-callout {
+    padding: 10px 20px;
+    /*
+    margin-left: -10px;
+    margin-right: -10px;
+    */
+  }
+}
+
+/**
+ * Basic Panel Pane
+ */
+.pane-basic h2.pane-title {
+  padding-top: 0em;
+  border-top: 0;
+}
+
+/******************************************************************************
+   Panel Style: Links Displayed Inline Pane Style
+   */
+
+// Links Inline Style
+.pane-links-inline {
+  &:after, .pane-content {
+    @extend .clearafter-fix !optional;
+  }
+  margin: 1em 0;
+  h2, h2.pane-title, .pane-content {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+  }
+  h2, h2.pane-title {
+    border: none;
+  }
+  .pane-content {
+    ul {
+      padding-left: 30px;
+      &, li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      li {
+        display: inline-block;
+        a {
+          display: block;
+          padding: 6px 20px;
+          background: #333;
+          color: white;
+        }
+      }
+    }
+  }
+  @include breakpoint(small) {
+    h2, h2.pane-title, .pane-content {
+      display: block;
+      width: auto;
+    }
+    .pane-content ul {
+      padding: 0;
+      li {
+        display: block;
+        margin-bottom: .5em;
+      }
+    }
+  }
+}
+
+@include breakpoint(small) {
+  .pane-hidewhensmall{
+    display: none;
+  }
+}
+
+// Padded Wrapper Style
+.pane-padded-wrapper {
+  .pane-content {
+    // background: $background-color-secondary;
+    padding: $padding;
+    h2 {
+      margin-top: 0;
+    }
+  }
+}
+
+// List style in thirds
+.pane-list-grid-thirds {
+  clear: both;
+  &:after {
+    @extend .clearafter-fix !optional;
+  }
+  .pane-content {
+    ul, ul li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ul li {
+      width: 32%;
+      float: left;
+      margin-right: 1%;
+      min-height: 360px;
+    }
+  }
+}
+
+// Blocks into thirds floated left
+.pane-thirds {
+  float: left;
+  width: 30%;
+  margin-right: 3%;
+  &:nth-child(3n+3) {
+    &:after {
+      @extend .clearafter-fix !optional;
+    }
+  }
+}
+
+// Announcememnt style
+.panel-pane.pane-announcements-panel-pane-announcements {
+  padding: 10px $padding 10px;
+  @include announcement;
+  @include shadowright;
+  h2.pane-ttile, h2 {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  .pane-content .view .view-content .views-row {
+    margin: 0;
+    padding: 0;
+    .views-field-view-node a {
+      font-size: 12px;
+    }
+  }
+}
+
+// Float Left at a width of 50% style
+////////////////////////////////////////////////////////////////////////////////
+// begin - panel styles
+
+.pane-float-left-fifty {
+  width: 50%;
+  float: left;
+  &.pane-bundle-quick-links {
+    width: 47%; // fallback for <iOS 7.1
+    width:calc( 50% - 10px );
+    padding: 0;
+    border-left: 3px dotted $secondary-border;
+    &:after {
+      @extend .clearfix-after;
+    }
+    position: relative;
+    h2 {
+      border: none;
+      padding: 0 0 0 .35em;
+      // Matches links padding in + border
+      margin: 0 0 .3em 0;
+    }
+    .item-list ul {
+      margin: 0;
+      li {
+        text-indent: 0;
+        list-style: none;
+        margin: 0 0 8px 0;
+        padding: 0 1em 0 0;
+        position: relative;
+        @include background(linear-gradient(left, white, $background-color-ternary));
+        &:hover {
+          @include background(linear-gradient(left, white, $special-link-hover));
+        }
+        a {
+          display: block;
+          padding: 6px 30px 6px 10px;
+          font-size: 13px;
+          // Generated this data with http://livetools.uiparade.com/icon-builder.html
+          //                    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAW0lEQVQ4T2NkoBAwUqifYbgYIOrf+x8UFq83FpPsJbiGTSfO/09u3wcOU1IMwrBx3ZOv/9OzZxBtEIYBpLoEqxfmVjox+FkYEhUeYEVUCURyUyRRzsRn+DAwAAB4lSQRdbcx6wAAAABJRU5ErkJggg==) no-repeat right center;
+          background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAFo9M/3AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowNTgwMTE3NDA3MjA2ODExODIyQUYxODAzREU1OTM1RiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCODNEREY1RkIxRjkxMUUyQTgxODlCMUE5NEU3MjdCQyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCODNEREY1RUIxRjkxMUUyQTgxODlCMUE5NEU3MjdCQyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDc4MDExNzQwNzIwNjgxMTgyMkFGMTgwM0RFNTkzNUYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDU4MDExNzQwNzIwNjgxMTgyMkFGMTgwM0RFNTkzNUYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7cW2pAAAAA2klEQVR42mL8//8/AwgwgQixoL7/AAHEiCICAgABBBeBASYGNAAQQJgqgCaloYiAVIgG9paDaBDG0AIQQBgC6IAFxgCavQpIGQOx66t1RfdQFAAl7wKpPUAJZYLORAcAAURQARMDAQDy+BkgFsRrBVBBKJAN8kUF0KGdWN0ANeUMEHcCFc2CexMo0QGky6H+V6a+LwACjKAJBIOBgUIAi0uQR0FBpQTEoBBYDfTwHmIMwOoFaJCmQTHI0HTkoMWa3KAaQ6EuAeF7SK65RyimzyApfk9KGAx8LAAAmjBtp+lwNGMAAAAASUVORK5CYII=) no-repeat right center;
+        }
+      }
+    }
+  }
+}
+.pane-background-callout {
+  background-color: $callout-bg;
+  padding: 1.5em 1.5em 2.2em;
+  .views-row-last{
+    margin-bottom:0 !important;
+    padding-bottom:0 !important;
+  }
+}
+
+/*
+.region-background-callout {
+  background-color: $background-color-secondary;
+  padding: 1em;
+}
+*/
+.pane-outline-thinnest {
+  border: 1px solid $primary-text-bold;
+  padding: 20px;
+}
+
+//  start - quicklinks_double
+.pane-float-left-fifty.pane-quicklinks-double {
+  width:100%;
+  float:none;
+  .item-list {
+    ul{
+      column-count: 2;
+      -moz-column-count: 2;
+      -webkit-column-count: 2;
+      column-gap: 0;
+      -moz-column-gap: 0;
+      -webkit-column-gap: 0;
+
+      li {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        display:inline-block;
+        width:100%;
+        //border-top: 0px transparent solid;
+        margin-top: 1px;
+      }
+
+  }
+
+  }
+}
+//  end - quicklinks_double
+
+.pane-no-bottom-margin{
+  margin-bottom: 0;
+}
+
+// end - panel styles
+////////////////////////////////////////////////////////////////////////////////
+
+// start - correctly balance the widths of the left column quick links versus the right column quick links
+// The IPE styles are required for those ".logged-in,"" otherwise the page looks badly -Kevin 08/25/2014
+.front .panel-panel-inner > .pane-float-left-fifty:nth-child(1)
+, .front.logged-in .panels-ipe-sort-container .panels-ipe-portlet-wrapper:nth-child(1) .pane-float-left-fifty {
+  margin-left:0;
+  margin-right:.5em;
+}
+.front .panel-panel-inner > .pane-float-left-fifty:nth-child(3)
+, .front.logged-in .panels-ipe-sort-container .panels-ipe-portlet-wrapper:nth-child(3) .pane-float-left-fifty  {
+  margin-left:.5em;
+  margin-right:0;
+}
+.front .pane-float-left-fifty:nth-child(3) + .panel-separator
+, .front.logged-in .pane-syndicated-events-panel-pane-1
+, div#panels-ipe-paneid-1296 + div //pharmacy
+, div#panels-ipe-paneid-6266 + div //pharmd, then bts
+, div#panels-ipe-paneid-486 + div
+, div#panels-ipe-paneid-686 + div
+// , div#panels-ipe-paneid-391 + div
+, div#panels-ipe-paneid-881 {
+  clear: both; // make way for "upcoming events" or whatever is below -K
+}
+// end - correctly balance the widths of the left column quick links versus the right column quick links
+
+/*
+on people pages resolves too much whitespace above the image
+*/
+//.panel-pane.pane-node-field-person-headshot-photo{
+// 2014.0821.1524 frankfarm: unable to remove ipe because there is no non-ipe handle
+//  border:1px solid transparent;
+//}
+/*
+2014.0814.1455 frankfarm:
+on people pages such as http://local.dev.pharmacy.ucsf.edu:8082/nadav-ahituv this sets "Research area" side by side with "Research expertise" and inserts a 40px gutter in between.
+*/
+#panels-ipe-paneid-1241 + div.panel-separator{
+// 2014.0821.1518 frankfarm: unable to remove ipe because there is no non-ipe handle but this one doesn't appear to be a problem at least for brian alldredge
+//div div div:nth-child(4){
+  display:none;
+}
+.pane-float-left-fifty-research-area{
+  width: 45.5%; // calc() fallback
+  width:calc( 50% - 20px );
+}
+.pane-float-left-fifty-research-area + .panel-separator + .pane-float-left-fifty
+, #panels-ipe-paneid-1241 + .panel-separator + #panels-ipe-paneid-626 .pane-float-left-fifty{
+  float: left;
+  width: 45.5%; // calc() fallback
+  width:calc( 50% - 20px );
+  margin-left:40px;
+  .pane-content {
+    margin-bottom: 1em;
+  }
+}
+.pane-float-left-fifty-research-area + .panel-separator + .pane-float-left-fifty + .panel-separator + .pane-float-left-fifty
+, #panels-ipe-paneid-1241 + .panel-separator + #panels-ipe-paneid-626 + .panel-separator + #panels-ipe-paneid-631 .pane-float-left-fifty {
+  float: none;
+  clear: left;
+}
+
+@include breakpoint(landscape) { // calc() fallback
+  .pane-float-left-fifty-research-area{
+    width: 100%;
+    float: none;
+  }
+  .pane-float-left-fifty-h2research-expertiseh2{
+    width: 100%;
+    float: none;
+    margin-left: 0;
+  }
+}
+
+/* Accredited pane style */
+.pane-accredited {
+  background: transparent url("../images/bg-pharmd-accreditation.png") no-repeat top right;
+  border-top: 3px solid $primary-border;
+  overflow: hidden;
+  padding: 20px 0;
+  .pane-content {
+    padding: 0 35% 0 39px;
+    background: transparent url("../images/acpe-logo.jpg") no-repeat 0 5px;
+    color: #2A6099;
+    font-size: 13px;
+  }
+}
+
+/* Focus Statement */
+.pane-focus-statement {
+  margin-top: .35em;
+  h2.pane-title, h2, .pane-content {
+    text-transform: none;
+    line-height: 1.35em;
+    display: inline;
+  }
+  .pane-content{
+    font-size: 1.07142857em;
+    line-height: 1.6em;
+    min-height: 40px; // image cutting off between 751px and 800px
+  }
+  h2.pane-title, h2 {
+    font-size: 20px;
+    font-size: 1.41em;
+    font-family: $specialty-font;
+    font-style: normal;
+    color: $focus-box-color;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+.is-pharmd-home .pane-focus-statement {
+  h2.pane-title,.pane-content{
+    display: block;
+  }
+  h2.pane-title{
+    margin-bottom: .3em;
+  }
+}
+
+/******************************************************************************
+   Micro Layout Panel layout
+   */
+
+$ml_main_container: rgb(244, 240, 237);
+$ml_side: rgb(228, 222, 214);
+$ml_link: #333333;
+$ml_link_active: #897e73;
+
+$ml_bullet: #897e73;
+$ml_header_h5: #4f8abe;
+$ml_header_h6: #677718;
+
+.micro-layout-container {
+  border-top: 2px solid $primary-border;
+  background-color: $ml_main_container;
+  img {
+    max-width: 100%;
+  }
+  @include shadowright;
+  .micro-layout-sidebar {}
+  .micro-layout-sidebar-inner {
+    margin: 0;
+    ul.menu {
+      margin: 0 0 1em 20px;
+      padding: 2.6em 0 0 0;
+      background-color: $ml_side;
+      position: relative;
+      &::after {
+        content: "";
+        display: block;
+        height: 369px;
+        @include background(url("../images/bg-molecule-1.png") no-repeat 0 0, linear-gradient(top, $ml_side, $ml_main_container));
+      }
+      li {
+        list-style: none;
+        a {
+          display: block;
+          padding: .25em 1.25em;
+          color: $ml_link;
+          &:hover, &.active {
+            font-weight: bold;
+            color: $ml_link_active;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .micro-layout-content {
+    .panel-panel-inner {
+      .panel-pane h2.pane-title, h2 {
+        border-bottom: none;
+        border-top: 1px solid #d6d6d6;
+        margin: .75em 0;
+        padding: .5em 0 0 0;
+      }
+      padding: 5%;
+      // Little trick to change the color of the bullets
+      ul {
+        list-style: none;
+        li {
+          padding-left: 1em;
+          text-indent: -.7em;
+          &:before {
+            content: "• ";
+            color: $ml_bullet;
+          }
+        }
+      }
+      h5 {
+        font-size: 1.2em;
+        color: $ml_header_h5;
+      }
+      h6 {
+        font-size: 1.0em;
+        color: $ml_header_h6;
+      }
+    }
+  }
+}
+
+// when two panels are in the same column, leave a little space between them.
+.panels-ipe-portlet-wrapper + .panels-ipe-portlet-wrapper {
+  margin-top: 1em;
+}
+
+#content .pane-background-callout {
+  li {
+    margin-left: 0px;
+    ul li{
+      margin-left: -2px;
+    }
+  }
+}
+
+// start - landing pages
+.pane-landingoverview {
+  margin-bottom: 1.5em;
+  @include shadowright;
+  .field-name-field-image-credit {
+    float:right;
+    margin-right:1em;
+    margin-right:.5em;
+  }
+  h2 {
+    text-transform: uppercase;
+    font-size: .95em;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  div.wrapper{
+    color:#fff;
+    background-size: cover;
+    padding: 2.2em 7% 2.5em 22%;
+  }
+}
+.is-dept-pharmchem
+,.is-dept-bts
+,.is-dept-clinicalpharmacy
+{
+  .pane-landingoverview div.wrapper{
+    padding: 2.2em 6% 2.5em;
+  }
+}
+// end - landing pages
+
+.pane-horizlinesabovebelow {
+  border: 1px solid $horizontal-rule;
+  border-width: 1px 0;
+}
+
+// RSS pane, to the right of paginator
+.pane-rss-link {
+  float: right;
+  position: relative;
+  @include breakpoint(medium) {
+    top: -37px;
+  }
+  text-align: right;
+  a:hover {text-decoration: none;}
+}
+
+// RSS compromise when pager doesn't exist.
+#quicktabs-container-events .view-syndicated-events .views-row-last
+, #quicktabs-events .view-openacademy-events .views-row-last {
+    padding-bottom: 26px;
+}
+
+// alternative to move pager down, instead of RSS up — to spare text above from overlapping.
+.view-display-id-news_preview
+, .view-display-id-all_upcoming_events
+, .view-display-id-all_news {
+  ul.pager {
+    position: relative;
+    @media only screen and (min-width: 801px) {
+      bottom: -37px;
+    }
+  }
+}
+
+// Hide RSS pane for PharmD events because it's missing recurring events
+body.page-events .is-pharmd-secondary .pane-rss-link {
+  display: none;
+}
+
+// Quicklinks from orange to blue now -K 10/01/2014
+.pane-bundle-quick-links a:hover {
+  color: $primary-link-unvisited-fg;
+}
+
+// Line-height for CP "research areas"
+.pane-float-left-fifty-research-areas h2.pane-title {
+  line-height: .92857em;
+}

@@ -1,0 +1,48 @@
+name = UCSF School of Medicine
+description = UCSF School of Medicine - Main site
+package = Core
+version = VERSION
+core = 7.x
+
+stylesheets[all][] = css/system.theme.css
+;stylesheets[all][] = css/medschool.css
+
+stylesheets[all][] = css/reset.css
+stylesheets[all][] = css/style.css
+stylesheets[all][] = css/tweaks.css
+stylesheets[print][] = css/print.css
+
+scripts[] = js/flickr.js
+
+regions[header] = Header
+regions[main_nav] = Main Navigation
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[highlighted] = Highlighted
+regions[content] = Content
+regions[feature_slideshow] = Feature Slideshow
+regions[home_right_col] = Home Page Right Column
+regions[home_left_col] = Home Page Left Column
+regions[home_sidebar_top] = Home Page Sidebar Top
+regions[home_sidebar_public] = Home Page Sidebar Public
+regions[home_sidebar_school] = Home Page Sidebar School
+regions[home_sidebar] = Home Page Sidebar
+regions[home_sidebar_bottom] = Home Page Sidebar Bottom
+regions[news_internal] = News Internal
+regions[news_external] = News External
+regions[right_col] = Right Column
+regions[left_col] = Left Column
+regions[footer] = Footer
+
+
+
+
+
+
+
+
+
+
+
+

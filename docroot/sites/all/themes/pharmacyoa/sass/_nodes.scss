@@ -1,0 +1,32 @@
+/**
+ * @file
+ * Node Styling
+ *
+ * Style anything that isn't in the $content variable.
+ */
+.node-announcement{
+  width:50%;
+}
+.node-featured{
+  .content-title {
+    margin-bottom:1em;
+  }
+  .pane-node-field-featured-image
+  ,.phelan-container
+  {
+    margin-bottom:0;
+  }
+  .pane-title {
+    margin-top:1em;
+  }
+}
+/*styling for webform(s)*/
+.node-webform h2:first-child {
+  display: none;
+}
+.webform-confirmation {
+  margin-bottom:1em;
+}
+#webform-client-form-3571 .form-required {
+  display: none;
+}

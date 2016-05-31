@@ -1,0 +1,141 @@
+<?php
+/**
+ * @file
+ * Code for the UCSF Search feature.
+ */
+include_once 'ucsf_search.features.inc';
+
+/**
+ * implements hook_init()
+ */
+function ucsf_search_init() {
+
+//don't do anyhting if called fromd rush
+if(!function_exists('drush_main')){
+    //check environment, act if not prod
+    if (!isset($_ENV['AH_SITE_ENVIRONMENT']) || $_ENV['AH_SITE_ENVIRONMENT'] != 'prod') {
+      //if not prod set indexing to read-only -- if you don't have this it will dump dev/stage URLs into your index!
+      apachesolr_environment_variable_set('acquia_search_server_1', 'apachesolr_read_only', 1);
+      //todo: make sure acquia_search_server_1 is always going to be the one we care about
+    }
+  }
+}
+
+/**
+ * implements hook_apachesolr_query_alter($query)
+ */
+function ucsf_search_apachesolr_query_alter($query) {
+  //check if any filters on the 'hash' (site-specific) exist
+  $filters = $query->getFilters('hash');
+  //if there are no hash filters
+  if (empty($filters)) {
+    //filter to the hash value of the current site only
+    $query->addFilter('hash', apachesolr_site_hash());
+  }
+  //set MM to do AND for 2 and 75% fuzzy (round down) for more
+  $query->replaceParam('mm','2<75%');
+  //$query->operator = 'AND';
+}
+
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+/* makes a thing that doesn't work -efd
+  thats why it's commented out. might not be cool
+*/
+/*
+function ucsf_search_form_search_form_alter(&$form, &$form_state, $form_id) {
+  $form['#submit'][] = 'ucsf_search_form_submit';
+}
+*/
+
+/**
+ * Submit hanlder for search form
+ * badd address though...-efd
+ *
+ * commenting this out because no one knows what it does
+ */
+/*
+function ucsf_search_form_submit($form, &$form_state) {
+  //dpm($form);
+  //dpm($form_state);
+  if ($form_state['values']['keys'] == '') {
+    form_set_error('keys', t('Please enter some keywords.'));
+
+    //$form_state['redirect'] = 'search-site'; - Chapter 3
+    $form_state['redirect'] = 'search/site';
+    return;
+  }
+  // remove any destination set
+  if (isset($_GET['destination'])) {
+    unset($_GET['destination']);
+  }
+  $query = trim($form_state['values']['keys']);
+
+  //$form_state['redirect'] = 'search-site/' . $query; // redirect to ucsf search page - chapter 3
+  $form_state['redirect'] = 'search/site/' . $query; // redirect to ucsf search page
+}
+*/
+
+/**
+ * Implements hook_form_alter().
+ */
+function ucsf_search_form_alter(&$form, &$form_state, $form_id) {
+  // Modifications to the "Multisite SOLR search administration" form.
+  if ('apachesolr_multisitesearch_settings' === $form_id) {
+    //grab the site hash
+    $site_hash = apachesolr_site_hash();
+    //create an empty variable
+    $disabled_options = array();
+    //loop over the hash/site options in the multisite form
+    foreach ($form['admin']['delete']['hashes']['#options'] as $hash => $label) {
+      //if a hash does not match the site
+      if ($hash !== $site_hash) {
+        //run over the name and add to disabled array
+        $disabled_options[$hash] = _ucsf_search_apachesolr_multisitesearch_settings_form_alter_update_search_index_label($hash, $label);
+        //and remove that option from the active deletion options
+        unset($form['admin']['delete']['hashes']['#options'][$hash]);
+      } else {
+        //if the hash does match, just run over the name (append)
+        $form['admin']['delete']['hashes']['#options'][$hash] = _ucsf_search_apachesolr_multisitesearch_settings_form_alter_update_search_index_label($hash, $label);
+      }
+    }
+    //if any disabled site deletion options exist
+    if (! empty($disabled_options)) {
+      //create a new, disabled, set of checkboxes to display the hash info
+      $form['admin']['delete']['disabled_hashes'] = array(
+        '#type' => 'checkboxes',
+        '#title' => 'Other sites',
+        '#options' => $disabled_options,
+        '#disabled' => TRUE,
+        '#description' => 'Deleting the data of other sites is not allowed. These are listed here for informational purposes.'
+      );
+    }
+  }
+
+  // Modifications to the SOLR default index actions administration" form.
+  if ('apachesolr_index_action_form' === $form_id) {
+    //if the delete index button exists
+    if (isset($form['action']['delete'])){
+      //hide the delete index button - security issue on shared environment
+      unset($form['action']['delete']);
+      unset($form['action']['delete_description']);
+    }
+  }
+}
+
+/**
+ * Appends a given hash to a given label if the label doesn't already contain the hash.
+ * @param $hash The hash text.
+ * @param $label The label text.
+ * @return The updated label text.
+ */
+function _ucsf_search_apachesolr_multisitesearch_settings_form_alter_update_search_index_label ($hash, $label) {
+  $hash_from_label = array_shift(explode(' ', $label)); // peel this off the label
+  if ($hash !== $hash_from_label) { // append the hash to the label if is not already part of it.
+    $label = $label . ' - ' . $hash;
+  }
+  return $label;
+}

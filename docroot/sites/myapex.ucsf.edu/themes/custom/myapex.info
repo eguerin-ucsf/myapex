@@ -1,0 +1,35 @@
+name = My Apex
+description = Advanced Patient-Centered Excellence
+package = Core
+version = VERSION
+core = 7.x
+
+stylesheets[all][] = css/reset.css
+stylesheets[all][] = css/responsive.min.css
+stylesheets[all][] = css/myapex.css
+stylesheets[all][] = css/system.menus.css
+
+scripts[] = js/functions.js
+
+
+regions[ucsf_nav] = UCSF Navigation
+regions[search_form] = Search Form
+regions[subscribe_login] = Subscribe / Login
+regions[banner] = Banner
+regions[leftcol] = Left Column
+regions[content] = Content
+regions[rightcol] = Right Column
+regions[footer] = Footer
+
+
+
+
+
+
+
+
+
+
+
+
+

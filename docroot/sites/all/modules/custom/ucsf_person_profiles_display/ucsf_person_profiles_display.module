@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the UCSF Person Profiles Display feature.
+ */
+
+include_once 'ucsf_person_profiles_display.features.inc';

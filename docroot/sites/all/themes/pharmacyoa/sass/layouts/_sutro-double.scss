@@ -1,0 +1,29 @@
+/**
+ * @file
+ * OA Sutro panel layout
+**/
+
+.sutro-double-container {
+  margin-bottom:0;
+}
+.sutro-double-column {
+  width: 50%;
+  float: left;
+  .sutro-double-column1-inner { margin-right: 20px; }
+  .sutro-double-column2-inner { margin-left: 20px; }
+
+}
+@include breakpoint(medium) {
+  .sutro-double-column,
+  .sutro-double-column2 {
+    width: 100%;
+    float: none;
+  }
+  .sutro-double-column .sutro-double-column1-inner,
+  .sutro-double-column-inner {
+    margin-right: 0;
+  }
+  .sutro-double-column .sutro-double-column2-inner {
+    margin-left: 0;
+  }
+}

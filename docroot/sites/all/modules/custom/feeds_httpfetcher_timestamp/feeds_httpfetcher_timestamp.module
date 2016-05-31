@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Feeds HTTPFetcher Append Headers - basic API functions and hook implementations.
+ */
+
+/**
+ * Implements hook_feeds_plugins().
+ */
+function feeds_httpfetcher_timestamp_feeds_plugins() {
+  $path = drupal_get_path('module', 'feeds_httpfetcher_timestamp') . '/plugins';
+  $info = array();
+  $info['FeedsHTTPFetcherTimestamp'] = array(
+    'name'        => t('Append Timestamp HTTP Fetcher'),
+    'description' => t('HTTPFetcher with support for appending a timestamp.'),
+    'handler' => array(
+      'parent' => 'FeedsHTTPFetcher',
+      'class'  => 'FeedsHTTPFetcherTimestamp',
+      'file'   => 'FeedsHTTPFetcherTimestamp.inc',
+      'path'   => $path,
+    ),
+  );
+  return $info;
+}

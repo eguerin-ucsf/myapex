@@ -1,0 +1,37 @@
+<?php
+/**
+ * @file
+ * Code for the UCSF Pharmacy Syndicated News feature.
+ */
+
+include_once 'ucsf_pharmacy_syndicated_news.features.inc';
+
+define('UCSF_PHARMACY_SYNDICATED_NEWS_PATH','feed/news');
+/**
+ * Implements hook_form_FORM_ID_alter
+ */
+function ucsf_pharmacy_syndicated_news_form_feeds_import_form_alter(&$form,$form_state,$form_id) {
+	//if it is the form for people syndication, automate some things
+	if ($form['#importer_id'] == 'syndicated_news') {
+		//set tid filter to empty string
+        $filter = '';
+        
+        /*
+        //comment or remove this to stop the tid filter
+		if($site = variable_get('ucsf_pharmacy_site_code',null)){
+			//if there is a code (set in $conf) then set the filter
+			$filter = '&tid=' . $site;
+			
+			//uncomment the following to switch to "-all" feeds
+			//$filter .= '&all=true';
+		}
+		*/
+
+		//assemble and insert the url
+		$form['feeds']['FeedsHTTPFetcherTimestamp']['source']['#default_value'] = UCSF_PHARMACY_MAIN_URL . UCSF_PHARMACY_SYNDICATED_NEWS_PATH . $filter;
+		//make the box bigger, for fun
+		$form['feeds']['FeedsHTTPFetcherTimestamp']['source']['#size'] = '120';
+		//disable the field, because "no touchy!"
+		$form['feeds']['FeedsHTTPFetcherTimestamp']['source']['#disabled'] = TRUE;
+	}
+}

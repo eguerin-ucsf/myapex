@@ -1,0 +1,77 @@
+<?php
+/**
+ * Implementation of hook_schema()
+ */
+function ucsf_eds_profiles_schema() {
+  //2013-06-13 Schema
+  $schema['ucsf_eds_profiles_nodes'] = array(
+    'description' => 'Cross-reference between NID and UCID for ucsf_eds_profiles updated nodes',
+    'fields' => array(
+      'nid' => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE),
+      'ucid' => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE),
+
+    ),
+  );
+  return $schema;
+}
+
+/**
+ *
+ * Create new database table {ucsf_eds_profiles_nodes}.
+ */
+function ucsf_eds_profiles_update_7201() {
+  //2013-06-12 Schema
+  $schema['ucsf_eds_profiles_nodes'] = array(
+    'description' => 'Cross-reference between NID and UCID for ucsf_eds_profiles updated nodes',
+    'fields' => array(
+      'nid' => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE),
+      'ucid' => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE),
+    ),
+  );
+  db_create_table('ucsf_eds_profiles_nodes', $schema['ucsf_eds_profiles_nodes']);
+}
+
+
+/**
+ *
+ * Copy existing node/ucid relationships into database
+ */
+/* Disabled for compatibility with other systems, used on Pharmacy only...
+function ucsf_eds_profiles_update_7203(&$sandbox) {
+  //todo: this could break on large installs but actually no one is using this yet so it's ok
+
+  //query the existing nodes
+  $query = new EntityFieldQuery();
+
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'ucsf_person')
+    ->fieldCondition('field_person_ucid', 'value', NULL, 'IS NOT NULL')
+    ->addMetaData('account', user_load(1)); // Run the query as user 1.
+  $result = $query->execute();
+
+  // Is there items?
+  if (isset($result['node']) ) {
+    foreach ($result['node'] as $nid => $node_exists) {
+      //query against the DB table
+      $db_result = db_select('ucsf_eds_profiles_nodes', 'n')
+      ->fields('n')
+      ->condition('nid', $nid,'=')
+      ->execute()
+      ->fetchAssoc();
+
+      //check agaist existing in db
+      if (empty($db_result['nid'])){
+        $node_needed = node_load($nid);
+         if (isset ($node_needed->field_person_ucid['und'][0]['value'])) {
+          $record = array (
+            "nid" => $nid,
+            "ucid" => $node_needed->field_person_ucid['und'][0]['value'],
+          );
+          //if needed, write to DB
+          drupal_write_record('ucsf_eds_profiles_nodes', $record);
+        }
+      }
+    }
+  }
+}
+*/

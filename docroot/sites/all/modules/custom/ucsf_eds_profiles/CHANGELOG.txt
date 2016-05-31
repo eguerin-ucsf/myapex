@@ -1,0 +1,27 @@
+version = 7.x-2.0-beta12 -- added EDS pretzel logic for realease codes according to Mukesh
+
+version = 7.x-2.0-beta11 -- check fields between db and pull before saving on updates, only save if new data, undo beta8 timestamp mod 
+
+version = 7.x-2.0-beta10 -- Correction to access callback so new tab button only shows on UCSF_PERSON records.
+
+version = 7.x-2.0-beta9 -- added a EDS/Profiles update tab to the node screen if has edit permission.
+
+version = 7.x-2.0-beta8 -- only update the time stamp on human revisions, not machine ones (cleans up content menu); typing the email address in again updates the pulled fields
+
+version = 7.x-2.0-beta7 -- changeover research bio to plain_text (but formatted) to fix newline problem! (version = 7.x-2.0-beta4 ucsf_person_profiles_extended)
+
+version = 7.x-2.0-beta6 -- support for DisplayName field
+
+version = 7.x-2.0-beta5 -- several fields were adding to themselves on every import.  clear those values out
+
+version = 7.x-2.0-beta4 -- integrate FreetextKeywords with Keywords
+
+version = 7.x-2.0-beta3 -- integrate honors & awards pull, sort honors and pubs (beta), update profiles URL 
+
+version = 7.x-2.0-beta2 -- incorporate profiles api v2
+
+version = 7.x-2.0-rc18 -- Support for Name Fixes
+
+version = 7.x-2.0-rc17 -- Compatibility with Synonyms module for ucsf_eds_profiles_get_term
+
+version = 7.x-2.0-rc16 -- Removed faculty UCSF profiles requirement.  Changed some related log messages.

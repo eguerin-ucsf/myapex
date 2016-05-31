@@ -1,0 +1,74 @@
+<?php
+ 
+$metadata['https://idp-stage.ucsf.edu/idp/shibboleth'] = array (
+  'entityid' => 'https://idp-stage.ucsf.edu/idp/shibboleth',
+  'contacts' => 
+  array (
+  ),
+  'metadata-set' => 'saml20-idp-remote',
+  'SingleSignOnService' => 
+  array (
+    0 => 
+    array (
+      'Binding' => 'urn:mace:shibboleth:1.0:profiles:AuthnRequest',
+      'Location' => 'https://idp-stage.ucsf.edu/idp/profile/Shibboleth/SSO',
+    ),
+    1 => 
+    array (
+      'Binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
+      'Location' => 'https://idp-stage.ucsf.edu/idp/profile/SAML2/POST/SSO',
+    ),
+    2 => 
+    array (
+      'Binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign',
+      'Location' => 'https://idp-stage.ucsf.edu/idp/profile/SAML2/POST-SimpleSign/SSO',
+    ),
+    3 => 
+    array (
+      'Binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
+      'Location' => 'https://idp-stage.ucsf.edu/idp/profile/SAML2/Redirect/SSO',
+    ),
+  ),
+  'SingleLogoutService' => 'https://idp-stage.ucsf.edu/idp/pre_logout.jsp?url=https://hostname.ucsf.edu',
+  'ArtifactResolutionService' => 
+  array (
+    0 => 
+    array (
+      'Binding' => 'urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding',
+      'Location' => 'https://idp-stage.ucsf.edu:8443/idp/profile/SAML1/SOAP/ArtifactResolution',
+      'index' => 1,
+    ),
+    1 => 
+    array (
+      'Binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:SOAP',
+      'Location' => 'https://idp-stage.ucsf.edu:8443/idp/profile/SAML2/SOAP/ArtifactResolution',
+      'index' => 2,
+    ),
+  ),
+  'keys' => 
+  array (
+    0 => 
+    array (
+      'encryption' => true,
+      'signing' => true,
+      'type' => 'X509Certificate',
+      'X509Certificate' => '
+MIICSTCCAbKgAwIBAgIES6G0XDANBgkqhkiG9w0BAQUFADBpMQswCQYDVQQGEwJVUzELMAkGA1UE
+CBMCQ0ExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28xDTALBgNVBAoTBFVDU0YxDjAMBgNVBAsTBU9B
+QUlTMRYwFAYDVQQDEw1kNW4xLnVjc2YuZWR1MB4XDTEwMDMxODA1MDQyOFoXDTIwMDMxNTA1MDQy
+OFowaTELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMQ0w
+CwYDVQQKEwRVQ1NGMQ4wDAYDVQQLEwVPQUFJUzEWMBQGA1UEAxMNZDVuMS51Y3NmLmVkdTCBnzAN
+BgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAsOc8xqTk6GD3WIaw/qheJ+YTXWTKdt831hxcnSenjRg1
+PwnXmfIOmO/sACyGUF3UWJiaboHZZTxVCsVziTB8y6g3fI88yE2hudJDRKEL90m9l3m/LKmWN6MZ
+WiEnd5GvpfDU497hJkC3hemG7Vwq0Ui/1vSx9lFmQ7585yQAQQMCAwEAATANBgkqhkiG9w0BAQUF
+AAOBgQA2aFehGkLM7C9xDWBmwqS2HdbMeYnmItkl7ye8bNjuNB6G80wAtER8KcPwEHElHThbMM0J
+KBCPTzogMRseLFGsHKP1msFkZe1rYcwKt5Nkrkp6A5rLqxrioCvc+vNwod+R99RZz2gCZPJvaqM0
+5WaQ9pcTT6yB31fqqd2xrLFEjA==
+                    ',
+    ),
+  ),
+  'scope' => 
+  array (
+    0 => 'ucsf.edu',
+  ),
+);

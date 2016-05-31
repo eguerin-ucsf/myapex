@@ -1,0 +1,87 @@
+/*
+	If you plan to use the SASS, just copy the entire SASS directory to this directory as
+	it ties together with all the variables.
+*/
+
+
+/* Announcement Block on home page */
+/*
+.panel-pane.pane-announcements-panel-pane-announcements {
+	padding: 10px 30px 30px;
+	background: transparent url("../images/bg-announcement.png") no-repeat 0 0;
+}
+*/
+
+/* Spotlight */
+@media screen and (min-width: 641px) {
+	.flex-nav-container .flexslider:after {
+		background: transparent url("../images/pc_hero_overlay.png") no-repeat -50px 0;
+		width: 100%;
+	}
+}
+@media (max-width: 640px) {
+	.is-dept-home .flex-caption {background: rgba(103,152,200,1)}
+}
+
+/* Subtle Spotlight */
+/*
+@media screen and (min-width: 480px) {
+	.view-display-id-subtle_spotlight .flex-nav-container .flexslider::after {
+		background: none;
+	}
+}
+*/
+
+/* Header Flare */
+/*
+#header #search {
+	position: absolute;
+	right: 0;
+	top: -30px;
+	padding-top: 30px;
+	display: block;
+	background: transparent url("../images/bg-abstract-1.png") no-repeat 54px -86px;
+	height: 90px;
+	width: 340px;
+}
+*/
+
+
+/* Footer Flare */
+/*
+#footer-wrapper #footer #make-a-gift a {
+	display: block;
+	overflow: hidden;
+	background: transparent url("../images/bg-abstract-footer.png") no-repeat top left;
+	width: 294px;
+	height: 130px;
+	white-space: nowrap;
+	text-indent: 100%;
+}
+*/
+
+
+/* Link List with Gradients as shown on home page */
+/*
+.pane-float-left-fifty.pane-bundle-quick-links .item-list ul li {
+	list-style: none;
+	margin: 0 0 10px 0;
+	padding: 0 1em 0 0;
+	position: relative;
+	background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, white), color-stop(100%, #EAEAE4));
+	background: -webkit-linear-gradient(left, white, #EAEAE4);
+	   background: -moz-linear-gradient(left, white, #EAEAE4);
+	     background: -o-linear-gradient(left, white, #EAEAE4);
+	        background: linear-gradient(left, white, #EAEAE4);
+}*/
+.pane-float-left-fifty.pane-bundle-quick-links .item-list ul li:hover {
+	background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, white), color-stop(100%, #6EA5DB));
+	background: -webkit-linear-gradient(left, white, #6EA5DB);
+	   background: -moz-linear-gradient(left, white, #6EA5DB);
+	     background: -o-linear-gradient(left, white, #6EA5DB);
+	        background: linear-gradient(left, white, #6EA5DB);
+}
+
+.eyecatching {
+  background: #E5EEF8;
+}

@@ -1,0 +1,4 @@
+name = ICS
+core = 7.x
+dependencies[] = field
+dependencies[] = date

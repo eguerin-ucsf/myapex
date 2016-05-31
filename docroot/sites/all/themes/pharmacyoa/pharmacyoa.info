@@ -1,0 +1,45 @@
+name        = UCSF SOP
+description = A modified theme of Open Academy Wireframe
+screenshot  = screenshot.png
+core        = 7.x
+
+; CSS - General
+stylesheets[all][]     = css/screen.css
+
+; CSS - Conditional
+stylesheets-conditional[IE][all][] = css/ie.css
+stylesheets-conditional[lt IE 10][all][] = css/ie9.css
+
+stylesheets[print][]   = css/print.css
+
+; Javascript
+scripts[] = js/openacademy_wireframe.js
+scripts[] = js/vendor/jquery.hotkeys.js
+scripts[] = js/vendor/modernizr-2.6.1-respond-1.1.0.min.js
+; begin - footnoteLinks
+;         see
+;         http://alistapart.com/article/improvingprint
+;         but we're using the newer jquery version at
+;         https://github.com/dompuiu/jquery-footnote-links
+scripts[] = js/footnote-links.js
+; end - footnoteLinks
+scripts[] = js/general.js
+
+; Regions
+regions[header]       = Header
+regions[help]         = Help
+regions[content]      = Content
+regions[footer]       = Footer
+regions[page_top]     = Page top
+regions[page_bottom]  = Page bottom
+
+; Features
+features[] = name
+; features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
+features[] = logo
+
+; Plugins
+plugins[panels][layouts] = plugins/layouts
+plugins[panels][styles] = plugins/styles

@@ -1,0 +1,12 @@
+robots.php and robots.deny.txt add the ability to dynamically deny robots based on site environments (dev, stage) and certain domain prefixes (preview).  These files should all be in the docroot, along with the original robots.txt -- See robots.php for more detail.
+
+Only one modification to Drual is needed: after updating drupal core the standard .htaccess may be re-written:
+
+RewriteRule  ^robots\.txt$ /robots.php [NC,L]
+
+For clarity you might append something like this to the top of docroot/.htaccess :
+
+# BEGIN UCSFP specific modificationsmodifications
+# Modification for dynamic robots
+RewriteRule  ^robots\.txt$ /robots.php [NC,L]
+# END UCSFP specific modificationsmodifications

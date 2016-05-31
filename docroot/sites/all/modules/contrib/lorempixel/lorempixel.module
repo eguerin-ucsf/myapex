@@ -1,0 +1,255 @@
+<?php
+
+/**
+ *  TODOs:
+ *  - clean up the settings form ui
+ *  - maybe consider a batch operation when creating many files?
+ *  - more?
+ */
+function _lorempixel_devel_generate_image($object, $field, $instance, $bundle) {
+  $object_field = array();
+
+  $min_resolution = empty($instance['settings']['min_resolution']) ? '100x100' : $instance['settings']['min_resolution'];
+  $max_resolution = empty($instance['settings']['max_resolution']) ? '960x600' : $instance['settings']['max_resolution'];
+  $extension = 'jpg';
+
+  $image = lorempixel_generate_image($min_resolution, $max_resolution);
+  $file = lorempixel_save_image($image);
+
+  $object_field['fid'] = $file->fid;
+  $object_field['alt'] = '';
+  $object_field['title'] = '';
+  $object_field['display'] = 1;
+  return $object_field;
+}
+
+
+
+function lorempixel_menu() {
+  $items['admin/config/development/generate/lorempixel'] = array(
+    'title' => 'Generate lorempixel images',
+    'type' => MENU_NORMAL_ITEM,
+    'access callback' => TRUE,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('lorempixel_settings'),
+  );
+  return $items;
+}
+
+function lorempixel_settings() {
+  $form = array();
+
+  $form['settings'] = array(
+    '#type' => 'fieldset',
+    '#title' => 'Lorempixel settings',
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    '#description' => '',
+  );
+  if (module_exists('devel_generate')) {
+    $disabled = FALSE;
+    $default_value = variable_get('lorempixel_devel_generate', 1);
+    $description = 'If devel generate is enabled and this checkbox is checked - then devel generate will use lorempixel instead of the standard image generation for image fields.';
+  }
+  else {
+    $disabled = TRUE;
+    $default_value = 0;
+    $description = 'You must download and enable the <a href="http://drupal.org/project/devel">Devel</a> module for this to work.';
+  }
+  $form['settings']['lorempixel_devel_generate'] = array(
+    '#type' => 'checkbox',
+    '#title' => 'Use lorempixel with Devel generate',
+    '#disabled' => $disabled,
+    '#default_value' => $default_value,
+    '#description' => $description,
+  );
+
+  $form['generate'] = array(
+    '#type' => 'fieldset',
+    '#title' => 'Generate images now',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#description' => 'The image size will be set to a random number between the values below. Tip: To set a fixed value set the same values in both the min and max fields.',
+  );
+
+  $form['generate']['lorempixel_nth_images'] = array(
+    '#type' => 'textfield',
+    '#title' => 'How many images to generate',
+    '#size' => '3',
+    '#maxlength' => '3',
+    '#default_value' => '10',
+  );
+
+  $form['generate']['lorempixel_color_or_image'] = array(
+    '#type' => 'select',
+    '#title' => 'Color or grey images',
+    '#options' => array('g' => 'Grey', 'color' => 'Color', 'both' => 'Both'),
+    '#default_value' => 'color',
+  );
+
+  $form['generate']['lorempixel_dimensions'] = array(
+    '#type' => 'fieldset',
+    '#title' => 'Image dimensions',
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    '#description' => 'The image size will be set to a random number between the values below. Tip: To set a fixed value set the same values in both the min and max fields.',
+  );
+  $form['generate']['lorempixel_dimensions']['min_width'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Min width',
+    '#size' => '5',
+    '#maxlength' => '5',
+    '#default_value' => '200',
+  );
+  $form['generate']['lorempixel_dimensions']['min_height'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Min height',
+    '#size' => '5',
+    '#maxlength' => '5',
+    '#default_value' => '100',
+  );
+  $form['generate']['lorempixel_dimensions']['max_width'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Max width',
+    '#size' => '5',
+    '#maxlength' => '5',
+    '#default_value' => '960',
+  );
+  $form['generate']['lorempixel_dimensions']['max_height'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Max height',
+    '#size' => '5',
+    '#maxlength' => '5',
+    '#default_value' => '450',
+  );
+
+  $categories = array(
+    'mixed' => 'Mixed',
+    'abstract' => 'Abstract',
+    'food' => 'Food',
+    'people' => 'People',
+    'technics' => 'Technics',
+    'animals' => 'Animals',
+    'nightlife' => 'Nightlife',
+    'nature' => 'Nature',
+    'transport' => 'Transport',
+    'city' => 'City',
+    'fashion' => 'Fashion',
+    'sports' => 'Sports',
+  );
+
+  $form['generate']['lorempixel_categories'] = array(
+    '#type' => 'select',
+    '#title' => 'Image categories',
+    '#options' => $categories,
+    '#default_value' => 'mixed',
+  );
+
+  $form['generate']['lorempixel_submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Generate',
+    '#submit' => array('lorempixel_form_submit'),
+  );
+  $form['settings_submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save configuration'),
+    '#submit' => array('lorempixel_settings_form_submit'),
+  );
+
+  return $form;
+}
+
+function lorempixel_settings_form_submit(&$form, &$form_state) {
+  variable_set('lorempixel_devel_generate', $form_state['values']['lorempixel_devel_generate']);
+  if ($form_state['values']['lorempixel_devel_generate'] == 1) {
+    // Set the callback function to our own callback for devel generate image handling.
+    variable_set('devel_generate_image_function', '_lorempixel_devel_generate_image');
+    variable_set('devel_generate_media_file_function', '_lorempixel_devel_generate_image');
+    } else {
+    variable_set('devel_generate_image_function', '_image_devel_generate');
+  }
+}
+
+function lorempixel_form_submit(&$form, &$form_state) {
+  if (empty($form_state['values']['lorempixel_nth_images']) && !is_numeric($form_state['values']['lorempixel_nth_images'])) {
+    return;
+  }
+  $values = $form_state['values'];
+  $nth_images = $values['lorempixel_nth_images'];
+  $categories = array_keys($form['generate']['lorempixel_categories']['#options']);
+  array_shift($categories);
+  $colors = array('g', 'color');
+  $image = array();
+  for ($i=0; $i < $nth_images; $i++) {
+    $image['width'] = mt_rand($values['min_width'], $values['max_width']);
+    $image['height'] = mt_rand($values['min_height'], $values['max_height']);
+    $image['category'] = ($values['lorempixel_categories'] != 'mixed') ? $values['lorempixel_categories'] : NULL;
+
+    if ($values['lorempixel_color_or_image'] == 'both') {
+      shuffle($colors);
+      $image['color'] = $colors[0];
+    }
+    else {
+      $image['color'] = ($values['lorempixel_color_or_image'] == 'g') ? 'g' : 'color';
+    }
+    lorempixel_save_image($image);
+  }
+}
+
+function lorempixel_generate_image($min_resolution, $max_resolution) {
+  $image = array();
+  $mins = explode('x', $min_resolution);
+  $maxs = explode('x', $max_resolution);
+  $image['width'] = mt_rand($mins[0], $maxs[0]);
+  $image['height'] = mt_rand($mins[1], $maxs[1]);
+  $image['category'] = NULL;
+  $image['color'] = 'color';
+
+  return $image;
+}
+
+function lorempixel_generate_url($image) {
+  $color = ($image['color'] == 'g') ? 'g/' : '';
+  $width = $image['width'] . '/';
+  $height = $image['height'];
+  $category = ($image['category'] != NULL) ? '/' . $image['category'] : '';
+  return 'http://lorempixel.com/' . $color . $width . $height . $category;
+}
+
+function lorempixel_save_image($image) {
+  if (function_exists('imagejpeg')) {
+    $url = lorempixel_generate_url($image);
+    $im = imagecreatefromjpeg($url);
+    if ($im !== false) {
+      $scheme = variable_get('file_default_scheme', 'public') . '://';
+      // Create a temporary filedirectory and name
+      $tempdir = sys_get_temp_dir();
+      $tempnam = tempnam($tempdir, 'lorempixel_');
+      // Create the file
+      imagejpeg($im, $tempnam);
+      $filename = 'lorempixel';
+      $filename .= ($image['category'] != NULL) ? '_' . $image['category'] : '';
+      $filename .= ($image['color'] == 'g') ? '_grey' : '';
+      $filename .= '_' . $image['width'];
+      $filename .= '_' . $image['height'];
+      $filename .= '.jpg';
+      // Create a drupal file object
+      $source = $tempnam;
+      $destination = file_stream_wrapper_uri_normalize($scheme . $filename);
+      $destination = file_unmanaged_move($source, $destination, FILE_EXISTS_RENAME);
+      $file = file_uri_to_object($destination);
+      if ($file) {
+        $file->display = 1;
+        // Save the drupal file object to database
+        $file = file_save($file);
+        drupal_set_message('Created: ' . l($file->filename, 'file/' . $file->fid), 'status');
+      }
+      // Destroy the image resource
+      imagedestroy($im);
+      return $file;
+    }
+    else {
+      drupal_set_message('The image could not created.', 'error');
+    }
+  }
+}

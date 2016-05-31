@@ -1,0 +1,6 @@
+name        = Seven Adjusted
+description = For Drupal superadmins only. A subtheme of the admin theme called Seven to resolve small issues. To use this admin theme, select it at the bottom of /admin/appearance.
+core        = 7.x
+
+base theme  = seven
+stylesheets[screen][] = sevenadjusted.css

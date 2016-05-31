@@ -1,0 +1,5 @@
+name = UCSF Person Content Type Autoconnector
+description = Module automatically looks for UCSF Person records to associate with newly created accounts.
+core = 7.x
+package = UCSF
+dependencies[] = ucsf_person_content_type

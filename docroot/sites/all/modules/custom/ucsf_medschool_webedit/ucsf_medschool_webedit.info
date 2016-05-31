@@ -1,0 +1,5 @@
+name = "Webedit - additional settings for School of Medicine"
+description = "Additional hook-based webedit settings for school of medicine"
+core = 7.x
+version = 7.x-1.2
+dependencies[] = ucsf_webedit

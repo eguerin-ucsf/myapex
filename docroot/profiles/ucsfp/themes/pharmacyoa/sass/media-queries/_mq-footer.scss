@@ -1,0 +1,106 @@
+@media only screen and (max-width: 480px) {
+
+	#footer-wrapper #footer {
+	  width: 100%;
+	  position: relative;
+	  background-color: #000;
+	  height: inherit;
+	  padding-top: 2.8em;
+	  // reset some stuff so it works in footer
+	  #make-a-gift,
+	  #footer-quote,
+	  .footer.menu,
+	  #footer-copy,
+	  #social-links {
+	  	width: 100%;
+	  	position: static;
+	  	max-width: 100%;
+	  	clear: both;
+	  	margin: 0;
+	  	padding: 0;
+	  	float:  none;
+	  }
+
+	  #make-a-gift {
+	  	position: absolute;
+	  }
+
+	  #footer-quote {
+	  	border-top: 1px solid #333333;
+
+	  	p {
+	  		color: #666666;
+	  		padding: 2em;
+	  		line-height: 1.5em;
+	  	}
+	  }
+
+	  .footer.menu {
+	  	#footer-menu {
+	  		float: none;
+	  		padding-bottom: 2em;
+	  	}
+	  	ul li {
+	  		display: block;
+	  		border-right: none;
+	  		border-bottom: 1px solid #333333;
+	  		
+	  		width: 100%;
+	  		padding:0;
+
+	  		&:first-child {
+	  			border-top:1px solid #333333;
+	  		}
+	  		a {
+	  			display: block;
+	  			padding: 1.25em 1em;
+	  			font-size: 1.25em;
+	  			color: #CCC;
+	  			letter-spacing: 0.085em;
+	  		}
+	  	}
+	  }
+
+	  #footer-copy {
+	  	color: #333;
+	  	p {
+	  		text-align: center;
+	  		padding: 1.5em;
+	  		font-size: 1.125em;
+	  	}
+	  }
+
+	  #social-links {
+	  	padding-bottom: 2em;
+	  	ul {
+	  		overflow: hidden;
+	  		padding: 0 5em;
+	  		float: none;
+	  		li {
+	  			display: block;
+				width: 50%;
+				float: left;
+				text-align: center;
+				background: none;
+
+	  			a {
+	  				margin: 0 auto;
+	  				width: 75px;
+	  				height: 75px;
+	  				white-space:nowrap;
+	  				text-indent: 100%;
+	  				@include border-radius( 5px, 5px);
+	  				background: #4C4C4C url('../images/social.png') no-repeat 0 0;
+	  				&.facebook { background-position: 30px -105px;}
+	  				&.youtube { background-position: 20px -35px;}		
+
+	  			}
+
+	  			
+	  		}
+	  	}
+	  }
+
+	} // footer-wrapper
+
+}

@@ -1,0 +1,9 @@
+name = "Domain Path On Save"
+description = "Makes sites with domain path actually, like, go to the right url on save, allegedly."
+core = 7.x
+package = "domain"
+version = 7.x-1.1
+
+dependencies[] = domain_path
+
+

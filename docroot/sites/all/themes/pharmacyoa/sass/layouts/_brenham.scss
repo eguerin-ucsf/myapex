@@ -1,0 +1,35 @@
+/**
+ * @file
+ * OA Brenham panel layout
+**/
+
+.brenham-container {
+  margin-bottom:0;
+}
+
+.brenham-sidebar {
+  width: 34.043%;
+  float: left;
+}
+
+  .brenham-sidebar-inner {
+    margin-right: 20px;
+  }
+
+.brenham-content {
+  width: 65.957%;
+  float: left;
+}
+
+@include breakpoint(medium) {
+  .brenham-content,
+  .brenham-sidebar {
+    width: 100%;
+    float: none;
+  }
+  
+  .brenham-sidebar-inner {
+    margin-right: 0;
+  }
+  
+}

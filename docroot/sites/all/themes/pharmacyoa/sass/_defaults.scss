@@ -1,0 +1,306 @@
+/**
+ * @file
+ * HTML Element Styling
+ *
+ * We don't use reset style sheets in openacademy, so here we take extra
+ * care to make sure everything looks as close as possible across all browsers
+ *
+ * @see http://meiert.com/en/blog/20080419/reset-style-sheets-are-bad/
+ * @see http://snook.ca/archives/html_and_css/no_css_reset/
+ */
+
+body,
+caption,
+th,
+td,
+input,
+textarea,
+select,
+option,
+legend,
+fieldset {
+  font-family:$base-font;
+}
+
+pre,
+code,
+kbd,
+samp,
+tt,
+var {
+  font-family:$pre-font;
+}
+
+b
+, strong
+, dt
+, th
+, div#node_openacademy_news_full_group_tags .field-label
+,.views-field-field-event-date-long // 2014.1014 frankfarm - for events pages on pharm
+,.views-field-field-date-tbd // 2014.1014 frankfarm - for events pages on pharmacy
+{
+  color:$primary-text-bold;
+  font-weight:bold;
+}
+thead th{
+  font-weight:normal;
+}
+em, i {
+  font-style:italic;
+}
+
+/* links */
+a{
+  &:link,
+  &:visited,
+  &:focus,
+  &:active
+  {
+    color:$primary-link;
+    text-decoration:none;
+  }
+  &:hover{
+    color:$primary-link-hover-fg;
+    text-decoration:underline;
+  }
+}
+strong a,a strong{
+    color:$primary-link;
+}
+
+/*
+ * Block-level elements
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl,
+hr, table, fieldset {
+  margin:0 0 1em;
+}
+hr{
+  border:1px solid $secondary-border;
+  border-width:0 0 1px 0;
+  margin:2em auto;
+}
+p+hr{
+  margin-top:2em; // example: http://local.dev.pharmacy.ucsf.edu:8082/deans-office
+}
+table{
+//  width:100%;
+  tbody {
+    border-top:1px solid $table-border-color;
+
+    tr{
+      border-bottom:1px solid $table-border-color;
+    }
+
+    // zebra-striping
+    tr:nth-child(even) {
+      background-color:#ebeae6;
+    }
+    tr:nth-child(odd) {
+      background-color:#f5f4f0;
+    }
+  }
+}
+table.no-stripes{
+  tr:nth-child(odd)
+  ,tr:nth-child(even)
+  {
+    background-color:transparent;
+  }
+}
+
+.ctools-dropdown-container hr {
+  margin:0;
+}
+
+h1 {
+  font-size:2em;
+  margin:0.75em 0;
+  line-height:1.1em;
+  /* 0.75em is equivalent to 1.5em in the page's base font. Remember, a
+     margin specified in ems is relative to the element's font-size, not to the
+     pages' base font size. So, for example, if we want a 1.5em margin (relative
+     to the base font), we have to divide that length by the element's
+     font-size: 1.5em / 2em = 0.75em  */
+}
+
+h2 
+, fieldset .fieldset-legend
+{
+  font-size: $font-15-on-base-13;
+  margin: 0 0 1em;
+}
+p+h2{
+  margin-top:1em;
+}
+.view-openacademy-courses caption{ // eg pharmd core curriculum
+  font-size: 1.28571429em;
+  position:relative;
+  top:.9em;
+  top:2.4em;
+}
+.view-openacademy-courses table:first-child caption{ // eg pharmd core curriculum
+  margin-top:-1em;
+}
+
+h3 {
+  margin: 2em 0 .5em;
+}
+.eyecatching h3:first-child{
+  margin-top:0;
+}
+h2, h3 {
+  line-height:1.35em;
+}
+h2+h3
+{
+  margin-top: 1.5em;
+  margin-bottom: 1.25em;
+}
+p+h3
+{
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+div.webedit-clearfix+h3{ // handles weird case e.g. image float for genetic testing and analysis on pharm.ucsf.edu/burchard/facility
+  margin-top:0;
+}
+
+
+h4, h5, h6 {
+//  font-size:1.1em;
+  margin: 1em 0 .5em; /* Equivalent to 1.5em in the page's base font: 1.5 / 1.1 = 1.364 */
+}
+h3+h4{
+  margin-top:0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ /* We want to remove the top margin on system titles
+  because they are almost always at the top of a pane/region, and that margin
+  often creates unwanted white space */
+
+  &.title
+  ,&.pane-title
+  {
+    margin-top:0;
+  }
+}
+.field-item > h2{
+  margin-top:1em;
+}
+.field-item > h2:first-child{
+  margin-top:0;
+}
+
+table{
+  h2{
+    text-transform:none;
+    font-weight:normal;
+    margin-top:1em;
+  }
+  h2,h3,h4,h5,h6{
+    &:first-child{
+      margin-top:1.6em;
+    }
+  }
+}
+table.contact{
+  h2,h3,h4,h5,h6{
+    &:first-child{
+      margin-top:0;
+    }
+  }
+}
+
+ul,
+ol {
+  margin-left:0;
+}
+
+ul {
+  list-style-type:disc;
+  ul {
+    list-style-type:circle;
+    ul {
+      list-style-type:square;
+      ul {
+        list-style-type:circle;
+      }
+    }
+  }
+}
+
+ol {
+  list-style-type:decimal;
+  ol {
+    list-style-type:lower-alpha;
+    ol {
+      list-style-type:lower-roman;
+    }
+  }
+}
+
+
+/* Code. */
+pre {
+  background-color:#efefef;
+  display:block;
+  padding:5px;
+  margin:5px 0;
+  border:1px solid #aaa;
+  white-space:pre-wrap;
+}
+
+/* Abbreviation. */
+abbr, acronym {
+  border-bottom:1px dotted #666666;
+  cursor:help;
+  white-space:nowrap;
+}
+
+
+
+/* "Skip to Main Content" link
+ * ---------------------------
+ * This link useful for both visually impaired people and those with mobility impairments
+ * who cannot use a mouse. http://www.webaim.org/techniques/css/invisiblecontent/ */
+#skip a:link, #skip a:hover, #skip a:visited {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+#skip a:active, #skip a:focus {
+  position:static;
+  width:auto;
+  height:auto;
+}
+
+.printOnly // see http://www.v2.easy-designs.net/code/footnoteLinks/
+/*
+,p:empty
+,h2:empty
+,div:empty
+*/
+,.hideonpageload
+{
+  display:none;
+}
+
+/* icons */
+.symbol{
+  margin-left:.5em;
+  font-size:18px;
+  font-family:$icons-font;
+  a{
+    text-decoration:none;
+    // note: the a must be within the span with class symbol. if this span is within the a, an underline that we don't want appears upon hover.
+  }
+}

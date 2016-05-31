@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+// @import "variables-and-mixins";
+
+.view-display-id-panel_pane_1
+, .view-display-id-subtle_spotlight
+, .view-curriculum-spotlight {
+  .flexslider {
+    z-index: 0;
+    .flex-caption {
+      -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)" !important;
+      //  background: $flare-spotlight;
+
+    }
+    .flex-image-wrap img {
+      z-index: -9;
+    }
+  }
+}
+
+.view-curriculum-spotlight .flex-caption {
+  display: none; // hack to remove the gray box (PharmD) that isn't being overidden by the stuff above here for soeme reason.
+}
+
+.view-openacademy-news .field-name-field-image-caption
+, .view-openacademy-news .views_field_featured_image_caption
+, .page-taxonomy .field-name-field-image-credit
+, .page-taxonomy .field-name-field-image-caption
+, .view-openacademy-news .views_field_featured_image_credit
+, .view-openacademy-news .field-name-field-image-credit
+, .view-people .views_field_person_image_credit
+, .view-people .views_field_image_credit
+, .view-syndicated-events .views_field_event_image_credit
+, .view-openacademy-events .field-name-field-image-caption
+, .view-openacademy-events .field-name-field-image-credit
+, .view-archive-of-news .field-name-field-image-caption
+, .view-archive-of-news .field-name-field-image-credit {
+  display: none;
+}
+
+.view-display-id-featured_news .views_field_featured_image_credit
+, .view-display-id-featured_news .field-name-field-image-credit {
+  display: block;
+}
+
+.view-display-id-featured_news {
+  .field-name-field-image-credit {
+    position: relative;
+    // for pharmacy
+
+  }
+  .views_field_featured_image_credit {
+    position: absolute;
+    // for syndicated
+
+  }
+  .views_field_featured_image_credit
+  , .field-name-field-image-credit {
+    display: block;
+    bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.content ul li, .view-content ul li, .pane-content ul li { padding-left: 1.5em}
+
+ul.quicktabs-tabs li {
+  padding-left: 0;
+}

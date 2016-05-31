@@ -1,0 +1,28 @@
+/**
+   Tables
+   */
+$table-header: #ECECE6;
+$table-header-text: #333;
+$table-row-odd: #FFF;
+$table-row-even: #F4F4F4;
+
+
+/* Table styles. */
+table {
+	width: 99%;
+
+	tr.even, tr.odd, thead th {
+		td { padding: 10px 5px; }
+	}
+
+	thead tr {
+		background: $table-header;
+		
+		td { color: $table-header-text; }
+
+	}
+	tr.odd { background: $table-row-odd;}
+	tr.even { background: $table-row-even;}
+}
+
+

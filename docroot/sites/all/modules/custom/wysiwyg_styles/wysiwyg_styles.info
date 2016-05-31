@@ -1,0 +1,4 @@
+name = WYSIWYG Styles
+description = A small module to add css styles to the wysiwyg editor style dropdown
+package = Custom
+core = 7.x
