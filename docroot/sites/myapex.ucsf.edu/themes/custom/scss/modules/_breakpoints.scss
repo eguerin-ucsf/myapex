@@ -1,0 +1,55 @@
+
+@mixin breakpoint($point) {
+  @if $point == lt-phablet {
+    @media all and (max-width: 599px) { @content; }
+  }
+  @if $point == phablet {
+    @media all and (min-width: 600px) { @content; }
+  }
+  @if $point == lt-tablet {
+    @media all and (max-width: 767px) { @content; }
+  }
+  @if $point == tablet {
+    @media all and (min-width: 768px) { @content; }
+  }
+  @if $point == lt-desktop {
+    @media all and (max-width: 979px) { @content; }
+  }
+  @if $point == desktop {
+    @media all and (min-width: 980px) { @content; }
+  }
+  @if $point == widescreen {
+    @media all and (min-width: 1200px)  { @content; }
+  }
+  @if $point == retina {
+    @media print, (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) { @content; }
+  }
+}
+
+// Clearfix
+@mixin clearfix() {
+  content: "";
+  display: table;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+  clear: both;
+}
+
+.wrap {
+  @include clearfix;
+  margin: 0 auto;
+  position: relative;
+  width: 92%;
+  zoom: 1;
+  @include breakpoint(tablet) {
+    width: 750px;
+  }
+  @include breakpoint(desktop) {
+    width: 960px;
+  }
+  @include breakpoint(widescreen) {
+    width: 1170px;
+  }
+}

@@ -1,0 +1,26 @@
+/* UCSF Navigation */
+
+.ucsf-nav {
+    margin: 0;
+    padding: .3125em 0 .3125em 2em;
+    background: #888;
+}
+
+#block-menu-menu-ucsf-navigation ul {
+    font-size: .6875em;
+}
+
+#block-menu-menu-ucsf-navigation ul li {
+    margin: 0;
+    padding: 0 0.9375em;
+    display: inline;
+    border-right: 1px solid #fff;
+}
+
+#block-menu-menu-ucsf-navigation ul li.last {
+    border-right: none;
+}
+
+#block-menu-menu-ucsf-navigation ul li a {
+    color: #eee;
+}

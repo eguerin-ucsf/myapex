@@ -1,0 +1,29 @@
+/* search results */
+
+.search-results .search-snippet-info {
+    padding-left: 0;
+}
+
+.midcol .search-results h3.title {
+    margin-bottom: 0;
+}
+
+#block-block-16 {
+    padding: 10px;
+    background: #efefef;
+}
+
+#block-block-16 p {
+    font-size: .75em;
+}
+
+.search-form input.form-text {
+    font-size: 1em;
+    height: 20px;
+}
+
+/* search results - hide a couple things */
+
+.search-snippet span, .search-info {
+    display: none;
+}

@@ -1,0 +1,54 @@
+.masthead {
+  margin-bottom: 15px;
+  @include clearfix();
+  margin: 15px 0px 15px 0;
+  h1.site-name {
+    float: left;
+  }
+}
+
+.site-name img {
+    float: left;
+}
+
+#search-block-form {
+    width: 380px;
+    background: #e5e5e5;
+    padding: 3px 5px 5px 5px;
+    float: right;
+    margin-top: 60px;
+}
+
+.ie7 .search-block-form {
+    width: 390px;
+}
+
+.block-search .form-text {
+    border: none;
+    padding: 5px;
+    width: 300px;
+}
+
+.block-search .form-submit {
+    background: #e5e5e5;
+    border: none;
+    color: #666666;
+    font-family: verdana;
+    font-size: 0.875em;
+    font-weight: bold;
+}
+
+.block-search .container-inline .form-actions {
+    float: right;
+
+    /*margin-top:-28px;*/
+    position: absolute;
+}
+
+.ie .block-search .container-inline .form-actions {
+    margin-top: 0;
+}
+
+label.option {
+    font-size: 13px;
+}

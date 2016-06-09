@@ -1,0 +1,22 @@
+.masthead {
+  width: 100%;
+}
+
+.content-wrapper {
+  @include clearfix;
+  width: 100%;
+}
+
+.leftcol {
+  @include grid-span(3, 1);
+  margin-left: 0;
+}
+
+.midcol {
+  @include grid-span(6, 4);
+}
+
+.region-rightcol {
+  @include grid-span(3, 10);
+  margin-right: 0;
+}

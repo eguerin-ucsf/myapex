@@ -1,0 +1,90 @@
+/* Imports */
+
+@import "singularitygs";
+
+
+/* Variables */
+
+$tablet-view: 767px;
+
+/* Base Styles */
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    overflow-y: scroll;
+}
+
+body {
+    font: 100%/1.6 Verdana, Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+code, var, kbd, samp, tt, dir, listing, plaintext, xmp, abbr, acronym, blockquote, q {
+    hyphens: none;
+}
+
+a, a:link, a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #deb408;
+    margin: 2em 0;
+    padding: 0;
+    clear: both;
+}
+
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+p, ol, li {
+    font-size: .875em;
+    margin-bottom: 10px;
+}
+
+a {
+    color: #3181ab;
+}
+
+h1.site-name {
+}
+
+h2 {
+    font-size: 1.4em;
+    color: #18989B;
+    margin-bottom: 10px;
+}
+
+.midcol h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+#admin-menu .dropdown li {
+    font-size: 1em;
+}
+
+.page-wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+}

@@ -4,13 +4,15 @@ package = Core
 version = VERSION
 core = 7.x
 
-stylesheets[all][] = css/reset.css
-stylesheets[all][] = css/responsive.min.css
-stylesheets[all][] = css/myapex.css
-stylesheets[all][] = css/system.menus.css
+;-------------- C S S -------------
 
-scripts[] = js/functions.js
+stylesheets[all][] = css/screen.css
 
+;-------------- JS ----------------
+
+scripts[] = js/script.js
+
+;-------------- R E G I O N S -----
 
 regions[ucsf_nav] = UCSF Navigation
 regions[search_form] = Search Form

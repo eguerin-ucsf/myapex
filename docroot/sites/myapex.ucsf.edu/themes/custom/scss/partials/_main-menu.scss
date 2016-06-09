@@ -1,0 +1,46 @@
+.region-leftcol .block-menu {
+    margin-bottom: 30px;
+}
+
+.region-leftcol .block-menu li {
+    margin-bottom: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    ul > li {
+      margin: 0;
+      padding: 0;
+    }
+}
+
+
+.region-leftcol .menu .expanded a ul li a,
+.region-leftcol .menu .collapsed a ul li a {
+    background: none;
+}
+
+.region-leftcol .menu a {
+    color: #333;
+    display: block;
+    padding: 5px 0 5px 20px;
+    background: #e5e5e5;
+    border-top: 2px solid #fff;
+}
+
+.region-leftcol .menu .collapsed a {
+    background: #efefef url(../images/closed.png) center left no-repeat;
+}
+
+.region-leftcol .menu .expanded a {
+    background: #efefef url(../images/open.png) center left no-repeat;
+}
+
+.region-leftcol .menu .expanded ul li a,
+.region-leftcol .menu .collapsed ul li a {
+    background-image: none;
+    padding-left: 30px;
+}
+
+.toggle-menu {
+    display: none;
+}

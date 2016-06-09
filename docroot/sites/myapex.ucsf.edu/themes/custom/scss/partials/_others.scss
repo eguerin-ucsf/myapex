@@ -1,0 +1,99 @@
+/* five star voting */
+
+.field-name-field-five-star-vote {
+    margin: 20px 0;
+}
+
+
+//set height for tags select list when editing
+
+.field-type-taxonomy-term-reference select {
+    height: 400px;
+}
+
+/* media editor styles */
+
+.media-widget a {
+    margin-rigth: 15px;
+}
+
+/* Dashboard */
+
+.views-label-field-tags, .views-label-field-what-do-you-need-tags {
+    font-weight: bold;
+}
+
+.views-field-field-what-do-you-need-tags, .views-field-field-tags {
+    margin-top: 10px;
+}
+
+.view-content-and-tags-list .views-row {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* footer */
+
+.footer {
+    clear: both;
+    padding: 1.875em 0;
+    text-align: center;
+    background: #454040;
+    margin-top: 6.25em;
+}
+
+.footer p {
+    color: #fff;
+}
+
+/* Media Queries */
+
+@media all and (max-width: 767px) {
+    .region-search-form, #block-menu-menu-ucsf-navigation ul li {
+        display: none;
+    }
+
+    #block-menu-menu-ucsf-navigation ul li.first {
+        display: inline;
+        border-right: none;
+    }
+
+    .masthead {
+        background: none;
+        height: auto;
+    }
+
+    .subscribe-cont {
+        display: none;
+    }
+
+    h1.sitename {
+        padding: 10px 0;
+    }
+
+    .insight {
+        margin-right: 50px;
+    }
+
+    .region-leftcol {
+        display: none;
+    }
+
+    .toggle-menu {
+        padding: 10px;
+        background: #bdc163;
+        display: block;
+        border-bottom: 2px solid #fff;
+    }
+
+    .toggle-menu:hover {
+        cursor: pointer;
+    }
+}
+
+/* update blog */
+
+.node-type-update-blog-page div.leftcol {
+    display: none;
+}

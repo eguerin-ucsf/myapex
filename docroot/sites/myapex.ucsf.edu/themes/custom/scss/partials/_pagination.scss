@@ -1,0 +1,21 @@
+.item-list .pager {
+    padding: 20px 0;
+    text-align: right;
+}
+
+.item-list ul.pager li {
+    display: inline;
+    margin-left: 10px;
+    border: 1px solid #999;
+    padding: 2px 4px;
+    list-style: none;
+    background: none;
+}
+
+.pager li a {
+    color: #999;
+}
+
+.item-list .pager li.pager-current {
+    border: none;
+}

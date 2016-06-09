@@ -1,0 +1,70 @@
+.container-fluid {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.ie7 .container-fluid {
+    width: 1080px;
+}
+
+.region-leftcol h2, .region-rightcol h2, .region-rightcol h2 {
+    color: #333;
+    padding: 5px 10px;
+    background: #6766a3;
+    margin-bottom: 0;
+    color: #fff;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.region-rightcol #block-block-4 h2 {
+    background: #6766a3;
+    color: #fff;
+}
+
+.region-rightcol .block-block, .region-rightcol .block-views {
+    margin-bottom: 30px;
+}
+
+.region-rightcol .block-block .content,
+.view-apex-chatter-feed,
+.view-most-viewed-content {
+    background: #efefef;
+    padding: 10px;
+    border-top: 2px solid #fff;
+}
+
+.view-apex-chatter-feed .views-field-title {
+    font-size: .875em;
+}
+
+.view-most-viewed-content .views-row {
+    margin-bottom: 10px;
+    font-size: .875em;
+}
+
+.views-field-totalcount {
+    color: #666;
+}
+
+.region-content .item-list ul li,
+.view-what-do-you-need-contentview-id-what_do_you_need_content .item-list ul li {
+    margin-bottom: 1em;
+}
+
+.region-content .item-list ul,
+.view-what-do-you-need-contentview-id-what_do_you_need_content .item-list ul {
+    list-style: disc;
+}
+
+.region-leftcol li {
+    font-size: .75em;
+}
+
+.region-leftcol li ul li {
+    font-size: 1em;
+}
