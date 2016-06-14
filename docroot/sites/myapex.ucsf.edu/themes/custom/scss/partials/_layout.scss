@@ -10,13 +10,36 @@
 .leftcol {
   @include grid-span(3, 1);
   margin-left: 0;
+  @include breakpoint(0 $tablet-view) {
+    @include grid-span(12, 1, 12);
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 .midcol {
   @include grid-span(6, 4);
+  @include breakpoint(0 $tablet-view) {
+    @include grid-span(12, 1, 12);
+    @include clearfix();
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 .region-rightcol {
   @include grid-span(3, 10);
   margin-right: 0;
+  @include breakpoint(0 $tablet-view) {
+    @include clearfix();
+    @include grid-span(12, 1, 12);
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+    .toggle-menu {
+      @include clearfix();
+    }
+  }
 }

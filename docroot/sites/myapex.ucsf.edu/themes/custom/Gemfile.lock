@@ -33,6 +33,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  breakpoint (~> 2.5)
   compass (~> 1.0)
   sass (~> 3.4, >= 3.4.22)
   singularitygs (~> 1.4)
