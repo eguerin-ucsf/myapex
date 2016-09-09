@@ -94,6 +94,9 @@
 
 /* update blog */
 
-.node-type-update-blog-page div.leftcol {
+.node-type-update-blog-page div.leftcol,
+.page-apex-updates div.leftcol {
     display: none;
+    //border: 1px solid red;
+    
 }

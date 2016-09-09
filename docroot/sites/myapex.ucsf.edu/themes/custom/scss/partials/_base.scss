@@ -73,11 +73,27 @@ h2 {
     color: #18989B;
     margin-bottom: 10px;
 }
+.midcol {
+    h2 {
+        font-size: 1.4em;
+        color: #18989B;
+        margin-bottom: 10px;
 
-.midcol h3 {
-    color: #333;
-    margin-bottom: 10px;
-    font-size: 1.1em;
+        a {
+            font-size: 0.8em;
+            color: #333;
+        }
+    }
+    h3 {
+        color: #333;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+
+        a {
+            color: #333;
+        }
+
+    }
 }
 
 #admin-menu .dropdown li {

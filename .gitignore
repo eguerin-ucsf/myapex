@@ -1,10 +1,12 @@
 # Ignore configuration files that may contain sensitive information.
-docroot/sites/*/*settings*.php
+/docroot/sites/*/*settings*.php
 
 # Ignore paths that contain generated content.
 files/
 sites/*/files
 sites/*/private
+/docroot/nbproject/*
+
 
 # Ignore default text files
 robots.txt
@@ -34,3 +36,5 @@ xmlrpc.php
 /profiles
 /scripts
 /themes
+/docroot/nbproject/private/
+/docroot/sites/myapex.ucsf.edu/themes/custom/.sass-cache/*
