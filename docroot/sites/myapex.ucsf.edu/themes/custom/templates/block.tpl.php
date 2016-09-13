@@ -56,7 +56,7 @@ $anchor = urlencode(str_ireplace(' ', '-', $anchor));
 
   <?php print render($title_prefix); ?>
 <?php if ($block->subject): ?>
-  <h2<?php print $title_attributes; ?>><a href="#<?php print $anchor ?>"><?php print $block->subject ?></a></h2>
+  <h2<?php print $title_attributes; ?>><a id="<?php print $anchor ?>"><?php print $block->subject ?></a></h2>
 <?php endif;?>
   <?php print render($title_suffix);  ?>
 
