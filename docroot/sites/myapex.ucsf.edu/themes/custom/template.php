@@ -5,4 +5,18 @@ function myapex_preprocess_page(&$vars, $hook) {
     $vars['theme_hook_suggestions'][] = 'page__'. $vars['node']->type;
   }
 }
+
+
+function clean_anchor($anchor) {
+
+  //reformat for the anchor tag
+  $replace = array('/','\\','@','{','}','=','(',')','*','^','%','$','#','!','~','``','|','[',']','+','_',';',':',"'","\\",'?','&');
+  $anchor = str_ireplace($replace, '', strtolower($anchor));
+  $anchor = urlencode(str_ireplace(' ', '-', $anchor));
+
+  return $anchor;
+}
+
+
+
 ?>

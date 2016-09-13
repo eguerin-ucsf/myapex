@@ -44,19 +44,12 @@
  * @ingroup themeable
  */
 ?>
-<?php
-//reformat for the anchor tag
-$replace = array('/','\\','@','{','}','=','(',')','*','^','%','$','#','!','~','``','|','[',']','+','_');
-$anchor = str_ireplace($replace, '', strtolower($block->subject));
-$anchor = urlencode(str_ireplace(' ', '-', $anchor));
-?>
-
 
 <div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
   <?php print render($title_prefix); ?>
 <?php if ($block->subject): ?>
-  <h2<?php print $title_attributes; ?>><a id="<?php print $anchor ?>"><?php print $block->subject ?></a></h2>
+  <h2<?php print $title_attributes; ?>><a id="<?php print clean_anchor($block->subject) ?>" title="<?php print clean_anchor($block->subject) ?>"><?php print $block->subject ?></a></h2>
 <?php endif;?>
   <?php print render($title_suffix);  ?>
 
