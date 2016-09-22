@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the MyApex ED Updates feature.
+ */
+
+include_once 'myapex_ed_updates.features.inc';
