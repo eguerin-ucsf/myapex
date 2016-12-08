@@ -209,7 +209,7 @@ $databases = array (
     array (
       'database' => 'myapex',
       'username' => 'root',
-      'password' => 'password',
+      'password' => 'root',
       'host' => '127.0.0.1',
       'port' => '3306',
       'driver' => 'mysql',

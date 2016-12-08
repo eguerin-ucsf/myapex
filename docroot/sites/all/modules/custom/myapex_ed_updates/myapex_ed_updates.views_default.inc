@@ -107,6 +107,36 @@ function myapex_ed_updates_views_default_views() {
       'empty_column' => 0,
     ),
   );
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_tip_sheet_target_id']['id'] = 'field_tip_sheet_target_id';
+  $handler->display->display_options['relationships']['field_tip_sheet_target_id']['table'] = 'field_data_field_tip_sheet';
+  $handler->display->display_options['relationships']['field_tip_sheet_target_id']['field'] = 'field_tip_sheet_target_id';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_referenced_content_target_id']['id'] = 'field_referenced_content_target_id';
+  $handler->display->display_options['relationships']['field_referenced_content_target_id']['table'] = 'field_data_field_referenced_content';
+  $handler->display->display_options['relationships']['field_referenced_content_target_id']['field'] = 'field_referenced_content_target_id';
+  /* Field: Content: Document Upload */
+  $handler->display->display_options['fields']['field_document_upload']['id'] = 'field_document_upload';
+  $handler->display->display_options['fields']['field_document_upload']['table'] = 'field_data_field_document_upload';
+  $handler->display->display_options['fields']['field_document_upload']['field'] = 'field_document_upload';
+  $handler->display->display_options['fields']['field_document_upload']['relationship'] = 'field_tip_sheet_target_id';
+  $handler->display->display_options['fields']['field_document_upload']['label'] = '';
+  $handler->display->display_options['fields']['field_document_upload']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_document_upload']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_document_upload']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_document_upload']['type'] = 'file_rendered';
+  $handler->display->display_options['fields']['field_document_upload']['settings'] = array(
+    'file_view_mode' => 'default',
+  );
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['relationship'] = 'field_referenced_content_target_id';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['path']['element_default_classes'] = FALSE;
   /* Field: Content: Posted Date */
   $handler->display->display_options['fields']['field_posted_date']['id'] = 'field_posted_date';
   $handler->display->display_options['fields']['field_posted_date']['table'] = 'field_data_field_posted_date';
@@ -115,29 +145,12 @@ function myapex_ed_updates_views_default_views() {
   $handler->display->display_options['fields']['field_posted_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_posted_date']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_posted_date']['settings'] = array(
-    'format_type' => 'month',
+    'format_type' => 'month_and_year',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: Notification Type */
-  $handler->display->display_options['fields']['field_notification_type']['id'] = 'field_notification_type';
-  $handler->display->display_options['fields']['field_notification_type']['table'] = 'field_data_field_notification_type';
-  $handler->display->display_options['fields']['field_notification_type']['field'] = 'field_notification_type';
-  $handler->display->display_options['fields']['field_notification_type']['label'] = 'Style';
-  $handler->display->display_options['fields']['field_notification_type']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_notification_type']['element_label_colon'] = FALSE;
-  /* Field: Content: Reference Document */
-  $handler->display->display_options['fields']['field_reference_doc']['id'] = 'field_reference_doc';
-  $handler->display->display_options['fields']['field_reference_doc']['table'] = 'field_data_field_reference_doc';
-  $handler->display->display_options['fields']['field_reference_doc']['field'] = 'field_reference_doc';
-  $handler->display->display_options['fields']['field_reference_doc']['label'] = '';
-  $handler->display->display_options['fields']['field_reference_doc']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_reference_doc']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_reference_doc']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_reference_doc']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_reference_doc']['type'] = 'file_url_plain';
   /* Field: Content: Priority */
   $handler->display->display_options['fields']['field_priority']['id'] = 'field_priority';
   $handler->display->display_options['fields']['field_priority']['table'] = 'field_data_field_priority';
@@ -157,30 +170,46 @@ function myapex_ed_updates_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href="[field_reference_doc]">[title]</a>
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<h3><a href="[path]">[title]</a></h3>
 [body]
-<span class="notification_type">[field_notification_type]</span>
-';
+[field_document_upload]';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: What do you need tags */
-  $handler->display->display_options['fields']['field_what_do_you_need_tags']['id'] = 'field_what_do_you_need_tags';
-  $handler->display->display_options['fields']['field_what_do_you_need_tags']['table'] = 'field_data_field_what_do_you_need_tags';
-  $handler->display->display_options['fields']['field_what_do_you_need_tags']['field'] = 'field_what_do_you_need_tags';
-  $handler->display->display_options['fields']['field_what_do_you_need_tags']['label'] = 'Type';
-  $handler->display->display_options['fields']['field_what_do_you_need_tags']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_what_do_you_need_tags']['type'] = 'taxonomy_term_reference_plain';
-  $handler->display->display_options['fields']['field_what_do_you_need_tags']['delta_offset'] = '0';
+  /* Field: Content: Type */
+  $handler->display->display_options['fields']['field_what_you_need_tags']['id'] = 'field_what_you_need_tags';
+  $handler->display->display_options['fields']['field_what_you_need_tags']['table'] = 'field_data_field_what_you_need_tags';
+  $handler->display->display_options['fields']['field_what_you_need_tags']['field'] = 'field_what_you_need_tags';
+  $handler->display->display_options['fields']['field_what_you_need_tags']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_what_you_need_tags']['delta_offset'] = '0';
   /* Field: Content: Who are you tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
-  $handler->display->display_options['fields']['field_tags']['label'] = 'Provider(s)';
+  $handler->display->display_options['fields']['field_tags']['label'] = 'Provider';
   $handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
+  /* Contextual filter: Provider Filter */
+  $handler->display->display_options['arguments']['field_tags_tid']['id'] = 'field_tags_tid';
+  $handler->display->display_options['arguments']['field_tags_tid']['table'] = 'field_data_field_tags';
+  $handler->display->display_options['arguments']['field_tags_tid']['field'] = 'field_tags_tid';
+  $handler->display->display_options['arguments']['field_tags_tid']['ui_name'] = 'Provider Filter';
+  $handler->display->display_options['arguments']['field_tags_tid']['title_enable'] = TRUE;
+  $handler->display->display_options['arguments']['field_tags_tid']['title'] = '%1';
+  $handler->display->display_options['arguments']['field_tags_tid']['default_argument_type'] = 'raw';
+  $handler->display->display_options['arguments']['field_tags_tid']['default_argument_options']['index'] = '2';
+  $handler->display->display_options['arguments']['field_tags_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_tags_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_tags_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_tags_tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_tags_tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['field_tags_tid']['validate_options']['vocabularies'] = array(
+    'tags' => 'tags',
+  );
+  $handler->display->display_options['arguments']['field_tags_tid']['validate_options']['type'] = 'convert';
+  $handler->display->display_options['arguments']['field_tags_tid']['validate']['fail'] = 'empty';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -222,14 +251,6 @@ function myapex_ed_updates_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'ed_updates' => 'ed_updates',
-  );
-  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Priority (field_priority) */
   $handler->display->display_options['filters']['field_priority_value']['id'] = 'field_priority_value';
   $handler->display->display_options['filters']['field_priority_value']['table'] = 'field_data_field_priority';
@@ -255,136 +276,13 @@ function myapex_ed_updates_views_default_views() {
     11 => 0,
     16 => 0,
   );
-  /* Filter criterion: Type */
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['id'] = 'field_what_do_you_need_tags_tid';
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['table'] = 'field_data_field_what_do_you_need_tags';
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['field'] = 'field_what_do_you_need_tags_tid';
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['ui_name'] = 'Type';
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['expose']['operator_id'] = 'field_what_do_you_need_tags_tid_op';
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['expose']['label'] = 'Type';
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['expose']['operator'] = 'field_what_do_you_need_tags_tid_op';
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['expose']['identifier'] = 'field_type_tid';
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    6 => 0,
-    11 => 0,
-    16 => 0,
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'ed_updates' => 'ed_updates',
   );
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['group_info']['label'] = 'What do you need tags (field_what_do_you_need_tags)';
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['group_info']['identifier'] = 'field_what_do_you_need_tags_tid';
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['group_info']['remember'] = FALSE;
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['group_info']['group_items'] = array(
-    1 => array(),
-    2 => array(),
-    3 => array(),
-  );
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['vocabulary'] = 'what_do_you_need_';
-  $handler->display->display_options['filters']['field_what_do_you_need_tags_tid']['error_message'] = FALSE;
-  /* Filter criterion: Content: Who are you tags (field_tags) */
-  $handler->display->display_options['filters']['field_tags_tid']['id'] = 'field_tags_tid';
-  $handler->display->display_options['filters']['field_tags_tid']['table'] = 'field_data_field_tags';
-  $handler->display->display_options['filters']['field_tags_tid']['field'] = 'field_tags_tid';
-  $handler->display->display_options['filters']['field_tags_tid']['value'] = array(
-    7 => '7',
-    8 => '8',
-    14 => '14',
-    11 => '11',
-    9 => '9',
-    12 => '12',
-    294 => '294',
-    272 => '272',
-    292 => '292',
-    221 => '221',
-    268 => '268',
-    265 => '265',
-    266 => '266',
-    13 => '13',
-    308 => '308',
-    3 => '3',
-    1 => '1',
-    5 => '5',
-    289 => '289',
-    4 => '4',
-    6 => '6',
-    295 => '295',
-    275 => '275',
-    2 => '2',
-    284 => '284',
-    270 => '270',
-    226 => '226',
-    15 => '15',
-    26 => '26',
-    28 => '28',
-    27 => '27',
-    29 => '29',
-    30 => '30',
-    297 => '297',
-    43 => '43',
-    302 => '302',
-    22 => '22',
-    23 => '23',
-    25 => '25',
-    24 => '24',
-    293 => '293',
-    42 => '42',
-    274 => '274',
-    31 => '31',
-    32 => '32',
-    33 => '33',
-    287 => '287',
-    17 => '17',
-    298 => '298',
-    35 => '35',
-    271 => '271',
-    34 => '34',
-    36 => '36',
-    37 => '37',
-    39 => '39',
-    38 => '38',
-    286 => '286',
-    283 => '283',
-    16 => '16',
-    40 => '40',
-    41 => '41',
-    277 => '277',
-    306 => '306',
-    278 => '278',
-    18 => '18',
-    21 => '21',
-    19 => '19',
-  );
-  $handler->display->display_options['filters']['field_tags_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_tags_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_tags_tid']['expose']['operator_id'] = 'field_tags_tid_op';
-  $handler->display->display_options['filters']['field_tags_tid']['expose']['label'] = 'Provider';
-  $handler->display->display_options['filters']['field_tags_tid']['expose']['operator'] = 'field_tags_tid_op';
-  $handler->display->display_options['filters']['field_tags_tid']['expose']['identifier'] = 'field_tags_tid';
-  $handler->display->display_options['filters']['field_tags_tid']['expose']['remember_roles'] = array(
-    2 => 0,
-    1 => '1',
-    3 => 0,
-    6 => 0,
-    11 => 0,
-    16 => 0,
-  );
-  $handler->display->display_options['filters']['field_tags_tid']['expose']['reduce'] = TRUE;
-  $handler->display->display_options['filters']['field_tags_tid']['group_info']['label'] = 'Who are you tags (field_tags)';
-  $handler->display->display_options['filters']['field_tags_tid']['group_info']['identifier'] = 'field_tags_tid';
-  $handler->display->display_options['filters']['field_tags_tid']['group_info']['remember'] = FALSE;
-  $handler->display->display_options['filters']['field_tags_tid']['group_info']['group_items'] = array(
-    1 => array(),
-    2 => array(),
-    3 => array(),
-  );
-  $handler->display->display_options['filters']['field_tags_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_tags_tid']['vocabulary'] = 'tags';
-  $handler->display->display_options['filters']['field_tags_tid']['hierarchy'] = 1;
-  $handler->display->display_options['filters']['field_tags_tid']['error_message'] = FALSE;
   $handler->display->display_options['path'] = 'apex-updates';
 
   /* Display: Block */

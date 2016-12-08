@@ -50,7 +50,7 @@ function myapex_ed_updates_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '3',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -79,74 +79,7 @@ function myapex_ed_updates_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '31',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-ed_updates-field_notification_type'.
-  $fields['node-ed_updates-field_notification_type'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_notification_type',
-      'foreign keys' => array(
-        'tid' => array(
-          'columns' => array(
-            'tid' => 'tid',
-          ),
-          'table' => 'taxonomy_term_data',
-        ),
-      ),
-      'indexes' => array(
-        'tid' => array(
-          0 => 'tid',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'taxonomy',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'notification_type',
-            'parent' => '0',
-          ),
-        ),
-      ),
-      'translatable' => '0',
-      'type' => 'taxonomy_term_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'ed_updates',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_plain',
-          'weight' => '1',
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_notification_type',
-      'label' => 'Notification Type',
-      'required' => FALSE,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'module' => 'options',
-        'settings' => array(
-          'autocomplete_path' => 'taxonomy/autocomplete',
-          'size' => 60,
-        ),
-        'type' => 'options_buttons',
-        'weight' => '34',
+        'weight' => '3',
       ),
     ),
   );
@@ -197,7 +130,7 @@ function myapex_ed_updates_field_default_fields() {
             'multiple_to' => '',
           ),
           'type' => 'date_default',
-          'weight' => '2',
+          'weight' => '1',
         ),
       ),
       'entity_type' => 'node',
@@ -223,7 +156,7 @@ function myapex_ed_updates_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '35',
+        'weight' => '5',
       ),
     ),
   );
@@ -246,10 +179,8 @@ function myapex_ed_updates_field_default_fields() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
-          1 => 'Urgent Priority',
           2 => 'High Priority',
           0 => 'Normal',
-          -1 => 'For Your Information',
         ),
         'allowed_values_function' => '',
       ),
@@ -282,92 +213,98 @@ function myapex_ed_updates_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '32',
+        'weight' => '2',
       ),
     ),
   );
 
-  // Exported field: 'node-ed_updates-field_reference_doc'.
-  $fields['node-ed_updates-field_reference_doc'] = array(
+  // Exported field: 'node-ed_updates-field_referenced_content'.
+  $fields['node-ed_updates-field_referenced_content'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_reference_doc',
+      'field_name' => 'field_referenced_content',
       'foreign keys' => array(
-        'fid' => array(
+        'node' => array(
           'columns' => array(
-            'fid' => 'fid',
+            'target_id' => 'nid',
           ),
-          'table' => 'file_managed',
+          'table' => 'node',
         ),
       ),
       'indexes' => array(
-        'fid' => array(
-          0 => 'fid',
+        'target_id' => array(
+          0 => 'target_id',
         ),
       ),
       'locked' => '0',
-      'module' => 'file',
+      'module' => 'entityreference',
       'settings' => array(
-        'display_default' => 0,
-        'display_field' => 0,
-        'uri_scheme' => 'public',
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'target_bundles' => array(
+            'apex_updates' => 'apex_updates',
+            'article' => 'article',
+            'faq' => 'faq',
+            'meeting_agendas' => 'meeting_agendas',
+            'meeting_recordings' => 'meeting_recordings',
+            'reference_quick_start_guides' => 'reference_quick_start_guides',
+            'videos' => 'videos',
+            'workflow' => 'workflow',
+          ),
+        ),
+        'target_type' => 'node',
       ),
       'translatable' => '0',
-      'type' => 'file',
+      'type' => 'entityreference',
     ),
     'field_instance' => array(
       'bundle' => 'ed_updates',
+      'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'file',
-          'settings' => array(),
-          'type' => 'file_url_plain',
-          'weight' => '4',
+          'module' => 'entityreference',
+          'settings' => array(
+            'links' => 1,
+            'view_mode' => 'teaser',
+          ),
+          'type' => 'entityreference_entity_view',
+          'weight' => '5',
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_reference_doc',
-      'label' => 'Reference Document',
+      'field_name' => 'field_referenced_content',
+      'ied_settings' => array(
+        'display_fields' => 0,
+      ),
+      'label' => 'Referenced Content',
       'required' => 0,
       'settings' => array(
-        'description_field' => 0,
-        'file_directory' => '',
-        'file_extensions' => 'txt pdf doc docx xls xlsx png jpg gif',
-        'max_filesize' => '100 MB',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'media',
+        'module' => 'entityreference',
         'settings' => array(
-          'allowed_schemes' => array(
-            'private' => 0,
-            'public' => 'public',
-            'vimeo' => 0,
-          ),
-          'allowed_types' => array(
-            'audio' => 'audio',
-            'document' => 0,
-            'flash_swf' => 'flash_swf',
-            'image' => 'image',
-            'video' => 'video',
-          ),
-          'browser_plugins' => array(
-            'media_default--media_browser_1' => 'media_default--media_browser_1',
-            'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
-            'media_internet' => 'media_internet',
-            'upload' => 'upload',
-          ),
-          'progress_indicator' => 'throbber',
+          'match_operator' => 'CONTAINS',
+          'path' => '',
+          'size' => '60',
         ),
-        'type' => 'media_generic',
-        'weight' => '33',
+        'type' => 'entityreference_autocomplete',
+        'weight' => '1',
       ),
     ),
   );
@@ -395,6 +332,11 @@ function myapex_ed_updates_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'taxonomy',
+      'select_option_sort' => array(
+        'apply_sort_option' => 1,
+        'order_by' => 'text',
+        'sort_order' => 'asc',
+      ),
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -416,14 +358,14 @@ function myapex_ed_updates_field_default_fields() {
           'label' => 'above',
           'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 5,
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_tags',
-      'label' => 'Who are you tags',
-      'required' => 0,
+      'label' => 'Provider',
+      'required' => 1,
       'settings' => array(
         'user_register_form' => FALSE,
       ),
@@ -432,19 +374,100 @@ function myapex_ed_updates_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '37',
+        'weight' => '3',
       ),
     ),
   );
 
-  // Exported field: 'node-ed_updates-field_what_do_you_need_tags'.
-  $fields['node-ed_updates-field_what_do_you_need_tags'] = array(
+  // Exported field: 'node-ed_updates-field_tip_sheet'.
+  $fields['node-ed_updates-field_tip_sheet'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_tip_sheet',
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'target_bundles' => array(
+            'tips_tricks' => 'tips_tricks',
+          ),
+        ),
+        'target_type' => 'node',
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'ed_updates',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'links' => 1,
+            'view_mode' => 'tip_sheets_simple',
+          ),
+          'type' => 'entityreference_entity_view',
+          'weight' => '6',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_tip_sheet',
+      'label' => 'Tip Sheet',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'entityreference',
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'path' => '',
+          'size' => 60,
+        ),
+        'type' => 'entityreference_autocomplete',
+        'weight' => '4',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-ed_updates-field_what_you_need_tags'.
+  $fields['node-ed_updates-field_what_you_need_tags'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_what_do_you_need_tags',
+      'field_name' => 'field_what_you_need_tags',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -460,10 +483,15 @@ function myapex_ed_updates_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'taxonomy',
+      'select_option_sort' => array(
+        'apply_sort_option' => 1,
+        'order_by' => 'text',
+        'sort_order' => 'asc',
+      ),
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'what_do_you_need_',
+            'vocabulary' => 'ed_update_needs',
             'parent' => '0',
           ),
         ),
@@ -481,13 +509,13 @@ function myapex_ed_updates_field_default_fields() {
           'label' => 'above',
           'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 6,
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '4',
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_what_do_you_need_tags',
-      'label' => 'What do you need',
+      'field_name' => 'field_what_you_need_tags',
+      'label' => 'Type',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -497,7 +525,7 @@ function myapex_ed_updates_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '39',
+        'weight' => '4',
       ),
     ),
   );
@@ -505,12 +533,12 @@ function myapex_ed_updates_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
-  t('Notification Type');
   t('Posted Date');
   t('Priority');
-  t('Reference Document');
-  t('What do you need');
-  t('Who are you tags');
+  t('Provider');
+  t('Referenced Content');
+  t('Tip Sheet');
+  t('Type');
 
   return $fields;
 }
