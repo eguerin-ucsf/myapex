@@ -24,8 +24,11 @@
 <table <?php if ($classes) { print 'class="'. $classes . '" '; } ?><?php print $attributes; ?>>
    <?php if (!empty($title) || !empty($caption)) : ?>
      <caption>
+
       <?php print $header['field_posted_date']; ?>
-      <?php print $caption . str_replace('Date: ', '', $title); ?>
+
+      <?php print $caption ?>
+       <?php print str_replace('Date: ', '', $title); ?>
      </caption>
   <?php endif; ?>
 
