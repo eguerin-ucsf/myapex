@@ -68,7 +68,7 @@ function myapex_ed_updates_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '8',
         ),
       ),
       'display' => array(
@@ -447,7 +447,6 @@ function myapex_ed_updates_strongarm() {
   $strongarm->name = 'node_options_ed_updates';
   $strongarm->value = array(
     0 => 'status',
-    1 => 'promote',
   );
   $export['node_options_ed_updates'] = $strongarm;
 
